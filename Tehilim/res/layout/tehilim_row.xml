@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:orientation="vertical"
+    >
+ 
+<com.karriapps.tehilimlibrary.utils.TehilimTextView   
+    android:id="@+id/title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/titleColor"
+    android:padding="10dp"
+    android:textSize="16sp"
+    android:text="@string/yehiTitle"
+    android:layout_gravity="@integer/title_gravity"
+    />   
+    <!-- 
+<ImageView 
+    android:id="@+id/favorite"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="?attr/action_favorite_icon"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:contentDescription="@string/ok"
+    android:padding="5dp"
+    />
+    
+<ImageView
+    android:id="@+id/expand"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:contentDescription="@string/plus"
+    android:src="?attr/expand_icon"
+    android:padding="5dp"
+    android:visibility="visible"
+    />
+ -->
+
+<com.karriapps.tehilimlibrary.utils.TehilimTextView   
+    android:id="@+id/text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="start"
+    android:text="@string/yehiBefore"
+    android:padding="10dp"
+    android:textColor="@android:color/black"
+    />
+
+</LinearLayout>

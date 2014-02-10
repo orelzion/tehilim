@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <fragment
+        android:id="@+id/navigation_drawer"
+        android:name="com.karriapps.tehilimlibrary.NavigationDrawerFragment"
+        android:layout_width="@dimen/side_panel_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.karriapps.tehilimlibrary.MainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_toEndOf="@id/navigation_drawer"
+        />
+
+</RelativeLayout>

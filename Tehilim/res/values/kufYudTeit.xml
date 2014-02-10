@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<string name="_119.1"> <![CDATA[
+<small> <font color="#aaaaaa"> א</font> </small> אַשְׁרֵי תְמִימֵי דָרֶךְ הַהֹלְכִים בְּתוֹרַת יְהוָה.
+<small> <font color="#aaaaaa"> ב</font> </small> אַשְׁרֵי נֹצְרֵי עֵדֹתָיו בְּכָל לֵב יִדְרְשׁוּהוּ.
+<small> <font color="#aaaaaa"> ג</font> </small> אַף לֹא פָעֲלוּ עַוְלָה בִּדְרָכָיו הָלָכוּ. 
+<small> <font color="#aaaaaa"> ד</font> </small> אַתָּה צִוִּיתָה פִקֻּדֶיךָ לִשְׁמֹר מְאֹד. 
+<small> <font color="#aaaaaa"> ה</font> </small> אַחֲלַי יִכֹּנוּ דְרָכָי לִשְׁמֹר חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> ו</font> </small> אָז לֹא אֵבוֹשׁ בְּהַבִּיטִי אֶל כָּל מִצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> ז</font> </small> אוֹדְךָ בְּיֹשֶׁר לֵבָב בְּלָמְדִי מִשְׁפְּטֵי צִדְקֶךָ. 
+<small> <font color="#aaaaaa"> ח</font> </small> אֶת חֻקֶּיךָ אֶשְׁמֹר אַל תַּעַזְבֵנִי עַד מְאֹד. 
+<br>
+]]> </string>
+  
+<string name="_119.2"> <![CDATA[
+<small> <font color="#aaaaaa"> ט</font> </small> בַּמֶּה יְזַכֶּה נַּעַר אֶת אָרְחוֹ לִשְׁמֹר כִּדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> י</font> </small> בְּכָל לִבִּי דְרַשְׁתִּיךָ אַל תַּשְׁגֵּנִי מִמִּצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> יא</font> </small> בְּלִבִּי צָפַנְתִּי אִמְרָתֶךָ לְמַעַן לֹא אֶחֱטָא לָךְ. 
+<small> <font color="#aaaaaa"> יב</font> </small> בָּרוּךְ אַתָּה יְהוָה לַמְּדֵנִי חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> יג</font> </small> בִּשְׂפָתַי סִפַּרְתִּי כֹּל מִשְׁפְּטֵי פִיךָ. 
+<small> <font color="#aaaaaa"> יד</font> </small> בְּדֶרֶךְ עֵדְוֹתֶיךָ שַׂשְׂתִּי כְּעַל כָּל הוֹן. 
+<small> <font color="#aaaaaa"> טו</font> </small> בְּפִקֻּדֶיךָ אָשִׂיחָה וְאַבִּיטָה אֹרְחֹתֶיךָ. 
+<small> <font color="#aaaaaa"> טז</font> </small> בְּחֻקֹּתֶיךָ אֶשְׁתַּעֲשָׁע לֹא אֶשְׁכַּח דְּבָרֶךָ. 
+<br>
+]]> </string>
+
+<string name="_119.3"> <![CDATA[
+<small> <font color="#aaaaaa"> יז</font> </small> גְּמֹל עַל עַבְדְּךָ אֶחְיֶה וְאֶשְׁמְרָה דְבָרֶךָ. 
+<small> <font color="#aaaaaa"> יח</font> </small> גַּל עֵינַי וְאַבִּיטָה נִפְלָאוֹת מִתּוֹרָתֶךָ. 
+<small> <font color="#aaaaaa"> יט</font> </small> גֵּר אָנֹכִי בָאָרֶץ אַל תַּסְתֵּר מִמֶּנִּי מִצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> כ </font> </small>גָּרְסָה נַפְשִׁי לְתַאֲבָה אֶל מִשְׁפָּטֶיךָ בְכָל עֵת. 
+<small> <font color="#aaaaaa"> כא</font> </small> גָּעַרְתָּ זֵדִים אֲרוּרִים הַשֹּׁגִים מִמִּצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> כב</font> </small> גַּל מֵעָלַי חֶרְפָּה וָבוּז כִּי עֵדֹתֶיךָ נָצָרְתִּי. 
+<small> <font color="#aaaaaa"> כג</font> </small> גַּם יָשְׁבוּ שָׂרִים בִּי נִדְבָּרוּ עַבְדְּךָ יָשִׂיחַ בְּחֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> כד</font> </small> גַּם עֵדֹתֶיךָ שַׁעֲשֻׁעָי אַנְשֵׁי עֲצָתִי. 
+<br>
+]]> </string>
+
+<string name="_119.4"> <![CDATA[
+<small> <font color="#aaaaaa"> כה</font> </small> דָּבְקָה לֶעָפָר נַפְשִׁי חַיֵּנִי כִּדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> כו</font> </small> דְּרָכַי סִפַּרְתִּי וַתַּעֲנֵנִי לַמְּדֵנִי חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> כז</font> </small> דֶּרֶךְ פִּקּוּדֶיךָ הֲבִינֵנִי וְאָשִׂיחָה בְּנִפְלְאוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> כח</font> </small> דָּלְפָה נַפְשִׁי מִתּוּגָה קַיְּמֵנִי כִּדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> כט</font> </small> דֶּרֶךְ שֶׁקֶר הָסֵר מִמֶּנִּי וְתוֹרָתְךָ חָנֵּנִי. 
+<small> <font color="#aaaaaa"> ל </font> </small>דֶּרֶךְ אֱמוּנָה בָחָרְתִּי מִשְׁפָּטֶיךָ שִׁוִּיתִי. 
+<small> <font color="#aaaaaa"> לא</font> </small> דָּבַקְתִּי בְעֵדְוֹתֶיךָ יְהוָה אַל תְּבִישֵׁנִי. 
+<small> <font color="#aaaaaa"> לב</font> </small> דֶּרֶךְ מִצְוֹתֶיךָ אָרוּץ כִּי תַרְחִיב לִבִּי. 
+<br>
+]]> </string>
+
+<string name="_119.5"> <![CDATA[
+<small> <font color="#aaaaaa"> לג</font> </small> הוֹרֵנִי יְהוָה דֶּרֶךְ חֻקֶּיךָ וְאֶצְּרֶנָּה עֵקֶב. 
+<small> <font color="#aaaaaa"> לד</font> </small> הֲבִינֵנִי וְאֶצְּרָה תוֹרָתֶךָ וְאֶשְׁמְרֶנָּה בְכָל לֵב. 
+<small> <font color="#aaaaaa"> לה</font> </small> הַדְרִיכֵנִי בִּנְתִיב מִצְוֹתֶיךָ כִּי בוֹ חָפָצְתִּי. 
+<small> <font color="#aaaaaa"> לו</font> </small> הַט לִבִּי אֶל עֵדְוֹתֶיךָ וְאַל אֶל בָּצַע. 
+<small> <font color="#aaaaaa"> לז</font> </small> הַעֲבֵר עֵינַי מֵרְאוֹת שָׁוְא בִּדְרָכֶךָ חַיֵּנִי. 
+<small> <font color="#aaaaaa"> לח</font> </small> הָקֵם לְעַבְדְּךָ אִמְרָתֶךָ אֲשֶׁר לְיִרְאָתֶךָ. 
+<small> <font color="#aaaaaa"> לט</font> </small> הַעֲבֵר חֶרְפָּתִי אֲשֶׁר יָגֹרְתִּי כִּי מִשְׁפָּטֶיךָ טוֹבִים. 
+<small> <font color="#aaaaaa"> מ </font> </small> הִנֵּה תָּאַבְתִּי לְפִקֻּדֶיךָ בְּצִדְקָתְךָ חַיֵּנִי. 
+<br>
+]]> </string>
+
+<string name="_119.6"> <![CDATA[
+<small> <font color="#aaaaaa"> מא</font> </small> וִיבֹאֻנִי חֲסָדֶךָ יְהוָה תְּשׁוּעָתְךָ כְּאִמְרָתֶךָ. 
+<small> <font color="#aaaaaa"> מב</font> </small> וְאֶעֱנֶה חֹרְפִי דָבָר כִּי בָטַחְתִּי בִּדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> מג</font> </small> וְאַל תַּצֵּל מִפִּי דְבַר אֱמֶת עַד מְאֹד כִּי לְמִשְׁפָּטֶךָ יִחָלְתִּי. 
+<small> <font color="#aaaaaa"> מד</font> </small> וְאֶשְׁמְרָה תוֹרָתְךָ תָמִיד לְעוֹלָם וָעֶד. 
+<small> <font color="#aaaaaa"> מה</font> </small> וְאֶתְהַלְּכָה בָרְחָבָה כִּי פִקֻּדֶיךָ דָרָשְׁתִּי. 
+<small> <font color="#aaaaaa"> מו</font> </small> וַאֲדַבְּרָה בְעֵדֹתֶיךָ נֶגֶד מְלָכִים וְלֹא אֵבוֹשׁ. 
+<small> <font color="#aaaaaa"> מז</font> </small> וְאֶשְׁתַּעֲשַׁע בְּמִצְוֹתֶיךָ אֲשֶׁר אָהָבְתִּי. 
+<small> <font color="#aaaaaa"> מח</font> </small> וְאֶשָּׂא כַפַּי אֶל מִצְוֹתֶיךָ אֲשֶׁר אָהָבְתִּי וְאָשִׂיחָה בְחֻקֶּיךָ. 
+<br>
+]]> </string>
+
+<string name="_119.7"> <![CDATA[
+<small> <font color="#aaaaaa"> מט</font> </small> זְכֹר דָּבָר לְעַבְדֶּךָ עַל אֲשֶׁר יִחַלְתָּנִי. 
+<small> <font color="#aaaaaa"> נ </font> </small> זֹאת נֶחָמָתִי בְעָנְיִי כִּי אִמְרָתְךָ חִיָּתְנִי. 
+<small> <font color="#aaaaaa"> נא</font> </small> זֵדִים הֱלִיצֻנִי עַד מְאֹד מִתּוֹרָתְךָ לֹא נָטִיתִי. 
+<small> <font color="#aaaaaa"> נב</font> </small> זָכַרְתִּי מִשְׁפָּטֶיךָ מֵעוֹלָם יְהוָה וָאֶתְנֶחָם. 
+<small> <font color="#aaaaaa"> נג</font> </small> זַלְעָפָה אֲחָזַתְנִי מֵרְשָׁעִים עֹזְבֵי תּוֹרָתֶךָ. 
+<small> <font color="#aaaaaa"> נד</font> </small> זְמִרוֹת הָיוּ לִי חֻקֶּיךָ בְּבֵית מְגוּרָי. 
+<small> <font color="#aaaaaa"> נה</font> </small> זָכַרְתִּי בַלַּיְלָה שִׁמְךָ יְהוָה וָאֶשְׁמְרָה תּוֹרָתֶךָ. 
+<small> <font color="#aaaaaa"> נו</font> </small> זֹאת הָיְתָה לִּי כִּי פִקֻּדֶיךָ נָצָרְתִּי. 
+<br>
+]]> </string>
+
+<string name="_119.8"> <![CDATA[
+<small> <font color="#aaaaaa"> נז</font> </small> חֶלְקִי יְהוָה אָמַרְתִּי לִשְׁמֹר דְּבָרֶיךָ.
+<small> <font color="#aaaaaa"> נח</font> </small> חִלִּיתִי פָנֶיךָ בְכָל לֵב חָנֵּנִי כְּאִמְרָתֶךָ. 
+<small> <font color="#aaaaaa"> נט</font> </small> חִשַּׁבְתִּי דְרָכָי וָאָשִׁיבָה רַגְלַי אֶל עֵדֹתֶיךָ. 
+<small> <font color="#aaaaaa"> ס </font> </small> חַשְׁתִּי וְלֹא הִתְמַהְמָהְתִּי לִשְׁמֹר מִצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> סא</font> </small> חֶבְלֵי רְשָׁעִים עִוְּדֻנִי תּוֹרָתְךָ לֹא שָׁכָחְתִּי. 
+<small> <font color="#aaaaaa"> סב</font> </small> חֲצוֹת לַיְלָה אָקוּם לְהוֹדוֹת לָךְ עַל מִשְׁפְּטֵי צִדְקֶךָ. 
+<small> <font color="#aaaaaa"> סג</font> </small> חָבֵר אָנִי לְכָל אֲשֶׁר יְרֵאוּךָ וּלְשֹׁמְרֵי פִּקּוּדֶיךָ. 
+<small> <font color="#aaaaaa"> סד</font> </small> חַסְדְּךָ יְהוָה מָלְאָה הָאָרֶץ חֻקֶּיךָ לַמְּדֵנִי. 
+<br>
+]]> </string>
+
+<string name="_119.9"> <![CDATA[
+<small> <font color="#aaaaaa"> סה</font> </small> טוֹב עָשִׂיתָ עִם עַבְדְּךָ יְהוָה כִּדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> סו</font> </small> טוּב טַעַם וָדַעַת לַמְּדֵנִי כִּי בְמִצְוֹתֶיךָ הֶאֱמָנְתִּי. 
+<small> <font color="#aaaaaa"> סז</font> </small> טֶרֶם אֶעֱנֶה אֲנִי שֹׁגֵג וְעַתָּה אִמְרָתְךָ שָׁמָרְתִּי. 
+<small> <font color="#aaaaaa"> סח</font> </small> טוֹב אַתָּה וּמֵטִיב לַמְּדֵנִי חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> סט</font> </small> טָפְלוּ עָלַי שֶׁקֶר זֵדִים אֲנִי בְּכָל לֵב אֱצֹּר פִּקּוּדֶיךָ. 
+<small> <font color="#aaaaaa"> ע </font> </small> טָפַשׁ כַּחֵלֶב לִבָּם אֲנִי תּוֹרָתְךָ שִׁעֲשָׁעְתִּי. 
+<small> <font color="#aaaaaa"> עא</font> </small> טוֹב לִי כִי עֻנֵּיתִי לְמַעַן אֶלְמַד חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> עב</font> </small> טוֹב לִי תוֹרַת פִּיךָ מֵאַלְפֵי זָהָב וָכָסֶף. 
+<br>
+]]> </string>
+
+<string name="_119.10"> <![CDATA[
+<small> <font color="#aaaaaa"> עג</font> </small> יָדֶיךָ עָשׂוּנִי וַיְכוֹנְנוּנִי הֲבִינֵנִי וְאֶלְמְדָה מִצְוֹתֶיךָ. 
+<small> <font color="#aaaaaa"> עד</font> </small> יְרֵאֶיךָ יִרְאוּנִי וְיִשְׂמָחוּ כִּי לִדְבָרְךָ יִחָלְתִּי. 
+<small> <font color="#aaaaaa"> עה</font> </small> יָדַעְתִּי יְהוָה כִּי צֶדֶק מִשְׁפָּטֶיךָ וֶאֱמוּנָה עִנִּיתָנִי. 
+<small> <font color="#aaaaaa"> עו</font> </small> יְהִי נָא חַסְדְּךָ לְנַחֲמֵנִי כְּאִמְרָתְךָ לְעַבְדֶּךָ. 
+<small> <font color="#aaaaaa"> עז</font> </small> יְבֹאוּנִי רַחֲמֶיךָ וְאֶחְיֶה כִּי תוֹרָתְךָ שַׁעֲשֻׁעָי. 
+<small> <font color="#aaaaaa"> עח</font> </small> יֵבֹשׁוּ זֵדִים כִּי שֶׁקֶר עִוְּתוּנִי אֲנִי אָשִׂיחַ בְּפִקּוּדֶיךָ. 
+<small> <font color="#aaaaaa"> עט</font> </small> יָשׁוּבוּ לִי יְרֵאֶיךָ וְיֹדְעֵי עֵדֹתֶיךָ. 
+<small> <font color="#aaaaaa"> פ </font> </small> יְהִי לִבִּי תָמִים בְּחֻקֶּיךָ לְמַעַן לֹא אֵבוֹשׁ. 
+<br>
+]]> </string>
+
+<string name="_119.11"> <![CDATA[
+<small> <font color="#aaaaaa"> פא</font> </small> כָּלְתָה לִתְשׁוּעָתְךָ נַפְשִׁי לִדְבָרְךָ יִחָלְתִּי. 
+<small> <font color="#aaaaaa"> פב</font> </small> כָּלוּ עֵינַי לְאִמְרָתֶךָ לֵאמֹר מָתַי תְּנַחֲמֵנִי. 
+<small> <font color="#aaaaaa"> פג</font> </small> כִּי הָיִיתִי כְּנֹאד בְּקִיטוֹר חֻקֶּיךָ לֹא שָׁכָחְתִּי. 
+<small> <font color="#aaaaaa"> פד</font> </small> כַּמָּה יְמֵי עַבְדֶּךָ מָתַי תַּעֲשֶׂה בְרֹדְפַי מִשְׁפָּט. 
+<small> <font color="#aaaaaa"> פה</font> </small> כָּרוּ לִי זֵדִים שִׁיחוֹת אֲשֶׁר לֹא כְתוֹרָתֶךָ. 
+<small> <font color="#aaaaaa"> פו</font> </small> כָּל מִצְוֹתֶיךָ אֱמוּנָה שֶׁקֶר רְדָפוּנִי עָזְרֵנִי. 
+<small> <font color="#aaaaaa"> פז</font> </small> כִּמְעַט כִּלּוּנִי בָאָרֶץ וַאֲנִי לֹא עָזַבְתִּי פִקֻּודֶיךָ. 
+<small> <font color="#aaaaaa"> פח</font> </small> כְּחַסְדְּךָ חַיֵּנִי וְאֶשְׁמְרָה עֵדוּת פִּיךָ. 
+<br>
+]]> </string>
+
+<string name="_119.12"> <![CDATA[
+<small> <font color="#aaaaaa"> פט</font> </small> לְעוֹלָם יְהוָה דְּבָרְךָ נִצָּב בַּשָּׁמָיִם. 
+<small> <font color="#aaaaaa"> צ </font> </small> לְדֹר וָדֹר אֱמוּנָתֶךָ כּוֹנַנְתָּ אֶרֶץ וַתַּעֲמֹד. 
+<small> <font color="#aaaaaa"> צא</font> </small> לְמִשְׁפָּטֶיךָ עָמְדוּ הַיּוֹם כִּי הַכֹּל עֲבָדֶיךָ. 
+<small> <font color="#aaaaaa"> צב</font> </small> לוּלֵי תוֹרָתְךָ שַׁעֲשֻׁעָי אָז אָבַדְתִּי בְעָנְיִי. 
+<small> <font color="#aaaaaa"> צג</font> </small> לְעוֹלָם לֹא אֶשְׁכַּח פִּקּוּדֶיךָ כִּי בָם חִיִּיתָנִי. 
+<small> <font color="#aaaaaa"> צד</font> </small> לְךָ אֲנִי הוֹשִׁיעֵנִי כִּי פִקּוּדֶיךָ דָרָשְׁתִּי. 
+<small> <font color="#aaaaaa"> צה</font> </small> לִי קִוּוּ רְשָׁעִים לְאַבְּדֵנִי עֵדֹתֶיךָ אֶתְבּוֹנָן. 
+<small> <font color="#aaaaaa"> צו</font> </small> לְכָל תִּכְלָה רָאִיתִי קֵץ רְחָבָה מִצְוָתְךָ מְאֹד. 
+<br>
+]]> </string>
+
+<string name="_119.13"> <![CDATA[
+<small> <font color="#aaaaaa"> צז</font> </small> מָה אָהַבְתִּי תוֹרָתֶךָ כָּל הַיּוֹם הִיא שִׂיחָתִי. 
+<small> <font color="#aaaaaa"> צח</font> </small> מֵאֹיְבַי תְּחַכְּמֵנִי מִצְוֹתֶךָ כִּי לְעוֹלָם הִיא לִי. 
+<small> <font color="#aaaaaa"> צט</font> </small> מִכָּל מְלַמְּדַי הִשְׂכַּלְתִּי כִּי עֵדְוֹתֶיךָ שִׂיחָה לִֿי. 
+<small> <font color="#aaaaaa"> ק </font> </small> מִזְּקֵנִים אֶתְבּוֹנָן כִּי פִקּוּדֶיךָ נָצָרְתִּי. 
+<small> <font color="#aaaaaa"> קא</font> </small> מִכָּל אֹרַח רָע כָּלִאתִי רַגְלָי לְמַעַן אֶשְׁמֹר דְּבָרֶךָ. 
+<small> <font color="#aaaaaa"> קב</font> </small> מִמִּשְׁפָּטֶיךָ לֹא סָרְתִּי כִּי אַתָּה הוֹרֵתָנִי. 
+<small> <font color="#aaaaaa"> קג</font> </small> מַה נִּמְלְצוּ לְחִכִּי אִמְרָתֶךָ מִדְּבַשׁ לְפִי. 
+<small> <font color="#aaaaaa"> קד</font> </small> מִפִּקּוּדֶיךָ אֶתְבּוֹנָן עַל כֵּן שָׂנֵאתִי כָּל אֹרַח שָׁקֶר. 
+<br>
+]]> </string>
+
+<string name="_119.14"> <![CDATA[
+<small> <font color="#aaaaaa"> קה</font> </small> נֵר לְרַגְלִי דְבָרֶךָ וְאוֹר לִנְתִיבָתִי. 
+<small> <font color="#aaaaaa"> קו</font> </small> נִשְׁבַּעְתִּי וָאֲקַיֵּמָה לִשְׁמֹר מִשְׁפְּטֵי צִדְקֶךָ. 
+<small> <font color="#aaaaaa"> קז</font> </small> נַעֲנֵיתִי עַד מְאֹד יְהוָה חַיֵּנִי כִדְבָרֶךָ. 
+<small> <font color="#aaaaaa"> קח</font> </small> נִדְבוֹת פִּי רְצֵה נָא יְהוָה וּמִשְׁפָּטֶיךָ לַמְּדֵנִי. 
+<small> <font color="#aaaaaa"> קט</font> </small> נַפְשִׁי בְכַפִּי תָמִיד וְתוֹרָתְךָ לֹא שָׁכָחְתִּי. 
+<small> <font color="#aaaaaa"> קי</font> </small> נָתְנוּ רְשָׁעִים פַּח לִי וּמִפִּקּוּדֶיךָ לֹא תָעִיתִי. 
+<small> <font color="#aaaaaa"> קיא</font> </small> נָחַלְתִּי עֵדְוֹתֶיךָ לְעוֹלָם כִּי שְׂשׂוֹן לִבִּי הֵמָּה. 
+<small> <font color="#aaaaaa"> קיב</font> </small> נָטִיתִי לִבִּי לַעֲשׂוֹת חֻקֶּיךָ לְעוֹלָם עֵקֶב. 
+<br>
+]]> </string>
+
+<string name="_119.15"> <![CDATA[
+<small> <font color="#aaaaaa"> קיג</font> </small> סֵעֲפִים שָׂנֵאתִי וְתוֹרָתְךָ אָהָבְתִּי. 
+<small> <font color="#aaaaaa"> קיד</font> </small> סִתְרִי וּמָגִנִּי אָתָּה לִדְבָרְךָ יִחָלְתִּי. 
+<small> <font color="#aaaaaa"> קטו</font> </small> סוּרוּ מִמֶּנִּי מְרֵעִים וְאֶצְּרָה מִצְוֹת אֱלֹהָי. 
+<small> <font color="#aaaaaa"> קטז</font> </small> סָמְכֵנִי כְאִמְרָתְךָ וְאֶחְיֶה וְאַל תְּבִישֵׁנִי מִשִּׂבְרִי. 
+<small> <font color="#aaaaaa"> קיז</font> </small> סְעָדֵנִי וְאִוָּשֵׁעָה וְאֶשְׁעָה בְחֻקֶּיךָ תָמִיד. 
+<small> <font color="#aaaaaa"> קיח</font> </small> סָלִיתָ כָּל שׁוֹגִים מֵחֻקֶּיךָ כִּי שֶׁקֶר תַּרְמִיתָם. 
+<small> <font color="#aaaaaa"> קיט</font> </small> סִגִים הִשְׁבַּתָּ כָל רִשְׁעֵי אָרֶץ לָכֵן אָהַבְתִּי עֵדֹתֶיךָ. 
+<small> <font color="#aaaaaa"> קכ </font> </small> סָמַר מִפַּחְדְּךָ בְשָׂרִי וּמִמִּשְׁפָּטֶיךָ יָרֵאתִי.
+<br>
+]]> </string>
+
+<string name="_119.16"> <![CDATA[
+<small> <font color="#aaaaaa"> קכא</font> </small> עָשִׂיתִי מִשְׁפָּט וָצֶדֶק בַּל תַּנִּיחֵנִי לְעֹשְׁקָי. 
+<small> <font color="#aaaaaa"> קכב</font> </small> עֲרֹב עַבְדְּךָ לְטוֹב אַל יַעַשְׁקֻנִי זֵדִים. 
+<small> <font color="#aaaaaa"> קכג</font> </small> עֵינַי כָּלוּ לִישׁוּעָתֶךָ וּלְאִמְרַת צִדְקֶךָ. 
+<small> <font color="#aaaaaa"> קכד</font> </small> עֲשֵׂה עִם עַבְדְּךָ כְחַסְדֶּךָ וְחֻקֶּיךָ לַמְּדֵנִי. 
+<small> <font color="#aaaaaa"> קכה</font> </small> עַבְדְּךָ אָנִי הֲבִינֵנִי וְאֵדְעָה עֵדֹתֶיךָ. 
+<small> <font color="#aaaaaa"> קכו</font> </small> עֵת לַעֲשׂוֹת לַיהוָה הֵפֵרוּ תּוֹרָתֶךָ. 
+<small> <font color="#aaaaaa"> קכז</font> </small> עַל כֵּן אָהַבְתִּי מִצְוֹתֶיךָ מִזָּהָב וּמִפָּז. 
+<small> <font color="#aaaaaa"> קכח</font> </small> עַל כֵּן כָּל פִּקּוּדֵי כֹל יִשָּׁרְתִּי כָּל אֹרַח שֶׁקֶר שָׂנֵאתִי. 
+<br>
+]]> </string>
+
+<string name="_119.17"> <![CDATA[
+<small> <font color="#aaaaaa"> קכט</font> </small> פְּלָאוֹת עֵדְוֹתֶיךָ עַל כֵּן נְצָרָתַם נַפְשִׁי. 
+<small> <font color="#aaaaaa"> קל </font> </small> פֵּתַח דְּבָרֶיךָ יָאִיר מֵבִין פְּתָיִים. 
+<small> <font color="#aaaaaa"> קלא</font> </small> פִּי פָעַרְתִּי וָאֶשְׁאָפָה כִּי לְמִצְוֹתֶיךָ יָאָבְתִּי. 
+<small> <font color="#aaaaaa"> קלב</font> </small> פְּנֵה אֵלַי וְחָנֵּנִי כְּמִשְׁפָּט לְאֹהֲבֵי שְׁמֶךָ. 
+<small> <font color="#aaaaaa"> קלג</font> </small> פְּעָמַי הָכֵן בְּאִמְרָתֶךָ וְאַל תַּשְׁלֶט בִּי כָל אָוֶן. 
+<small> <font color="#aaaaaa"> קלד</font> </small> פְּדֵנִי מֵעֹשֶׁק אָדָם וְאֶשְׁמְרָה פִּקּוּדֶיךָ. 
+<small> <font color="#aaaaaa"> קלה</font> </small> פָּנֶיךָ הָאֵר בְּעַבְדֶּךָ וְלַמְּדֵנִי אֶת חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> קלו</font> </small> פַּלְגֵי מַיִם יָרְדוּ עֵינָי עַל לֹא שָׁמְרוּ תוֹרָתֶךָ. 
+<br>
+]]> </string>
+
+<string name="_119.18"> <![CDATA[
+<small> <font color="#aaaaaa"> קלז</font> </small> צַדִּיק אַתָּה יְהוָה וְיָשָׁר מִשְׁפָּטֶיךָ. 
+<small> <font color="#aaaaaa"> קלח</font> </small> צִוִּיתָ צֶדֶק עֵדֹתֶיךָ וֶאֱמוּנָה מְאֹד. 
+<small> <font color="#aaaaaa"> קלט</font> </small> צִמְּתַתְנִי קִנְאָתִי כִּי שָׁכְחוּ דְבָרֶיךָ צָרָי. 
+<small> <font color="#aaaaaa"> קמ </font> </small> צְרוּפָה אִמְרָתְךָ מְאֹד וְעַבְדְּךָ אֲהֵבָהּ. 
+<small> <font color="#aaaaaa"> קמא</font> </small> צָעִיר אָנֹכִי וְנִבְזֶה פִּקֻּדֶיךָ לֹא שָׁכָחְתִּי. 
+<small> <font color="#aaaaaa"> קמב</font> </small> צִדְקָתְךָ צֶדֶק לְעוֹלָם וְתוֹרָתְךָ אֱמֶת. 
+<small> <font color="#aaaaaa"> קמג</font> </small> צַר וּמָצוֹק מְצָאוּנִי מִצְוֹתֶיךָ שַׁעֲשֻׁעָי. 
+<small> <font color="#aaaaaa"> קמד</font> </small> צֶדֶק עֵדְוֹתֶיךָ לְעוֹלָם הֲבִינֵנִי וְאֶחְיֶה.
+<br>
+]]> </string>
+
+<string name="_119.19"> <![CDATA[
+<small> <font color="#aaaaaa"> קמה</font> </small> קָרָאתִי בְכָל לֵב עֲנֵנִי יְהוָה חֻקֶּיךָ אֶצֹּרָה. 
+<small> <font color="#aaaaaa"> קמו</font> </small> קְרָאתִיךָ הוֹשִׁיעֵנִי וְאֶשְׁמְרָה עֵדֹתֶיךָ. 
+<small> <font color="#aaaaaa"> קמז</font> </small> קִדַּמְתִּי בַנֶּשֶׁף וָאֲשַׁוֵּעָה לִדְבָרְךָ יִחָלְתִּי. 
+<small> <font color="#aaaaaa"> קמח</font> </small> קִדְּמוּ עֵינַי אַשְׁמֻרוֹת לָשִׂיחַ בְּאִמְרָתֶךָ. 
+<small> <font color="#aaaaaa"> קמט</font> </small> קוֹלִי שִׁמְעָה כְחַסְדֶּךָ יְהוָה כְּמִשְׁפָּטֶךָ חַיֵּנִי. 
+<small> <font color="#aaaaaa"> קנ </font> </small> קָרְבוּ רֹדְפֵי זִמָּה מִתּוֹרָתְךָ רָחָקוּ. 
+<small> <font color="#aaaaaa"> קנא</font> </small> קָרוֹב אַתָּה יְהוָה וְכָל מִצְוֹתֶיךָ אֱמֶת. 
+<small> <font color="#aaaaaa"> קנב</font> </small> קֶדֶם יָדַעְתִּי מֵעֵדֹתֶיךָ כִּי לְעוֹלָם יְסַדְתָּם.
+<br>
+]]> </string>
+
+<string name="_119.20"> <![CDATA[
+<small> <font color="#aaaaaa"> קנג</font> </small> רְאֵה עָנְיִי וְחַלְּצֵנִי כִּי תוֹרָתְךָ לֹא שָׁכָחְתִּי. 
+<small> <font color="#aaaaaa"> קנד</font> </small> רִיבָה רִיבִי וּגְאָלֵנִי לְאִמְרָתְךָ חַיֵּנִי. 
+<small> <font color="#aaaaaa"> קנה</font> </small> רָחוֹק מֵרְשָׁעִים יְשׁוּעָה כִּי חֻקֶּיךָ לֹא דָרָשׁוּ. 
+<small> <font color="#aaaaaa"> קנו</font> </small> רַחֲמֶיךָ רַבִּים יְהוָה כְּמִשְׁפָּטֶיךָ חַיֵּנִי. 
+<small> <font color="#aaaaaa"> קנז</font> </small> רַבִּים רֹדְפַי וְצָרָי מֵעֵדְוֹתֶיךָ לֹא נָטִיתִי. 
+<small> <font color="#aaaaaa"> קנח</font> </small> רָאִיתִי בֹגְדִים וָאֶתְקוֹטָטָה אֲשֶׁר אִמְרָתְךָ לֹא שָׁמָרוּ. 
+<small> <font color="#aaaaaa"> קנט</font> </small> רְאֵה כִּי פִקּוּדֶיךָ אָהָבְתִּי יְהוָה כְּחַסְדְּךָ חַיֵּנִי. 
+<small> <font color="#aaaaaa"> קס </font> </small> רֹאשׁ דְּבָרְךָ אֱמֶת וּלְעוֹלָם כָּל מִשְׁפַּט צִדְקֶךָ. 
+<br>
+]]> </string>
+
+<string name="_119.21"> <![CDATA[
+<small> <font color="#aaaaaa"> קסא</font> </small> שָׂרִים רְדָפוּנִי חִנָּם וּמִדְּבָרְךָ פָּחַד לִבִּי. 
+<small> <font color="#aaaaaa"> קסב</font> </small> שָׂשׂ אָנֹכִי עַל אִמְרָתֶךָ כְּמוֹצֵא שָׁלָל רָב. 
+<small> <font color="#aaaaaa"> קסג</font> </small> שֶׁקֶר שָׂנֵאתִי וַאֲתַעֵבָה תּוֹרָתְךָ אָהָבְתִּי. 
+<small> <font color="#aaaaaa"> קסד</font> </small> שֶׁבַע בַּיּוֹם הִלַּלְתִּיךָ עַל מִשְׁפְּטֵי צִדְקֶךָ. 
+<small> <font color="#aaaaaa"> קסה</font> </small> שָׁלוֹם רָב לְאֹהֲבֵי תוֹרָתֶךָ וְאֵין לָמוֹ מִכְשׁוֹל. 
+<small> <font color="#aaaaaa"> קסו</font> </small> שִׂבַּרְתִּי לִישׁוּעָתְךָ יְהוָה וּמִצְוֹתֶיךָ עָשִׂיתִי. 
+<small> <font color="#aaaaaa"> קסז</font> </small> שָׁמְרָה נַפְשִׁי עֵדֹתֶיךָ וָאֹהֲבֵם מְאֹד. 
+<small> <font color="#aaaaaa"> קסח</font> </small> שָׁמַרְתִּי פִקּוּדֶיךָ וְעֵדֹתֶיךָ כִּי כָל דְּרָכַי נֶגְדֶּךָ.
+<br>
+]]> </string>
+
+<string name="_119.22"> <![CDATA[
+<small> <font color="#aaaaaa"> קסט</font> </small> תִּקְרַב רִנָּתִי לְפָנֶיךָ יְהוָה כִּדְבָרְךָ הֲבִינֵנִי. 
+<small> <font color="#aaaaaa"> קע </font> </small> תָּבוֹא תְּחִנָּתִי לְפָנֶיךָ כְּאִמְרָתְךָ הַצִּילֵנִי. 
+<small> <font color="#aaaaaa"> קעא</font> </small> תַּבַּעְנָה שְׂפָתַי תְּהִלָּה כִּי תְלַמְּדֵנִי חֻקֶּיךָ. 
+<small> <font color="#aaaaaa"> קעב</font> </small> תַּעַן לְשׁוֹנִי אִמְרָתֶךָ כִּי כָל מִצְוֹתֶיךָ צֶּדֶק. 
+<small> <font color="#aaaaaa"> קעג</font> </small> תְּהִי יָדְךָ לְעָזְרֵנִי כִּי פִקּוּדֶיךָ בָחָרְתִּי. 
+<small> <font color="#aaaaaa"> קעד</font> </small> תָּאַבְתִּי לִישׁוּעָתְךָ יְהוָה וְתוֹרָתְךָ שַׁעֲשֻׁעָי. 
+<small> <font color="#aaaaaa"> קעה</font> </small> תְּחִי נַפְשִׁי וּתְהַלְלֶךָּ וּמִשְׁפָּטֶךָ יַעֲזְרֻנִי. 
+<small> <font color="#aaaaaa"> קעו</font> </small> תָּעִיתִי כְּשֶׂה אֹבֵד בַּקֵּשׁ עַבְדֶּךָ כִּי מִצְוֹתֶיךָ לֹא שָׁכָחְתִּי.
+<br>
+]]> </string>
+
+<string name="_119.1t"> <![CDATA[
+<small> <font color="#aaaaaa"> א</font> </small> אַשְׁרֵ֥י תְמִֽימֵי־דָ֑רֶךְ הַֽ֝הֹלְכִ֗ים בְּתוֹרַ֥ת יְהוָֽה׃
+<small> <font color="#aaaaaa"> ב</font> </small> אַ֭שְׁרֵי נֹצְרֵ֥י עֵדֹתָ֗יו בְּכָל־לֵ֥ב יִדְרְשֽׁוּהוּ׃
+<small> <font color="#aaaaaa"> ג</font> </small> אַ֭ף לֹֽא־פָעֲל֣וּ עַוְלָ֑ה בִּדְרָכָ֥יו הָלָֽכוּ׃
+<small> <font color="#aaaaaa"> ד</font> </small> אַ֭תָּה צִוִּ֥יתָה פִקֻּדֶ֗יךָ לִשְׁמֹ֥ר מְאֹֽד׃ 
+<small> <font color="#aaaaaa"> ה</font> </small> אַ֭חֲלַי יִכֹּ֥נוּ דְרָכָ֗י לִשְׁמֹ֥ר חֻקֶּֽיךָ׃ 
+<small> <font color="#aaaaaa"> ו</font> </small> אָ֥ז לֹא־אֵב֑וֹשׁ בְּ֝הַבִּיטִ֗י אֶל־כָּל־מִצְו‍ֹתֶֽיךָ׃ 
+<small> <font color="#aaaaaa"> ז</font> </small> א֭וֹדְךָ בְּיֹ֣שֶׁר לֵבָ֑ב בְּ֝לָמְדִ֗י מִשְׁפְּטֵ֥י צִדְקֶֽךָ׃ 
+<small> <font color="#aaaaaa"> ח</font> </small> אֶת־חֻקֶּ֥יךָ אֶשְׁמֹ֑ר אַֽל־תַּעַזְבֵ֥נִי עַד־מְאֹֽד׃
+<br>
+]]> </string>
+
+<string name="_119.2t"> <![CDATA[
+<small> <font color="#aaaaaa"> ט</font> </small> בַּמֶּ֣ה יְזַכֶּה־נַּ֭עַר אֶת־אָרְח֑וֹ לִ֝שְׁמֹ֗ר כִּדְבָרֶֽךָ׃ 
+<small> <font color="#aaaaaa"> י</font> </small> בְּכָל־לִבִּ֥י דְרַשְׁתִּ֑יךָ אַל־תַּ֝שְׁגֵּ֗נִי מִמִּצְו‍ֹתֶֽיךָ׃ 
+<small> <font color="#aaaaaa"> יא</font> </small> בְּ֭לִבִּי צָפַ֣נְתִּי אִמְרָתֶ֑ךָ לְ֝מַ֗עַן לֹ֣א אֶֽחֱטָא־לָֽךְ׃ 
+<small> <font color="#aaaaaa"> יב</font> </small> בָּר֖וּךְ אַתָּ֥ה יְהוָ֗ה לַמְּדֵ֥נִי חֻקֶּֽיךָ׃ 
+<small> <font color="#aaaaaa"> יג</font> </small> בִּשְׂפָתַ֥י סִפַּ֑רְתִּי כֹּ֝֗ל מִשְׁפְּטֵי־פִֽיךָ׃
+<small> <font color="#aaaaaa"> יד</font> </small> בְּדֶ֖רֶךְ עֵדְו‍ֹתֶ֥יךָ שַׂ֗שְׂתִּי כְּעַ֣ל כָּל־הֽוֹן׃
+<small> <font color="#aaaaaa"> טו</font> </small> בְּפִקֻּדֶ֥יךָ אָשִׂ֑יחָה וְ֝אַבִּ֗יטָה אֹרְחֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> טז</font> </small> בְּחֻקֹּתֶ֥יךָ אֶֽשְׁתַּעֲשָׁ֑ע לֹ֭א אֶשְׁכַּ֣ח דְּבָרֶֽךָ׃
+<br>
+]]> </string>
+
+<string name="_119.3t"> <![CDATA[
+<small> <font color="#aaaaaa"> יז</font> </small> גְּמֹ֖ל עַֽל־עַבְדְּךָ֥ אֶֽחְיֶ֗ה וְאֶשְׁמְרָ֥ה דְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> יח</font> </small> גַּל־עֵינַ֥י וְאַבִּ֑יטָה נִ֝פְלָא֗וֹת מִתּוֹרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> יט</font> </small> גֵּ֣ר אָנֹכִ֣י בָאָ֑רֶץ אַל־תַּסְתֵּ֥ר מִ֝מֶּ֗נִּי מִצְו‍ֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> כ </font> </small> גָּרְסָ֣ה נַפְשִׁ֣י לְתַאֲבָ֑ה אֶֽל־מִשְׁפָּטֶ֥יךָ בְכָל־עֵֽת׃
+<small> <font color="#aaaaaa"> כא</font> </small> גָּ֭עַרְתָּ זֵדִ֣ים אֲרוּרִ֑ים הַ֝שֹּׁגִים מִמִּצְו‍ֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> כב</font> </small> גַּ֣ל מֵֽ֭עָלַי חֶרְפָּ֣ה וָב֑וּז כִּ֖י עֵדֹתֶ֣יךָ נָצָֽרְתִּי׃
+<small> <font color="#aaaaaa"> כג</font> </small> גַּ֤ם יָֽשְׁב֣וּ שָׂ֭רִים בִּ֣י נִדְבָּ֑רוּ עַ֝בְדְּךָ֗ יָשִׂ֥יחַ בְּחֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> כד</font> </small> גַּֽם־עֵ֭דֹתֶיךָ שַׁעֲשֻׁעָ֗י אַנְשֵׁ֥י עֲצָתִֽי׃
+<br>
+]]> </string>
+
+<string name="_119.4t"> <![CDATA[
+<small> <font color="#aaaaaa"> כה</font> </small> דָּֽבְקָ֣ה לֶעָפָ֣ר נַפְשִׁ֑י חַ֝יֵּ֗נִי כִּדְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> כו</font> </small> דְּרָכַ֣י סִ֭פַּרְתִּי וַֽתַּעֲנֵ֗נִי לַמְּדֵ֥נִי חֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> כז</font> </small> דֶּֽרֶךְ־פִּקּוּדֶ֥יךָ הֲבִינֵ֑נִי וְ֝אָשִׂ֗יחָה בְּנִפְלְאוֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> כח</font> </small> דָּלְפָ֣ה נַ֭פְשִׁי מִתּוּגָ֑ה קַ֝יְּמֵ֗נִי כִּדְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> כט</font> </small> דֶּֽרֶךְ־שֶׁ֭קֶר הָסֵ֣ר מִמֶּ֑נִּי וְֽתוֹרָתְךָ֥ חָנֵּֽנִי׃ 
+<small> <font color="#aaaaaa"> ל </font> </small> דֶּֽרֶךְ־אֱמוּנָ֥ה בָחָ֑רְתִּי מִשְׁפָּטֶ֥יךָ שִׁוִּֽיתִי׃
+<small> <font color="#aaaaaa"> לא</font> </small> דָּבַ֥קְתִּי בְעֵֽדְו‍ֹתֶ֑יךָ יְ֝הוָ֗ה אַל־תְּבִישֵֽׁנִי׃ 
+<small> <font color="#aaaaaa"> לב</font> </small> דֶּֽרֶךְ־מִצְו‍ֹתֶ֥יךָ אָר֑וּץ כִּ֖י תַרְחִ֣יב לִבִּֽי׃
+<br>
+]]> </string>
+
+<string name="_119.5t"> <![CDATA[
+<small> <font color="#aaaaaa"> לג</font> </small> הוֹרֵ֣נִי יְ֭הוָה דֶּ֥רֶךְ חֻקֶּ֗יךָ וְאֶצְּרֶ֥נָּה עֵֽקֶב׃ 
+<small> <font color="#aaaaaa"> לד</font> </small> הֲ֭בִינֵנִי וְאֶצְּרָ֥ה תֽוֹרָתֶ֗ךָ וְאֶשְׁמְרֶ֥נָּה בְכָל־לֵֽב׃  
+<small> <font color="#aaaaaa"> לה</font> </small> הַ֭דְרִיכֵנִי בִּנְתִ֣יב מִצְו‍ֹתֶ֑יךָ כִּי־ב֥וֹ חָפָֽצְתִּי׃
+<small> <font color="#aaaaaa"> לו</font> </small> הַט־לִ֭בִּי אֶל־עֵדְו‍ֹתֶ֗יךָ וְאַ֣ל אֶל־בָּֽצַע׃ 
+<small> <font color="#aaaaaa"> לז</font> </small> הַעֲבֵ֣ר עֵ֭ינַי מֵרְא֣וֹת שָׁ֑וְא בִּדְרָכֶ֥ךָ חַיֵּֽנִי׃ 
+<small> <font color="#aaaaaa"> לח</font> </small> הָקֵ֣ם לְ֭עַבְדְּךָ אִמְרָתֶ֑ךָ אֲ֝שֶׁ֗ר לְיִרְאָתֶֽךָ׃ 
+<small> <font color="#aaaaaa"> לט</font> </small> הַעֲבֵ֣ר חֶ֭רְפָּתִי אֲשֶׁ֣ר יָגֹ֑רְתִּי כִּ֖י מִשְׁפָּטֶ֣יךָ טוֹבִֽים׃ 
+<small> <font color="#aaaaaa"> מ </font> </small> הִ֭נֵּה תָּאַ֣בְתִּי לְפִקֻּדֶ֑יךָ בְּצִדְקָתְךָ֥ חַיֵּֽנִי׃ 
+<br>
+]]> </string>
+
+<string name="_119.6t"> <![CDATA[
+<small> <font color="#aaaaaa"> מא</font> </small> וִֽיבֹאֻ֣נִי חֲסָדֶ֣ךָ יְהוָ֑ה תְּ֝שֽׁוּעָתְךָ֗ כְּאִמְרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> מב</font> </small> וְאֶֽעֱנֶ֣ה חֹרְפִ֣י דָבָ֑ר כִּֽי־בָ֝טַחְתִּי בִּדְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> מג</font> </small> וְֽאַל־תַּצֵּ֬ל מִפִּ֣י דְבַר־אֱמֶ֣ת עַד־מְאֹ֑ד כִּ֖י לְמִשְׁפָּטֶ֣ךָ יִחָֽלְתִּי׃ 
+<small> <font color="#aaaaaa"> מד</font> </small> וְאֶשְׁמְרָ֖ה תוֹרָתְךָ֥ תָמִ֗יד לְעוֹלָ֥ם וָעֶֽד׃ 
+<small> <font color="#aaaaaa"> מה</font> </small> וְאֶתְהַלְּכָ֥ה בָרְחָבָ֑ה כִּ֖י פִקֻּדֶ֣יךָ דָרָֽשְׁתִּי׃
+<small> <font color="#aaaaaa"> מו</font> </small> וַאֲדַבְּרָ֣ה בְ֭עֵדֹתֶיךָ נֶ֥גֶד מְלָכִ֗ים וְלֹ֣א אֵבֽוֹשׁ׃
+<small> <font color="#aaaaaa"> מז</font> </small> וְאֶשְׁתַּֽעֲשַׁ֥ע בְּמִצְו‍ֹתֶ֗יךָ אֲשֶׁ֣ר אָהָֽבְתִּי׃ 
+<small> <font color="#aaaaaa"> מח</font> </small> וְאֶשָּֽׂא־כַפַּ֗י אֶֽל־מִ֭צְו‍ֹתֶיךָ אֲשֶׁ֥ר אָהָ֗בְתִּי וְאָשִׂ֥יחָה בְחֻקֶּֽיךָ׃ 
+<br>
+]]> </string>
+
+<string name="_119.7t"> <![CDATA[
+<small> <font color="#aaaaaa"> מט</font> </small> זְכֹר־דָּבָ֥ר לְעַבְדֶּ֑ךָ עַ֝֗ל אֲשֶׁ֣ר יִֽחַלְתָּֽנִי׃ 
+<small> <font color="#aaaaaa"> נ </font> </small> זֹ֣את נֶחָמָתִ֣י בְעָנְיִ֑י כִּ֖י אִמְרָתְךָ֣ חִיָּֽתְנִי׃ 
+<small> <font color="#aaaaaa"> נא</font> </small> זֵ֭דִים הֱלִיצֻ֣נִי עַד־מְאֹ֑ד מִ֝תּֽוֹרָתְךָ֗ לֹ֣א נָטִֽיתִי׃ 
+<small> <font color="#aaaaaa"> נב</font> </small> זָ֘כַ֤רְתִּי מִשְׁפָּטֶ֖יךָ מֵעוֹלָ֥ם׀ יְהוָ֗ה וָֽאֶתְנֶחָֽם׃  
+<small> <font color="#aaaaaa"> נג</font> </small> זַלְעָפָ֣ה אֲ֭חָזַתְנִי מֵרְשָׁעִ֑ים עֹ֝זְבֵ֗י תּוֹרָתֶֽךָ׃ 
+<small> <font color="#aaaaaa"> נד</font> </small> זְ֭מִרוֹת הָֽיוּ־לִ֥י חֻקֶּ֗יךָ בְּבֵ֣ית מְגוּרָֽי׃
+<small> <font color="#aaaaaa"> נה</font> </small> זָ֘כַ֤רְתִּי בַלַּ֣יְלָה שִׁמְךָ֣ יְהוָ֑ה וָֽ֝אֶשְׁמְרָ֗ה תּוֹרָתֶֽךָ׃ 
+<small> <font color="#aaaaaa"> נו</font> </small> זֹ֥את הָֽיְתָה־לִּ֑י כִּ֖י פִקֻּדֶ֣יךָ נָצָֽרְתִּי׃ 
+<br>
+]]> </string>
+
+<string name="_119.8t"> <![CDATA[
+<small> <font color="#aaaaaa"> נז</font> </small> חֶלְקִ֖י יְהוָ֥ה אָמַ֗רְתִּי לִשְׁמֹ֥ר דְּבָרֶֽיךָ׃
+<small> <font color="#aaaaaa"> נח</font> </small> חִלִּ֣יתִי פָנֶ֣יךָ בְכָל־לֵ֑ב חָ֝נֵּ֗נִי כְּאִמְרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> נט</font> </small> חִשַּׁ֥בְתִּי דְרָכָ֑י וָאָשִׁ֥יבָה רַ֝גְלַ֗י אֶל־עֵדֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> ס </font> </small> חַ֭שְׁתִּי וְלֹ֣א הִתְמַהְמָ֑הְתִּי לִ֝שְׁמֹ֗ר מִצְו‍ֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> סא</font> </small> חֶבְלֵ֣י רְשָׁעִ֣ים עִוְּדֻ֑נִי תּֽ֝וֹרָתְךָ֗ לֹ֣א שָׁכָֽחְתִּי׃ 
+<small> <font color="#aaaaaa"> סב</font> </small> חֲצֽוֹת־לַ֗יְלָה אָ֭קוּם לְהוֹד֣וֹת לָ֑ךְ עַ֝֗ל מִשְׁפְּטֵ֥י צִדְקֶֽךָ׃
+<small> <font color="#aaaaaa"> סג</font> </small> חָבֵ֣ר אָ֭נִי לְכָל־אֲשֶׁ֣ר יְרֵא֑וּךָ וּ֝לְשֹׁמְרֵ֗י פִּקּוּדֶֽיךָ׃
+<small> <font color="#aaaaaa"> סד</font> </small> חַסְדְּךָ֣ יְ֭הוָה מָלְאָ֥ה הָאָ֗רֶץ חֻקֶּ֥יךָ לַמְּדֵֽנִי׃
+<br>
+]]> </string>
+
+<string name="_119.9t"> <![CDATA[
+<small> <font color="#aaaaaa"> סה</font> </small> ט֭וֹב עָשִׂ֣יתָ עִֽם־עַבְדְּךָ֑ יְ֝הוָ֗ה כִּדְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> סו</font> </small> ט֤וּב טַ֣עַם וָדַ֣עַת לַמְּדֵ֑נִי כִּ֖י בְמִצְו‍ֹתֶ֣יךָ הֶאֱמָֽנְתִּי׃
+<small> <font color="#aaaaaa"> סז</font> </small> טֶ֣רֶם אֶ֭עֱנֶה אֲנִ֣י שֹׁגֵ֑ג וְ֝עַתָּ֗ה אִמְרָתְךָ֥ שָׁמָֽרְתִּי׃
+<small> <font color="#aaaaaa"> סח</font> </small> טוֹב־אַתָּ֥ה וּמֵטִ֗יב לַמְּדֵ֥נִי חֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> סט</font> </small> טָפְל֬וּ עָלַ֣י שֶׁ֣קֶר זֵדִ֑ים אֲ֝נִ֗י בְּכָל־לֵ֤ב׀ אֱצֹּ֬ר פִּקּוּדֶֽיךָ׃
+<small> <font color="#aaaaaa"> ע </font> </small> טָפַ֣שׁ כַּחֵ֣לֶב לִבָּ֑ם אֲ֝נִ֗י תּוֹרָתְךָ֥ שִֽׁעֲשָֽׁעְתִּי׃
+<small> <font color="#aaaaaa"> עא</font> </small> טֽוֹב־לִ֥י כִֽי־עֻנֵּ֑יתִי לְ֝מַ֗עַן אֶלְמַ֥ד חֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> עב</font> </small> טֽוֹב־לִ֥י תֽוֹרַת־פִּ֑יךָ מֵ֝אַלְפֵ֗י זָהָ֥ב וָכָֽסֶף׃
+<br>
+]]> </string>
+
+<string name="_119.10t"> <![CDATA[
+<small> <font color="#aaaaaa"> עג</font> </small> יָדֶ֣יךָ עָ֭שׂוּנִי וַֽיְכוֹנְנ֑וּנִי הֲ֝בִינֵ֗נִי וְאֶלְמְדָ֥ה מִצְו‍ֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> עד</font> </small> יְ֭רֵאֶיךָ יִרְא֣וּנִי וְיִשְׂמָ֑חוּ כִּ֖י לִדְבָרְךָ֣ יִחָֽלְתִּי׃
+<small> <font color="#aaaaaa"> עה</font> </small> יָדַ֣עְתִּי יְ֭הוָה כִּי־צֶ֣דֶק מִשְׁפָּטֶ֑יךָ וֶ֝אֱמוּנָ֗ה עִנִּיתָֽנִי׃ 
+<small> <font color="#aaaaaa"> עו</font> </small> יְהִי־נָ֣א חַסְדְּךָ֣ לְנַחֲמֵ֑נִי כְּאִמְרָתְךָ֥ לְעַבְדֶּֽךָ׃
+<small> <font color="#aaaaaa"> עז</font> </small> יְבֹא֣וּנִי רַחֲמֶ֣יךָ וְאֶֽחְיֶ֑ה כִּי־תֽ֝וֹרָתְךָ֗ שַֽׁעֲשֻׁעָֽי׃
+<small> <font color="#aaaaaa"> עח</font> </small> יֵבֹ֣שׁוּ זֵ֭דִים כִּי־שֶׁ֣קֶר עִוְּת֑וּנִי אֲ֝נִ֗י אָשִׂ֥יחַ בְּפִקּוּדֶֽיךָ׃
+<small> <font color="#aaaaaa"> עט</font> </small> יָשׁ֣וּבוּ לִ֣י יְרֵאֶ֑יךָ וידעו [וְ֝יֹדְעֵ֗י] עֵדֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> פ </font> </small> יְהִֽי־לִבִּ֣י תָמִ֣ים בְּחֻקֶּ֑יךָ לְ֝מַ֗עַן לֹ֣א אֵבֽוֹשׁ׃
+<br>
+]]> </string>
+
+<string name="_119.11t"> <![CDATA[
+<small> <font color="#aaaaaa"> פא</font> </small> כָּלְתָ֣ה לִתְשׁוּעָתְךָ֣ נַפְשִׁ֑י לִדְבָרְךָ֥ יִחָֽלְתִּי׃
+<small> <font color="#aaaaaa"> פב</font> </small> כָּל֣וּ עֵ֭ינַי לְאִמְרָתֶ֑ךָ לֵ֝אמֹ֗ר מָתַ֥י תְּֽנַחֲמֵֽנִי׃
+<small> <font color="#aaaaaa"> פג</font> </small> כִּֽי־הָ֭יִיתִי כְּנֹ֣אד בְּקִיט֑וֹר חֻ֝קֶּ֗יךָ לֹ֣א שָׁכָֽחְתִּי׃
+<small> <font color="#aaaaaa"> פד</font> </small> כַּמָּ֥ה יְמֵֽי־עַבְדֶּ֑ךָ מָתַ֬י תַּעֲשֶׂ֖ה בְרֹדְפַ֣י מִשְׁפָּֽט׃
+<small> <font color="#aaaaaa"> פה</font> </small> כָּֽרוּ־לִ֣י זֵדִ֣ים שִׁיח֑וֹת אֲ֝שֶׁ֗ר לֹ֣א כְתוֹרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> פו</font> </small> כָּל־מִצְו‍ֹתֶ֥יךָ אֱמוּנָ֑ה שֶׁ֖קֶר רְדָפ֣וּנִי עָזְרֵֽנִי׃
+<small> <font color="#aaaaaa"> פז</font> </small> כִּ֭מְעַט כִּלּ֣וּנִי בָאָ֑רֶץ וַ֝אֲנִ֗י לֹא־עָזַ֥בְתִּי פִקֻּודֶֽיךָ׃
+<small> <font color="#aaaaaa"> פח</font> </small> כְּחַסְדְּךָ֥ חַיֵּ֑נִי וְ֝אֶשְׁמְרָ֗ה עֵד֥וּת פִּֽיךָ׃
+<br>
+]]> </string>
+
+<string name="_119.12t"> <![CDATA[
+<small> <font color="#aaaaaa"> פט</font> </small> לְעוֹלָ֥ם יְהוָ֑ה דְּ֝בָרְךָ֗ נִצָּ֥ב בַּשָּׁמָֽיִם׃
+<small> <font color="#aaaaaa"> צ </font> </small> לְדֹ֣ר וָ֭דֹר אֱמֽוּנָתֶ֑ךָ כּוֹנַ֥נְתָּ אֶ֝֗רֶץ וַֽתַּעֲמֹֽד׃
+<small> <font color="#aaaaaa"> צא</font> </small> לְֽ֭מִשְׁפָּטֶיךָ עָמְד֣וּ הַיּ֑וֹם כִּ֖י הַכֹּ֣ל עֲבָדֶֽיךָ׃
+<small> <font color="#aaaaaa"> צב</font> </small> לוּלֵ֣י ת֭וֹרָתְךָ שַׁעֲשֻׁעָ֑י אָ֝֗ז אָבַ֥דְתִּי בְעָנְיִֽי׃
+<small> <font color="#aaaaaa"> צג</font> </small> לְ֭עוֹלָם לֹא־אֶשְׁכַּ֣ח פִּקּוּדֶ֑יךָ כִּ֥י בָ֝֗ם חִיִּיתָֽנִי׃
+<small> <font color="#aaaaaa"> צד</font> </small> לְֽךָ־אֲ֭נִי הוֹשִׁיעֵ֑נִי כִּ֖י פִקּוּדֶ֣יךָ דָרָֽשְׁתִּי׃
+<small> <font color="#aaaaaa"> צה</font> </small> לִ֤י קִוּ֣וּ רְשָׁעִ֣ים לְאַבְּדֵ֑נִי עֵ֝דֹתֶ֗יךָ אֶתְבּוֹנָֽן׃
+<small> <font color="#aaaaaa"> צו</font> </small> לְֽכָל תִּ֭כְלָה רָאִ֣יתִי קֵ֑ץ רְחָבָ֖ה מִצְוָתְךָ֣ מְאֹֽד׃
+<br>
+]]> </string>
+
+<string name="_119.13t"> <![CDATA[
+<small> <font color="#aaaaaa"> צז</font> </small> מָֽה־אָהַ֥בְתִּי תוֹרָתֶ֑ךָ כָּל־הַ֝יּ֗וֹם הִ֣יא שִׂיחָתִֽי׃
+<small> <font color="#aaaaaa"> צח</font> </small> מֵ֭אֹ֣יְבַי תְּחַכְּמֵ֣נִי מִצְו‍ֹתֶ֑ךָ כִּ֖י לְעוֹלָ֣ם הִיא־לִֽי׃
+<small> <font color="#aaaaaa"> צט</font> </small> מִכָּל־מְלַמְּדַ֥י הִשְׂכַּ֑לְתִּי כִּ֥י עֵ֝דְו‍ֹתֶ֗יךָ שִׂ֣יחָה לִֽֿי׃
+<small> <font color="#aaaaaa"> ק </font> </small> מִזְּקֵנִ֥ים אֶתְבּוֹנָ֑ן כִּ֖י פִקּוּדֶ֣יךָ נָצָֽרְתִּי׃
+<small> <font color="#aaaaaa"> קא</font> </small> מִכָּל־אֹ֣רַח רָ֭ע כָּלִ֣אתִי רַגְלָ֑י לְ֝מַ֗עַן אֶשְׁמֹ֥ר דְּבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> קב</font> </small> מִמִּשְׁפָּטֶ֥יךָ לֹא־סָ֑רְתִּי כִּֽי־אַ֝תָּ֗ה הוֹרֵתָֽנִי׃
+<small> <font color="#aaaaaa"> קג</font> </small> מַה־נִּמְלְצ֣וּ לְ֭חִכִּי אִמְרָתֶ֗ךָ מִדְּבַ֥שׁ לְפִֽי׃
+<small> <font color="#aaaaaa"> קד</font> </small> מִפִּקּוּדֶ֥יךָ אֶתְבּוֹנָ֑ן עַל־כֵּ֝֗ן שָׂנֵ֤אתִי׀ כָּל־אֹ֬רַח שָֽׁקֶר׃
+<br>
+]]> </string>
+
+<string name="_119.14t"> <![CDATA[
+<small> <font color="#aaaaaa"> קה</font> </small> נֵר־לְרַגְלִ֥י דְבָרֶ֑ךָ וְ֝א֗וֹר לִנְתִיבָתִֽי׃
+<small> <font color="#aaaaaa"> קו</font> </small> נִשְׁבַּ֥עְתִּי וָאֲקַיֵּ֑מָה לִ֝שְׁמֹ֗ר מִשְׁפְּטֵ֥י צִדְקֶֽךָ׃
+<small> <font color="#aaaaaa"> קז</font> </small> נַעֲנֵ֥יתִי עַד־מְאֹ֑ד יְ֝הוָ֗ה חַיֵּ֥נִי כִדְבָרֶֽךָ׃
+<small> <font color="#aaaaaa"> קח</font> </small> נִדְב֣וֹת פִּ֭י רְצֵה־נָ֣א יְהוָ֑ה וּֽמִשְׁפָּטֶ֥יךָ לַמְּדֵֽנִי׃
+<small> <font color="#aaaaaa"> קט</font> </small> נַפְשִׁ֣י בְכַפִּ֣י תָמִ֑יד וְ֝תֽוֹרָתְךָ֗ לֹ֣א שָׁכָֽחְתִּי׃
+<small> <font color="#aaaaaa"> קי</font> </small> נָתְנ֬וּ רְשָׁעִ֣ים פַּ֣ח לִ֑י וּ֝מִפִּקּוּדֶ֗יךָ לֹ֣א תָעִֽיתִי׃
+<small> <font color="#aaaaaa"> קיא</font> </small> נָחַ֣לְתִּי עֵדְו‍ֹתֶ֣יךָ לְעוֹלָ֑ם כִּֽי־שְׂשׂ֖וֹן לִבִּ֣י הֵֽמָּה׃
+<small> <font color="#aaaaaa"> קיב</font> </small> נָטִ֣יתִי לִ֭בִּי לַעֲשׂ֥וֹת חֻקֶּ֗יךָ לְעוֹלָ֥ם עֵֽקֶב׃
+<br>
+]]> </string>
+
+<string name="_119.15t"> <![CDATA[
+<small> <font color="#aaaaaa"> קיג</font> </small> סֵעֲפִ֥ים שָׂנֵ֑אתִי וְֽתוֹרָתְךָ֥ אָהָֽבְתִּי׃
+<small> <font color="#aaaaaa"> קיד</font> </small> סִתְרִ֣י וּמָגִנִּ֣י אָ֑תָּה לִדְבָרְךָ֥ יִחָֽלְתִּי׃
+<small> <font color="#aaaaaa"> קטו</font> </small> סֽוּרוּ־מִמֶּ֥נִּי מְרֵעִ֑ים וְ֝אֶצְּרָ֗ה מִצְו‍ֹ֥ת אֱלֹהָֽי׃
+<small> <font color="#aaaaaa"> קטז</font> </small> סָמְכֵ֣נִי כְאִמְרָתְךָ֣ וְאֶֽחְיֶ֑ה וְאַל־תְּ֝בִישֵׁ֗נִי מִשִּׂבְרִֽי׃
+<small> <font color="#aaaaaa"> קיז</font> </small> סְעָדֵ֥נִי וְאִוָּשֵׁ֑עָה וְאֶשְׁעָ֖ה בְחֻקֶּ֣יךָ תָמִֽיד׃
+<small> <font color="#aaaaaa"> קיח</font> </small> סָ֭לִיתָ כָּל־שׁוֹגִ֣ים מֵחֻקֶּ֑יךָ כִּי־שֶׁ֝֗קֶר תַּרְמִיתָֽם׃
+<small> <font color="#aaaaaa"> קיט</font> </small> סִגִ֗ים הִשְׁבַּ֥תָּ כָל־רִשְׁעֵי־אָ֑רֶץ לָ֝כֵ֗ן אָהַ֥בְתִּי עֵדֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> קכ </font> </small> סָמַ֣ר מִפַּחְדְּךָ֣ בְשָׂרִ֑י וּֽמִמִּשְׁפָּטֶ֥יךָ יָרֵֽאתִי׃
+<br>
+]]> </string>
+
+<string name="_119.16t"> <![CDATA[
+<small> <font color="#aaaaaa"> קכא</font> </small> עָ֭שִׂיתִי מִשְׁפָּ֣ט וָצֶ֑דֶק בַּל־תַּ֝נִּיחֵ֗נִי לְעֹֽשְׁקָֽי׃
+<small> <font color="#aaaaaa"> קכב</font> </small> עֲרֹ֣ב עַבְדְּךָ֣ לְט֑וֹב אַֽל־יַעַשְׁקֻ֥נִי זֵדִֽים׃
+<small> <font color="#aaaaaa"> קכג</font> </small> עֵ֭ינַי כָּל֣וּ לִֽישׁוּעָתֶ֑ךָ וּלְאִמְרַ֥ת צִדְקֶֽךָ׃ 
+<small> <font color="#aaaaaa"> קכד</font> </small> עֲשֵׂ֖ה עִם־עַבְדְּךָ֥ כְחַסְדֶּ֗ךָ וְחֻקֶּ֥יךָ לַמְּדֵֽנִי׃
+<small> <font color="#aaaaaa"> קכה</font> </small> עַבְדְּךָ־אָ֥נִי הֲבִינֵ֑נִי וְ֝אֵדְעָ֗ה עֵדֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> קכו</font> </small> עֵ֭ת לַעֲשׂ֣וֹת לַיהוָ֑ה הֵ֝פֵ֗רוּ תּוֹרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> קכז</font> </small> עַל־כֵּ֭ן אָהַ֣בְתִּי מִצְו‍ֹתֶ֑יךָ מִזָּהָ֥ב וּמִפָּֽז׃
+<small> <font color="#aaaaaa"> קכח</font> </small> עַל־כֵּ֤ן׀ כָּל־פִּקּ֣וּדֵי כֹ֣ל יִשָּׁ֑רְתִּי כָּל־אֹ֖רַח שֶׁ֣קֶר שָׂנֵֽאתִי׃ 
+<br>
+]]> </string>
+
+<string name="_119.17t"> <![CDATA[
+<small> <font color="#aaaaaa"> קכט</font> </small> פְּלָא֥וֹת עֵדְו‍ֹתֶ֑יךָ עַל־כֵּ֝֗ן נְצָרָ֥תַם נַפְשִֽׁי׃
+<small> <font color="#aaaaaa"> קל </font> </small> פֵּ֖תַח דְּבָרֶ֥יךָ יָאִ֗יר מֵבִ֥ין פְּתָיִֽים׃
+<small> <font color="#aaaaaa"> קלא</font> </small> פִּֽי־פָ֭עַרְתִּי וָאֶשְׁאָ֑פָה כִּ֖י לְמִצְו‍ֹתֶ֣יךָ יָאָֽבְתִּי׃
+<small> <font color="#aaaaaa"> קלב</font> </small> פְּנֵה־אֵלַ֥י וְחָנֵּ֑נִי כְּ֝מִשְׁפָּ֗ט לְאֹהֲבֵ֥י שְׁמֶֽךָ׃ 
+<small> <font color="#aaaaaa"> קלג</font> </small> פְּ֭עָמַי הָכֵ֣ן בְּאִמְרָתֶ֑ךָ וְֽאַל־תַּשְׁלֶט־בִּ֥י כָל־אָֽוֶן׃
+<small> <font color="#aaaaaa"> קלד</font> </small> פְּ֭דֵנִי מֵעֹ֣שֶׁק אָדָ֑ם וְ֝אֶשְׁמְרָ֗ה פִּקּוּדֶֽיךָ׃
+<small> <font color="#aaaaaa"> קלה</font> </small> פָּ֭נֶיךָ הָאֵ֣ר בְּעַבְדֶּ֑ךָ וְ֝לַמְּדֵ֗נִי אֶת־חֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> קלו</font> </small> פַּלְגֵי־מַ֭יִם יָרְד֣וּ עֵינָ֑י עַ֝֗ל לֹא־שָׁמְר֥וּ תוֹרָתֶֽךָ׃
+<br>
+]]> </string>
+
+<string name="_119.18t"> <![CDATA[
+<small> <font color="#aaaaaa"> קלז</font> </small> צַדִּ֣יק אַתָּ֣ה יְהוָ֑ה וְ֝יָשָׁ֗ר מִשְׁפָּטֶֽיךָ׃
+<small> <font color="#aaaaaa"> קלח</font> </small> צִ֭וִּיתָ צֶ֣דֶק עֵדֹתֶ֑יךָ וֶֽאֱמוּנָ֥ה מְאֹֽד׃
+<small> <font color="#aaaaaa"> קלט</font> </small> צִמְּתַ֥תְנִי קִנְאָתִ֑י כִּֽי־שָׁכְח֖וּ דְבָרֶ֣יךָ צָרָֽי׃
+<small> <font color="#aaaaaa"> קמ </font> </small> צְרוּפָ֖ה אִמְרָתְךָ֥ מְאֹ֗ד וְֽעַבְדְּךָ֥ אֲהֵבָֽהּ׃
+<small> <font color="#aaaaaa"> קמא</font> </small> צָעִ֣יר אָנֹכִ֣י וְנִבְזֶ֑ה פִּ֝קֻּדֶ֗יךָ לֹ֣א שָׁכָֽחְתִּי׃
+<small> <font color="#aaaaaa"> קמב</font> </small> צִדְקָתְךָ֣ צֶ֣דֶק לְעוֹלָ֑ם וְֽתוֹרָתְךָ֥ אֱמֶֽת׃
+<small> <font color="#aaaaaa"> קמג</font> </small> צַר־וּמָצ֥וֹק מְצָא֑וּנִי מִ֝צְו‍ֹתֶ֗יךָ שַׁעֲשֻׁעָֽי׃
+<small> <font color="#aaaaaa"> קמד</font> </small> צֶ֖דֶק עֵדְו‍ֹתֶ֥יךָ לְעוֹלָ֗ם הֲבִינֵ֥נִי וְאֶחְיֶֽה׃ 
+<br>
+]]> </string>
+
+<string name="_119.19t"> <![CDATA[
+<small> <font color="#aaaaaa"> קמה</font> </small> קָרָ֣אתִי בְכָל־לֵ֭ב עֲנֵ֥נִי יְהוָ֗ה חֻקֶּ֥יךָ אֶצֹּֽרָה׃
+<small> <font color="#aaaaaa"> קמו</font> </small> קְרָאתִ֥יךָ הוֹשִׁיעֵ֑נִי וְ֝אֶשְׁמְרָ֗ה עֵדֹתֶֽיךָ׃
+<small> <font color="#aaaaaa"> קמז</font> </small> קִדַּ֣מְתִּי בַ֭נֶּשֶׁף וָאֲשַׁוֵּ֑עָה לדבריך [לִדְבָרְךָ֥] יִחָֽלְתִּי׃
+<small> <font color="#aaaaaa"> קמח</font> </small> קִדְּמ֣וּ עֵ֭ינַי אַשְׁמֻר֑וֹת לָ֝שִׂ֗יחַ בְּאִמְרָתֶֽךָ׃
+<small> <font color="#aaaaaa"> קמט</font> </small> ק֭וֹלִי שִׁמְעָ֣ה כְחַסְדֶּ֑ךָ יְ֝הוָ֗ה כְּֽמִשְׁפָּטֶ֥ךָ חַיֵּֽנִי׃
+<small> <font color="#aaaaaa"> קנ </font> </small> קָ֭רְבוּ רֹדְפֵ֣י זִמָּ֑ה מִתּוֹרָתְךָ֥ רָחָֽקוּ׃
+<small> <font color="#aaaaaa"> קנא</font> </small> קָר֣וֹב אַתָּ֣ה יְהוָ֑ה וְֽכָל־מִצְו‍ֹתֶ֥יךָ אֱמֶֽת׃
+<small> <font color="#aaaaaa"> קנב</font> </small> קֶ֣דֶם יָ֭דַעְתִּי מֵעֵדֹתֶ֑יךָ כִּ֖י לְעוֹלָ֣ם יְסַדְתָּֽם׃
+<br>
+]]> </string>
+
+<string name="_119.20t"> <![CDATA[
+<small> <font color="#aaaaaa"> קנג</font> </small> רְאֵֽה־עָנְיִ֥י וְחַלְּצֵ֑נִי כִּי־תֽ֝וֹרָתְךָ֗ לֹ֣א שָׁכָֽחְתִּי׃
+<small> <font color="#aaaaaa"> קנד</font> </small> רִיבָ֣ה רִ֭יבִי וּגְאָלֵ֑נִי לְאִמְרָתְךָ֥ חַיֵּֽנִי׃
+<small> <font color="#aaaaaa"> קנה</font> </small> רָח֣וֹק מֵרְשָׁעִ֣ים יְשׁוּעָ֑ה כִּֽי־חֻ֝קֶּיךָ לֹ֣א דָרָֽשׁוּ׃
+<small> <font color="#aaaaaa"> קנו</font> </small> רַחֲמֶ֖יךָ רַבִּ֥ים׀ יְהוָ֑ה כְּֽמִשְׁפָּטֶ֥יךָ חַיֵּֽנִי׃ 
+<small> <font color="#aaaaaa"> קנז</font> </small> רַ֭בִּים רֹדְפַ֣י וְצָרָ֑י מֵ֝עֵדְו‍ֹתֶ֗יךָ לֹ֣א נָטִֽיתִי׃
+<small> <font color="#aaaaaa"> קנח</font> </small> רָאִ֣יתִי בֹ֭גְדִים וָֽאֶתְקוֹטָ֑טָה אֲשֶׁ֥ר אִ֝מְרָתְךָ֗ לֹ֣א שָׁמָֽרוּ׃
+<small> <font color="#aaaaaa"> קנט</font> </small> רְ֭אֵה כִּי־פִקּוּדֶ֣יךָ אָהָ֑בְתִּי יְ֝הוָ֗ה כְּֽחַסְדְּךָ֥ חַיֵּֽנִי׃
+<small> <font color="#aaaaaa"> קס </font> </small> רֹאשׁ־דְּבָרְךָ֥ אֱמֶ֑ת וּ֝לְעוֹלָ֗ם כָּל־מִשְׁפַּ֥ט צִדְקֶֽךָ׃
+<br>
+]]> </string>
+
+<string name="_119.21t"> <![CDATA[
+<small> <font color="#aaaaaa"> קסא</font> </small> שָׂ֭רִים רְדָפ֣וּנִי חִנָּ֑ם ומדבריך [וּ֝מִדְּבָרְךָ֗] פָּחַ֥ד לִבִּֽי׃
+<small> <font color="#aaaaaa"> קסב</font> </small> שָׂ֣שׂ אָ֭נֹכִֽי עַל־אִמְרָתֶ֑ךָ כְּ֝מוֹצֵ֗א שָׁלָ֥ל רָֽב׃
+<small> <font color="#aaaaaa"> קסג</font> </small> שֶׁ֣קֶר שָׂ֭נֵאתִי וַאֲתַעֵ֑בָה תּוֹרָתְךָ֥ אָהָֽבְתִּי׃
+<small> <font color="#aaaaaa"> קסד</font> </small> שֶׁ֣בַע בַּ֭יּוֹם הִלַּלְתִּ֑יךָ עַ֝֗ל מִשְׁפְּטֵ֥י צִדְקֶֽךָ׃
+<small> <font color="#aaaaaa"> קסה</font> </small> שָׁל֣וֹם רָ֭ב לְאֹהֲבֵ֣י תוֹרָתֶ֑ךָ וְאֵֽין־לָ֥מוֹ מִכְשֽׁוֹל׃
+<small> <font color="#aaaaaa"> קסו</font> </small> שִׂבַּ֣רְתִּי לִֽישׁוּעָתְךָ֣ יְהוָ֑ה וּֽמִצְו‍ֹתֶ֥יךָ עָשִֽׂיתִי׃
+<small> <font color="#aaaaaa"> קסז</font> </small> שָֽׁמְרָ֣ה נַ֭פְשִׁי עֵדֹתֶ֑יךָ וָאֹהֲבֵ֥ם מְאֹֽד׃
+<small> <font color="#aaaaaa"> קסח</font> </small> שָׁמַ֣רְתִּי פִ֭קּוּדֶיךָ וְעֵדֹתֶ֑יךָ כִּ֖י כָל־דְּרָכַ֣י נֶגְדֶּֽךָ׃
+<br>
+]]> </string>
+
+<string name="_119.22t"> <![CDATA[
+<small> <font color="#aaaaaa"> קסט</font> </small> תִּקְרַ֤ב רִנָּתִ֣י לְפָנֶ֣יךָ יְהוָ֑ה כִּדְבָרְךָ֥ הֲבִינֵֽנִי׃
+<small> <font color="#aaaaaa"> קע </font> </small> תָּב֣וֹא תְּחִנָּתִ֣י לְפָנֶ֑יךָ כְּ֝אִמְרָתְךָ֗ הַצִּילֵֽנִי׃
+<small> <font color="#aaaaaa"> קעא</font> </small> תַּבַּ֣עְנָה שְׂפָתַ֣י תְּהִלָּ֑ה כִּ֖י תְלַמְּדֵ֣נִי חֻקֶּֽיךָ׃
+<small> <font color="#aaaaaa"> קעב</font> </small> תַּ֣עַן לְ֭שׁוֹנִי אִמְרָתֶ֑ךָ כִּ֖י כָל־מִצְו‍ֹתֶ֣יךָ צֶּֽדֶק׃
+<small> <font color="#aaaaaa"> קעג</font> </small> תְּהִֽי־יָדְךָ֥ לְעָזְרֵ֑נִי כִּ֖י פִקּוּדֶ֣יךָ בָחָֽרְתִּי׃
+<small> <font color="#aaaaaa"> קעד</font> </small> תָּאַ֣בְתִּי לִֽישׁוּעָתְךָ֣ יְהוָ֑ה וְ֝תֽוֹרָתְךָ֗ שַׁעֲשֻׁעָֽי׃
+<small> <font color="#aaaaaa"> קעה</font> </small> תְּֽחִי־נַ֭פְשִׁי וּֽתְהַֽלְלֶ֑ךָּ וּֽמִשְׁפָּטֶ֥ךָ יַעֲזְרֻֽנִי׃
+<small> <font color="#aaaaaa"> קעו</font> </small> תָּעִ֗יתִי כְּשֶׂ֣ה אֹ֭בֵד בַּקֵּ֣שׁ עַבְדֶּ֑ךָ כִּ֥י מִ֝צְו‍ֹתֶ֗יךָ לֹ֣א שָׁכָֽחְתִּי׃
+<br>
+]]> </string>
+
+</resources>

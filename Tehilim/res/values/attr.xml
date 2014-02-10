@@ -1,0 +1,11 @@
+<resources>
+<attr name="action_search_icon" format="reference"/>
+<attr name="action_about_icon" format="reference"/>
+<attr name="action_help_icon" format="reference"/>
+<attr name="action_settings_icon" format="reference"/>
+<attr name="expand_icon" format="reference"/>
+<attr name="action_favorite_icon" format="reference"/>
+<attr name="ic_launcher" format="reference"/>
+<attr name="text_color" format="reference"/>
+<attr name="side_background" format="reference"/>
+</resources>

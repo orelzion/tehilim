@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <string name="app_name">התהילים הנוח</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_help">עזרה</string>
+    <string name="action_about">אודות</string>
+    <string name="action_search">בחר פרקים</string>
+	<string name="quick_title">גישה מהירה</string>
+	<string name="brows_title">תהילים</string>
+	<string name="additional_title">תפילות נוספות</string>
+	
+	<string name="books_title">לפי ספר</string>
+	<string name="week_title">לפי יום בשבוע</string>
+	<string name="month_title">לפי יום בחודש</string>
+	
+		<string name="free_title">הפטר מהפרסומות כעת!</string>
+	<string name="free_desc">רכוש כעת את הגרסה המלאה, נטולת הפרסומות ב3.99 ש\"ח בלבד!</string>
+	
+	<string name="ok">בסדר</string>
+	
+	<string name="navigation_drawer_open">פתח חלון ניווט</string>
+<string name="navigation_drawer_close">סגור את חלון הניווט</string>
+	
+	<string name="chapter">פרק %1$s</string>
+	<string name="chapterKuf">פרק %1$s - אות %2$s</string>
+	
+	<string name="shiraTitle">פרק שירה</string>
+<string name="shira1Title">פרק ראשון - שירת השמים, הארץ וכל צבאם</string>
+<string name="shira2Title">פרק שני - שיר היום, הלילה, וצבאות השמים</string>
+<string name="shira3Title">פרק שלישי - שיר הצומח</string>
+<string name="shira4Title">פרק רביעי - שיר העופות, השרצים, ביבשה ובים</string>
+<string name="shira5Title">פרק חמישי - שיר הבהמות והחיות</string>
+<string name="shira6Title">פרק ששי - שיר השרצים והחיות</string>
+<string name="shiraSofTitle">הסוף</string>
+<string name="shiraPrayer">תפילה לאחר פרק שירה
+\n<small>מאת הגאון הרב גרוס שליט\"א</small></string>
+        
+<string name="tikunKlaliTitle">תיקון הכללי</string>
+<string name="tikunBeforeTitle">קודם התיקון יש לומר</string>
+<string name="tikunAfter">תפילה קטנת הכמות ורבת האיכות</string>
+
+<string name="sickTitle">תפילה לחולה</string>
+
+
+    <string name="yehiTitle">יהי רצון שקודם התהילים</string>
+    
+<string name="dayInMonth">%1$s לחודש</string>    
+
+<string name="tehilim_for_day">תהילים ליום %1$s</string>
+    
+        <string name="yehiAfterTitle"> <![CDATA[יהי רצון שלאחר התהילים]]> </string>
+        
+<string name="for_full_tehilim">אם סיימת את כל הספר:</string>
+<string name="for_partial_tehilim">אם לא סיימת את כל הספר:</string>
+<string name="for_sick">יאמר שם החולה ושם אימו</string>       
+
+<string name="choose_day">בחר יום</string>
+<string name="all_tehilim">כל הפרקים</string>
+	
+	<string-array name="books">
+	    <item>ספר ראשון</item>
+	    <item>ספר שני</item>
+	    <item>ספר שלישי</item>
+	    <item>ספר רביעי</item>
+	    <item>ספר חמישי</item>
+	</string-array>
+
+		    <string-array name="week_days">
+<item>יום ראשון</item>
+<item>יום שני</item>
+<item>יום שלישי</item>
+<item>יום רביעי</item>
+<item>יום חמישי</item>
+<item>יום שישי</item>
+<item>שבת</item>
+</string-array>
+</resources>

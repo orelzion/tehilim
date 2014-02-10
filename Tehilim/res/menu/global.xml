@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tehilim="http://schemas.android.com/apk/res-auto"
+     >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="200"
+        tehilim:showAsAction="ifRoom"
+        android:icon="?attr/action_settings_icon"
+        android:title="@string/action_settings"/>
+    
+        <item
+        android:id="@+id/action_help"
+        android:orderInCategory="300"
+        tehilim:showAsAction="never"
+        android:title="@string/action_help"/>
+        
+            <item
+        android:id="@+id/action_about"
+        android:orderInCategory="400"
+        tehilim:showAsAction="never"
+        android:title="@string/action_about"/>
+            
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        tehilim:showAsAction="ifRoom|collapseActionView"
+        android:icon="?attr/action_search_icon"
+        tehilim:actionViewClass="android.support.v7.widget.SearchView"
+        android:title="@string/action_search"/>            
+
+</menu>
