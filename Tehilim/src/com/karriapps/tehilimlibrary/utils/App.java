@@ -138,7 +138,7 @@ public class App extends Application {
 	
 	public LANGUAGES getLang() {
 		lang = LANGUAGES.values()[getSharedPreferences().getInt(getString(R.string.lang_key), LANGUAGES.ENGLISH.ordinal())];;
-		return LANGUAGES.HEBREW;// lang; 
+		return lang; 
 	}
 	
 	public FONTS getFont() {
@@ -147,7 +147,7 @@ public class App extends Application {
 	}
 	
 	public int getFontSize() {
-		fontSize = getSharedPreferences().getInt(getString(R.string.font_sze_key), 12);
+		fontSize = getSharedPreferences().getInt(getString(R.string.font_sze_key), 15);
 		return fontSize;
 	}
 	

@@ -18,7 +18,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks{
+public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks {
 	
 	private String TITLE_KEY = "title";
 	private String CURRENT_POSITION_KEY = "position";
