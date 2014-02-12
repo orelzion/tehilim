@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.widget.TextView;
 
 public class TehilimTextView extends TextView {
+	
+	private float mRatio = 1.0f;
 
 	public TehilimTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -35,6 +37,13 @@ public class TehilimTextView extends TextView {
 		if(App.getInstance().isRtlFixNeeded())
 			this.setGravity(Gravity.RIGHT);
 	}
+	
+	@Override
+	public void setTextSize(float size) {
+		size += mRatio;
+		super.setTextSize(size);
+	}
+	
 //	
 //	@Override
 //	public void setText(CharSequence text, BufferType type) {

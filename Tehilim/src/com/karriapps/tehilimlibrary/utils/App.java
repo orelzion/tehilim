@@ -146,9 +146,12 @@ public class App extends Application {
 		return font;
 	}
 	
-	public int getFontSize() {
-		fontSize = getSharedPreferences().getInt(getString(R.string.font_sze_key), 15);
-		return fontSize;
+	public float getFontSize() {
+		return getSharedPreferences().getFloat(getString(R.string.font_sze_key), 15);
+	}
+	
+	public void setFontSize(float size) {
+		getSharedPreferences().edit().putFloat(getString(R.string.font_sze_key), size).commit();
 	}
 	
 	public THEME getAppTheme() {
@@ -330,7 +333,6 @@ public class App extends Application {
 		getSharedPreferences().edit().putBoolean(getString(R.string.awake_key), isKeepAwake());
 		getSharedPreferences().edit().putBoolean(getString(R.string.rtl_key), isRtlFixNeeded());
 		getSharedPreferences().edit().putBoolean(getString(R.string.first_key), first);
-		getSharedPreferences().edit().putInt(getString(R.string.font_sze_key), getFontSize());
 		getSharedPreferences().edit().putInt(getString(R.string.font_key), getFont().ordinal());
 		getSharedPreferences().edit().putInt(getString(R.string.lang_key), getLang().ordinal());
 		getSharedPreferences().edit().putInt(getString(R.string.read_key), getReadingMode().ordinal());

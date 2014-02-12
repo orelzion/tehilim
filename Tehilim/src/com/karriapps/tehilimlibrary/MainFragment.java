@@ -10,8 +10,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.ScaleGestureDetector.OnScaleGestureListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
@@ -20,68 +24,102 @@ import android.widget.ListView;
 import android.widget.AbsListView.OnScrollListener;
 
 public class MainFragment extends Fragment {
-	
+
 	public enum VIEW_TYPE {TEHILIM_BOOK, OTHER};
-	
+
 	private ListView mList;
 	private Button mUpperButton;
 	private Button mBottomButton;
-	
+
 	private VIEW_TYPE mViewType;
-	
+
 	private TehilimGenerator mTehilimGenerator;
-	
+
 	private TehilimAdapter mAdapter;
-	
+	private ScaleGestureDetector mScaleDetector;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		
+
 		View view = inflater.inflate(R.layout.tehilim, container, false);
-		
+
 		mList = (ListView)view.findViewById(R.id.list);
 		mUpperButton = (Button)view.findViewById(R.id.upperJumpTo);
 		mBottomButton = (Button)view.findViewById(R.id.bottomJumpTo);
 		mUpperButton.setOnClickListener(mOnClickListner);
 		mBottomButton.setOnClickListener(mOnClickListner);
-		
+
+		mScaleDetector = new ScaleGestureDetector(getActivity(), new OnScaleGestureListener() {
+			@Override
+			public void onScaleEnd(ScaleGestureDetector detector) {
+			}
+			@Override
+			public boolean onScaleBegin(ScaleGestureDetector detector) {
+				return true;
+			}
+			@Override
+			public boolean onScale(ScaleGestureDetector detector) {
+				float factor = detector.getScaleFactor();
+				//				if(Math.abs((detector.getCurrentSpan() - detector.getPreviousSpan())) >= 30) {
+				if(factor >= 1) {
+					App.getInstance().setFontSize(App.getInstance().getFontSize() + 0.5f);
+				} else {
+					App.getInstance().setFontSize(App.getInstance().getFontSize() - 0.5f);
+				}
+				//				}
+				mAdapter.notifyDataSetChanged();
+				return false;
+			}
+		});
+
 		mAdapter = new TehilimAdapter();
 		mList.setAdapter(mAdapter);
-		
+		mList.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if(event.getPointerCount() == 2)
+					return mScaleDetector.onTouchEvent(event);
+				else 
+					return false;
+			}
+		});
+
 		return view;
 	}
-	
+
 	OnClickListener mOnClickListner = new OnClickListener() {
-		
+
 		@Override
 		public void onClick(View v) {
 			YehiRazonFragment fragment = new YehiRazonFragment();
 			Bundle b = new Bundle();
 			b.putBoolean(YehiRazonFragment.TYPE_KEY, v.equals(mUpperButton));
 			fragment.setArguments(b);
-    		fragment.show(getActivity().getSupportFragmentManager(), "yehi");
+			fragment.show(getActivity().getSupportFragmentManager(), "yehi");
 		}
 	};
-	
+
 	public void setViewType(VIEW_TYPE type) {
 		mViewType = type;
-		
+
 		if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
 			mList.setOnScrollListener(new OnScrollListener() {
-				
+
 				@Override
 				public void onScrollStateChanged(AbsListView view, int scrollState) {}
-				
+
 				@Override
 				public void onScroll(AbsListView view, int firstVisibleItem,
 						int visibleItemCount, int totalItemCount) {
-					
+
 					if(getTehilimGenerator() instanceof PsalmsGenerator) {
 						if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
 							mUpperButton.setVisibility(View.VISIBLE);
 						} else
 							mUpperButton.setVisibility(View.GONE);
-						
+
 						if(getTehilimGenerator().getLastChapterKeyPosition() <= 
 								(firstVisibleItem + (visibleItemCount - 1))){
 							mBottomButton.setVisibility(View.VISIBLE);
@@ -95,15 +133,15 @@ public class MainFragment extends Fragment {
 			mBottomButton.setVisibility(View.GONE);
 		}
 	}
-	
+
 	public int getPosition() {
 		return mList.getFirstVisiblePosition();
 	}
-	
+
 	public void setPosition(int position) {
 		mList.setSelection(position);
 	}
-	
+
 	public TehilimGenerator getTehilimGenerator() {
 		return mTehilimGenerator;
 	}
@@ -135,9 +173,9 @@ public class MainFragment extends Fragment {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			
+
 			ViewHolder holder;
-			
+
 			if(convertView == null) {
 				LayoutInflater inflater = (LayoutInflater) App.getInstance().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				holder = new ViewHolder();
@@ -148,35 +186,37 @@ public class MainFragment extends Fragment {
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
-			
+
 			String tText = getItem(position).getTitle();
 			if(!getItem(position).isInScope())
 				tText = "<font color=\"#aaaaaa\">" + tText + "</font>";
 			holder.mTitleTextView.setText(Html.fromHtml(tText));
-			
-//			if(!getItem(position).getExpand().equals(EXPANDANBLE.NONE)) {
-//				holder.mTitleTextView.setTag(position);
-//				holder.mTitleTextView.setOnClickListener(new OnClickListener() {
-//					
-//					@Override
-//					public void onClick(View v) {
-//						int position = v.getTag();
-//						EXPANDANBLE expand = getItem(position).getExpand();
-//						if(expand.equals(EXPANDANBLE.EXPAND)) {
-//							getItem(position)
-//						}
-//					}
-//				});
-//			}
-			
+			holder.mTitleTextView.setTextSize(App.getInstance().getFontSize());
+
+			//			if(!getItem(position).getExpand().equals(EXPANDANBLE.NONE)) {
+			//				holder.mTitleTextView.setTag(position);
+			//				holder.mTitleTextView.setOnClickListener(new OnClickListener() {
+			//					
+			//					@Override
+			//					public void onClick(View v) {
+			//						int position = v.getTag();
+			//						EXPANDANBLE expand = getItem(position).getExpand();
+			//						if(expand.equals(EXPANDANBLE.EXPAND)) {
+			//							getItem(position)
+			//						}
+			//					}
+			//				});
+			//			}
+
 			String pText = getItem(position).getText();
 			if(!getItem(position).isInScope())
 				pText = "<font color=\"#aaaaaa\">" + pText + "</font>";
 			holder.mTextView.setText(Html.fromHtml(pText));
-			
+			holder.mTextView.setTextSize(App.getInstance().getFontSize());
+
 			return convertView;
 		}
-		
+
 		class ViewHolder {
 			TehilimTextView mTitleTextView;
 			TehilimTextView mTextView;
