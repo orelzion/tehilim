@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 public class YehiRazonFragment extends DialogFragment {
 	
+	public static final String TYPE_KEY = "type";
+	
 	private TehilimTextView mText;
 	
 	@Override
@@ -21,7 +23,7 @@ public class YehiRazonFragment extends DialogFragment {
 		View view = inflater.inflate(R.layout.yehi_fragment, container, false);
 		mText = (TehilimTextView)view.findViewById(R.id.text);
 						
-		if(getArguments().getBoolean("before")){
+		if(getArguments().getBoolean(TYPE_KEY)){
 			getDialog().setTitle(R.string.yehiTitle);
 			mText.setText(Html.fromHtml(getString(R.string.yehiBefore)));
 		} else {

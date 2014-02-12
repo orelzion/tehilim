@@ -1,5 +1,6 @@
 package com.karriapps.tehilimlibrary;
 
+import com.karriapps.tehilimlibrary.MainFragment.VIEW_TYPE;
 import com.karriapps.tehilimlibrary.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import com.karriapps.tehilimlibrary.R;
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
@@ -138,7 +139,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 		generator.generate();
 		mMainFragment.setTehilimGenerator(generator);
 		if(generator instanceof PsalmsGenerator)
-			mMainFragment.setPosition(((PsalmsGenerator)generator).getFirstChapterKeyPosition());
+			mMainFragment.setViewType(VIEW_TYPE.TEHILIM_BOOK);
+		else
+			mMainFragment.setViewType(VIEW_TYPE.OTHER);
+		mMainFragment.setPosition((generator).getFirstChapterKeyPosition());
 	}
 
 	@Override

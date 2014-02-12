@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
@@ -41,6 +42,8 @@ public class MainFragment extends Fragment {
 		mList = (ListView)view.findViewById(R.id.list);
 		mUpperButton = (Button)view.findViewById(R.id.upperJumpTo);
 		mBottomButton = (Button)view.findViewById(R.id.bottomJumpTo);
+		mUpperButton.setOnClickListener(mOnClickListner);
+		mBottomButton.setOnClickListener(mOnClickListner);
 		
 		mAdapter = new TehilimAdapter();
 		mList.setAdapter(mAdapter);
@@ -48,7 +51,19 @@ public class MainFragment extends Fragment {
 		return view;
 	}
 	
-	public void setVieeType(VIEW_TYPE type) {
+	OnClickListener mOnClickListner = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			YehiRazonFragment fragment = new YehiRazonFragment();
+			Bundle b = new Bundle();
+			b.putBoolean(YehiRazonFragment.TYPE_KEY, v.equals(mUpperButton));
+			fragment.setArguments(b);
+    		fragment.show(getActivity().getSupportFragmentManager(), "yehi");
+		}
+	};
+	
+	public void setViewType(VIEW_TYPE type) {
 		mViewType = type;
 		
 		if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
@@ -62,24 +77,27 @@ public class MainFragment extends Fragment {
 						int visibleItemCount, int totalItemCount) {
 					
 					if(getTehilimGenerator() instanceof PsalmsGenerator) {
-						if(view.getAdapter().getItemId(firstVisibleItem) <= ((PsalmsGenerator)getTehilimGenerator()).getFirstVisibleChapter() ){
+						if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
 							mUpperButton.setVisibility(View.VISIBLE);
 						} else
 							mUpperButton.setVisibility(View.GONE);
 						
-						if(((PsalmsGenerator)getTehilimGenerator()).getLastVisibleChapter() <= 
-								view.getAdapter().getItemId((firstVisibleItem + (visibleItemCount - 1)))){
+						if(getTehilimGenerator().getLastChapterKeyPosition() <= 
+								(firstVisibleItem + (visibleItemCount - 1))){
 							mBottomButton.setVisibility(View.VISIBLE);
 						} else
 							mBottomButton.setVisibility(View.GONE);
 					}
 				}
 			});
+		} else {
+			mUpperButton.setVisibility(View.GONE);
+			mBottomButton.setVisibility(View.GONE);
 		}
 	}
 	
 	public int getPosition() {
-		return mList.getLastVisiblePosition();
+		return mList.getFirstVisiblePosition();
 	}
 	
 	public void setPosition(int position) {
@@ -109,7 +127,10 @@ public class MainFragment extends Fragment {
 
 		@Override
 		public long getItemId(int position) {
-			return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position)).getchapterID();
+			if(getTehilimGenerator() instanceof PsalmsGenerator)
+				return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position)).getchapterID();
+			else 
+				return 0;
 		}
 
 		@Override
@@ -132,6 +153,21 @@ public class MainFragment extends Fragment {
 			if(!getItem(position).isInScope())
 				tText = "<font color=\"#aaaaaa\">" + tText + "</font>";
 			holder.mTitleTextView.setText(Html.fromHtml(tText));
+			
+//			if(!getItem(position).getExpand().equals(EXPANDANBLE.NONE)) {
+//				holder.mTitleTextView.setTag(position);
+//				holder.mTitleTextView.setOnClickListener(new OnClickListener() {
+//					
+//					@Override
+//					public void onClick(View v) {
+//						int position = v.getTag();
+//						EXPANDANBLE expand = getItem(position).getExpand();
+//						if(expand.equals(EXPANDANBLE.EXPAND)) {
+//							getItem(position)
+//						}
+//					}
+//				});
+//			}
 			
 			String pText = getItem(position).getText();
 			if(!getItem(position).isInScope())

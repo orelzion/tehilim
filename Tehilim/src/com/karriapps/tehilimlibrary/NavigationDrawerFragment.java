@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
+import com.karriapps.tehilimlibrary.generators.ShiraGenerator;
+import com.karriapps.tehilimlibrary.generators.SickPrayerGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
+import com.karriapps.tehilimlibrary.generators.TikunKlaliGenerator;
 import com.karriapps.tehilimlibrary.utils.App;
 import com.karriapps.tehilimlibrary.utils.PsalmsHelper;
 import com.karriapps.tehilimlibrary.utils.Tools;
@@ -31,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
@@ -260,6 +264,29 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 		
 		mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
 		mPrayersList.setAdapter(mPrayersAdapter);
+		mPrayersList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View view, int position,
+					long arg3) {
+				String title = "";
+				switch(position) {
+					case 0:
+						mGenerator = new SickPrayerGenerator();
+						title = getString(R.string.sickTitle);
+						break;
+					case 1:
+						mGenerator = new ShiraGenerator();
+						title = getString(R.string.shiraTitle);
+						break;
+					case 2:
+						mGenerator = new TikunKlaliGenerator();
+						title = getString(R.string.tikunKlaliTitle);
+						break;
+				}
+				mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
+			}
+		});
 		
 		SimpleExpandableListAdapter tehilimList = new SimpleExpandableListAdapter(getActivity(), 
 				createBooksGroups(), 

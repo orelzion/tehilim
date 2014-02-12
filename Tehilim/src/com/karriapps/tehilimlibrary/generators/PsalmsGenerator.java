@@ -114,11 +114,6 @@ public class PsalmsGenerator extends TehilimGenerator {
 	public int getLastChapterKeyPosition() {
 		return mLastChapterKey;
 	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
 	
     public static final Parcelable.Creator<PsalmsGenerator> CREATOR = new Parcelable.Creator<PsalmsGenerator>() {
         public PsalmsGenerator createFromParcel(Parcel in) {
@@ -131,12 +126,8 @@ public class PsalmsGenerator extends TehilimGenerator {
     };
 
 	@Override
-	public void writeToParcel(Parcel out, int arg1) {
-		out.writeList(mKeys);
-		out.writeInt(mPsalmsList.size());
-		for(int i = 0; i < mPsalmsList.size(); i++) {
-			out.writeParcelable(mPsalmsList.get(mKeys.get(i)), 0);
-		}
+	public void writeToParcel(Parcel out, int flag) {
+		super.writeToParcel(out, flag);
 		out.writeInt(mStartChapter);
 		out.writeInt(mEndChapter);
 		out.writeInt(mFirstChapterKey);
@@ -146,13 +137,7 @@ public class PsalmsGenerator extends TehilimGenerator {
 	}
 	
 	public void readFromParcel(Parcel in) {
-		mKeys = new ArrayList<String>();
-		in.readStringList(mKeys);
-		int size = in.readInt();
-		mPsalmsList = new HashMap<String, Perek>();
-		for(int i = 0; i < size; i++) {
-			mPsalmsList.put(mKeys.get(i), (Perek) in.readParcelable(Perek.class.getClassLoader()));
-		}
+		super.readFromParcel(in);
 		mStartChapter = in.readInt();
 		mEndChapter = in.readInt();
 		mFirstChapterKey = in.readInt();
