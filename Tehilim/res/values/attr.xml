@@ -8,4 +8,5 @@
 <attr name="ic_launcher" format="reference"/>
 <attr name="text_color" format="reference"/>
 <attr name="side_background" format="reference"/>
+<attr name="choose_items_icon" format="reference"/>
 </resources>

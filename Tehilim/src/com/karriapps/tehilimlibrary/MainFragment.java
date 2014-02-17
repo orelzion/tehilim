@@ -1,5 +1,7 @@
 package com.karriapps.tehilimlibrary;
 
+import java.lang.ref.WeakReference;
+
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilimlibrary.utils.App;
@@ -37,6 +39,10 @@ public class MainFragment extends Fragment {
 
 	private TehilimAdapter mAdapter;
 	private ScaleGestureDetector mScaleDetector;
+	
+	private WeakReference<OnPositionChanged> mOnPositionChangedListener;
+	
+	private int mPosition;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +91,21 @@ public class MainFragment extends Fragment {
 					return false;
 			}
 		});
+		mList.setOnScrollListener(new OnScrollListener() {
+			
+			@Override
+			public void onScrollStateChanged(AbsListView arg0, int arg1) {}
+			
+			@Override
+			public void onScroll(AbsListView list, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				if(mPosition != firstVisibleItem) {
+					mPosition = firstVisibleItem;
+					if(mOnPositionChangedListener != null && mOnPositionChangedListener.get() != null) {
+						mOnPositionChangedListener.get().onPositionChanged(mPosition);
+					}
+				}
+			}
+		});
 
 		return view;
 	}
@@ -100,6 +121,10 @@ public class MainFragment extends Fragment {
 			fragment.show(getActivity().getSupportFragmentManager(), "yehi");
 		}
 	};
+	
+	public void setOnPositionChangedListener(OnPositionChanged listener) {
+		mOnPositionChangedListener = new WeakReference<OnPositionChanged>(listener);
+	}
 
 	public void setViewType(VIEW_TYPE type) {
 		mViewType = type;
@@ -135,11 +160,17 @@ public class MainFragment extends Fragment {
 	}
 
 	public int getPosition() {
-		return mList.getFirstVisiblePosition();
+		return mPosition;
 	}
 
 	public void setPosition(int position) {
 		mList.setSelection(position);
+	}
+	
+	public void setPosition(String key) {
+		if(mTehilimGenerator != null) {
+			setPosition(mTehilimGenerator.getKeys().indexOf(key));
+		}
 	}
 
 	public TehilimGenerator getTehilimGenerator() {
