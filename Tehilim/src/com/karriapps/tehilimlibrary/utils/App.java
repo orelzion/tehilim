@@ -34,13 +34,12 @@ public class App extends Application {
 	
 	private static App _app;
 	private boolean portraitOnly, first, rtl_fix, keepAwake;
-	private int fontSize;
 	private THEME theme;
 	private LANGUAGES lang;
 	private FONTS font;
 	private SILENT_MODE silent;
 	private READING_MODE read;
-	private HashMap<Integer, Boolean> favorites;
+	private Map<Integer, Boolean> favorites;
 	private final String FAVORITES_FILE = "favorites.json";
 	private PsalmsHelper mPsalms;
 	
@@ -137,7 +136,7 @@ public class App extends Application {
 	}
 	
 	public LANGUAGES getLang() {
-		lang = LANGUAGES.values()[getSharedPreferences().getInt(getString(R.string.lang_key), LANGUAGES.ENGLISH.ordinal())];;
+		lang = LANGUAGES.values()[getSharedPreferences().getInt(getString(R.string.lang_key), LANGUAGES.DEFAULT.ordinal())];;
 		return lang; 
 	}
 	
@@ -300,7 +299,7 @@ public class App extends Application {
 				l = new Locale("iw");
 				break;
 			case DEFAULT:
-				l = getLocale();
+				l = Locale.getDefault();
 				break;
 		}
 		

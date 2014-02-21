@@ -25,7 +25,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AbsListView.OnScrollListener;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements OnScrollListener {
 
 	public enum VIEW_TYPE {TEHILIM_BOOK, OTHER};
 
@@ -39,9 +39,9 @@ public class MainFragment extends Fragment {
 
 	private TehilimAdapter mAdapter;
 	private ScaleGestureDetector mScaleDetector;
-	
+
 	private WeakReference<OnPositionChanged> mOnPositionChangedListener;
-	
+
 	private int mPosition;
 
 	@Override
@@ -67,13 +67,11 @@ public class MainFragment extends Fragment {
 			@Override
 			public boolean onScale(ScaleGestureDetector detector) {
 				float factor = detector.getScaleFactor();
-				//				if(Math.abs((detector.getCurrentSpan() - detector.getPreviousSpan())) >= 30) {
 				if(factor >= 1) {
 					App.getInstance().setFontSize(App.getInstance().getFontSize() + 0.5f);
 				} else {
 					App.getInstance().setFontSize(App.getInstance().getFontSize() - 0.5f);
 				}
-				//				}
 				mAdapter.notifyDataSetChanged();
 				return false;
 			}
@@ -91,24 +89,35 @@ public class MainFragment extends Fragment {
 					return false;
 			}
 		});
-		mList.setOnScrollListener(new OnScrollListener() {
-			
-			@Override
-			public void onScrollStateChanged(AbsListView arg0, int arg1) {}
-			
-			@Override
-			public void onScroll(AbsListView list, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-				if(mPosition != firstVisibleItem) {
-					mPosition = firstVisibleItem;
-					if(mOnPositionChangedListener != null && mOnPositionChangedListener.get() != null) {
-						mOnPositionChangedListener.get().onPositionChanged(mPosition);
-					}
-				}
-			}
-		});
+		mList.setOnScrollListener(this);
 
 		return view;
 	}
+
+	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+		if(mPosition != firstVisibleItem) {
+			mPosition = firstVisibleItem;
+			if(mOnPositionChangedListener != null && mOnPositionChangedListener.get() != null) {
+				mOnPositionChangedListener.get().onPositionChanged(mPosition);
+			}
+			if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK) && getTehilimGenerator() instanceof PsalmsGenerator) {
+
+				if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
+					mUpperButton.setVisibility(View.VISIBLE);
+				} else
+					mUpperButton.setVisibility(View.GONE);
+
+				if(getTehilimGenerator().getLastChapterKeyPosition() <= 
+						(firstVisibleItem + (visibleItemCount - 1))){
+					mBottomButton.setVisibility(View.VISIBLE);
+				} else
+					mBottomButton.setVisibility(View.GONE);
+
+			}
+		}
+	};
+
+	public void onScrollStateChanged(AbsListView view, int scrollState) {};
 
 	OnClickListener mOnClickListner = new OnClickListener() {
 
@@ -121,7 +130,7 @@ public class MainFragment extends Fragment {
 			fragment.show(getActivity().getSupportFragmentManager(), "yehi");
 		}
 	};
-	
+
 	public void setOnPositionChangedListener(OnPositionChanged listener) {
 		mOnPositionChangedListener = new WeakReference<OnPositionChanged>(listener);
 	}
@@ -129,31 +138,7 @@ public class MainFragment extends Fragment {
 	public void setViewType(VIEW_TYPE type) {
 		mViewType = type;
 
-		if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
-			mList.setOnScrollListener(new OnScrollListener() {
-
-				@Override
-				public void onScrollStateChanged(AbsListView view, int scrollState) {}
-
-				@Override
-				public void onScroll(AbsListView view, int firstVisibleItem,
-						int visibleItemCount, int totalItemCount) {
-
-					if(getTehilimGenerator() instanceof PsalmsGenerator) {
-						if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
-							mUpperButton.setVisibility(View.VISIBLE);
-						} else
-							mUpperButton.setVisibility(View.GONE);
-
-						if(getTehilimGenerator().getLastChapterKeyPosition() <= 
-								(firstVisibleItem + (visibleItemCount - 1))){
-							mBottomButton.setVisibility(View.VISIBLE);
-						} else
-							mBottomButton.setVisibility(View.GONE);
-					}
-				}
-			});
-		} else {
+		if(!mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
 			mUpperButton.setVisibility(View.GONE);
 			mBottomButton.setVisibility(View.GONE);
 		}
@@ -166,7 +151,7 @@ public class MainFragment extends Fragment {
 	public void setPosition(int position) {
 		mList.setSelection(position);
 	}
-	
+
 	public void setPosition(String key) {
 		if(mTehilimGenerator != null) {
 			setPosition(mTehilimGenerator.getKeys().indexOf(key));

@@ -32,8 +32,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 	private MainFragment mMainFragment;
-
-//	private SearchView mSearchView;
+	
+	private TehilimGenerator mGenerator;
 
 	private ExtendedSpinner mChaptersSpinner;
 	private List<String> mChapters = new ArrayList<String>();
@@ -51,16 +51,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment)
 				getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+		
+		mMainFragment = (MainFragment)
+				getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+		
+		mMainFragment.setOnPositionChangedListener(this);
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(
 				R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-
-		mMainFragment = (MainFragment)
-				getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-		
-		mMainFragment.setOnPositionChangedListener(this);
 
 		if(savedInstanceState != null) {
 			mTitle = savedInstanceState.getString(TITLE_KEY);
@@ -140,6 +140,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 	}
 
 	private void setGenerator(final TehilimGenerator generator) {
+		mGenerator = generator;
 		generator.generate();
 		mMainFragment.setTehilimGenerator(generator);
 		if(generator instanceof PsalmsGenerator)
@@ -148,19 +149,20 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 			mMainFragment.setViewType(VIEW_TYPE.OTHER);
 		mChapters = generator.getKeys();
 		setSpinner();
-		mMainFragment.getView().postDelayed(new Runnable() {
-			
-			@Override
-			public void run() {
-				mChaptersSpinner.setSelection((generator).getFirstChapterKeyPosition(), true, true);
-			}
-		}, 100);
 	}
 	
 	private void setSpinner() {
 		if(mChaptersSpinner != null) {
 			mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mChapters);
 			mChaptersSpinner.setAdapter(mSpinnerAdapter);
+			mMainFragment.getView().postDelayed(new Runnable() {
+				
+				@Override
+				public void run() {
+					if(mGenerator != null)
+						mChaptersSpinner.setSelection((mGenerator).getFirstChapterKeyPosition(), true, true);
+				}
+			}, 150);
 		}
 	}
 	
