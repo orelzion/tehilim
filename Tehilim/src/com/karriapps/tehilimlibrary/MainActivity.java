@@ -11,7 +11,9 @@ import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilimlibrary.utils.App;
 import com.karriapps.tehilimlibrary.utils.Tools;
+import com.karriapps.tehilimlibrary.utils.App.THEME;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +22,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,17 +40,23 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 	private ExtendedSpinner mChaptersSpinner;
 	private List<String> mChapters = new ArrayList<String>();
-	ArrayAdapter<String> mSpinnerAdapter;
+	private ArrayAdapter<String> mSpinnerAdapter;
 
 	private String mTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		if(App.getInstance().getAppTheme().equals(THEME.DARK)) {
+			setTheme(R.style.AppBaseThemeDark);
+		} else {
+			setTheme(R.style.AppBaseTheme);
+		}
+		
 		super.onCreate(savedInstanceState);
 
 		App.getInstance().changeLocale();
-
 		setContentView(R.layout.activity_main);
+		
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment)
 				getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -103,6 +112,17 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 		}
 		return super.onCreateOptionsMenu(menu);
 	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		if(item.getTitle().equals(getString(R.string.action_about))) {
+			new AboutFragment().show(getSupportFragmentManager(), "about");
+		} else if (item.getTitle().equals(getString(R.string.action_settings))) {
+			startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
+		}
+		
+		return false;
+	};
 	
 	OnQueryTextListener onQuery = new OnQueryTextListener() {
 

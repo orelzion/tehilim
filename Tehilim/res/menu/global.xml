@@ -28,5 +28,5 @@
         android:icon="?attr/action_search_icon"
         tehilim:actionViewClass="android.support.v7.widget.SearchView"
         android:title="@string/action_search"/>            
- -->
+  -->
 </menu>

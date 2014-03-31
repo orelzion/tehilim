@@ -1,6 +1,7 @@
 package com.karriapps.tehilimlibrary;
 
 import java.lang.ref.WeakReference;
+import java.util.Calendar;
 
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
@@ -189,7 +190,7 @@ public class MainFragment extends Fragment implements OnScrollListener {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-
+			
 			ViewHolder holder;
 
 			if(convertView == null) {

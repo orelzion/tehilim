@@ -1,0 +1,60 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <PreferenceCategory android:title="@string/appearance_title" >
+        <ListPreference
+            android:dialogTitle="@string/choose_font"
+            android:key="@string/font_key"
+            android:title="@string/choose_font" />
+
+        <CheckBoxPreference
+            android:key="@string/portrait_key"
+            android:summary="@string/keep_portrait_description"
+            android:title="@string/keep_portrait" />
+
+        <ListPreference
+            android:dialogTitle="@string/themes_title"
+            android:entries="@array/themes_values"
+            android:key="@string/theme_key"
+            android:title="@string/themes_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/general_title" >
+        <ListPreference
+            android:dialogTitle="@string/choose_lang"
+            android:key="@string/lang_key"
+            android:entries="@array/language_values"
+            android:title="@string/choose_lang" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/rtl_key"
+            android:summary="@string/rtl_description"
+            android:title="@string/rtl_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/portrait_key"
+            android:summary="@string/screen_on_description"
+            android:title="@string/screen_on" />
+
+        <ListPreference
+            android:dialogTitle="@string/silent_title"
+            android:key="@string/silent_key"
+            android:entries="@array/silent_mode_valuse"
+            android:title="@string/silent_title" />
+        <ListPreference
+            android:dialogTitle="@string/reading_mode"
+            android:key="@string/read_key"
+            android:summary=""
+            android:entries="@array/reading_mode_values"
+            android:title="@string/reading_mode" />
+        <!--
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="mizmor"
+            android:summary="@string/custom_description"
+            android:title="@string/customChapters" />
+        -->
+    </PreferenceCategory>
+
+</PreferenceScreen>

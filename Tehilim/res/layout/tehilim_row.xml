@@ -48,7 +48,6 @@
     android:gravity="start"
     android:text="@string/yehiBefore"
     android:padding="10dp"
-    android:textColor="@android:color/black"
     />
 
 </LinearLayout>

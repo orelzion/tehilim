@@ -30,7 +30,7 @@
         <item name="action_favorite_icon">@drawable/favorite_button_dark</item>
         <item name="ic_launcher">@drawable/ic_launcher_dark</item>
         <item name="text_color">@android:color/white</item>
-        <item name="side_background">@drawable/tiled_background_dark</item>
+        <item name="side_background">@android:color/darker_gray</item>
         <item name="choose_items_icon">@drawable/ic_action_storage_dark</item>
         <item name="android:actionBarItemBackground">@drawable/selectable_background_tehilim_dark</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Tehilim_dark</item>
@@ -63,7 +63,7 @@
         <item name="action_favorite_icon">@drawable/favorite_button</item>
         <item name="ic_launcher">@drawable/ic_launcher</item>
         <item name="text_color">@android:color/black</item>
-        <item name="side_background">@drawable/tiled_background</item>
+        <item name="side_background">@android:color/background_light</item>
     </style>
 
     <style name="ActionBar.Solid.Tehilim" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">

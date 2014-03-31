@@ -51,7 +51,7 @@ public class PsalmsGenerator extends TehilimGenerator {
 					String kufLetter = Tools.getKufYudLetter(j);
 					perek = new Perek(
 							119,
-							String.format(context.getString(R.string.chapterKuf), chapterTitle, kufLetter), 
+							context.getString(R.string.chapterKuf, chapterTitle, kufLetter), 
 							App.getInstance().getPsalms().getKufYudTetText(j), 
 							true, 
 							EXPANDANBLE.NONE);
