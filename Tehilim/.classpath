@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="com/karriapps/tehilimlibrary/Tehilim.java|com/karriapps/tehilimlibrary/OnTehilimUpdated.java|com/karriapps/tehilimlibrary/IFragmentViewCreated.java" kind="src" path="src"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Zmanim"/>
+	<classpathentry kind="lib" path="/android-support-v7-appcompat/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="/android-support-v7-appcompat/libs/android-support-v7-appcompat.jar"/>
+	<classpathentry kind="lib" path="libs/joda-time-2.2.jar"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
