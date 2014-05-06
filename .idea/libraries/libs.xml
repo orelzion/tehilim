@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Tehilim/libs/joda-time-2.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/libs/joda-time-2.2.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat/libs/android-support-v7-appcompat.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat/libs/android-support-v4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

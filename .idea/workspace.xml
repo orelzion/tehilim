@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayoutPreviewToolWindow">
+    <option name="state">
+      <GlobalState />
+    </option>
+  </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Tehilim.Widget</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b532a060-0775-49ad-8341-279153fc3f22" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/.classpath" afterPath="$PROJECT_DIR$/Tehilim/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/AboutFragment.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/AboutFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Tehilim/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/NavigationDrawerFragment.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/NavigationDrawerFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/PreferencesActivity.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/PreferencesActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/TehilimGenerator.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/TehilimGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/layout/about.xml" afterPath="$PROJECT_DIR$/Tehilim/res/layout/about.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values/attr.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values/attr.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/project.properties" afterPath="$PROJECT_DIR$/Tehilim/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values/strings.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values-v14/style.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values-v14/style.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml" afterPath="$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values/tfilot.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values/tfilot.xml" />
+    </list>
+    <ignored path="tehilim.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="tehilim" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="YahrzeitGenerator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="11" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3762">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="179" column="33" selection-start="5383" selection-end="5383" vertical-scroll-proportion="0.42062193" vertical-offset="2479" max-vertical-offset="3780">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="245" column="74" selection-start="9397" selection-end="9397" vertical-scroll-proportion="0.0" vertical-offset="3367" max-vertical-offset="3978">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="28" selection-start="3606" selection-end="3616" vertical-scroll-proportion="0.0" vertical-offset="723" max-vertical-offset="2376">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="37" selection-start="3512" selection-end="3512" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="2322">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" />
+        <option value="$PROJECT_DIR$/Tehilim/res/layout/about.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/AboutFragment.java" />
+        <option value="$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="reference.settingsdialog.project.gradle" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="true" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus7" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Tehilim/res/layout-iw" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android Application.Tehilim">
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Tehilim" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="Tehilim" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Android Application.Tehilim" />
+    </list>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b532a060-0775-49ad-8341-279153fc3f22" name="Default" comment="" />
+      <created>1399143179294</created>
+      <updated>1399143179294</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.50026953" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33158997" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3294979" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="242" column="46" selection-start="9190" selection-end="9190" vertical-scroll-proportion="0.0" vertical-offset="4035" max-vertical-offset="4734">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="7" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="2268" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="65" selection-start="7041" selection-end="7041" vertical-scroll-proportion="0.0" vertical-offset="3996" max-vertical-offset="4626">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/style.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="1674" selection-end="1674" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="71" selection-start="6883" selection-end="6883" vertical-scroll-proportion="0.0" vertical-offset="3942" max-vertical-offset="4104">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="3888">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="5724">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#2258#2290#0" expanded="true" />
+            <element signature="e#2489#2516#0" expanded="true" />
+            <element signature="e#2698#2727#0" expanded="true" />
+            <element signature="e#2920#2950#0" expanded="true" />
+            <element signature="e#3079#3107#0" expanded="true" />
+            <element signature="e#3270#3298#0" expanded="true" />
+            <element signature="e#3398#3430#0" expanded="true" />
+            <element signature="e#3522#3554#0" expanded="true" />
+            <element signature="e#3663#3692#0" expanded="true" />
+            <element signature="e#3824#3852#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4125#4154#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4606#4607#0" expanded="true" />
+            <element signature="e#4667#4668#0" expanded="true" />
+            <element signature="e#4714#4715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="5724">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#2258#2290#0" expanded="true" />
+            <element signature="e#2489#2516#0" expanded="true" />
+            <element signature="e#2698#2727#0" expanded="true" />
+            <element signature="e#2920#2950#0" expanded="true" />
+            <element signature="e#3079#3107#0" expanded="true" />
+            <element signature="e#3270#3298#0" expanded="true" />
+            <element signature="e#3398#3430#0" expanded="true" />
+            <element signature="e#3522#3554#0" expanded="true" />
+            <element signature="e#3663#3692#0" expanded="true" />
+            <element signature="e#3824#3852#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4125#4154#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4606#4607#0" expanded="true" />
+            <element signature="e#4667#4668#0" expanded="true" />
+            <element signature="e#4714#4715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3300">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="953" max-vertical-offset="1920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="4770">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#2258#2290#0" expanded="true" />
+            <element signature="e#2489#2516#0" expanded="true" />
+            <element signature="e#2698#2727#0" expanded="true" />
+            <element signature="e#2920#2950#0" expanded="true" />
+            <element signature="e#3079#3107#0" expanded="true" />
+            <element signature="e#3270#3298#0" expanded="true" />
+            <element signature="e#3398#3430#0" expanded="true" />
+            <element signature="e#3522#3554#0" expanded="true" />
+            <element signature="e#3663#3692#0" expanded="true" />
+            <element signature="e#3824#3852#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4125#4154#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4606#4607#0" expanded="true" />
+            <element signature="e#4667#4668#0" expanded="true" />
+            <element signature="e#4714#4715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="3600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="8" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="8" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/Tehilim.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="618" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="551" selection-end="551" vertical-scroll-proportion="0.3546798" vertical-offset="126" max-vertical-offset="5832">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#2258#2290#0" expanded="true" />
+            <element signature="e#2489#2516#0" expanded="true" />
+            <element signature="e#2698#2727#0" expanded="true" />
+            <element signature="e#2920#2950#0" expanded="true" />
+            <element signature="e#3079#3107#0" expanded="true" />
+            <element signature="e#3270#3298#0" expanded="true" />
+            <element signature="e#3398#3430#0" expanded="true" />
+            <element signature="e#3522#3554#0" expanded="true" />
+            <element signature="e#3663#3692#0" expanded="true" />
+            <element signature="e#3824#3852#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4125#4154#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4606#4607#0" expanded="true" />
+            <element signature="e#4667#4668#0" expanded="true" />
+            <element signature="e#4714#4715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="72" selection-start="677" selection-end="677" vertical-scroll-proportion="0.21070234" vertical-offset="0" max-vertical-offset="598" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar!/javax/xml/namespace/QName.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="162" selection-end="162" vertical-scroll-proportion="0.15410958" vertical-offset="0" max-vertical-offset="684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/NavigationDrawerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="40" selection-start="738" selection-end="738" vertical-scroll-proportion="0.27422002" vertical-offset="157" max-vertical-offset="9072" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/drawable-mdpi/cab_background_bottom_tehilim.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/drawable-mdpi/navigation_expand_dark.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/drawable-mdpi/navigation_expand_light.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4518" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat/res/values/themes.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.1674876" vertical-offset="2538" max-vertical-offset="3582" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="28" selection-start="3606" selection-end="3616" vertical-scroll-proportion="0.0" vertical-offset="723" max-vertical-offset="2376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/AboutFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="61" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.5286416" vertical-offset="1063" max-vertical-offset="1890">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/layout-iw/tehilim_row.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state line="24" column="34" selection-start="952" selection-end="952" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="37" selection-start="3512" selection-end="3512" vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="2322">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/layout/about.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="45" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.6099656" vertical-offset="779" max-vertical-offset="2178">
+          <folding>
+            <element signature="e#2438#2458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/style.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="69" selection-start="1743" selection-end="1743" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="2700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="245" column="74" selection-start="9397" selection-end="9397" vertical-scroll-proportion="0.0" vertical-offset="3367" max-vertical-offset="3978">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/TehilimGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="39" selection-start="572" selection-end="572" vertical-scroll-proportion="0.33224222" vertical-offset="67" max-vertical-offset="954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="11" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3762">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="33" selection-start="5383" selection-end="5383" vertical-scroll-proportion="0.42062193" vertical-offset="2479" max-vertical-offset="3780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Android (appcompat)|Android</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>appcompat</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>Android API 19 Platform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>dexedLibs</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

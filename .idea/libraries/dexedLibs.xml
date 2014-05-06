@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/joda-time-2.2-130d18794e7b619bae4117d57efe6f75.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/signpost-commonshttp4-1.2.1.2-0019cdeb293b798e5e70c7fa722ad7cd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/android-support-v7-appcompat-681eb7598b22611ae3b1f3278c4f7bab.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/android-support-v13-f8c493d5a780acaddee075164613098d.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/signpost-core-1.2.1.2-d8fd820994e0a16326deab7c7a29a200.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/joda-time-2.2-javadoc-a012cb7319dbdea25ce9838904c74d7e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/uservoicesdk-84e367afa2c4efc8fb9582fdd6a77790.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Tehilim/bin/dexedLibs/commons-codec-1.8-6ac7756f511b50507713e7d967dcce3f.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
