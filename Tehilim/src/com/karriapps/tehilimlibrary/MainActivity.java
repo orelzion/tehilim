@@ -14,7 +14,9 @@ import com.karriapps.tehilimlibrary.utils.Tools;
 import com.karriapps.tehilimlibrary.utils.App.THEME;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -35,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 	private MainFragment mMainFragment;
-	
+
 	private TehilimGenerator mGenerator;
 
 	private ExtendedSpinner mChaptersSpinner;
@@ -46,24 +48,25 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		if(App.getInstance().getAppTheme().equals(THEME.DARK)) {
 			setTheme(R.style.AppBaseThemeDark);
 		} else {
 			setTheme(R.style.AppBaseTheme);
 		}
-		
+
 		super.onCreate(savedInstanceState);
 
 		App.getInstance().changeLocale();
 		setContentView(R.layout.activity_main);
-		
+
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment)
 				getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-		
+
 		mMainFragment = (MainFragment)
 				getSupportFragmentManager().findFragmentById(R.id.main_fragment);
-		
+
 		mMainFragment.setOnPositionChangedListener(this);
 
 		// Set up the drawer.
@@ -80,6 +83,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 				setGenerator(generator);
 				mMainFragment.setPosition(savedInstanceState.getInt(CURRENT_POSITION_KEY));
 			}
+		}
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if(App.getInstance().isSettingsChanged()) {
+			App.getInstance().setSettingsChanged(false);
+			if(Build.VERSION.SDK_INT > 10)
+				recreate();
 		}
 	}
 
@@ -112,18 +125,20 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 		}
 		return super.onCreateOptionsMenu(menu);
 	}
-	
+
 	public boolean onOptionsItemSelected(MenuItem item) {
-		
+
 		if(item.getTitle().equals(getString(R.string.action_about))) {
 			new AboutFragment().show(getSupportFragmentManager(), "about");
 		} else if (item.getTitle().equals(getString(R.string.action_settings))) {
-			startActivity(new Intent(MainActivity.this, PreferencesActivity.class));
+			Intent preference = new Intent(MainActivity.this, PreferencesActivity.class);
+			preference.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(preference);
 		}
-		
+
 		return false;
 	};
-	
+
 	OnQueryTextListener onQuery = new OnQueryTextListener() {
 
 		@Override
@@ -161,7 +176,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
 	private void setGenerator(final TehilimGenerator generator) {
 		mGenerator = generator;
-		generator.generate();
+        if(generator.getList().size() <= 0)
+		    generator.generate();
 		mMainFragment.setTehilimGenerator(generator);
 		if(generator instanceof PsalmsGenerator)
 			mMainFragment.setViewType(VIEW_TYPE.TEHILIM_BOOK);
@@ -170,13 +186,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 		mChapters = generator.getKeys();
 		setSpinner();
 	}
-	
+
 	private void setSpinner() {
 		if(mChaptersSpinner != null) {
 			mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mChapters);
 			mChaptersSpinner.setAdapter(mSpinnerAdapter);
 			mMainFragment.getView().postDelayed(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					if(mGenerator != null)
@@ -185,12 +201,12 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 			}, 150);
 		}
 	}
-	
+
 	OnItemSelectedListener mOnSpinnerItemSelect = new OnItemSelectedListener() {
-		
+
 		@Override
 		public void onNothingSelected(AdapterView<?> adapter) {}
-		
+
 		@Override
 		public void OnItemSelected(AdapterView<?> adapter, View view, int position,
 				long itemID, boolean byUser) {

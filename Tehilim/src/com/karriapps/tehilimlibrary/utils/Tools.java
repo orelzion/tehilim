@@ -164,6 +164,35 @@ public class Tools {
 		}
 	}
 	
+	public static char getGimatriya(int gimatriya, boolean sofi) {
+		switch (gimatriya) {
+			case 1: return '\u05D0';
+			case 2: return '\u05D1';
+			case 3: return '\u05D2';
+			case 4: return '\u05D3';
+			case 5: return '\u05D4';
+			case 6: return '\u05D5';
+			case 7: return '\u05D6';
+			case 8: return '\u05D7';
+			case 9: return '\u05D8';
+			case 10: return '\u05D9';
+			case 20: return sofi ? '\u05DA' : '\u05DB';
+			case 30: return '\u05DC';
+			case 40: return sofi ? '\u05DD' : '\u05DE';
+			case 50: return sofi ? '\u05DF' : '\u05E0';
+			case 60: return '\u05E1';
+			case 70: return '\u05E2';
+			case 80: return sofi ? '\u05E3' : '\u05E4';
+			case 90: return sofi ? '\u05E6' : '\u05E6';
+			case 100: return '\u05E7';
+			case 200: return '\u05E8';
+			case 300: return '\u05E9';
+			case 400: return '\u05EA';
+			
+			default: return 'a';
+		}
+	}
+	
     public static int getCharVal(char letter) {
         switch(letter) {
                 case 'א': return 1;
@@ -482,4 +511,8 @@ public class Tools {
 		         }
 		      };
 		   }
+
+	public static Integer getCharVal(String string) {
+		return getCharVal(string.charAt(0));
+	}
 }

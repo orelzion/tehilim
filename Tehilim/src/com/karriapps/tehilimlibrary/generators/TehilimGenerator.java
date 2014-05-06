@@ -14,6 +14,11 @@ public abstract class TehilimGenerator implements ITehilimGenerator, Parcelable 
 	
 	protected Map<String, Perek> mPsalmsList;
 	protected List<String> mKeys;
+	
+	public TehilimGenerator() {
+		mPsalmsList = new HashMap<String, Perek>();
+		mKeys = new ArrayList<String>();
+	}
 
 	@Override
 	public abstract Map<String, Perek> generate();

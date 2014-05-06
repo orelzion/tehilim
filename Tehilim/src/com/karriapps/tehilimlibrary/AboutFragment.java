@@ -1,7 +1,5 @@
 package com.karriapps.tehilimlibrary;
 
-import com.uservoice.uservoicesdk.UserVoice;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -78,7 +76,7 @@ public class AboutFragment extends DialogFragment {
 			} else if(v.equals(mRateButton)) {
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getActivity().getPackageName())));
 			} else if(v.equals(mFeedbackButton)) {
-				UserVoice.launchForum(getActivity());
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://easytehilim.ideascale.com")));
 			} else if(v.equals(mVersionButton)) {
 				if(mVersionInfo.getVisibility() == View.GONE)
 					mVersionInfo.setVisibility(View.VISIBLE);

@@ -24,6 +24,7 @@ public class App extends Application {
 	private Map<Integer, Boolean> favorites;
 //	private final String FAVORITES_FILE = "favorites.json";
 	private PsalmsHelper mPsalms;
+	private boolean mSettingsChanged;
 	
 	public App(){
 		super();
@@ -114,7 +115,8 @@ public class App extends Application {
 	}
 	
 	public LANGUAGES getLang() {
-		return LANGUAGES.valueOf(getSharedPreferences().getString(getString(R.string.lang_key), LANGUAGES.DEFAULT.name()));
+		int ordinal = Integer.parseInt(getSharedPreferences().getString(getString(R.string.lang_key), LANGUAGES.DEFAULT.ordinal() + ""));
+		return LANGUAGES.values()[ordinal];
 	}
 	
 	public FONTS getFont() {
@@ -160,6 +162,14 @@ public class App extends Application {
 		return new DateTime();
 	}
 	
+	public boolean isSettingsChanged() {
+		return mSettingsChanged;
+	}
+
+	public void setSettingsChanged(boolean mSettingsChanged) {
+		this.mSettingsChanged = mSettingsChanged;
+	}
+
 	/**
 	 * Check if a chapter is favorite
 	 * @param chapterID

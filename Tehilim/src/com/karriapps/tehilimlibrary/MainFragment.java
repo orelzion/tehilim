@@ -6,6 +6,7 @@ import java.util.Calendar;
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilimlibrary.utils.App;
+import com.karriapps.tehilimlibrary.utils.App.THEME;
 import com.karriapps.tehilimlibrary.utils.TehilimTextView;
 
 import android.content.Context;
@@ -23,220 +24,234 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.AbsListView.OnScrollListener;
 
 public class MainFragment extends Fragment implements OnScrollListener {
 
-	public enum VIEW_TYPE {TEHILIM_BOOK, OTHER};
+    private ListView mList;;
+    private Button mUpperButton;
+    OnClickListener mOnClickListner = new OnClickListener() {
 
-	private ListView mList;
-	private Button mUpperButton;
-	private Button mBottomButton;
+        @Override
+        public void onClick(View v) {
+            YehiRazonFragment fragment = new YehiRazonFragment();
+            Bundle b = new Bundle();
+            b.putBoolean(YehiRazonFragment.TYPE_KEY, v.equals(mUpperButton));
+            fragment.setArguments(b);
+            fragment.show(getActivity().getSupportFragmentManager(), "yehi");
+        }
+    };
+    private Button mBottomButton;
 
-	private VIEW_TYPE mViewType;
+    private VIEW_TYPE mViewType;
 
-	private TehilimGenerator mTehilimGenerator;
+    private TehilimGenerator mTehilimGenerator;
 
-	private TehilimAdapter mAdapter;
-	private ScaleGestureDetector mScaleDetector;
+    private TehilimAdapter mAdapter;
+    private ScaleGestureDetector mScaleDetector;
 
-	private WeakReference<OnPositionChanged> mOnPositionChangedListener;
+    private WeakReference<OnPositionChanged> mOnPositionChangedListener;
 
-	private int mPosition;
+    private int mPosition;
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-		View view = inflater.inflate(R.layout.tehilim, container, false);
+        View view = inflater.inflate(R.layout.tehilim, container, true);
 
-		mList = (ListView)view.findViewById(R.id.list);
-		mUpperButton = (Button)view.findViewById(R.id.upperJumpTo);
-		mBottomButton = (Button)view.findViewById(R.id.bottomJumpTo);
-		mUpperButton.setOnClickListener(mOnClickListner);
-		mBottomButton.setOnClickListener(mOnClickListner);
+        mList = (ListView)view.findViewById(R.id.list);
+        mUpperButton = (Button)view.findViewById(R.id.upperJumpTo);
+        mBottomButton = (Button)view.findViewById(R.id.bottomJumpTo);
+        mUpperButton.setOnClickListener(mOnClickListner);
+        mBottomButton.setOnClickListener(mOnClickListner);
 
-		mScaleDetector = new ScaleGestureDetector(getActivity(), new OnScaleGestureListener() {
-			@Override
-			public void onScaleEnd(ScaleGestureDetector detector) {
-			}
-			@Override
-			public boolean onScaleBegin(ScaleGestureDetector detector) {
-				return true;
-			}
-			@Override
-			public boolean onScale(ScaleGestureDetector detector) {
-				float factor = detector.getScaleFactor();
-				if(factor >= 1) {
-					App.getInstance().setFontSize(App.getInstance().getFontSize() + 0.5f);
-				} else {
-					App.getInstance().setFontSize(App.getInstance().getFontSize() - 0.5f);
-				}
-				mAdapter.notifyDataSetChanged();
-				return false;
-			}
-		});
+        mScaleDetector = new ScaleGestureDetector(getActivity(), new OnScaleGestureListener() {
+            @Override
+            public void onScaleEnd(ScaleGestureDetector detector) {
+            }
+            @Override
+            public boolean onScaleBegin(ScaleGestureDetector detector) {
+                return true;
+            }
+            @Override
+            public boolean onScale(ScaleGestureDetector detector) {
+                float factor = detector.getScaleFactor();
+                if(factor >= 1) {
+                    App.getInstance().setFontSize(App.getInstance().getFontSize() + 0.5f);
+                } else {
+                    App.getInstance().setFontSize(App.getInstance().getFontSize() - 0.5f);
+                }
+                mAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
 
-		mAdapter = new TehilimAdapter();
-		mList.setAdapter(mAdapter);
-		mList.setOnTouchListener(new OnTouchListener() {
+        mAdapter = new TehilimAdapter();
+        mList.setAdapter(mAdapter);
+        mList.setOnTouchListener(new OnTouchListener() {
 
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				if(event.getPointerCount() == 2)
-					return mScaleDetector.onTouchEvent(event);
-				else 
-					return false;
-			}
-		});
-		mList.setOnScrollListener(this);
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getPointerCount() == 2)
+                    return mScaleDetector.onTouchEvent(event);
+                else
+                    return false;
+            }
+        });
+        mList.setOnScrollListener(this);
 
-		return view;
-	}
+        return view;
+    }
 
-	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-		if(mPosition != firstVisibleItem) {
-			mPosition = firstVisibleItem;
-			if(mOnPositionChangedListener != null && mOnPositionChangedListener.get() != null) {
-				mOnPositionChangedListener.get().onPositionChanged(mPosition);
-			}
-			if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK) && getTehilimGenerator() instanceof PsalmsGenerator) {
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        if(mPosition != firstVisibleItem) {
+            mPosition = firstVisibleItem;
+            if(mOnPositionChangedListener != null && mOnPositionChangedListener.get() != null) {
+                mOnPositionChangedListener.get().onPositionChanged(mPosition);
+            }
+            if(mViewType.equals(VIEW_TYPE.TEHILIM_BOOK) && getTehilimGenerator() instanceof PsalmsGenerator) {
 
-				if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
-					mUpperButton.setVisibility(View.VISIBLE);
-				} else
-					mUpperButton.setVisibility(View.GONE);
+                if(firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition() ){
+                    mUpperButton.setVisibility(View.VISIBLE);
+                } else
+                    mUpperButton.setVisibility(View.GONE);
 
-				if(getTehilimGenerator().getLastChapterKeyPosition() <= 
-						(firstVisibleItem + (visibleItemCount - 1))){
-					mBottomButton.setVisibility(View.VISIBLE);
-				} else
-					mBottomButton.setVisibility(View.GONE);
+                if(getTehilimGenerator().getLastChapterKeyPosition() <=
+                        (firstVisibleItem + (visibleItemCount - 1))){
+                    mBottomButton.setVisibility(View.VISIBLE);
+                } else
+                    mBottomButton.setVisibility(View.GONE);
 
-			}
-		}
-	};
+            }
+        }
+    };
 
-	public void onScrollStateChanged(AbsListView view, int scrollState) {};
+    public void onScrollStateChanged(AbsListView view, int scrollState) {};
 
-	OnClickListener mOnClickListner = new OnClickListener() {
+    public void setOnPositionChangedListener(OnPositionChanged listener) {
+        mOnPositionChangedListener = new WeakReference<OnPositionChanged>(listener);
+    }
 
-		@Override
-		public void onClick(View v) {
-			YehiRazonFragment fragment = new YehiRazonFragment();
-			Bundle b = new Bundle();
-			b.putBoolean(YehiRazonFragment.TYPE_KEY, v.equals(mUpperButton));
-			fragment.setArguments(b);
-			fragment.show(getActivity().getSupportFragmentManager(), "yehi");
-		}
-	};
+    public void setViewType(VIEW_TYPE type) {
+        mViewType = type;
 
-	public void setOnPositionChangedListener(OnPositionChanged listener) {
-		mOnPositionChangedListener = new WeakReference<OnPositionChanged>(listener);
-	}
+        if(!mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
+            mUpperButton.setVisibility(View.GONE);
+            mBottomButton.setVisibility(View.GONE);
+        }
+    }
 
-	public void setViewType(VIEW_TYPE type) {
-		mViewType = type;
+    public int getPosition() {
+        return mPosition;
+    }
 
-		if(!mViewType.equals(VIEW_TYPE.TEHILIM_BOOK)) {
-			mUpperButton.setVisibility(View.GONE);
-			mBottomButton.setVisibility(View.GONE);
-		}
-	}
+    public void setPosition(String key) {
+        if(mTehilimGenerator != null) {
+            setPosition(mTehilimGenerator.getKeys().indexOf(key));
+        }
+    }
 
-	public int getPosition() {
-		return mPosition;
-	}
+    public void setPosition(int position) {
+        mList.setSelection(position);
+    }
 
-	public void setPosition(int position) {
-		mList.setSelection(position);
-	}
+    public TehilimGenerator getTehilimGenerator() {
+        return mTehilimGenerator;
+    }
 
-	public void setPosition(String key) {
-		if(mTehilimGenerator != null) {
-			setPosition(mTehilimGenerator.getKeys().indexOf(key));
-		}
-	}
+    public void setTehilimGenerator(TehilimGenerator mTehilimGenerator) {
+        this.mTehilimGenerator = mTehilimGenerator;
+        mAdapter.notifyDataSetChanged();
+    }
 
-	public TehilimGenerator getTehilimGenerator() {
-		return mTehilimGenerator;
-	}
+    public enum VIEW_TYPE {TEHILIM_BOOK, OTHER}
 
-	public void setTehilimGenerator(TehilimGenerator mTehilimGenerator) {
-		this.mTehilimGenerator = mTehilimGenerator;
-		mAdapter.notifyDataSetChanged();
-	}
+    private class TehilimAdapter extends BaseAdapter {
 
-	private class TehilimAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return getTehilimGenerator() == null ? 0 : getTehilimGenerator().getKeys().size();
+        }
 
-		@Override
-		public int getCount() {
-			return getTehilimGenerator() == null ? 0 : getTehilimGenerator().getKeys().size();
-		}
+        @Override
+        public Perek getItem(int position) {
+            return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position));
+        }
 
-		@Override
-		public Perek getItem(int position) {
-			return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position));
-		}
+        @Override
+        public long getItemId(int position) {
+            if(getTehilimGenerator() instanceof PsalmsGenerator)
+                return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position)).getchapterID();
+            else
+                return 0;
+        }
 
-		@Override
-		public long getItemId(int position) {
-			if(getTehilimGenerator() instanceof PsalmsGenerator)
-				return getTehilimGenerator().getList().get(getTehilimGenerator().getKeys().get(position)).getchapterID();
-			else 
-				return 0;
-		}
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			
-			ViewHolder holder;
+            ViewHolder holder;
 
-			if(convertView == null) {
-				LayoutInflater inflater = (LayoutInflater) App.getInstance().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				holder = new ViewHolder();
-				convertView = inflater.inflate(R.layout.tehilim_row, parent, false);
-				holder.mTextView = (TehilimTextView)convertView.findViewById(R.id.text);
-				holder.mTitleTextView = (TehilimTextView)convertView.findViewById(R.id.title);
-				convertView.setTag(holder);
-			} else {
-				holder = (ViewHolder) convertView.getTag();
-			}
+            if(convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                holder = new ViewHolder();
+                convertView = inflater.inflate(R.layout.tehilim_row, parent, false);
+                holder.mTextView = (TehilimTextView)convertView.findViewById(R.id.text);
+                holder.mTitleTextView = (TehilimTextView)convertView.findViewById(R.id.title);
+                holder.mExpandIcon = (ImageView)convertView.findViewById(R.id.expand);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
 
-			String tText = getItem(position).getTitle();
-			if(!getItem(position).isInScope())
-				tText = "<font color=\"#aaaaaa\">" + tText + "</font>";
-			holder.mTitleTextView.setText(Html.fromHtml(tText));
-			holder.mTitleTextView.setTextSize(App.getInstance().getFontSize());
+            String tText = getItem(position).getTitle();
+            if(!getItem(position).isInScope())
+                tText = "<font color=\"#aaaaaa\">" + tText + "</font>";
+            holder.mTitleTextView.setText(Html.fromHtml(tText));
+            holder.mTitleTextView.setTextSize(App.getInstance().getFontSize());
 
-			//			if(!getItem(position).getExpand().equals(EXPANDANBLE.NONE)) {
-			//				holder.mTitleTextView.setTag(position);
-			//				holder.mTitleTextView.setOnClickListener(new OnClickListener() {
-			//					
-			//					@Override
-			//					public void onClick(View v) {
-			//						int position = v.getTag();
-			//						EXPANDANBLE expand = getItem(position).getExpand();
-			//						if(expand.equals(EXPANDANBLE.EXPAND)) {
-			//							getItem(position)
-			//						}
-			//					}
-			//				});
-			//			}
+            if(!getItem(position).getExpand().equals(Perek.EXPANDANBLE.NONE)) {
+                holder.mTitleTextView.setTag(position);
+                holder.mTitleTextView.setOnClickListener(new OnClickListener() {
 
-			String pText = getItem(position).getText();
-			if(!getItem(position).isInScope())
-				pText = "<font color=\"#aaaaaa\">" + pText + "</font>";
-			holder.mTextView.setText(Html.fromHtml(pText));
-			holder.mTextView.setTextSize(App.getInstance().getFontSize());
+                    @Override
+                    public void onClick(View v) {
+                        int position = (Integer)v.getTag();
+                        Perek.EXPANDANBLE expand = getItem(position).getExpand();
+                        if(expand.equals(Perek.EXPANDANBLE.EXPAND)) {
+                            getItem(position).setExpand(Perek.EXPANDANBLE.COLLAPSE);
+                            notifyDataSetChanged();
+                        } else if(expand.equals(Perek.EXPANDANBLE.COLLAPSE)) {
+                            getItem(position).setExpand(Perek.EXPANDANBLE.EXPAND);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
+            }
 
-			return convertView;
-		}
+            holder.mTextView.setVisibility(getItem(position).getExpand().equals(Perek.EXPANDANBLE.COLLAPSE) ?
+                    View.GONE : View.VISIBLE);
 
-		class ViewHolder {
-			TehilimTextView mTitleTextView;
-			TehilimTextView mTextView;
-		}
-	}
+
+            holder.mExpandIcon.setVisibility(getItem(position).getExpand().equals(Perek.EXPANDANBLE.NONE) ?
+                    View.GONE : View.VISIBLE);
+
+
+            String pText = getItem(position).getText();
+            if(!getItem(position).isInScope())
+                pText = "<font color=\"#aaaaaa\">" + pText + "</font>";
+            holder.mTextView.setText(Html.fromHtml(pText));
+            holder.mTextView.setTextSize(App.getInstance().getFontSize());
+
+            return convertView;
+        }
+
+        class ViewHolder {
+            TehilimTextView mTitleTextView;
+            TehilimTextView mTextView;
+            ImageView mExpandIcon;
+        }
+    }
 }

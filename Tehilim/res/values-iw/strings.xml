@@ -27,6 +27,8 @@
     <string name="navigation_drawer_close">סגור את חלון הניווט</string>
     <string name="chapter">פרק %1$s</string>
     <string name="chapterKuf">פרק %1$s - אות %2$s</string>
+    <string name="kufLetter">אות %1$s</string>
+    <string name="neshma">אותיות נשמה - אות %1$s</string>
     <string name="shiraTitle">פרק שירה</string>
     <string name="shira1Title">פרק ראשון - שירת השמים, הארץ וכל צבאם</string>
     <string name="shira2Title">פרק שני - שיר היום, הלילה, וצבאות השמים</string>
@@ -38,6 +40,9 @@
     <string name="shiraTfilaTitle">תפילה לאחר פרק שירה
 \n<small>מאת הגאון הרב גרוס שליט\"א</small></string>
     <string name="tikunKlaliTitle">תיקון הכללי</string>
+    <string name="yahrzeitTitle">תהילים ליום השנה</string>
+    <string name="yahrzeitPopupTitle">הכנס שם</string>
+    <string name="yahrzeitPopupDescription">הכנס שם בעברית, או הכנס ערכי השם בגימטריה. למשל 1,2,200,5,40 - אברהם</string>
     <string name="tikunBeforeTitle">קודם התיקון יש לומר</string>
     <string name="tikunAfter">תפילה קטנת הכמות ורבת האיכות</string>
     <string name="sickTitle">תפילה לחולה</string>
@@ -50,6 +55,7 @@
     <string name="for_sick">יאמר שם החולה ושם אימו</string>
     <string name="choose_day">בחר יום</string>
     <string name="all_tehilim">כל הפרקים</string>
+    <string name="contact_us">צור קשר</string>
 
     <string-array name="books">
         <item>ספר ראשון</item>
@@ -101,5 +107,18 @@
         <item>פשוט</item>
         <item>עם טעמי המקרא</item>
     </string-array>
+
+    <string name="settings_changed">אתחל את האפליקציה על מנת שהשינויים יכנסו לתוקף</string>
+    <string name="kadishEdotTitle">קדיש - עדות מזרח</string>
+    <string name="kadishSefaradTitle">קדיש - ספרד</string>
+    <string name="kadishAshkenazTitle">קדיש - אשכנז</string>
+    <string name="kadishChabadTitle">
+<![CDATA[
+קדיש - חב"ד (אר"י)
+]]></string>
+    <string name="hashkavaManTitle">השכבה לגבר - עדות מזרח</string>
+    <string name="hashkavaWomanTitle">השכבה לאשה - עדות מזרח</string>
+    <string name="elMaleManTitle">אל מלא רחמים לגבר</string>
+    <string name="elMaleWomanTitle">אל מלא רחמים לאשה</string>
 
 </resources>

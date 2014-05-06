@@ -264,7 +264,8 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 		String[] prayersValues = new String[] {
 				getString(R.string.sickTitle),
 				getString(R.string.shiraTitle),
-				getString(R.string.tikunKlaliTitle)
+				getString(R.string.tikunKlaliTitle),
+				getString(R.string.yahrzeitTitle)
 		};
 		
 		mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
@@ -288,6 +289,11 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 						mGenerator = new TikunKlaliGenerator();
 						title = getString(R.string.tikunKlaliTitle);
 						break;
+					case 3:
+						YahrzeitDialog dialog = new YahrzeitDialog();
+						dialog.setCallback(mCallbacks);
+						dialog.show(getFragmentManager(), "yahrzeit");
+						return;
 				}
 				mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
 			}

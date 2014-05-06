@@ -3,20 +3,33 @@ package com.karriapps.tehilimlibrary;
 import com.karriapps.tehilimlibrary.utils.App;
 import com.karriapps.tehilimlibrary.utils.App.THEME;
 
-import android.content.res.Configuration;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.widget.Toast;
 
 public class PreferencesActivity extends PreferenceActivity{
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		
+	    if (getIntent().hasExtra("bundle") && savedInstanceState == null){
+	        savedInstanceState = getIntent().getExtras().getBundle("bundle");
+	    }
+	    
+		if(App.getInstance().getAppTheme().equals(THEME.DARK)) {
+			setTheme(R.style.AppBaseThemeDark);
+		} else {
+			setTheme(R.style.AppBaseTheme);
+		}
+		
+		super.onCreate(savedInstanceState);
+
 		reDraw();
 	}
 	
@@ -42,11 +55,8 @@ public class PreferencesActivity extends PreferenceActivity{
 			
 			@Override
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
-				if(App.getInstance().getAppTheme().equals(THEME.DARK)) {
-					setTheme(R.style.AppBaseThemeDark);
-				} else {
-					setTheme(R.style.AppBaseTheme);
-				}
+				preference.getSharedPreferences().edit().putString(getString(R.string.theme_key), newValue.toString()).commit();
+				settingsChanged();
 				return true;
 			}
 		});
@@ -54,14 +64,16 @@ public class PreferencesActivity extends PreferenceActivity{
 		ListPreference langPref = (ListPreference)findPreference(getString(R.string.lang_key));
 		String[] lang = new String[App.LANGUAGES.values().length];
 		for(int i = 0; i < lang.length; i++) {
-			lang[i] = App.LANGUAGES.values()[i].name();
+			lang[i] = i +"";
 		}
 		langPref.setEntryValues(lang);
 		langPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			
 			@Override
 			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				preference.getSharedPreferences().edit().putString(getString(R.string.lang_key), newValue.toString()).commit();
 				App.getInstance().changeLocale();
+				settingsChanged();
 				return true;
 			}
 		});
@@ -81,9 +93,16 @@ public class PreferencesActivity extends PreferenceActivity{
 		readingPref.setEntryValues(reading);
 	}
 	
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		// TODO Auto-generated method stub
-		super.onConfigurationChanged(newConfig);
+	private void settingsChanged() {
+		App.getInstance().setSettingsChanged(true);
+		Bundle temp_bundle = new Bundle();
+		onSaveInstanceState(temp_bundle);
+		Intent intent = new Intent(this, PreferencesActivity.class);
+		intent.putExtra("bundle", temp_bundle);
+		startActivity(intent);
+		finish();
+		if(Build.VERSION.SDK_INT < 11) {
+			Toast.makeText(this, getString(R.string.settings_changed), Toast.LENGTH_LONG).show();
+		}
 	}
 }

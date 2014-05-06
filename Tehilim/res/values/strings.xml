@@ -33,6 +33,8 @@
     <string name="navigation_drawer_close">Close Drawer</string>
     <string name="chapter">Chapter %1$s</string>
     <string name="chapterKuf">Chapter %1$s - Letter %2$s</string>
+    <string name="kufLetter">Letter %1$s</string>
+    <string name="neshma">Neshama - Letter %1$s</string>
     <string name="shiraTitle">Perek Shira</string>
     <string name="shira1Title">First Chapter - Of Earth, Heaven and their Hosts</string>
     <string name="shira2Title">Second Chapter - Of Day and Night</string>
@@ -43,6 +45,9 @@
     <string name="shiraSofTitle">The End</string>
     <string name="shiraTfilaTitle">A Prayer after Perek Shira \n<small>Edited by Rabbi Gross</small></string>
     <string name="tikunKlaliTitle">Tikun HaKlali</string>
+    <string name="yahrzeitTitle">Yarzeit Prayer</string>
+    <string name="yahrzeitPopupTitle">Enter a name</string>
+    <string name="yahrzeitPopupDescription">Please enter a name in Hebrew, or Gimatriya values of that name.  For example 1,2,200,5,40 - אברהם</string>
     <string name="tikunBeforeTitle">Before the Tikun one should say</string>
     <string name="tikunAfter">A small but powerful prayer</string>
     <string name="sickTitle">Prayer for the Sick</string>
@@ -55,6 +60,7 @@
     <string name="for_full_tehilim">Should you have finished the whole book of Tehilim say:</string>
     <string name="for_partial_tehilim">Should you havn\'t finished the whole book of Tehlim say:</string>
     <string name="for_sick">Please say the sick\'s name and Mother\'s name</string>
+    <string name="contact_us">Contact Us</string>
 
     <string-array name="books">
         <item>First Book</item>
@@ -106,5 +112,16 @@
         <item>Simple</item>
         <item>Advanced (With Taamey HaMikra)</item>
     </string-array>
+
+    <string name="settings_changed">Restart the app for the changes to take effect</string>
+    <string name="kadishEdotTitle">Kadish - Edot Mizrach</string>
+    <string name="kadishSefaradTitle">Kadish - Sefarad</string>
+    <string name="kadishAshkenazTitle">Kadish - Ashkenaz</string>
+    <string name="kadishChabadTitle">Kadish - Chabad (Ari)</string>
+    
+    <string name="hashkavaManTitle">Hashkava for man - Edot Mizrach</string>
+    <string name="hashkavaWomanTitle">Hashkava for woman - Edot Mizrahc</string>
+    <string name="elMaleManTitle">El Male Rachamim - For Man</string>
+    <string name="elMaleWomanTitle">El Male Rachamim - For Woman</string>
 
 </resources>
