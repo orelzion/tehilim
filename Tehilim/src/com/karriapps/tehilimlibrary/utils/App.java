@@ -1,22 +1,24 @@
 package com.karriapps.tehilimlibrary.utils;
 
-import java.util.Locale;
-import java.util.Map;
-
-import org.joda.time.DateTime;
-
-import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter;
-import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
-
-import com.karriapps.tehilimlibrary.R;
-
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.util.Log;
+
+import com.karriapps.tehilimlibrary.LastLocation;
+import com.karriapps.tehilimlibrary.R;
+
+import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter;
+import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
+
+import org.joda.time.DateTime;
+
+import java.util.Locale;
+import java.util.Map;
 
 public class App extends Application {
 	
@@ -47,45 +49,98 @@ public class App extends Application {
 	 * <br>NEVER - Never switch to silent mode
 	 * <br>ASK - Ask the user each time he's entering the app whether to switch
 	 */
-	public enum SILENT_MODE {ALWAYS, NEVER, ASK};
-	/**
-	 * HEBREW
-	 * <br>ENGLISH
-	 */
-	public enum LANGUAGES {HEBREW, ENGLISH, DEFAULT};
-	/**
-	 * Choose between these fonts
-	 * <br>TIMES - Times New Roman
-	 * <br>GUTTMAN - Guttman Keren
-	 * <br>NARKIS - Narkisim
-	 * <br>CARDO - Cardo
-	 * <br>KETER - Keter Aram Zova
-	 */
-	public enum FONTS {TIMES, GUTTMAN, NARKIS, ALEF, KETER};
-	/**
-	 * Choose between these themes
-	 * <br>LIGHT
-	 * <br>DARK
-	 */
-	public enum THEME {LIGHT, DARK};
-	/**
-	 * Choose reasing mode between
-	 * <br>SIMPLE - With no Teamim
-	 * <br>TRADITIONAL - With Teamim and Ktiv
-	 *
-	 */
-	public enum READING_MODE {SIMPLE, TRADITIONAL};
-		
-	public Context getAplicationContext(){
+    public enum SILENT_MODE {
+        ALWAYS, NEVER, ASK
+    }
+
+    /**
+     * HEBREW
+     * <br>ENGLISH
+     */
+    public enum LANGUAGES {
+        HEBREW, ENGLISH, DEFAULT
+    }
+
+    /**
+     * Choose between these fonts
+     * <br>TIMES - Times New Roman
+     * <br>GUTTMAN - Guttman Keren
+     * <br>NARKIS - Narkisim
+     * <br>CARDO - Cardo
+     * <br>KETER - Keter Aram Zova
+     */
+    public enum FONTS {
+        TIMES, GUTTMAN, NARKIS, ALEF, KETER
+    }
+
+    /**
+     * Choose between these themes
+     * <br>LIGHT
+     * <br>DARK
+     */
+    public enum THEME {
+        LIGHT, DARK
+    }
+
+    /**
+     * Choose reasing mode between
+     * <br>SIMPLE - With no Teamim
+     * <br>TRADITIONAL - With Teamim and Ktiv
+     *
+     */
+    public enum READING_MODE {
+        SIMPLE, TRADITIONAL
+    }
+
+    public Context getAplicationContext(){
 		return getApplicationContext();
 	}
 	
 	private SharedPreferences getSharedPreferences(){
 		return PreferenceManager.getDefaultSharedPreferences(_app);
 	}
-	
-	/**
-	 * Get whether the user getSharedPreferences()ers to lock the screen to portrait mode
+
+    public void saveLastLocation(LastLocation location) {
+        getSharedPreferences().edit().putString(getString(R.string.last_location_name_key), location.getName())
+                .putInt(getString(R.string.last_location_position_key), location.getPosition())
+                .putInt(getString(R.string.last_location_type_key), location.getGeneratorType().ordinal())
+                .putString(getString(R.string.last_location_values_key), createCommaSeparatedIntArray(location.getValues()))
+                .commit();
+    }
+
+    public LastLocation getLastLocation() {
+        LastLocation loc = new LastLocation();
+        loc.setPosition(getSharedPreferences().getInt(getString(R.string.last_location_position_key), 0));
+        loc.setGeneratorType(LastLocation.GENERATOR_TYPE.values()[
+                getSharedPreferences().getInt(getString(R.string.last_location_type_key), 0)]);
+        loc.setName(getSharedPreferences().getString(getString(R.string.last_location_name_key), ""));
+        String commaSeparatedValues = getSharedPreferences().getString(getString(R.string.last_location_values_key), null);
+        if (!TextUtils.isEmpty(commaSeparatedValues)) {
+            loc.setValues(getIntArrayFromCommaSeparatedString(commaSeparatedValues));
+        }
+        return loc;
+    }
+
+    private String createCommaSeparatedIntArray(int[] values) {
+        StringBuilder result = new StringBuilder();
+        for (int value : values) {
+            result.append(value);
+            result.append(",");
+        }
+        return result.length() > 0 ? result.substring(0, result.length() - 1) : "";
+    }
+
+    private int[] getIntArrayFromCommaSeparatedString(String string) {
+        String[] values = string.split(",");
+        int[] retVal = new int[values.length];
+        for (int i = 0; i < values.length; i++) {
+            retVal[i] = Integer.parseInt(values[i]);
+        }
+        return retVal;
+    }
+
+    /**
+     * Get whether the user getSharedPreferences()ers to lock the screen to portrait mode
 	 */
 	public boolean isPortraitOnly(){
 		return getSharedPreferences().getBoolean(getString(R.string.portrait_key), false); 
@@ -172,7 +227,6 @@ public class App extends Application {
 
 	/**
 	 * Check if a chapter is favorite
-	 * @param chapterID
 	 */
 	public boolean isFavorite(int chapterID){
 		if(favorites != null)
@@ -186,7 +240,6 @@ public class App extends Application {
 	
 	/**
 	 * Toggle chapter from favorite to none and vice versa
-	 * @param chapterID
 	 */
 	public void toggleFavorite(int chapterID){
 		if(favorites != null)

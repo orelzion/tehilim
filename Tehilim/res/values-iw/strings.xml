@@ -56,6 +56,7 @@
     <string name="choose_day">בחר יום</string>
     <string name="all_tehilim">כל הפרקים</string>
     <string name="contact_us">צור קשר</string>
+    <string name="last_position">מיקום אחרון בתהילים</string>
 
     <string-array name="books">
         <item>ספר ראשון</item>

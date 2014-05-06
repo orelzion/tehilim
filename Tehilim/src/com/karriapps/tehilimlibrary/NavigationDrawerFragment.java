@@ -1,47 +1,44 @@
 package com.karriapps.tehilimlibrary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
-import com.karriapps.tehilimlibrary.generators.ShiraGenerator;
-import com.karriapps.tehilimlibrary.generators.SickPrayerGenerator;
-import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
-import com.karriapps.tehilimlibrary.generators.TikunKlaliGenerator;
-import com.karriapps.tehilimlibrary.utils.App;
-import com.karriapps.tehilimlibrary.utils.PsalmsHelper;
-import com.karriapps.tehilimlibrary.utils.Tools;
-
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
+
+import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
+import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
+import com.karriapps.tehilimlibrary.utils.App;
+import com.karriapps.tehilimlibrary.utils.PsalmsHelper;
+import com.karriapps.tehilimlibrary.utils.Tools;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class NavigationDrawerFragment extends Fragment implements MonthSelected {
 	
@@ -234,8 +231,9 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 	private void populateLists()
 	{
 		String[] quickValues = new String[] {
-			String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())),
-			String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar())),
+                getString(R.string.last_position),
+                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())),
+                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar())),
 			getString(R.string.all_tehilim)
 		};
 		mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
@@ -245,21 +243,19 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position,
 					long arg3) {
-				switch(position) {
-				case 0:
-					setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
-					mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView)view).getText().toString());
-					break;
-				case 1:
-					OnMonthSelected(App.getInstance().getJewishCalendar().getDaysInJewishMonth() - 1);
-					break;
-				case 2:
-					mGenerator = new PsalmsGenerator(1, 151, 1, 23);
-					mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView)view).getText().toString());
-					break;
-				}
-			}
-		});
+                if (mQuickAdapter.getItem(position).equals(getString(R.string.last_position))) {
+
+                } else if (mQuickAdapter.getItem(position).equals(getString(R.string.all_tehilim))) {
+                    mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                } else if (position == 1) {
+                    setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                } else if (position == 2) {
+                    OnMonthSelected(App.getInstance().getJewishCalendar().getDaysInJewishMonth() - 1);
+                }
+            }
+        });
 		
 		String[] prayersValues = new String[] {
 				getString(R.string.sickTitle),
@@ -275,28 +271,16 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View view, int position,
 					long arg3) {
-				String title = "";
-				switch(position) {
-					case 0:
-						mGenerator = new SickPrayerGenerator();
-						title = getString(R.string.sickTitle);
-						break;
-					case 1:
-						mGenerator = new ShiraGenerator();
-						title = getString(R.string.shiraTitle);
-						break;
-					case 2:
-						mGenerator = new TikunKlaliGenerator();
-						title = getString(R.string.tikunKlaliTitle);
-						break;
-					case 3:
-						YahrzeitDialog dialog = new YahrzeitDialog();
-						dialog.setCallback(mCallbacks);
-						dialog.show(getFragmentManager(), "yahrzeit");
-						return;
-				}
-				mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
-			}
+                String title = mPrayersAdapter.getItem(position);
+                if (title.equals(getString(R.string.yahrzeitTitle))) {
+                    YahrzeitDialog dialog = new YahrzeitDialog();
+                    dialog.setCallback(mCallbacks);
+                    dialog.show(getFragmentManager(), "yahrzeit");
+                    return;
+                }
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(title);
+                mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
+            }
 		});
 		
 		SimpleExpandableListAdapter tehilimList = new SimpleExpandableListAdapter(getActivity(), 
@@ -341,21 +325,21 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 				if(groupPosition == 0){
 					switch(childPosition){
 						case 0: //First Book
-							mGenerator = new PsalmsGenerator(1, PsalmsHelper.BOOK_TWO_START, 0, 0);
-						break;
-						case 1: //Second Book
-							mGenerator = new PsalmsGenerator(PsalmsHelper.BOOK_TWO_START, PsalmsHelper.BOOK_THREE_START, 0, 0);
-						break;
-						case 2: //Third Book
-							mGenerator = new PsalmsGenerator(PsalmsHelper.BOOK_THREE_START, PsalmsHelper.BOOK_FOUR_START, 0, 0);
-						break;
-						case 3: //Fourth Book
-							mGenerator = new PsalmsGenerator(PsalmsHelper.BOOK_FOUR_START, PsalmsHelper.BOOK_FIVE_START, 0, 0);
-						break;
-						case 4: //Fifth Book
-							mGenerator = new PsalmsGenerator(PsalmsHelper.BOOK_FIVE_START, 151, 1, 23);
-						break;
-					}
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.BOOK_TWO_START, 1, 23);
+                            break;
+                        case 1: //Second Book
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_TWO_START, PsalmsHelper.BOOK_THREE_START, 0, 0);
+                            break;
+                        case 2: //Third Book
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_THREE_START, PsalmsHelper.BOOK_FOUR_START, 0, 0);
+                            break;
+                        case 3: //Fourth Book
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FOUR_START, PsalmsHelper.BOOK_FIVE_START, 0, 0);
+                            break;
+                        case 4: //Fifth Book
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FIVE_START, 151, 1, 23);
+                            break;
+                    }
 				}
 				
 				/** Days List **/
@@ -374,27 +358,27 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 	protected void setTehilimForDay(int dayInWeak) {
 		switch(dayInWeak){
 			case 0: //First Day
-				mGenerator = new PsalmsGenerator(1, PsalmsHelper.DAY_TWO_START, 0, 0);
-			break;
-			case 1: //Second Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_TWO_START, PsalmsHelper.DAY_THREE_START, 0, 0);
-			break;
-			case 2: //Third Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_THREE_START, PsalmsHelper.DAY_FOUR_START, 0, 0);
-			break;
-			case 3: //Fourth Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_FOUR_START, PsalmsHelper.DAY_FIVE_START, 0, 0);
-			break;
-			case 4: //Fifth Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_FIVE_START, PsalmsHelper.DAY_SIX_START, 0, 0);
-			break;
-			case 5: //Sixth Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_SIX_START, PsalmsHelper.DAY_SEVEN_START, 1, 23);
-			break;
-			case 6: //Seventh Day
-				mGenerator = new PsalmsGenerator(PsalmsHelper.DAY_SEVEN_START, 151, 0, 0);
-			break;
-		}
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.DAY_TWO_START, 0, 0);
+                break;
+            case 1: //Second Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_TWO_START, PsalmsHelper.DAY_THREE_START, 0, 0);
+                break;
+            case 2: //Third Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_THREE_START, PsalmsHelper.DAY_FOUR_START, 0, 0);
+                break;
+            case 3: //Fourth Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_FOUR_START, PsalmsHelper.DAY_FIVE_START, 0, 0);
+                break;
+            case 4: //Fifth Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_FIVE_START, PsalmsHelper.DAY_SIX_START, 0, 0);
+                break;
+            case 5: //Sixth Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_SIX_START, PsalmsHelper.DAY_SEVEN_START, 1, 23);
+                break;
+            case 6: //Seventh Day
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_SEVEN_START, 151, 0, 0);
+                break;
+        }
 	}
 	
 	private List<HashMap<String, String>> createBooksGroups(){
@@ -419,19 +403,19 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 		String[] books = getResources().getStringArray(R.array.books);
 		HashMap<String, String> child;
 		ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String,String>>();
-		for(int i = 0; i < books.length; i++){
-			child = new HashMap<String, String>();
-			child.put("Sub Item", books[i]);
-			secList.add(child);
+        for (String book : books) {
+            child = new HashMap<String, String>();
+            child.put("Sub Item", book);
+            secList.add(child);
 		}
 		result.add(secList);
 		
 		secList = new ArrayList<HashMap<String,String>>();
 		String[] days = getResources().getStringArray(R.array.week_days);
-		for(int i = 0; i < days.length; i++){
-			child = new HashMap<String, String>();
-			child.put("Sub Item", days[i]);
-			secList.add(child);
+        for (String day : days) {
+            child = new HashMap<String, String>();
+            child.put("Sub Item", day);
+            secList.add(child);
 		}
 		result.add(secList);
 		
@@ -442,9 +426,9 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 	public void OnMonthSelected(int day) {
 		if(monthSelector != null && monthSelector.isVisible())
 			monthSelector.dismiss();
-		mGenerator = new PsalmsGenerator(App.getInstance().getPsalms().getMonthPsalm(day),
-				App.getInstance().getPsalms().getMonthLastPsalm(day), 
-				App.getInstance().getPsalms().getMonthKufYudPsalm(day), 
+        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(App.getInstance().getPsalms().getMonthPsalm(day),
+                App.getInstance().getPsalms().getMonthLastPsalm(day),
+                App.getInstance().getPsalms().getMonthKufYudPsalm(day),
 				App.getInstance().getPsalms().getMonthLastKufYudPsalm(day));
 		if(mCallbacks != null)
 			mCallbacks.onNavigationDrawerItemSelected(mGenerator, String.format(getString(R.string.dayInMonth), day));
@@ -492,11 +476,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     /**
