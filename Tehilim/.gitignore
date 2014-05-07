@@ -1,4 +1,12 @@
 /gen
 /bin
-/.idea
-/out
+/*/out
+/*/*/build
+/*/*/production
+*.iws
+*.ipr
+*~
+*.swp
+.idea
+.gradle
+build/
