@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.karriapps.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilimlibrary.generators.TehilimGenerator;
+import com.karriapps.tehilimlibrary.generators.YahrzeitGenerator;
 import com.karriapps.tehilimlibrary.utils.App;
 import com.karriapps.tehilimlibrary.utils.PsalmsHelper;
 import com.karriapps.tehilimlibrary.utils.Tools;
@@ -41,8 +42,8 @@ import java.util.List;
 import java.util.Map;
 
 public class NavigationDrawerFragment extends Fragment implements MonthSelected {
-	
-	/**
+
+    /**
      * Remember the position of the selected item.
      */
     private static final String STATE_SELECTED_POSITION = "selected_navigation_drawer_position";
@@ -75,9 +76,9 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     private boolean mUserLearnedDrawer;
 
     private TehilimGenerator mGenerator;
-    
+
     private Month monthSelector;
-    
+
     private ArrayAdapter<String> mQuickAdapter;
     private ArrayAdapter<String> mPrayersAdapter;
 
@@ -97,7 +98,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     @Override
-    public void onActivityCreated (Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // Indicate that this fragment would like to influence the set of actions in the action bar.
         setHasOptionsMenu(true);
@@ -105,45 +106,45 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.side_panel, container, false);
-        
-        mBooksList = (ExpandableListView)view.findViewById(R.id.books_list);
-        mPrayersList = (ListView)view.findViewById(R.id.additional_list);
-        mQuickList = (ListView)view.findViewById(R.id.quick_list);
-        mDateTextView = (TextView)view.findViewById(R.id.date_text_view);
-        
+
+        mBooksList = (ExpandableListView) view.findViewById(R.id.books_list);
+        mPrayersList = (ListView) view.findViewById(R.id.additional_list);
+        mQuickList = (ListView) view.findViewById(R.id.quick_list);
+        mDateTextView = (TextView) view.findViewById(R.id.date_text_view);
+
         populateLists();
-        
+
         Tools.updateListViewHeight(mBooksList);
         Tools.updateListViewHeight(mPrayersList);
         Tools.updateListViewHeight(mQuickList);
         mBooksList.setOnTouchListener(mOnTouchListener);
-        
+
         mDateTextView.setText(App.getInstance().getHebrewDateFormatter().format(App.getInstance().getJewishCalendar()));
-        
+
         // Select either the default item (0) or the last selected item.
 //        selectItem(mQuickList, mCurrentSelectedPosition);
-        
+
         return view;
     }
 
-	OnTouchListener mOnTouchListener = new OnTouchListener() {
-		
-		@Override
-		public boolean onTouch(View v, MotionEvent event) {
-			v.getParent().requestDisallowInterceptTouchEvent(true);
-			return false;
-		}
-	};
-	
+    OnTouchListener mOnTouchListener = new OnTouchListener() {
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            v.getParent().requestDisallowInterceptTouchEvent(true);
+            return false;
+        }
+    };
+
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
-    
+
     public void closeDrawer() {
-    	if(mDrawerLayout != null)
-    		mDrawerLayout.closeDrawers();
+        if (mDrawerLayout != null)
+            mDrawerLayout.closeDrawers();
     }
 
     /**
@@ -154,8 +155,8 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
      */
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
-        if(drawerLayout == null)
-        	return;
+        if (drawerLayout == null)
+            return;
         mDrawerLayout = drawerLayout;
 
         // set a custom shadow that overlays the main content when the drawer opens
@@ -182,7 +183,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                     return;
                 }
 
-                ((MainActivity)getActivity()).restoreActionBar();
+                ((MainActivity) getActivity()).restoreActionBar();
                 getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
@@ -221,30 +222,43 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
         });
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-        
-        if(!mFromSavedInstanceState) {
-			mGenerator = new PsalmsGenerator(1, 151, 1, 23);
-			mCallbacks.onNavigationDrawerItemSelected(mGenerator, getString(R.string.all_tehilim));
+
+        if (!mFromSavedInstanceState) {
+            mGenerator = new PsalmsGenerator(1, 151, 1, 23);
+            mCallbacks.onNavigationDrawerItemSelected(mGenerator, getString(R.string.all_tehilim));
         }
     }
-    
-	private void populateLists()
-	{
-		String[] quickValues = new String[] {
+
+    private void populateLists() {
+        String[] quickValues = new String[]{
                 getString(R.string.last_position),
                 String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())),
                 String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar())),
-			getString(R.string.all_tehilim)
-		};
-		mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
-		mQuickList.setAdapter(mQuickAdapter);
-		mQuickList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                getString(R.string.all_tehilim)
+        };
+        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
+        mQuickList.setAdapter(mQuickAdapter);
+        mQuickList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position,
-					long arg3) {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View view, int position,
+                                    long arg3) {
                 if (mQuickAdapter.getItem(position).equals(getString(R.string.last_position))) {
-
+                    LastLocation loc = App.getInstance().getLastLocation();
+                    switch (loc.getGeneratorType()) {
+                        case CHAPTERS:
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getValues());
+                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                            break;
+                        case NAME:
+                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getName());
+                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                            break;
+                        case YAHRZEIT:
+                            YahrzeitGenerator generator = new YahrzeitGenerator(Tools.convertIntegersToList(loc.getValues()));
+                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                            break;
+                    }
                 } else if (mQuickAdapter.getItem(position).equals(getString(R.string.all_tehilim))) {
                     mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
                     mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
@@ -256,21 +270,21 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 }
             }
         });
-		
-		String[] prayersValues = new String[] {
-				getString(R.string.sickTitle),
-				getString(R.string.shiraTitle),
-				getString(R.string.tikunKlaliTitle),
-				getString(R.string.yahrzeitTitle)
-		};
-		
-		mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
-		mPrayersList.setAdapter(mPrayersAdapter);
-		mPrayersList.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position,
-					long arg3) {
+        String[] prayersValues = new String[]{
+                getString(R.string.sickTitle),
+                getString(R.string.shiraTitle),
+                getString(R.string.tikunKlaliTitle),
+                getString(R.string.yahrzeitTitle)
+        };
+
+        mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
+        mPrayersList.setAdapter(mPrayersAdapter);
+        mPrayersList.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View view, int position,
+                                    long arg3) {
                 String title = mPrayersAdapter.getItem(position);
                 if (title.equals(getString(R.string.yahrzeitTitle))) {
                     YahrzeitDialog dialog = new YahrzeitDialog();
@@ -281,50 +295,50 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(title);
                 mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
             }
-		});
-		
-		SimpleExpandableListAdapter tehilimList = new SimpleExpandableListAdapter(getActivity(), 
-				createBooksGroups(), 
-				R.layout.expandable_list_item, 
-				R.layout.expandable_list_item,
-				new String[] {"Group Item"}, 
-				new int[] {android.R.id.text1}, 
-				createChildGroups(), 
-				android.R.layout.simple_list_item_1, 
-				android.R.layout.simple_list_item_1, 
-				new String[] {"Sub Item"}, 
-				new int[] { android.R.id.text1});
-		mBooksList.setAdapter(tehilimList);
-		mBooksList.setOnGroupClickListener(new OnGroupClickListener() {
-			@Override
-			public boolean onGroupClick(ExpandableListView parent, View v,
-					int groupPosition, long id) {
+        });
 
-				if (groupPosition == 2) {
-					monthSelector = new Month();
-					monthSelector.setListener(NavigationDrawerFragment.this);
-					monthSelector.show(getActivity().getSupportFragmentManager(), "month");
-					if (mDrawerLayout != null) {
-						mDrawerLayout.closeDrawer(GravityCompat.START);
-					}
-					return true;
-				}
+        SimpleExpandableListAdapter tehilimList = new SimpleExpandableListAdapter(getActivity(),
+                createBooksGroups(),
+                R.layout.expandable_list_item,
+                R.layout.expandable_list_item,
+                new String[]{"Group Item"},
+                new int[]{android.R.id.text1},
+                createChildGroups(),
+                android.R.layout.simple_list_item_1,
+                android.R.layout.simple_list_item_1,
+                new String[]{"Sub Item"},
+                new int[]{android.R.id.text1});
+        mBooksList.setAdapter(tehilimList);
+        mBooksList.setOnGroupClickListener(new OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
 
-				Tools.setListViewHeight(parent, groupPosition);
+                if (groupPosition == 2) {
+                    monthSelector = new Month();
+                    monthSelector.setListener(NavigationDrawerFragment.this);
+                    monthSelector.show(getActivity().getSupportFragmentManager(), "month");
+                    if (mDrawerLayout != null) {
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                    }
+                    return true;
+                }
 
-				return false;
-			}
-		});
-						
-		mBooksList.setOnChildClickListener(new OnChildClickListener() {
-			@SuppressWarnings("unchecked")
-			@Override
-			public boolean onChildClick(ExpandableListView parent, View v,
-					int groupPosition, int childPosition, long id) {
-				/** Books List **/
-				if(groupPosition == 0){
-					switch(childPosition){
-						case 0: //First Book
+                Tools.setListViewHeight(parent, groupPosition);
+
+                return false;
+            }
+        });
+
+        mBooksList.setOnChildClickListener(new OnChildClickListener() {
+            @SuppressWarnings("unchecked")
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                /** Books List **/
+                if (groupPosition == 0) {
+                    switch (childPosition) {
+                        case 0: //First Book
                             mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.BOOK_TWO_START, 1, 23);
                             break;
                         case 1: //Second Book
@@ -340,24 +354,24 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                             mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FIVE_START, 151, 1, 23);
                             break;
                     }
-				}
-				
-				/** Days List **/
-				if(groupPosition == 1){
-					setTehilimForDay(childPosition);
-				}
-				if(mCallbacks != null) {
-					int selectedPostion = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
-					mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((Map<String, String>)mBooksList.getItemAtPosition(selectedPostion)).get("Sub Item"));
-				}
-				return false;
-			}
-		});
-	}
-	
-	protected void setTehilimForDay(int dayInWeak) {
-		switch(dayInWeak){
-			case 0: //First Day
+                }
+
+                /** Days List **/
+                if (groupPosition == 1) {
+                    setTehilimForDay(childPosition);
+                }
+                if (mCallbacks != null) {
+                    int selectedPostion = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((Map<String, String>) mBooksList.getItemAtPosition(selectedPostion)).get("Sub Item"));
+                }
+                return false;
+            }
+        });
+    }
+
+    protected void setTehilimForDay(int dayInWeak) {
+        switch (dayInWeak) {
+            case 0: //First Day
                 mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.DAY_TWO_START, 0, 0);
                 break;
             case 1: //Second Day
@@ -379,66 +393,66 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.DAY_SEVEN_START, 151, 0, 0);
                 break;
         }
-	}
-	
-	private List<HashMap<String, String>> createBooksGroups(){
-		
-		ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String,String>>();
-		HashMap<String, String> group = new HashMap<String, String>();
-		group.put("Group Item", getString(R.string.books_title));
-		result.add(group);
-		group = new HashMap<String, String>();
-		group.put("Group Item", getString(R.string.week_title));
-		result.add(group);
-		group = new HashMap<String, String>();
-		group.put("Group Item", getString(R.string.month_title));
-		result.add(group);
-		
-		return result;
-	}
-	
-	private List<ArrayList<HashMap<String, String>>> createChildGroups() {
-		ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String,String>>>();
-		
-		String[] books = getResources().getStringArray(R.array.books);
-		HashMap<String, String> child;
-		ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String,String>>();
+    }
+
+    private List<HashMap<String, String>> createBooksGroups() {
+
+        ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> group = new HashMap<String, String>();
+        group.put("Group Item", getString(R.string.books_title));
+        result.add(group);
+        group = new HashMap<String, String>();
+        group.put("Group Item", getString(R.string.week_title));
+        result.add(group);
+        group = new HashMap<String, String>();
+        group.put("Group Item", getString(R.string.month_title));
+        result.add(group);
+
+        return result;
+    }
+
+    private List<ArrayList<HashMap<String, String>>> createChildGroups() {
+        ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
+
+        String[] books = getResources().getStringArray(R.array.books);
+        HashMap<String, String> child;
+        ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
         for (String book : books) {
             child = new HashMap<String, String>();
             child.put("Sub Item", book);
             secList.add(child);
-		}
-		result.add(secList);
-		
-		secList = new ArrayList<HashMap<String,String>>();
-		String[] days = getResources().getStringArray(R.array.week_days);
+        }
+        result.add(secList);
+
+        secList = new ArrayList<HashMap<String, String>>();
+        String[] days = getResources().getStringArray(R.array.week_days);
         for (String day : days) {
             child = new HashMap<String, String>();
             child.put("Sub Item", day);
             secList.add(child);
-		}
-		result.add(secList);
-		
-		return result;
-	}
-	
-	@Override
-	public void OnMonthSelected(int day) {
-		if(monthSelector != null && monthSelector.isVisible())
-			monthSelector.dismiss();
+        }
+        result.add(secList);
+
+        return result;
+    }
+
+    @Override
+    public void OnMonthSelected(int day) {
+        if (monthSelector != null && monthSelector.isVisible())
+            monthSelector.dismiss();
         mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(App.getInstance().getPsalms().getMonthPsalm(day),
                 App.getInstance().getPsalms().getMonthLastPsalm(day),
                 App.getInstance().getPsalms().getMonthKufYudPsalm(day),
-				App.getInstance().getPsalms().getMonthLastKufYudPsalm(day));
-		if(mCallbacks != null)
-			mCallbacks.onNavigationDrawerItemSelected(mGenerator, String.format(getString(R.string.dayInMonth), day));
-	}
+                App.getInstance().getPsalms().getMonthLastKufYudPsalm(day));
+        if (mCallbacks != null)
+            mCallbacks.onNavigationDrawerItemSelected(mGenerator, String.format(getString(R.string.dayInMonth), day));
+    }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mCallbacks = (NavigationDrawerCallbacks) activity;       
+            mCallbacks = (NavigationDrawerCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
         }
@@ -502,5 +516,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(TehilimGenerator generator, String title);
+
+        void onNavigationDrawerItemSelected(TehilimGenerator generator, String title, int position);
     }
 }
