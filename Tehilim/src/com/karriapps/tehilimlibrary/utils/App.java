@@ -27,9 +27,9 @@ public class App extends Application {
 //	private final String FAVORITES_FILE = "favorites.json";
 	private PsalmsHelper mPsalms;
 	private boolean mSettingsChanged;
-	
-	public App(){
-		super();
+
+    public App() {
+        super();
 //		new readFavorites().execute();
 	}
 	
@@ -42,9 +42,9 @@ public class App extends Application {
 		super.onCreate();
 		_app = this;
 	}
-		
-	/**
-	 * Choose between modes of switching to silent
+
+    /**
+     * Choose between modes of switching to silent
 	 * <br>ALWAYS - Always switch to silent mode when entering the app
 	 * <br>NEVER - Never switch to silent mode
 	 * <br>ASK - Ask the user each time he's entering the app whether to switch
@@ -168,8 +168,12 @@ public class App extends Application {
 	public SILENT_MODE getSilentMode() {
 		return SILENT_MODE.valueOf(getSharedPreferences().getString(getString(R.string.silent_key), SILENT_MODE.ASK.name()));
 	}
-	
-	public LANGUAGES getLang() {
+
+    public void setSilentMode(SILENT_MODE silentMode) {
+        getSharedPreferences().edit().putString(getString(R.string.silent_key), silentMode.name()).commit();
+    }
+
+    public LANGUAGES getLang() {
 		int ordinal = Integer.parseInt(getSharedPreferences().getString(getString(R.string.lang_key), LANGUAGES.DEFAULT.ordinal() + ""));
 		return LANGUAGES.values()[ordinal];
 	}

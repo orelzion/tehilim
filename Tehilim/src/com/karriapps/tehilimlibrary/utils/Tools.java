@@ -8,6 +8,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.view.ActionProvider;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -22,6 +23,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.karriapps.tehilimlibrary.R;
+import com.karriapps.tehilimlibrary.SilentDialog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -330,6 +332,21 @@ public class Tools {
             default:
                 return 0;
         }
+    }
+
+    public static SilentDialog showSilentDialog(final AudioManager aManager, Context context) {
+        SilentDialog silentDialog = null;
+        switch (App.getInstance().getSilentMode()) {
+            case ALWAYS:
+                aManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                break;
+            case ASK:
+                silentDialog = SilentDialog.newInstance(aManager);
+                break;
+            case NEVER:
+                break;
+        }
+        return silentDialog;
     }
 
     public static String convertStreamToString(InputStream is) throws IOException {

@@ -122,4 +122,9 @@
     <string name="elMaleManTitle">אל מלא רחמים לגבר</string>
     <string name="elMaleWomanTitle">אל מלא רחמים לאשה</string>
 
+    <string name="silent">מצב שקט</string>
+    <string name="silent_ask">להעביר למצב שקט?</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+    <string name="remember_this_option">זכור את בחירתי</string>
 </resources>

@@ -18,8 +18,8 @@
     <string name="github_url">https://github.com/orelzion/tehilim</string>
     <string name="version_info">
 <![CDATA[
-	    
-	    ]]>
+
+    ]]>
     </string>
     <string name="books_title">By Books</string>
     <string name="week_title">By Week</string>
@@ -119,10 +119,16 @@
     <string name="kadishSefaradTitle">Kadish - Sefarad</string>
     <string name="kadishAshkenazTitle">Kadish - Ashkenaz</string>
     <string name="kadishChabadTitle">Kadish - Chabad (Ari)</string>
-    
+
     <string name="hashkavaManTitle">Hashkava for man - Edot Mizrach</string>
     <string name="hashkavaWomanTitle">Hashkava for woman - Edot Mizrahc</string>
     <string name="elMaleManTitle">El Male Rachamim - For Man</string>
     <string name="elMaleWomanTitle">El Male Rachamim - For Woman</string>
+
+    <string name="silent">Silent Mode</string>
+    <string name="silent_ask">Would you like to switch into silent mode?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="remember_this_option">Remember this option</string>
 
 </resources>

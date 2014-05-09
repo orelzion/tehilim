@@ -1,6 +1,8 @@
 package com.karriapps.tehilimlibrary;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -12,6 +14,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
@@ -33,6 +36,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private String TITLE_KEY = "title";
     private String CURRENT_POSITION_KEY = "position";
     private String GENERATOR_KEY = "generator";
+    private String SILENT_KEY = "silent";
+    private String OLD_SILENT_KEY = "oldsilent";
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private MainFragment mMainFragment;
@@ -44,6 +49,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private ArrayAdapter<String> mSpinnerAdapter;
 
     private String mTitle;
+
+    private SilentDialog mSilentDialog;
+    private int mOldRingerMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +67,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         App.getInstance().changeLocale();
         setContentView(R.layout.activity_main);
 
+        if (App.getInstance().isKeepAwake()) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -73,6 +84,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        AudioManager mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
         if (savedInstanceState != null) {
             mTitle = savedInstanceState.getString(TITLE_KEY);
             if (!TextUtils.isEmpty(mTitle))
@@ -81,6 +94,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             if (generator != null) {
                 setGenerator(generator);
                 mMainFragment.setPosition(savedInstanceState.getInt(CURRENT_POSITION_KEY));
+            }
+            mAudioManager.setRingerMode(savedInstanceState.getInt(SILENT_KEY));
+            mOldRingerMode = savedInstanceState.getInt(OLD_SILENT_KEY);
+        } else {
+            mOldRingerMode = mAudioManager.getRingerMode();
+            if (mOldRingerMode == AudioManager.RINGER_MODE_NORMAL) {
+                mSilentDialog = Tools.showSilentDialog(mAudioManager, this);
+                if (mSilentDialog != null)
+                    mSilentDialog.show(getSupportFragmentManager(), "silent");
             }
         }
     }
@@ -100,6 +122,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             outState.putInt(CURRENT_POSITION_KEY, mMainFragment.getPosition());
             outState.putString(TITLE_KEY, mTitle);
             outState.putParcelable(GENERATOR_KEY, mMainFragment.getTehilimGenerator());
+            outState.putInt(SILENT_KEY, ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).getRingerMode());
+            outState.putInt(OLD_SILENT_KEY, mOldRingerMode);
         }
     }
 
@@ -175,6 +199,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         super.onStop();
 
         saveLastLocation();
+        if (mSilentDialog != null)
+            mSilentDialog.dismiss();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Setting the ringer mode to normal
+        ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).setRingerMode(mOldRingerMode);
     }
 
     private void saveLastLocation() {
