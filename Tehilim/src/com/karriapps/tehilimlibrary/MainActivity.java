@@ -38,6 +38,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private String GENERATOR_KEY = "generator";
     private String SILENT_KEY = "silent";
     private String OLD_SILENT_KEY = "oldsilent";
+    private String SCROLLING_KEY = "scrolling";
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private MainFragment mMainFragment;
@@ -159,6 +160,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             Intent preference = new Intent(MainActivity.this, PreferencesActivity.class);
             preference.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(preference);
+        } else if(item.getItemId() == R.id.action_scroll) {
+            if(mMainFragment != null) {
+                item.setChecked(!item.isChecked());
+                mMainFragment.toggleScroll(item.isChecked());
+                if(item.isChecked()) {
+                    item.setTitle(R.string.scroll_pause);
+                } else {
+                    item.setTitle(R.string.scroll_play);
+                }
+            }
         }
 
         return false;

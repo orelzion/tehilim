@@ -16,11 +16,32 @@
           <theme>@style/Theme.Tehilim.Widget</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/Tehilim/res/menu/main.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/AppBaseTheme</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b532a060-0775-49ad-8341-279153fc3f22" name="Default" comment="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/.gitignore" afterPath="$PROJECT_DIR$/Tehilim/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-hdpi/ic_action_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-mdpi/ic_action_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-xhdpi/ic_action_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-xxhdpi/ic_action_pause.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-hdpi/ic_action_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-mdpi/ic_action_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-xhdpi/ic_action_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable-xxhdpi/ic_action_play.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tehilim/res/drawable/ic_action_scroll.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" afterPath="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/menu/main.xml" afterPath="$PROJECT_DIR$/Tehilim/res/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values/strings.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" afterPath="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tehilim.iws" />
@@ -85,10 +106,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tehilim/.gitignore">
+      <file leaf-file-name="MainFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="10" selection-start="27" selection-end="27" vertical-scroll-proportion="0.08866995" vertical-offset="0" max-vertical-offset="609">
+            <state line="185" column="33" selection-start="6356" selection-end="6356" vertical-scroll-proportion="0.0" vertical-offset="2268" max-vertical-offset="5058">
+              <folding>
+                <element signature="e#5764#5765#0" expanded="true" />
+                <element signature="e#5799#5800#0" expanded="true" />
+                <element signature="e#7333#7334#0" expanded="true" />
+                <element signature="e#7373#7374#0" expanded="true" />
+                <element signature="e#9671#10407#0" expanded="true" />
+                <element signature="e#10388#10389#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="153" column="101" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6894">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4562#4592#0" expanded="true" />
+                <element signature="e#4705#4735#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="164" column="51" selection-start="6527" selection-end="6527" vertical-scroll-proportion="0.6126418" vertical-offset="2574" max-vertical-offset="5598">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1914#1922#0" expanded="true" />
+                <element signature="e#5987#6019#0" expanded="true" />
+                <element signature="e#6142#6177#0" expanded="true" />
+                <element signature="e#6663#6684#0" expanded="true" />
+                <element signature="e#6746#6766#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tehilim/res/menu/main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="54" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
               <folding />
             </state>
           </provider>
@@ -110,18 +176,22 @@
         <option value="$PROJECT_DIR$/Tehilim/res/layout/about.xml" />
         <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/AboutFragment.java" />
         <option value="$PROJECT_DIR$/Tehilim/res/layout/tehilim_row.xml" />
-        <option value="$PROJECT_DIR$/Tehilim/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/LastLocation.java" />
         <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/GeneratorFactory.java" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/NavigationDrawerFragment.java" />
+        <option value="$PROJECT_DIR$/Tehilim/.gitignore" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/SilentDialog.java" />
+        <option value="$PROJECT_DIR$/Tehilim/res/layout/silent_dialog.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java" />
+        <option value="$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml" />
         <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java" />
         <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java" />
-        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java" />
-        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java" />
-        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/NavigationDrawerFragment.java" />
-        <option value="$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml" />
-        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Tehilim/res/drawable/ic_action_scroll.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/res/menu/main.xml" />
+        <option value="$PROJECT_DIR$/Tehilim/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml" />
-        <option value="$PROJECT_DIR$/Tehilim/.gitignore" />
+        <option value="$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -220,6 +290,114 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilimlibrary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilimlibrary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-iw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tehilim" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -252,6 +430,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Tehilim/res/drawable-mdpi" />
+      <recent name="$PROJECT_DIR$/Tehilim/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/Tehilim/res/drawable-xxhdpi" />
+      <recent name="$PROJECT_DIR$/Tehilim/res/drawable-hdpi" />
       <recent name="$PROJECT_DIR$/Tehilim/res/layout-iw" />
     </key>
   </component>
@@ -446,7 +628,15 @@
       <created>1399488262947</created>
       <updated>1399488262947</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory">
+      <created>1399488645321</created>
+      <updated>1399488645321</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added silent mode options">
+      <created>1399635040806</created>
+      <updated>1399635040806</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -456,6 +646,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39958158" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -463,20 +654,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33158997" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32322174" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" x="529" y="383" width="927" height="309" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33158997" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32322174" sideWeight="0.49973047" order="7" side_tool="false" content_ui="tabs" x="529" y="383" width="927" height="309" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991913" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294979" sideWeight="0.49973047" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -494,67 +684,16 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory" />
     <MESSAGE value="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory&#10;* Set last location functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory&#10;* Set last location functionality" />
+    <MESSAGE value="updated git ignore&#10;# Please enter the commit message for your changes. Lines starting&#10;# with '#' will be ignored, and an empty message aborts the commit.&#10;# On branch master&#10;# Your branch is up-to-date with 'origin/master'.&#10;#&#10;# Changes to be committed:&#10;#&#9;modified:   .idea/workspace.xml&#10;#&#9;modified:   Tehilim/.gitignore&#10;#&#10;* Added Last Location object&#10;* Added its configuration in App &#10;* New Generator factory" />
+    <MESSAGE value="Added silent mode options" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added silent mode options" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="71" selection-start="6883" selection-end="6883" vertical-scroll-proportion="0.0" vertical-offset="3942" max-vertical-offset="4104">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="9" selection-start="5636" selection-end="5636" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="2304">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="3888">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="37" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
@@ -574,14 +713,8 @@
         <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="5724">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2424#2466#0" expanded="true" />
-            <element signature="e#2512#2558#0" expanded="true" />
-            <element signature="e#2608#2650#0" expanded="true" />
-            <element signature="e#2718#2762#0" expanded="true" />
-            <element signature="e#2995#3041#0" expanded="true" />
-            <element signature="e#3161#3203#0" expanded="true" />
-            <element signature="e#3264#3306#0" expanded="true" />
-            <element signature="e#3385#3429#0" expanded="true" />
+            <element signature="e#4562#4592#0" expanded="true" />
+            <element signature="e#4705#4735#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -591,9 +724,11 @@
         <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
+            <element signature="e#1914#1922#0" expanded="true" />
+            <element signature="e#5987#6019#0" expanded="true" />
+            <element signature="e#6142#6177#0" expanded="true" />
+            <element signature="e#6663#6684#0" expanded="true" />
+            <element signature="e#6746#6766#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -617,14 +752,8 @@
         <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="5724">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2424#2466#0" expanded="true" />
-            <element signature="e#2512#2558#0" expanded="true" />
-            <element signature="e#2608#2650#0" expanded="true" />
-            <element signature="e#2718#2762#0" expanded="true" />
-            <element signature="e#2995#3041#0" expanded="true" />
-            <element signature="e#3161#3203#0" expanded="true" />
-            <element signature="e#3264#3306#0" expanded="true" />
-            <element signature="e#3385#3429#0" expanded="true" />
+            <element signature="e#4562#4592#0" expanded="true" />
+            <element signature="e#4705#4735#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -634,9 +763,11 @@
         <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="936" max-vertical-offset="4320">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
+            <element signature="e#1914#1922#0" expanded="true" />
+            <element signature="e#5987#6019#0" expanded="true" />
+            <element signature="e#6142#6177#0" expanded="true" />
+            <element signature="e#6663#6684#0" expanded="true" />
+            <element signature="e#6746#6766#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -660,14 +791,8 @@
         <state line="7" column="44" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="4770">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2424#2466#0" expanded="true" />
-            <element signature="e#2512#2558#0" expanded="true" />
-            <element signature="e#2608#2650#0" expanded="true" />
-            <element signature="e#2718#2762#0" expanded="true" />
-            <element signature="e#2995#3041#0" expanded="true" />
-            <element signature="e#3161#3203#0" expanded="true" />
-            <element signature="e#3264#3306#0" expanded="true" />
-            <element signature="e#3385#3429#0" expanded="true" />
+            <element signature="e#4562#4592#0" expanded="true" />
+            <element signature="e#4705#4735#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -677,9 +802,11 @@
         <state line="52" column="13" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="3600">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
+            <element signature="e#1914#1922#0" expanded="true" />
+            <element signature="e#5987#6019#0" expanded="true" />
+            <element signature="e#6142#6177#0" expanded="true" />
+            <element signature="e#6663#6684#0" expanded="true" />
+            <element signature="e#6746#6766#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -820,49 +947,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="53" selection-start="7113" selection-end="7113" vertical-scroll-proportion="0.0" vertical-offset="2821" max-vertical-offset="4086">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Documents/adt-bundle-linux-x86_64-20131030/sdk/extras/android/support/v7/appcompat/libs/android-support-v4.jar!/android/support/v4/app/Fragment.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="196" column="19" selection-start="7860" selection-end="7860" vertical-scroll-proportion="0.34676006" vertical-offset="3312" max-vertical-offset="4878">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="26" selection-start="5607" selection-end="5607" vertical-scroll-proportion="0.0" vertical-offset="2862" max-vertical-offset="3834">
-          <folding>
-            <element signature="e#1314#1359#0" expanded="false" />
-            <element signature="e#1863#1911#0" expanded="false" />
-            <element signature="e#2325#2370#0" expanded="false" />
-            <element signature="e#2728#2773#0" expanded="false" />
-            <element signature="e#3131#3176#0" expanded="false" />
-            <element signature="e#3533#3578#0" expanded="false" />
-            <element signature="e#3867#3895#0" expanded="false" />
-            <element signature="e#3913#3936#0" expanded="false" />
-            <element signature="e#4163#4187#0" expanded="false" />
-            <element signature="e#4205#4224#0" expanded="false" />
-            <element signature="e#4451#4477#0" expanded="false" />
-            <element signature="e#4495#4516#0" expanded="false" />
-            <element signature="e#4743#4770#0" expanded="false" />
-            <element signature="e#4788#4810#0" expanded="false" />
-            <element signature="e#5037#5060#0" expanded="false" />
-            <element signature="e#5078#5096#0" expanded="false" />
-            <element signature="e#5323#5348#0" expanded="false" />
-            <element signature="e#5366#5386#0" expanded="false" />
-            <element signature="e#5613#5638#0" expanded="false" />
-            <element signature="e#5656#5676#0" expanded="false" />
-            <element signature="e#5903#5930#0" expanded="false" />
-            <element signature="e#5948#5969#0" expanded="false" />
-            <element signature="e#6231#6232#0" expanded="false" />
-            <element signature="e#6264#6265#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,58 +971,6 @@
     <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/YahrzeitDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="20" selection-start="1579" selection-end="1735" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="15" selection-start="1703" selection-end="1703" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="9234">
-          <folding>
-            <element signature="e#1621#1630#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="50" selection-start="737" selection-end="737" vertical-scroll-proportion="0.49632353" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="85" selection-start="3579" selection-end="3579" vertical-scroll-proportion="0.0" vertical-offset="1799" max-vertical-offset="6678">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2424#2466#0" expanded="true" />
-            <element signature="e#2512#2558#0" expanded="true" />
-            <element signature="e#2608#2650#0" expanded="true" />
-            <element signature="e#2718#2762#0" expanded="true" />
-            <element signature="e#2995#3041#0" expanded="true" />
-            <element signature="e#3161#3203#0" expanded="true" />
-            <element signature="e#3264#3306#0" expanded="true" />
-            <element signature="e#3385#3429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="13" selection-start="8569" selection-end="8569" vertical-scroll-proportion="0.18314424" vertical-offset="4081" max-vertical-offset="4716">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1673#1681#0" expanded="true" />
-            <element signature="e#4761#4793#0" expanded="true" />
-            <element signature="e#4916#4951#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="44" selection-start="3566" selection-end="3566" vertical-scroll-proportion="0.33278146" vertical-offset="843" max-vertical-offset="2340">
           <folding />
         </state>
       </provider>
@@ -983,17 +1019,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/Tehilim/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="18" selection-start="3656" selection-end="3656" vertical-scroll-proportion="0.33225283" vertical-offset="929" max-vertical-offset="2394">
+        <state line="12" column="0" selection-start="86" selection-end="86" vertical-scroll-proportion="0.3546798" vertical-offset="0" max-vertical-offset="609">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tehilim/.gitignore">
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/layout/silent_dialog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="10" selection-start="27" selection-end="27" vertical-scroll-proportion="0.08866995" vertical-offset="0" max-vertical-offset="609">
+        <state line="17" column="44" selection-start="593" selection-end="593" vertical-scroll-proportion="-0.0862069" vertical-offset="356" max-vertical-offset="936">
+          <folding>
+            <element signature="e#396#416#0" expanded="true" />
+            <element signature="e#611#641#0" expanded="true" />
+            <element signature="e#1045#1058#0" expanded="true" />
+            <element signature="e#1271#1283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/SilentDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="516" selection-end="516" vertical-scroll-proportion="0.5320197" vertical-offset="0" max-vertical-offset="1746">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1205#1220#0" expanded="true" />
+            <element signature="e#1769#2256#0" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+            <element signature="method#setAudioManager#0;class#SilentDialog#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="338" column="16" selection-start="9961" selection-end="9961" vertical-scroll-proportion="0.0" vertical-offset="5187" max-vertical-offset="10548">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/generators/YahrzeitGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="26" selection-start="6259" selection-end="6259" vertical-scroll-proportion="2.6009853" vertical-offset="1494" max-vertical-offset="3870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Instrumentation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="16" selection-start="5963" selection-end="5963" vertical-scroll-proportion="0.33333334" vertical-offset="1821" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-19/android.jar!/android/app/Activity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="16" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.33333334" vertical-offset="939" max-vertical-offset="8010">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/preferences_keys.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="36" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/utils/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="101" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="6894">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4562#4592#0" expanded="true" />
+            <element signature="e#4705#4735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/drawable/ic_action_scroll.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="55" selection-start="252" selection-end="252" vertical-scroll-proportion="0.116693676" vertical-offset="0" max-vertical-offset="617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="33" selection-start="6356" selection-end="6356" vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="5058">
+          <folding>
+            <element signature="e#5764#5765#0" expanded="true" />
+            <element signature="e#5799#5800#0" expanded="true" />
+            <element signature="e#7333#7334#0" expanded="true" />
+            <element signature="e#7373#7374#0" expanded="true" />
+            <element signature="e#9671#10407#0" expanded="true" />
+            <element signature="e#10388#10389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values-iw/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="42" selection-start="6342" selection-end="6342" vertical-scroll-proportion="0.8509934" vertical-offset="1826" max-vertical-offset="2466">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="0" selection-start="6543" selection-end="6655" vertical-scroll-proportion="0.7957861" vertical-offset="1885" max-vertical-offset="2520">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/res/menu/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="54" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tehilim/src/com/karriapps/tehilimlibrary/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="51" selection-start="6527" selection-end="6527" vertical-scroll-proportion="0.6126418" vertical-offset="2574" max-vertical-offset="5598">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1914#1922#0" expanded="true" />
+            <element signature="e#5987#6019#0" expanded="true" />
+            <element signature="e#6142#6177#0" expanded="true" />
+            <element signature="e#6663#6684#0" expanded="true" />
+            <element signature="e#6746#6766#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -130,5 +130,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="remember_this_option">Remember this option</string>
-
+    <string name="scroll_play">Start Scrolling</string>
+    <string name="scroll_pause">Pause Scrolling</string>
 </resources>

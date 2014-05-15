@@ -2,6 +2,8 @@ package com.karriapps.tehilimlibrary;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -53,6 +55,8 @@ public class MainFragment extends Fragment implements OnScrollListener {
     private WeakReference<OnPositionChanged> mOnPositionChangedListener;
 
     private int mPosition;
+    private boolean mIsScrolling;
+    private AutoScroller mAutoScroller;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -159,6 +163,52 @@ public class MainFragment extends Fragment implements OnScrollListener {
 
     public void setPosition(int position) {
         mList.setSelection(position);
+    }
+
+    public boolean isScrolling() {
+        return mIsScrolling;
+    }
+
+    /**
+     * Auto scroll list view
+     */
+    public void toggleScroll(boolean scroll) {
+        if(scroll) {
+            if(mAutoScroller == null) {
+                mAutoScroller = new AutoScroller(this);
+            }
+            mAutoScroller.sendEmptyMessage(AutoScroller.MESSAGE_SCROLL);
+        } else {
+            if(mAutoScroller != null) {
+                if(mAutoScroller.hasMessages(AutoScroller.MESSAGE_SCROLL))
+                    mAutoScroller.removeMessages(AutoScroller.MESSAGE_SCROLL);
+            }
+            mIsScrolling = false;
+        }
+    }
+
+    private static class AutoScroller extends Handler {
+        private WeakReference<MainFragment> mFragment;
+        public static final int MESSAGE_SCROLL = 0;
+
+        public AutoScroller(MainFragment fragment) {
+            mFragment = new WeakReference<MainFragment>(fragment);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            if(msg.what == MESSAGE_SCROLL) {
+              if(mFragment != null && mFragment.get() != null &&
+                      mFragment.get().mList != null) {
+                  mFragment.get().mList.smoothScrollBy(2, 0);
+                  sendEmptyMessageDelayed(MESSAGE_SCROLL, (long) (App.getInstance().getScrollValue() /
+                                    App.getInstance().getFontSize() * 10));
+                  mFragment.get().mIsScrolling = true;
+              }
+            }
+        }
     }
 
     public TehilimGenerator getTehilimGenerator() {

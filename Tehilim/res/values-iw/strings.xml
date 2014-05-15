@@ -127,4 +127,6 @@
     <string name="yes">כן</string>
     <string name="no">לא</string>
     <string name="remember_this_option">זכור את בחירתי</string>
+    <string name="scroll_play">גלול</string>
+    <string name="scroll_pause">השהה גלילה</string>
 </resources>

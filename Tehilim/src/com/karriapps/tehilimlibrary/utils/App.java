@@ -145,6 +145,14 @@ public class App extends Application {
 	public boolean isPortraitOnly(){
 		return getSharedPreferences().getBoolean(getString(R.string.portrait_key), false); 
 	}
+
+    public long getScrollValue() {
+        return getSharedPreferences().getLong(getString(R.string.scroll_key), 200);
+    }
+
+    public void setScrollValue(long milliseconds) {
+        getSharedPreferences().edit().putLong(getString(R.string.scroll_key), milliseconds).commit();
+    }
 	
 	/**
 	 * Get if the user needs to apply this patch for rtl fix

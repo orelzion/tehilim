@@ -10,7 +10,7 @@
         tehilim:actionLayout="@layout/action_select_layout"/>
     <item
         android:id="@+id/action_settings"
-        android:icon="?attr/action_settings_icon"
+        android:icon="@drawable/action_settings_light"
         android:orderInCategory="200"
         android:title="@string/action_settings"
         tehilim:showAsAction="ifRoom"/>
@@ -24,5 +24,11 @@
         android:orderInCategory="400"
         android:title="@string/action_about"
         tehilim:showAsAction="never"/>
-
+    <item
+        android:id="@+id/action_scroll"
+        android:orderInCategory="150"
+        android:icon="@drawable/ic_action_scroll"
+        android:showAsAction="ifRoom"
+        android:title="@string/scroll_key"
+        />
 </menu>
