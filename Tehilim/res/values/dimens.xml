@@ -1,7 +1,0 @@
-<resources>
-	<item name="title_gravity" type="integer">0x00000003</item>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-	<dimen name="side_panel_width">240dp</dimen>
-</resources>

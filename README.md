@@ -16,7 +16,6 @@ Libraries I use
 =======
 * <a href="http://www.kosherjava.com/zmanim-project/">Zmanim API</a>
 * AppCompat by Google
-* <a href="https://github.com/uservoice/uservoice-android-sdk">UserVoice</a>
 * <a href="https://github.com/JodaOrg/joda-time">JodaTime</a>
 
 
