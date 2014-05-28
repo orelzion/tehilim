@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">התהילים הנוח</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_help">עזרה</string>
+    <string name="action_about">אודות</string>
+    <string name="action_search">בחר פרקים</string>
+    <string name="quick_title">גישה מהירה</string>
+    <string name="brows_title">תהילים</string>
+    <string name="additional_title">תפילות נוספות</string>
+    <string name="books_title">לפי ספר</string>
+    <string name="week_title">לפי יום בשבוע</string>
+    <string name="month_title">לפי יום בחודש</string>
+    <string name="version">גרסה</string>
+    <string name="feedback">משוב ותמיכה</string>
+    <string name="rate">דרג אותנו</string>
+    <string name="version_info">
+<![CDATA[
+	    Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה וההקלדה. Lorem Ipsum היה טקסט סטנדרטי עוד במאה ה-16, כאשר הדפסה לא ידועה לקחה מגש של דפוס ועירבלה אותו כדי ליצור סוג של ספר דגימה. ספר זה שרד לא רק חמש מאות שנים אלא גם את הקפיצה לתוך ההדפסה האלקטרונית, ונותר כמו שהוא ביסודו. ספר זה הפך פופולרי יותר בשנות ה-60 עם ההוצאה לאור של גליון פונטי המכיל פסקאות של Lorem Ipsum. ועוד יותר לאחרונה עם פרסום תוכנות המחשב האישי כגון Aldus page maker שמכיל גרסאות של Lorem Ipsum.
+]]>
+    </string>
+    <string name="free_title">הפטר מהפרסומות כעת!</string>
+    <string name="free_desc">רכוש כעת את הגרסה המלאה, נטולת הפרסומות ב3.99 ש\"ח בלבד!</string>
+    <string name="ok">בסדר</string>
+    <string name="navigation_drawer_open">פתח חלון ניווט</string>
+    <string name="navigation_drawer_close">סגור את חלון הניווט</string>
+    <string name="chapter">פרק %1$s</string>
+    <string name="chapterKuf">פרק %1$s - אות %2$s</string>
+    <string name="kufLetter">אות %1$s</string>
+    <string name="neshma">אותיות נשמה - אות %1$s</string>
+    <string name="shiraTitle">פרק שירה</string>
+    <string name="shira1Title">פרק ראשון - שירת השמים, הארץ וכל צבאם</string>
+    <string name="shira2Title">פרק שני - שיר היום, הלילה, וצבאות השמים</string>
+    <string name="shira3Title">פרק שלישי - שיר הצומח</string>
+    <string name="shira4Title">פרק רביעי - שיר העופות, השרצים, ביבשה ובים</string>
+    <string name="shira5Title">פרק חמישי - שיר הבהמות והחיות</string>
+    <string name="shira6Title">פרק ששי - שיר השרצים והחיות</string>
+    <string name="shiraSofTitle">הסוף</string>
+    <string name="shiraTfilaTitle">תפילה לאחר פרק שירה
+\n<small>מאת הגאון הרב גרוס שליט\"א</small></string>
+    <string name="tikunKlaliTitle">תיקון הכללי</string>
+    <string name="yahrzeitTitle">תהילים ליום השנה</string>
+    <string name="yahrzeitPopupTitle">הכנס שם</string>
+    <string name="yahrzeitPopupDescription">הכנס שם בעברית, או הכנס ערכי השם בגימטריה. למשל 1,2,200,5,40 - אברהם</string>
+    <string name="tikunBeforeTitle">קודם התיקון יש לומר</string>
+    <string name="tikunAfter">תפילה קטנת הכמות ורבת האיכות</string>
+    <string name="sickTitle">תפילה לחולה</string>
+    <string name="yehiTitle">יהי רצון שקודם התהילים</string>
+    <string name="dayInMonth">%1$s לחודש</string>
+    <string name="tehilim_for_day">תהילים ליום %1$s</string>
+    <string name="yehiAfterTitle"><![CDATA[יהי רצון שלאחר התהילים]]></string>
+    <string name="for_full_tehilim">אם סיימת את כל הספר:</string>
+    <string name="for_partial_tehilim">אם לא סיימת את כל הספר:</string>
+    <string name="for_sick">יאמר שם החולה ושם אימו</string>
+    <string name="choose_day">בחר יום</string>
+    <string name="all_tehilim">כל הפרקים</string>
+    <string name="contact_us">צור קשר</string>
+    <string name="last_position">מיקום אחרון</string>
+
+    <string-array name="books">
+        <item>ספר ראשון</item>
+        <item>ספר שני</item>
+        <item>ספר שלישי</item>
+        <item>ספר רביעי</item>
+        <item>ספר חמישי</item>
+    </string-array>
+    <string-array name="week_days">
+        <item>יום ראשון</item>
+        <item>יום שני</item>
+        <item>יום שלישי</item>
+        <item>יום רביעי</item>
+        <item>יום חמישי</item>
+        <item>יום שישי</item>
+        <item>שבת</item>
+    </string-array>
+
+    <!-- Preferences -->
+    <string name="appearance_title">הגדרות מראה</string>
+    <string name="general_title">הגדרות כלליות</string>
+    <string name="choose_font">בחר גופן</string>
+    <string name="keep_portrait">השאר מאונך</string>
+    <string name="keep_portrait_description">האפליקציה תישאר במצב מאונך</string>
+    <string name="themes_title">בחר ערכת נושא</string>
+    <string name="choose_lang">שנה שפה</string>
+    <string name="rtl_title">הפוך כיוון</string>
+    <string name="rtl_description">בחר באופציה זו אם האפליקציה מציגה את הטקסט משמאל לימין</string>
+    <string name="screen_on">השאר דולק</string>
+    <string name="screen_on_description">השאר את המסך דלוק כל זמן שאני באפליקציה</string>
+    <string name="silent_title">מצב שקט</string>
+    <string name="reading_mode">מצב קריאה</string>
+
+    <string-array name="themes_values">
+        <item>בהיר</item>
+        <item>כהה</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>עברית</item>
+        <item>English</item>
+        <item>לפי המערכת</item>
+    </string-array>
+    <string-array name="silent_mode_valuse">
+        <item>תמיד</item>
+        <item>אף פעם לא</item>
+        <item>שאל אותי בכל פעם</item>
+    </string-array>
+    <string-array name="reading_mode_values">
+        <item>פשוט</item>
+        <item>עם טעמי המקרא</item>
+    </string-array>
+
+    <string name="settings_changed">אתחל את האפליקציה על מנת שהשינויים יכנסו לתוקף</string>
+    <string name="kadishEdotTitle">קדיש - עדות מזרח</string>
+    <string name="kadishSefaradTitle">קדיש - ספרד</string>
+    <string name="kadishAshkenazTitle">קדיש - אשכנז</string>
+    <string name="kadishChabadTitle">
+<![CDATA[
+קדיש - חב"ד (אר"י)
+]]></string>
+    <string name="hashkavaManTitle">השכבה לגבר - עדות מזרח</string>
+    <string name="hashkavaWomanTitle">השכבה לאשה - עדות מזרח</string>
+    <string name="elMaleManTitle">אל מלא רחמים לגבר</string>
+    <string name="elMaleWomanTitle">אל מלא רחמים לאשה</string>
+
+    <string name="silent">מצב שקט</string>
+    <string name="silent_ask">להעביר למצב שקט?</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+    <string name="remember_this_option">זכור את בחירתי</string>
+    <string name="scroll_play">גלול</string>
+    <string name="scroll_pause">השהה גלילה</string>
+</resources>

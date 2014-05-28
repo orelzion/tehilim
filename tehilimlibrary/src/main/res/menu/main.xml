@@ -1,0 +1,33 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tehilim="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/choose_chapter"
+        android:icon="?attr/choose_items_icon"
+        android:orderInCategory="100"
+        tehilim:showAsAction="always"
+        android:title="@string/action_search"
+        tehilim:actionLayout="@layout/action_select_layout" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/action_settings_light"
+        android:orderInCategory="200"
+        android:title="@string/action_settings"
+        tehilim:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="300"
+        android:title="@string/action_help"
+        tehilim:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="400"
+        android:title="@string/action_about"
+        tehilim:showAsAction="never" />
+    <item
+        android:id="@+id/action_scroll"
+        android:orderInCategory="150"
+        android:icon="@drawable/ic_action_scroll"
+        tehilim:showAsAction="always"
+        android:title="@string/scroll_play" />
+</menu>

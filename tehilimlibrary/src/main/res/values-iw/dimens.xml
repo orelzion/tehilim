@@ -1,0 +1,3 @@
+<resources>
+    <item name="title_gravity" type="integer">0x00000005</item>
+</resources>
