@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/EasyTehilim.iml" filepath="$PROJECT_DIR$/EasyTehilim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zmanim/Zmanim.iml" filepath="$PROJECT_DIR$/Zmanim/Zmanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/helpshiftsdkandroid/helpshiftsdkandroid.iml" filepath="$PROJECT_DIR$/helpshiftsdkandroid/helpshiftsdkandroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tehilim.iml" filepath="$PROJECT_DIR$/tehilim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tehilim_free/tehilim_free.iml" filepath="$PROJECT_DIR$/tehilim_free/tehilim_free.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tehilim_main/tehilim_main.iml" filepath="$PROJECT_DIR$/tehilim_main/tehilim_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tehilimlibrary/tehilimlibrary.iml" filepath="$PROJECT_DIR$/tehilimlibrary/tehilimlibrary.iml" />
+    </modules>
+  </component>
+</project>
+

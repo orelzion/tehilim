@@ -205,7 +205,6 @@ public class SunTimesCalculator extends AstronomicalCalculator {
      * @param longitude in degrees, longitudes west of Meridian are negative
      * @param latitude  in degrees, latitudes south of equator are negative
      * @param zenith    Sun's zenith, in degrees
-     * @param type      type of calculation to carry out {@link #TYPE_SUNRISE} or {@link #TYPE_SUNRISE}.
      * @return the time as a double. If an error was encountered in the calculation (expected behavior for some
      * locations such as near the poles, {@link Double.NaN} will be returned.
      */

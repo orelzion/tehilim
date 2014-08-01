@@ -15,4 +15,6 @@
     <string name="last_location_values_key">loc_values</string>
     <string name="last_location_type_key">loc_type</string>
     <string name="scroll_key">scroll</string>
+    <string name="registration_key">reg_key</string>
+    <string name="registration_version">reg_ber</string>
 </resources>

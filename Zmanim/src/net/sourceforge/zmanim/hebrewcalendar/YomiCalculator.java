@@ -96,7 +96,7 @@ public class YomiCalculator {
             total = total + blattPerMasechta[j] - 1;
             if (dafNo < total) {
                 blatt = 1 + blattPerMasechta[j] - (total - dafNo);
-				/* Fiddle with the weird ones near the end. */
+                /* Fiddle with the weird ones near the end. */
                 if (masechta == 36) {
                     blatt += 21;
                 } else if (masechta == 37) {

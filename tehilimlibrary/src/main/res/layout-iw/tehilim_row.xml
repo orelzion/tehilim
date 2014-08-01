@@ -14,7 +14,7 @@
         android:src="?attr/expand_icon"
         android:visibility="visible" />
 
-    <com.karriapps.easytehilim.tehilimlibrary.view.TehilimTextView
+    <com.karriapps.tehilim.tehilimlibrary.view.TehilimTextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
 
     -->
 
-    <com.karriapps.easytehilim.tehilimlibrary.view.TehilimTextView
+    <com.karriapps.tehilim.tehilimlibrary.view.TehilimTextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

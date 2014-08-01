@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/old_paper_background">
 
-    <com.karriapps.tehilimlibrary.utils.TehilimTextView
+    <com.karriapps.tehilim.tehilimlibrary.view.TehilimTextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

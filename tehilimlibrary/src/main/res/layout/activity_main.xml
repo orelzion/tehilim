@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/main_fragment"
-        android:name="com.karriapps.easytehilim.tehilimlibrary.fragments.MainFragment"
+        android:name="com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <fragment
         android:id="@+id/navigation_drawer"
-        android:name="com.karriapps.easytehilim.tehilimlibrary.fragments.NavigationDrawerFragment"
+        android:name="com.karriapps.tehilim.tehilimlibrary.fragments.NavigationDrawerFragment"
         android:layout_width="@dimen/side_panel_width"
         android:layout_height="match_parent"
         android:layout_gravity="start" />

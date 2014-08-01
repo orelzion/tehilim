@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.karriapps.easytehilim.tehilimlibrary">
+    package="com.karriapps.tehilim.tehilimlibrary">
 
     <application
         android:allowBackup="true"
