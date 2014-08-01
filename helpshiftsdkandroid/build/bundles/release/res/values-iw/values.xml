@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/home/orelsara/git/tehilim/helpshiftsdkandroid/src/main/res/values-iw/strings.xml -->
+    <eat-comment />
+
+    <plurals name="hs__notification_content_title">
+        <item quantity="one">הודעה חדשה מהתמיכה</item>
+        <item quantity="other">%d הודעות חדשות מהתמיכה</item>
+        <item quantity="two">שני הודעות חדשות מהתמיכה</item>
+    </plurals>
+
+    <string name="hs__attach_btn">אוקיי, הוצמד</string>
+    <string name="hs__attach_screenshot_btn">צרף צילום מסך</string>
+    <string name="hs__ca_msg">תמיד שמחים לעזור</string>
+    <string name="hs__change_btn">שנה</string>
+    <string name="hs__chat_hint">כתוב הודעה</string>
+    <string name="hs__confirmation_msg">תודה שפנית אלינות האם קיבלת תשובה לכל שאלותיך?</string>
+    <string name="hs__contact_us_btn">דבר איתנו</string>
+    <string name="hs__conversation_detail_error">אנא תאר את הבעיה</string>
+    <string name="hs__conversation_end_msg">שיחה זו הסתיימה.</string>
+    <string name="hs__conversation_header">שיחה</string>
+    <string name="hs__conversation_started_message">    שאלתך נשלחה. תודה שיצרת קשר!</string>
+    <string name="hs__cr_msg">במה עוד נוכל לעזור?</string>
+    <string name="hs__data_not_found_msg">לא נמצא מידע</string>
+    <string name="hs__default_notification_content_title">תמיכה</string>
+    <string name="hs__dm_video_loading">טוען וידאו...</string>
+    <string name="hs__done_btn">סיים</string>
+    <string name="hs__email_hint">דוא\"ל (אופציונלי)</string>
+    <string name="hs__email_required_hint">דוא\"ל</string>
+    <string name="hs__empty_section">מצטערים, אין שאלות בנושא זה.</string>
+    <string name="hs__faq_header">שאלות נפוצות</string>
+    <string name="hs__faq_helpful_msg">מועיל</string>
+    <string name="hs__faq_unhelpful_msg">לא מועיל</string>
+    <string name="hs__faqs_search_footer">לא נמצאו שאלות נפוצות.</string>
+    <string name="hs__faqs_updating">מעדכן שאלות נפוצות...</string>
+    <string name="hs__faqs_updation_failure">תקלה בעדכון שאלות נפוצות</string>
+    <string name="hs__faqs_uptodate">שאלות נפוצות מעודכן</string>
+    <string name="hs__feedback_button">שלח פידבק</string>
+    <string name="hs__help_header">עזרה</string>
+    <string name="hs__invalid_description_error">תיאור שגוי</string>
+    <string name="hs__invalid_email_error">אנא הכנס דוא\"ל תקין</string>
+    <string name="hs__mark_helpful_toast">השאלה סומנה במועילכ</string>
+    <string name="hs__mark_no">לא</string>
+    <string name="hs__mark_unhelpful_toast">השאלה סומנה כלא מועילה</string>
+    <string name="hs__mark_yes">כן</string>
+    <string name="hs__mark_yes_no_question">זה היה מועיל?</string>
+    <string name="hs__network_error_msg">אופס, משהו השתבש</string>
+    <string name="hs__network_unavailable_msg">בעיות רשת.</string>
+    <string name="hs__new_conversation_btn">התחל שיחה חדשה</string>
+    <string name="hs__new_conversation_header">שיחה חדשה</string>
+    <string name="hs__new_conversation_hint">מה אתה חושב?</string>
+    <string name="hs__new_conversation_msg">לחץ על האייקון התחתון על מנת להתחיל שיחה חדשה</string>
+    <string name="hs__notification_content_text">RE:</string>
+    <string name="hs__privacy_policy">    אנו נשאל לפרטיך רק בדיווח הראשון. For more details read our %1$s privacy policy %2$s</string>
+    <string name="hs__question_header">שאלה</string>
+    <string name="hs__question_helpful_message">אתה חושב שזה מועיל.</string>
+    <string name="hs__question_unhelpful_message">אינך חושב שזה מועיל.</string>
+    <string name="hs__rate_button">דרג</string>
+    <string name="hs__review_accepted_message">Accepted review request</string>
+    <string name="hs__review_btn">אוקיי, בדוק</string>
+    <string name="hs__review_close_button">סגור</string>
+    <string name="hs__review_dialog_msg">    אכפת לכם לקחת דקה ולסקר את האפליקציה? זה לא יקח הרבה זמן. תודה על התמיכה!</string>
+    <string name="hs__review_dialog_negative_btn">אל תשאל שוב</string>
+    <string name="hs__review_dialog_neutral_btn">הזכר לי מאוחר יותר</string>
+    <string name="hs__review_dialog_positive_btn">דרג וסקור</string>
+    <string name="hs__review_message">    אם אתה אוהב את האפליקציה, אנא קח רגע לדרג אותה</string>
+    <string name="hs__review_request_message">האם תרצה לדרג את האפליקציה?</string>
+    <string name="hs__review_title">דרג את האפליקציה</string>
+    <string name="hs__rsc_progress_msg">שולח צילום מסך.</string>
+    <string name="hs__screenshot_cloud_attach_error">    לא ניתן לשלוח את צילום המסך. אנא בחר בתמונה ששמורה על מכשירך</string>
+    <string name="hs__screenshot_limit_error">צילום המסך לא יכול להיות גדול מ%.2f MB</string>
+    <string name="hs__screenshot_sent_msg">צילום המסך נשלח</string>
+    <string name="hs__screenshot_upload_error_msg">תקלה בהעלאת צילום מסך</string>
+    <string name="hs__search_footer">לא מצאת מה שחיפשת?</string>
+    <string name="hs__search_hint">תאר את הבעיה בה נתקלת</string>
+    <string name="hs__search_title">חפש</string>
+    <string name="hs__send_msg_btn">שלח</string>
+    <string name="hs__sending_fail_msg">לא נשלח. לחץ כדי לשלוח שוב</string>
+    <string name="hs__sending_msg">שולח...</string>
+    <string name="hs__solved_btn">כן! נפתר</string>
+    <string name="hs__submit_conversation_btn">שלח</string>
+    <string name="hs__unsolved_btn">לא, עוד לא נפתר</string>
+    <string name="hs__username_blank_error">אנא הכנס שם תקין</string>
+    <string name="hs__username_hint">שם</string>
+
+</resources>
