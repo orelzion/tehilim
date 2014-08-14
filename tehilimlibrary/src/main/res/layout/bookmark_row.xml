@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.karriapps.tehilim.tehilimlibrary.view.TehilimEditText
+        android:background="@null"
+        android:id="@+id/bookmark_row_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:capitalize="words"
+        android:ems="3"
+        android:inputType="text"
+        android:gravity="start|center_vertical" />
+
+    <com.karriapps.tehilim.tehilimlibrary.view.TehilimEditText
+        android:background="@null"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:id="@+id/bookmark_row_text"
+        android:layout_width="0dp"
+        android:layout_weight="0"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_vertical" />
+
+</LinearLayout>

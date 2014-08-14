@@ -18,7 +18,9 @@
     <string name="version_info">
 <![CDATA[
     * מראה חדש לחלוטין
+    <br>
     * שיפור פונקציונליות ונוחות שימוש
+    <br>
     * תהילים ליום השנה
 ]]>
     </string>
@@ -131,4 +133,8 @@
     <string name="remember_this_option">זכור את בחירתי</string>
     <string name="scroll_play">גלול</string>
     <string name="scroll_pause">השהה גלילה</string>
+
+    <string name="bookmarks">סימניות</string>
+    <string name="name_your_bookmark">הענק שם לסימניה</string>
+    <string name="delete">מחק</string>
 </resources>

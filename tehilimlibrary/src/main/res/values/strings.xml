@@ -137,4 +137,9 @@
     <string name="remember_this_option">Remember this option</string>
     <string name="scroll_play">Start Scrolling</string>
     <string name="scroll_pause">Pause Scrolling</string>
+
+    <string name="bookmarks">Bookmarks</string>
+    <string name="name_your_bookmark">Name this bookmark</string>
+    <string name="delete">Delete</string>
+
 </resources>

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="appbrain-applift-sdk-v10.01">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/tehilim_free/build/exploded-aar/tehilim/tehilimlibrary/unspecified/libs/appbrain-applift-sdk-v10.01.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tehilimlibrary/libs/appbrain-applift-sdk-v10.01.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

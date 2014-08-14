@@ -1,7 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary.view;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
@@ -18,23 +17,7 @@ public class TehilimTextView extends TextView {
     }
 
     private void init() {
-        switch (App.getInstance().getFont()) {
-            case TIMES:
-                setTypeface(Typeface.createFromAsset(App.getInstance().getAssets(), "TIMES.ttf"));
-                break;
-            case GUTTMAN:
-                setTypeface(Typeface.createFromAsset(App.getInstance().getAssets(), "Guttman Keren-Normal.ttf"));
-                break;
-            case NARKIS:
-                setTypeface(Typeface.createFromAsset(App.getInstance().getAssets(), "NRKIS.ttf"));
-                break;
-            case ALEF:
-                setTypeface(Typeface.createFromAsset(App.getInstance().getAssets(), "Alef-Regular.ttf"));
-                break;
-            case KETER:
-                setTypeface(Typeface.createFromAsset(App.getInstance().getAssets(), "KeterYG-Medium.ttf"));
-                break;
-        }
+        setTypeface(App.getInstance().getDefaultTypeface());
         setTextSize(App.getInstance().getFontSize());
         if (App.getInstance().isRtlFixNeeded())
             this.setGravity(Gravity.RIGHT);

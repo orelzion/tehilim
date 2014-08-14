@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class App extends Application {
     //	private final String FAVORITES_FILE = "favorites.json";
     private PsalmsHelper mPsalms;
     private boolean mSettingsChanged;
+    private static Typeface TF_ALEF, TF_GUTTMAN, TF_NARKIS, TF_KETER, TF_TIMES;
 
     public App() {
         super();
@@ -135,6 +137,48 @@ public class App extends Application {
         int[] retVal = new int[values.length];
         for (int i = 0; i < values.length; i++) {
             retVal[i] = Integer.parseInt(values[i]);
+        }
+        return retVal;
+    }
+
+    public Typeface getAlef() {
+        return TF_ALEF == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "Alef-Regular.ttf") : TF_ALEF;
+    }
+
+    public Typeface getGuttman() {
+        return TF_GUTTMAN == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "Guttman Keren-Normal.ttf") : TF_GUTTMAN;
+    }
+
+    public Typeface getTimes() {
+        return TF_TIMES == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "TIMES.ttf") : TF_TIMES;
+    }
+
+    public Typeface getKeter() {
+        return TF_KETER == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "KeterYG-Medium.ttf") : TF_KETER;
+    }
+
+    public Typeface getNarkisim() {
+        return TF_NARKIS == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "NRKIS.ttf") : TF_NARKIS;
+    }
+
+    public Typeface getDefaultTypeface() {
+        Typeface retVal = null;
+        switch (getFont()) {
+            case TIMES:
+                retVal = getTimes();
+                break;
+            case GUTTMAN:
+                retVal = getGuttman();
+                break;
+            case NARKIS:
+                retVal = getNarkisim();
+                break;
+            case ALEF:
+                retVal = getAlef();
+                break;
+            case KETER:
+                retVal = getKeter();
+                break;
         }
         return retVal;
     }
