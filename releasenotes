@@ -1,0 +1,6 @@
+3.0.1
+* Fixed update crash issues (cause by different values for enums)
+* Fixed wrong day of month when pressing in quick navigation
+* Fixed Tehilim for month (was taking another chapter each day)
+* Same fix for chapter 119 in month(applies for 25 and 26 of the month)
+* Fixed Tehilim for the 10th of the month

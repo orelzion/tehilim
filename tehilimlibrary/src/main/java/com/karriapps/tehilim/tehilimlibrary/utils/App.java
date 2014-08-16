@@ -222,7 +222,14 @@ public class App extends Application {
      * Get what mode of silence to apply upon entering the application
      */
     public SILENT_MODE getSilentMode() {
-        return SILENT_MODE.valueOf(getSharedPreferences().getString(getString(R.string.silent_key), SILENT_MODE.ASK.name()));
+
+        SILENT_MODE retVal = SILENT_MODE.ASK;
+        try {
+            retVal = SILENT_MODE.valueOf(getSharedPreferences().getString(getString(R.string.silent_key), SILENT_MODE.ASK.name()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public void setSilentMode(SILENT_MODE silentMode) {
@@ -230,12 +237,24 @@ public class App extends Application {
     }
 
     public LANGUAGES getLang() {
+        LANGUAGES retVal = LANGUAGES.DEFAULT;
         int ordinal = Integer.parseInt(getSharedPreferences().getString(getString(R.string.lang_key), LANGUAGES.DEFAULT.ordinal() + ""));
-        return LANGUAGES.values()[ordinal];
+        try {
+            retVal = LANGUAGES.values()[ordinal];
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public FONTS getFont() {
-        return FONTS.valueOf(getSharedPreferences().getString(getString(R.string.font_key), FONTS.KETER.name()));
+        FONTS retVal = FONTS.KETER;
+        try {
+            retVal = FONTS.valueOf(getSharedPreferences().getString(getString(R.string.font_key), FONTS.KETER.name()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public float getFontSize() {
@@ -247,7 +266,13 @@ public class App extends Application {
     }
 
     public THEME getAppTheme() {
-        return THEME.valueOf(getSharedPreferences().getString(getString(R.string.theme_key), THEME.LIGHT.name()));
+        THEME retVal = THEME.LIGHT;
+        try {
+            retVal = THEME.valueOf(getSharedPreferences().getString(getString(R.string.theme_key), THEME.LIGHT.name()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public READING_MODE getReadingMode() {

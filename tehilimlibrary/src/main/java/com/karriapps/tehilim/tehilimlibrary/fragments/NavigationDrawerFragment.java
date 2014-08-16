@@ -135,7 +135,8 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
         mDateTextView.setText(
                 App.getInstance().getHebrewDateFormatter().format(App.getInstance().getJewishCalendar())
-                        + " - " + App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar()));
+                        + " - " + App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())
+        );
 
         // Select either the default item (0) or the last selected item.
 //        selectItem(mQuickList, mCurrentSelectedPosition);
@@ -281,7 +282,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                     setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
                     mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
                 } else if (position == 2) {
-                    OnMonthSelected(App.getInstance().getJewishCalendar().getDaysInJewishMonth() - 1);
+                    OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
                 } else if (mQuickAdapter.getItem(position).equals(getString(R.string.bookmarks))) {
                     if (getResources().getBoolean(R.bool.tablet)) {
                         BookmarkDialog.newInstance(mCallbacks).show(getFragmentManager(), TAG);

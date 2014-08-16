@@ -21,9 +21,8 @@
     <string name="github_url">https://github.com/orelzion/tehilim</string>
     <string name="version_info">
 <![CDATA[
-        * Completely new design<br>
-        * Much improved readability and functionality<br>
-        * Yahrzeit Tehilim
+        * Update crash fixes<br>
+        * Bug fixes (Complete list in our Github project)
     ]]>
     </string>
     <string name="books_title">By Books</string>

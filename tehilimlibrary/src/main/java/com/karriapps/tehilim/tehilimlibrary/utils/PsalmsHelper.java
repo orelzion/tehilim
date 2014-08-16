@@ -101,7 +101,7 @@ public class PsalmsHelper {
         if (dayInMonth == 25)
             return 120;
         else
-            return monthPsalms.get(dayInMonth + 1);
+            return monthPsalms.get(dayInMonth + 1) - 1;
     }
 
     public int getMonthKufYudPsalm(int dayInMonth) {
@@ -114,15 +114,16 @@ public class PsalmsHelper {
 
     public int getMonthLastKufYudPsalm(int dayInMonth) {
         if (dayInMonth == 25)
-            return 13;
+            return 12;
         else if (dayInMonth == 26)
             return 23;
         else return 0;
     }
 
+    @Deprecated
     public ArrayList<Integer> getKufYudListForDate(int dayInMonth) {
         if (dayInMonth == 25)
-            return getListFromAtoB(1, 13);
+            return getListFromAtoB(1, 12);
         else if (dayInMonth == 26)
             return getListFromAtoB(13, 23);
         else
@@ -441,7 +442,7 @@ public class PsalmsHelper {
         monthPsalms.put(8, 44);
         monthPsalms.put(9, 49);
         monthPsalms.put(10, 55);
-        monthPsalms.put(11, 61);
+        monthPsalms.put(11, 60);
         monthPsalms.put(12, 66);
         monthPsalms.put(13, 69);
         monthPsalms.put(14, 72);
@@ -461,7 +462,7 @@ public class PsalmsHelper {
         monthPsalms.put(28, 135);
         monthPsalms.put(29, 140);
         monthPsalms.put(30, 145);
-        monthPsalms.put(31, 150);
+        monthPsalms.put(31, 151);
 
         kufYudTet.put(1, R.string._119_1);
         kufYudTet.put(2, R.string._119_2);
