@@ -100,8 +100,12 @@ public class PsalmsHelper {
     public int getMonthLastPsalm(int dayInMonth) {
         if (dayInMonth == 25)
             return 120;
-        else
+        else if (dayInMonth == 29 &&
+                App.getInstance().getJewishCalendar().getDaysInJewishMonth() == 29) {
+            return 150;
+        } else {
             return monthPsalms.get(dayInMonth + 1) - 1;
+        }
     }
 
     public int getMonthKufYudPsalm(int dayInMonth) {

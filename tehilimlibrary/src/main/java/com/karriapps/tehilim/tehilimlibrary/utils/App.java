@@ -8,9 +8,11 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
-import android.text.TextUtils;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 
@@ -30,6 +32,8 @@ public class App extends Application {
     private PsalmsHelper mPsalms;
     private boolean mSettingsChanged;
     private static Typeface TF_ALEF, TF_GUTTMAN, TF_NARKIS, TF_KETER, TF_TIMES;
+    private final GsonBuilder mGsonBuilder = new GsonBuilder();
+    private final Gson mGson = mGsonBuilder.create();
 
     public App() {
         super();
@@ -102,25 +106,25 @@ public class App extends Application {
         return PreferenceManager.getDefaultSharedPreferences(_app);
     }
 
+    public Gson getGson() {
+        return mGson;
+    }
+
     public void saveLastLocation(LastLocation location) {
-        getSharedPreferences().edit().putString(getString(R.string.last_location_name_key), location.getName())
-                .putInt(getString(R.string.last_location_position_key), location.getPosition())
-                .putInt(getString(R.string.last_location_type_key), location.getGeneratorType().ordinal())
-                .putString(getString(R.string.last_location_values_key), createCommaSeparatedIntArray(location.getValues()))
+        String locToJson = mGson.toJson(location, LastLocation.class);
+        getSharedPreferences().edit().putString(getString(R.string.last_location_json), locToJson)
                 .commit();
     }
 
     public LastLocation getLastLocation() {
-        LastLocation loc = new LastLocation();
-        loc.setPosition(getSharedPreferences().getInt(getString(R.string.last_location_position_key), 0));
-        loc.setGeneratorType(LastLocation.GENERATOR_TYPE.values()[
-                getSharedPreferences().getInt(getString(R.string.last_location_type_key), 0)]);
-        loc.setName(getSharedPreferences().getString(getString(R.string.last_location_name_key), ""));
-        String commaSeparatedValues = getSharedPreferences().getString(getString(R.string.last_location_values_key), null);
-        if (!TextUtils.isEmpty(commaSeparatedValues)) {
-            loc.setValues(getIntArrayFromCommaSeparatedString(commaSeparatedValues));
+        LastLocation retVal = new LastLocation();
+        String savedData = getSharedPreferences().getString(getString(R.string.last_location_json), "");
+        try {
+            retVal = mGson.fromJson(savedData, LastLocation.class);
+        } catch (JsonSyntaxException e) {
+            e.printStackTrace();
         }
-        return loc;
+        return retVal;
     }
 
     private String createCommaSeparatedIntArray(int[] values) {
@@ -142,23 +146,23 @@ public class App extends Application {
     }
 
     public Typeface getAlef() {
-        return TF_ALEF == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "Alef-Regular.ttf") : TF_ALEF;
+        return TF_ALEF == null ? (TF_ALEF = Typeface.createFromAsset(App.getInstance().getAssets(), "Alef-Regular.ttf")) : TF_ALEF;
     }
 
     public Typeface getGuttman() {
-        return TF_GUTTMAN == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "Guttman Keren-Normal.ttf") : TF_GUTTMAN;
+        return TF_GUTTMAN == null ? (TF_GUTTMAN = Typeface.createFromAsset(App.getInstance().getAssets(), "Guttman Keren-Normal.ttf")) : TF_GUTTMAN;
     }
 
     public Typeface getTimes() {
-        return TF_TIMES == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "TIMES.ttf") : TF_TIMES;
+        return TF_TIMES == null ? (TF_TIMES = Typeface.createFromAsset(App.getInstance().getAssets(), "TIMES.ttf")) : TF_TIMES;
     }
 
     public Typeface getKeter() {
-        return TF_KETER == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "KeterYG-Medium.ttf") : TF_KETER;
+        return TF_KETER == null ? (TF_KETER = Typeface.createFromAsset(App.getInstance().getAssets(), "KeterYG-Medium.ttf")) : TF_KETER;
     }
 
     public Typeface getNarkisim() {
-        return TF_NARKIS == null ? Typeface.createFromAsset(App.getInstance().getAssets(), "NRKIS.ttf") : TF_NARKIS;
+        return TF_NARKIS == null ? (TF_NARKIS = Typeface.createFromAsset(App.getInstance().getAssets(), "NRKIS.ttf")) : TF_NARKIS;
     }
 
     public Typeface getDefaultTypeface() {
@@ -187,11 +191,23 @@ public class App extends Application {
      * Get whether the user getSharedPreferences()ers to lock the screen to portrait mode
      */
     public boolean isPortraitOnly() {
-        return getSharedPreferences().getBoolean(getString(R.string.portrait_key), false);
+        boolean retVal = false;
+        try {
+            retVal = getSharedPreferences().getBoolean(getString(R.string.portrait_key), false);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public long getScrollValue() {
-        return getSharedPreferences().getLong(getString(R.string.scroll_key), 200);
+        long retVal = 200;
+        try {
+            retVal = getSharedPreferences().getLong(getString(R.string.scroll_key), 200);
+        } catch (IllegalArgumentException | ClassCastException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public void setScrollValue(long milliseconds) {
@@ -258,7 +274,13 @@ public class App extends Application {
     }
 
     public float getFontSize() {
-        return getSharedPreferences().getFloat(getString(R.string.font_sze_key), 15);
+        float retVal = 15;
+        try {
+            retVal = getSharedPreferences().getFloat(getString(R.string.font_sze_key), 15);
+        } catch (IllegalArgumentException | ClassCastException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     public void setFontSize(float size) {
@@ -276,7 +298,13 @@ public class App extends Application {
     }
 
     public READING_MODE getReadingMode() {
-        return READING_MODE.valueOf(getSharedPreferences().getString(getString(R.string.read_key), READING_MODE.SIMPLE.name()));
+        READING_MODE retVal = READING_MODE.SIMPLE;
+        try {
+            retVal = READING_MODE.valueOf(getSharedPreferences().getString(getString(R.string.read_key), READING_MODE.SIMPLE.name()));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        return retVal;
     }
 
     /**

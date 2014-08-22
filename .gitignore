@@ -2,3 +2,6 @@
 /local.properties
 /.idea/workspace.xml
 .DS_Store
+/tehilimlibrary/src/main/res/values/keys.xml
+
+build

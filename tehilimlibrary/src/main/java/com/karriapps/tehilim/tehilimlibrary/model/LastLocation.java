@@ -1,7 +1,13 @@
 package com.karriapps.tehilim.tehilimlibrary.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
+
 /**
  * Created by orelsara on 5/6/14.
+ * Updated to use GSON on 18/08/14.
+ * Added dateCreated field on 22/08/14.
  */
 public class LastLocation {
 
@@ -29,7 +35,22 @@ public class LastLocation {
         this.mGeneratorType = generatorType;
     }
 
-    public enum GENERATOR_TYPE {CHAPTERS, NAME, YAHRZEIT}
+    public Date getDateCreated() {
+        return mDateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        mDateCreated = dateCreated;
+    }
+
+    public enum GENERATOR_TYPE {
+        @SerializedName("0")
+        CHAPTERS,
+        @SerializedName("1")
+        NAME,
+        @SerializedName("2")
+        YAHRZEIT
+    }
 
     public void setPosition(int position) {
         this.mPosition = position;
@@ -39,18 +60,30 @@ public class LastLocation {
         return mPosition;
     }
 
+    @SerializedName("name")
     private String mName;
+    @SerializedName("values")
     private int[] mValues;
+    @SerializedName("type")
     private GENERATOR_TYPE mGeneratorType;
+    @SerializedName("position")
     private int mPosition;
+    @SerializedName("date")
+    private Date mDateCreated;
 
     public LastLocation(String mName, int[] mValues, GENERATOR_TYPE mGeneratorType, int mPosition) {
         this.mName = mName;
         this.mValues = mValues;
         this.mGeneratorType = mGeneratorType;
         this.mPosition = mPosition;
+        init();
     }
 
     public LastLocation() {
+        init();
+    }
+
+    private void init() {
+        mDateCreated = new Date();
     }
 }

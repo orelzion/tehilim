@@ -1,3 +1,11 @@
+3.0.3
+* Fixed last location
+
+3.0.2
+* Fixed ClassCastException in font value
+* Fixed crash with READING_MODE
+* Fixed end of month to be according to Jewish calendar
+
 3.0.1
 * Fixed update crash issues (cause by different values for enums)
 * Fixed wrong day of month when pressing in quick navigation

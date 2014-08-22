@@ -14,7 +14,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.text.TextUtils;
-import com.helpshift.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +26,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.helpshift.Helpshift;
+import com.helpshift.Log;
 import com.karriapps.tehilim.tehilimlibrary.fragments.AboutFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment.VIEW_TYPE;
@@ -68,7 +68,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private TehilimGenerator mGenerator;
 
     private ExtendedSpinner mChaptersSpinner;
-    private List<String> mChapters = new ArrayList<String>();
+    private List<String> mChapters = new ArrayList<>();
     private ArrayAdapter<String> mSpinnerAdapter;
 
     private String mTitle;
@@ -105,7 +105,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (checkPlayServices()) {
             mGcm = GoogleCloudMessaging.getInstance(this);
-            mRegisterationID = getRegistrationId(getApplicationContext());
+            mRegisterationID = getRegistrationId();
 
             if (mRegisterationID.isEmpty()) {
                 registerInBackground();
@@ -134,6 +134,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        if (savedInstanceState == null) {
+            setGenerator(new PsalmsGenerator(1, 151, 1, 23));
+            mTitle = getString(R.string.all_tehilim);
+            restoreActionBar();
+            saveLastLocation();
+        }
 
         AudioManager mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
@@ -177,8 +184,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             outState.putInt(OLD_SILENT_KEY, mOldRingerMode);
         }
     }
-
-    ;
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -229,15 +234,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         return false;
     }
 
-    ;
-
     OnQueryTextListener onQuery = new OnQueryTextListener() {
 
         @Override
         public boolean onQueryTextSubmit(String query) {
 
             query = query.trim();
-            int chapter = 0, i = 0;
+            int chapter = 0, i;
             if (Tools.isIntNumeric(query))
                 chapter = Integer.parseInt(query);
             else {
@@ -316,7 +319,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     private void setSpinner() {
         if (mChaptersSpinner != null) {
-            mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mChapters);
+            mSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mChapters);
             mChaptersSpinner.setAdapter(mSpinnerAdapter);
             mMainFragment.getView().postDelayed(new Runnable() {
 
@@ -356,7 +359,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
      * @return registration ID, or empty string if there is no existing
      * registration ID.
      */
-    private String getRegistrationId(Context context) {
+    private String getRegistrationId() {
         final SharedPreferences prefs = App.getInstance().getSharedPreferences();
         String registrationId = prefs.getString(getString(R.string.registration_key), "");
         if (registrationId.isEmpty()) {

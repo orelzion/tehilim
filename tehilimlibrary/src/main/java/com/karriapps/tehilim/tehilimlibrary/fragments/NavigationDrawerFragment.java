@@ -35,7 +35,6 @@ import com.karriapps.tehilim.tehilimlibrary.MainActivity;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.BookmarkDialog;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.YahrzeitDialog;
-import com.karriapps.tehilim.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
@@ -238,10 +237,10 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        if (!mFromSavedInstanceState) {
-            mGenerator = new PsalmsGenerator(1, 151, 1, 23);
-            mCallbacks.onNavigationDrawerItemSelected(mGenerator, getString(R.string.all_tehilim));
-        }
+//        if (!mFromSavedInstanceState) {
+//            mGenerator = new PsalmsGenerator(1, 151, 1, 23);
+//            mCallbacks.onNavigationDrawerItemSelected(mGenerator, getString(R.string.all_tehilim));
+//        }
     }
 
     private void populateLists() {
@@ -252,7 +251,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 getString(R.string.all_tehilim)
                 //,getString(R.string.bookmarks)
         };
-        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
+        mQuickAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
         mQuickList.setAdapter(mQuickAdapter);
         mQuickList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -307,7 +306,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 getString(R.string.yahrzeitTitle)
         };
 
-        mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
+        mPrayersAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
         mPrayersList.setAdapter(mPrayersAdapter);
         mPrayersList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -426,14 +425,14 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
     private List<HashMap<String, String>> createBooksGroups() {
 
-        ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> result = new ArrayList<>();
         HashMap<String, String> group = new HashMap<String, String>();
         group.put("Group Item", getString(R.string.books_title));
         result.add(group);
-        group = new HashMap<String, String>();
+        group = new HashMap<>();
         group.put("Group Item", getString(R.string.week_title));
         result.add(group);
-        group = new HashMap<String, String>();
+        group = new HashMap<>();
         group.put("Group Item", getString(R.string.month_title));
         result.add(group);
 
@@ -441,22 +440,22 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     private List<ArrayList<HashMap<String, String>>> createChildGroups() {
-        ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
+        ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<>();
 
         String[] books = getResources().getStringArray(R.array.books);
         HashMap<String, String> child;
         ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
         for (String book : books) {
-            child = new HashMap<String, String>();
+            child = new HashMap<>();
             child.put("Sub Item", book);
             secList.add(child);
         }
         result.add(secList);
 
-        secList = new ArrayList<HashMap<String, String>>();
+        secList = new ArrayList<>();
         String[] days = getResources().getStringArray(R.array.week_days);
         for (String day : days) {
-            child = new HashMap<String, String>();
+            child = new HashMap<>();
             child.put("Sub Item", day);
             secList.add(child);
         }
