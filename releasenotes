@@ -1,5 +1,7 @@
 3.0.3
 * Fixed last location
+* Added font size settings
+* Font selection will be updated immediately
 
 3.0.2
 * Fixed ClassCastException in font value

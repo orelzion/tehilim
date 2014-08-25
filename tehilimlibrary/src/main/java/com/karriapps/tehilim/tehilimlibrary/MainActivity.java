@@ -50,7 +50,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks, OnPositionChanged {
 
-    public static final String GCM_API_KEY  = App.getInstance().getString(R.string.gcm_api_key);
+    public static final String GCM_API_KEY = App.getInstance().getString(R.string.gcm_api_key);
 
     private static final String TAG = MainActivity.class.getName();
 
@@ -68,7 +68,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private TehilimGenerator mGenerator;
 
     private ExtendedSpinner mChaptersSpinner;
-    private List<String> mChapters = new ArrayList<>();
+    private List<String> mChapters = new ArrayList<String>();
     private ArrayAdapter<String> mSpinnerAdapter;
 
     private String mTitle;
@@ -90,7 +90,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         super.onCreate(savedInstanceState);
 
-        if(App.getInstance().isFreeVersion()) {
+        if (App.getInstance().isFreeVersion()) {
             AppBrain.init(this);
         }
 
@@ -105,7 +105,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (checkPlayServices()) {
             mGcm = GoogleCloudMessaging.getInstance(this);
-            mRegisterationID = getRegistrationId();
+            mRegisterationID = getRegistrationId(getApplicationContext());
 
             if (mRegisterationID.isEmpty()) {
                 registerInBackground();
@@ -118,7 +118,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 
-        if(App.getInstance().isPortraitOnly()) {
+        if (App.getInstance().isPortraitOnly()) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
@@ -185,6 +185,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         }
     }
 
+    ;
+
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -234,13 +236,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         return false;
     }
 
+    ;
+
     OnQueryTextListener onQuery = new OnQueryTextListener() {
 
         @Override
         public boolean onQueryTextSubmit(String query) {
 
             query = query.trim();
-            int chapter = 0, i;
+            int chapter = 0, i = 0;
             if (Tools.isIntNumeric(query))
                 chapter = Integer.parseInt(query);
             else {
@@ -280,7 +284,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     @Override
     public void onBackPressed() {
-        if(App.getInstance().isFreeVersion())
+        if (App.getInstance().isFreeVersion())
             AppBrain.getAds().showInterstitial(this);
         finish();
     }
@@ -319,7 +323,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     private void setSpinner() {
         if (mChaptersSpinner != null) {
-            mSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mChapters);
+            mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mChapters);
             mChaptersSpinner.setAdapter(mSpinnerAdapter);
             mMainFragment.getView().postDelayed(new Runnable() {
 
@@ -353,13 +357,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     /**
      * Gets the current registration ID for application on GCM service, if there is one.
-     * <p>
+     * <p/>
      * If result is empty, the app needs to register.
      *
      * @return registration ID, or empty string if there is no existing
      * registration ID.
      */
-    private String getRegistrationId() {
+    private String getRegistrationId(Context context) {
         final SharedPreferences prefs = App.getInstance().getSharedPreferences();
         String registrationId = prefs.getString(getString(R.string.registration_key), "");
         if (registrationId.isEmpty()) {
@@ -393,7 +397,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     /**
      * Registers the application with GCM servers asynchronously.
-     * <p>
+     * <p/>
      * Stores the registration ID and the app versionCode in the application's
      * shared preferences.
      */
@@ -443,7 +447,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private void sendRegistrationIdToBackend() {
         // Your implementation here.
         // Send registrationId to Helpshift
-        Helpshift.registerDeviceToken(this , mRegisterationID);
+        Helpshift.registerDeviceToken(this, mRegisterationID);
     }
 
     OnItemSelectedListener mOnSpinnerItemSelect = new OnItemSelectedListener() {

@@ -18,8 +18,9 @@
     <string name="github_url">https://github.com/orelzion/tehilim</string>
     <string name="version_info">
 <![CDATA[
-        * Update crash fixes<br>
-        * End of month will be updated correctly
+        * Last location is fixed<br>
+        * Added font size to the settings<br>
+        * Font selection will no longer requires restarting the app
     ]]>
     </string>
     <string name="books_title">By Books</string>
@@ -85,6 +86,7 @@
     <string name="appearance_title">Appearance Settings</string>
     <string name="general_title">General Settings</string>
     <string name="choose_font">Choose Font</string>
+    <string name="choose_font_size">Set Font Size</string>
     <string name="keep_portrait">Keep Portrait</string>
     <string name="keep_portrait_description">Do not rotate the screen</string>
     <string name="themes_title">Choose Theme</string>

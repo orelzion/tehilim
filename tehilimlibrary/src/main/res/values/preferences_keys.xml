@@ -2,6 +2,7 @@
 <resources>
     <string name="font_key">font</string>
     <string name="font_sze_key">sizeFont</string>
+    <string name="font_size_key">fontSize</string>
     <string name="portrait_key">port</string>
     <string name="theme_key">theme</string>
     <string name="lang_key">lang</string>

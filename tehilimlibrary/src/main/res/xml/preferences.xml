@@ -8,6 +8,14 @@
             android:key="@string/font_key"
             android:title="@string/choose_font" />
 
+        <EditTextPreference
+            android:dialogTitle="@string/choose_font_size"
+            android:inputType="number"
+            android:defaultValue="16"
+            android:key="@string/font_size_key"
+            android:title="@string/choose_font_size" />
+
+
         <CheckBoxPreference
             android:key="@string/portrait_key"
             android:summary="@string/keep_portrait_description"

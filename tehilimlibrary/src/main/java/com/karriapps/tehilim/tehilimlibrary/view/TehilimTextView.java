@@ -17,7 +17,6 @@ public class TehilimTextView extends TextView {
     }
 
     private void init() {
-        setTypeface(App.getInstance().getDefaultTypeface());
         setTextSize(App.getInstance().getFontSize());
         if (App.getInstance().isRtlFixNeeded())
             this.setGravity(Gravity.RIGHT);

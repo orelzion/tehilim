@@ -214,6 +214,16 @@ public class MainFragment extends Fragment implements OnScrollListener {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdapter != null) {
+            mList.destroyDrawingCache();
+            mAdapter.notifyDataSetChanged();
+            mList.invalidateViews();
+        }
+    }
+
     public TehilimGenerator getTehilimGenerator() {
         return mTehilimGenerator;
     }
@@ -268,6 +278,7 @@ public class MainFragment extends Fragment implements OnScrollListener {
                 tText = "<font color=\"#aaaaaa\">" + tText + "</font>";
             holder.mTitleTextView.setText(Html.fromHtml(tText));
             holder.mTitleTextView.setTextSize(App.getInstance().getFontSize());
+            holder.mTitleTextView.setTypeface(App.getInstance().getAlef());
 
             if (!getItem(position).getExpand().equals(Perek.EXPANDANBLE.NONE)) {
                 holder.mTitleTextView.setTag(position);
@@ -301,6 +312,7 @@ public class MainFragment extends Fragment implements OnScrollListener {
                 pText = "<font color=\"#aaaaaa\">" + pText + "</font>";
             holder.mTextView.setText(Html.fromHtml(pText));
             holder.mTextView.setTextSize(App.getInstance().getFontSize());
+            holder.mTextView.setTypeface(App.getInstance().getDefaultTypeface());
 
             return convertView;
         }

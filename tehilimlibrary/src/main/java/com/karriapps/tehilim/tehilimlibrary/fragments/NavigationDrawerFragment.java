@@ -251,7 +251,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 getString(R.string.all_tehilim)
                 //,getString(R.string.bookmarks)
         };
-        mQuickAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
+        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
         mQuickList.setAdapter(mQuickAdapter);
         mQuickList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -306,7 +306,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 getString(R.string.yahrzeitTitle)
         };
 
-        mPrayersAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
+        mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
         mPrayersList.setAdapter(mPrayersAdapter);
         mPrayersList.setOnItemClickListener(new OnItemClickListener() {
 
@@ -425,14 +425,14 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
     private List<HashMap<String, String>> createBooksGroups() {
 
-        ArrayList<HashMap<String, String>> result = new ArrayList<>();
+        ArrayList<HashMap<String, String>> result = new ArrayList<HashMap<String, String>>();
         HashMap<String, String> group = new HashMap<String, String>();
         group.put("Group Item", getString(R.string.books_title));
         result.add(group);
-        group = new HashMap<>();
+        group = new HashMap<String, String>();
         group.put("Group Item", getString(R.string.week_title));
         result.add(group);
-        group = new HashMap<>();
+        group = new HashMap<String, String>();
         group.put("Group Item", getString(R.string.month_title));
         result.add(group);
 
@@ -440,22 +440,22 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     private List<ArrayList<HashMap<String, String>>> createChildGroups() {
-        ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<>();
+        ArrayList<ArrayList<HashMap<String, String>>> result = new ArrayList<ArrayList<HashMap<String, String>>>();
 
         String[] books = getResources().getStringArray(R.array.books);
         HashMap<String, String> child;
         ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
         for (String book : books) {
-            child = new HashMap<>();
+            child = new HashMap<String, String>();
             child.put("Sub Item", book);
             secList.add(child);
         }
         result.add(secList);
 
-        secList = new ArrayList<>();
+        secList = new ArrayList<HashMap<String, String>>();
         String[] days = getResources().getStringArray(R.array.week_days);
         for (String day : days) {
-            child = new HashMap<>();
+            child = new HashMap<String, String>();
             child.put("Sub Item", day);
             secList.add(child);
         }

@@ -17,9 +17,11 @@
     <string name="rate">דרג אותנו</string>
     <string name="version_info">
 <![CDATA[
-    * תיקון קריסה בשדרוג
-    <br>
-* סוף החודש יעודכן בצורה נכונה
+* תוקן מיקום אחרון
+<br>
+* נוספה אפשרות לקביעת גודל גופן מההגדרות
+<br>
+* בחירת גופן משפיעה מיידית
 ]]>
     </string>
     <string name="free_title">הפטר מהפרסומות כעת!</string>
@@ -81,6 +83,7 @@
     <string name="appearance_title">הגדרות מראה</string>
     <string name="general_title">הגדרות כלליות</string>
     <string name="choose_font">בחר גופן</string>
+    <string name="choose_font_size">קבע גודל גופן</string>
     <string name="keep_portrait">השאר מאונך</string>
     <string name="keep_portrait_description">האפליקציה תישאר במצב מאונך</string>
     <string name="themes_title">בחר ערכת נושא</string>

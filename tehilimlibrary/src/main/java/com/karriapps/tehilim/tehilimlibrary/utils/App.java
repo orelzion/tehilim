@@ -204,7 +204,9 @@ public class App extends Application {
         long retVal = 200;
         try {
             retVal = getSharedPreferences().getLong(getString(R.string.scroll_key), 200);
-        } catch (IllegalArgumentException | ClassCastException e) {
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (ClassCastException e) {
             e.printStackTrace();
         }
         return retVal;
@@ -276,15 +278,17 @@ public class App extends Application {
     public float getFontSize() {
         float retVal = 15;
         try {
-            retVal = getSharedPreferences().getFloat(getString(R.string.font_sze_key), 15);
-        } catch (IllegalArgumentException | ClassCastException e) {
+            retVal = Float.parseFloat(getSharedPreferences().getString(getString(R.string.font_size_key), "15"));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (ClassCastException e) {
             e.printStackTrace();
         }
         return retVal;
     }
 
     public void setFontSize(float size) {
-        getSharedPreferences().edit().putFloat(getString(R.string.font_sze_key), size).commit();
+        getSharedPreferences().edit().putString(getString(R.string.font_size_key), String.valueOf(size)).commit();
     }
 
     public THEME getAppTheme() {
