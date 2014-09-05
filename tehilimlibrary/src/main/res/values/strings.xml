@@ -18,9 +18,7 @@
     <string name="github_url">https://github.com/orelzion/tehilim</string>
     <string name="version_info">
 <![CDATA[
-        * Last location is fixed<br>
-        * Added font size to the settings<br>
-        * Font selection will no longer requires restarting the app
+        * Last location is fixed (For real now :)<br>
     ]]>
     </string>
     <string name="books_title">By Books</string>

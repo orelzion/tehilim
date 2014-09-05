@@ -15,6 +15,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
+import com.karriapps.tehilim.tehilimlibrary.model.QueueList;
 
 import net.sourceforge.zmanim.hebrewcalendar.HebrewDateFormatter;
 import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
@@ -34,6 +35,7 @@ public class App extends Application {
     private static Typeface TF_ALEF, TF_GUTTMAN, TF_NARKIS, TF_KETER, TF_TIMES;
     private final GsonBuilder mGsonBuilder = new GsonBuilder();
     private final Gson mGson = mGsonBuilder.create();
+    private QueueList<LastLocation> mLocations = new QueueList<LastLocation>(3);
 
     public App() {
         super();
@@ -111,38 +113,25 @@ public class App extends Application {
     }
 
     public void saveLastLocation(LastLocation location) {
-        String locToJson = mGson.toJson(location, LastLocation.class);
+        mLocations.add(location);
+        String locToJson = mGson.toJson(mLocations.getList(), LastLocation[].class);
         getSharedPreferences().edit().putString(getString(R.string.last_location_json), locToJson)
                 .commit();
     }
 
     public LastLocation getLastLocation() {
-        LastLocation retVal = new LastLocation();
+        return (getLastLocations() != null && getLastLocations().length > 0) ? mLocations.get(0) : null;
+    }
+
+    public LastLocation[] getLastLocations() {
         String savedData = getSharedPreferences().getString(getString(R.string.last_location_json), "");
         try {
-            retVal = mGson.fromJson(savedData, LastLocation.class);
+            mLocations.setList(mGson.fromJson(savedData, LastLocation[].class));
         } catch (JsonSyntaxException e) {
             e.printStackTrace();
         }
-        return retVal;
-    }
 
-    private String createCommaSeparatedIntArray(int[] values) {
-        StringBuilder result = new StringBuilder();
-        for (int value : values) {
-            result.append(value);
-            result.append(",");
-        }
-        return result.length() > 0 ? result.substring(0, result.length() - 1) : "";
-    }
-
-    private int[] getIntArrayFromCommaSeparatedString(String string) {
-        String[] values = string.split(",");
-        int[] retVal = new int[values.length];
-        for (int i = 0; i < values.length; i++) {
-            retVal[i] = Integer.parseInt(values[i]);
-        }
-        return retVal;
+        return mLocations.getList();
     }
 
     public Typeface getAlef() {

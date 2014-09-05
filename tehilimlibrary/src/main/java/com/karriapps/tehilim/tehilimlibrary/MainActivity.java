@@ -79,6 +79,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private GoogleCloudMessaging mGcm;
     private String mRegisterationID;
 
+    private int mInitialPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -136,10 +138,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         if (savedInstanceState == null) {
-            setGenerator(new PsalmsGenerator(1, 151, 1, 23));
+            setGenerator(new PsalmsGenerator(1, 151, 1, 23), -1);
             mTitle = getString(R.string.all_tehilim);
             restoreActionBar();
-            saveLastLocation();
         }
 
         AudioManager mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -150,8 +151,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 setTitle(mTitle);
             TehilimGenerator generator = savedInstanceState.getParcelable(GENERATOR_KEY);
             if (generator != null) {
-                setGenerator(generator);
-                mMainFragment.setPosition(savedInstanceState.getInt(CURRENT_POSITION_KEY));
+                setGenerator(generator, savedInstanceState.getInt(CURRENT_POSITION_KEY));
             }
             mAudioManager.setRingerMode(savedInstanceState.getInt(SILENT_KEY));
             mOldRingerMode = savedInstanceState.getInt(OLD_SILENT_KEY);
@@ -308,7 +308,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         App.getInstance().saveLastLocation(loc);
     }
 
-    private void setGenerator(final TehilimGenerator generator) {
+    private void setGenerator(final TehilimGenerator generator, int position) {
         mGenerator = generator;
         if (generator.getList().size() <= 0)
             generator.generate();
@@ -318,6 +318,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         else
             mMainFragment.setViewType(VIEW_TYPE.OTHER);
         mChapters = generator.getKeys();
+        mInitialPosition = position > 0 ? position : mGenerator.getFirstChapterKeyPosition();
         setSpinner();
     }
 
@@ -330,7 +331,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 @Override
                 public void run() {
                     if (mGenerator != null)
-                        mChaptersSpinner.setSelection((mGenerator).getFirstChapterKeyPosition(), true, true);
+                        mChaptersSpinner.setSelection(mInitialPosition, true, true);
                 }
             }, 150);
         }
@@ -467,19 +468,17 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     };
 
     @Override
-    public void onNavigationDrawerItemSelected(TehilimGenerator generator,
-                                               String title) {
-        mNavigationDrawerFragment.closeDrawer();
-        saveLastLocation();
-        mTitle = title;
-        restoreActionBar();
-        setGenerator(generator);
+    public void onNavigationDrawerItemSelected(TehilimGenerator generator, String title) {
+        onNavigationDrawerItemSelected(generator, title, -1);
     }
 
     @Override
     public void onNavigationDrawerItemSelected(TehilimGenerator generator, String title, int position) {
-        onNavigationDrawerItemSelected(generator, title);
-        mMainFragment.setPosition(position);
+        mNavigationDrawerFragment.closeDrawer();
+        saveLastLocation();
+        mTitle = title;
+        restoreActionBar();
+        setGenerator(generator, position);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.karriapps.tehilim.tehilimlibrary.model;
 
+import android.text.format.DateFormat;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -9,7 +11,7 @@ import java.util.Date;
  * Updated to use GSON on 18/08/14.
  * Added dateCreated field on 22/08/14.
  */
-public class LastLocation {
+public class LastLocation implements IEditableChild {
 
     public String getName() {
         return mName;
@@ -58,6 +60,26 @@ public class LastLocation {
 
     public int getPosition() {
         return mPosition;
+    }
+
+    @Override
+    public String getTitle() {
+        return mName;
+    }
+
+    @Override
+    public String getSubtitle() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(mValues[0]);
+        builder.append(" - ");
+        builder.append(mValues[1]);
+        return builder.toString();
+    }
+
+    @Override
+    public String getSideText() {
+        String format = "dd/MMMM/yy HH:mm";
+        return DateFormat.format(format, mDateCreated).toString();
     }
 
     @SerializedName("name")

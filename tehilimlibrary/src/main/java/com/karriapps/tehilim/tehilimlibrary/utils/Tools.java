@@ -43,6 +43,24 @@ public class Tools {
         return temp;
     }
 
+    public static String createCommaSeparatedIntArray(int[] values) {
+        StringBuilder result = new StringBuilder();
+        for (int value : values) {
+            result.append(value);
+            result.append(",");
+        }
+        return result.length() > 0 ? result.substring(0, result.length() - 1) : "";
+    }
+
+    public static int[] getIntArrayFromCommaSeparatedString(String string) {
+        String[] values = string.split(",");
+        int[] retVal = new int[values.length];
+        for (int i = 0; i < values.length; i++) {
+            retVal[i] = Integer.parseInt(values[i]);
+        }
+        return retVal;
+    }
+
     public static int[] convertIntegers(List<Integer> integers) {
         int[] ret = new int[integers.size()];
         for (int i = 0; i < ret.length; i++) {

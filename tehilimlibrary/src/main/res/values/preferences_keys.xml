@@ -11,7 +11,7 @@
     <string name="silent_key">silent</string>
     <string name="read_key">read</string>
     <string name="first_key">firstTime</string>
-    <string name="last_location_json">loc_json</string>
+    <string name="last_location_json">loc_json_new</string>
     <string name="last_location_name_key">loc_name</string>
     <string name="last_location_position_key">loc_position</string>
     <string name="last_location_values_key">loc_values</string>

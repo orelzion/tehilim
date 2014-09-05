@@ -260,6 +260,9 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                                     long arg3) {
                 if (mQuickAdapter.getItem(position).equals(getString(R.string.last_position))) {
                     LastLocation loc = App.getInstance().getLastLocation();
+                    if (loc == null) {
+                        return;
+                    }
                     switch (loc.getGeneratorType()) {
                         case CHAPTERS:
                             mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getValues());
@@ -296,6 +299,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                                 .commit();
                     }
                 }
+                mQuickAdapter.notifyDataSetChanged();
             }
         });
 
