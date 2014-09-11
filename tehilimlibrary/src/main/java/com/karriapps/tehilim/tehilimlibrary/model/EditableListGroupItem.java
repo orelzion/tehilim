@@ -1,7 +1,5 @@
 package com.karriapps.tehilim.tehilimlibrary.model;
 
-import java.util.List;
-
 /**
  * Created by Orel on 28/08/2014.
  */
@@ -9,29 +7,32 @@ public class EditableListGroupItem {
 
     private String mTitle;
     private boolean mEditable;
-    private List<IEditableChild> mChildren;
+    private IEditableChild[] mChildren;
 
     public String getTitle() {
         return mTitle;
     }
 
-    public void setTitle(String title) {
+    public EditableListGroupItem setTitle(String title) {
         this.mTitle = title;
+        return this;
     }
 
     public boolean isEditable() {
         return mEditable;
     }
 
-    public void setmEditable(boolean editable) {
+    public EditableListGroupItem setmEditable(boolean editable) {
         this.mEditable = editable;
+        return this;
     }
 
-    public List<IEditableChild> getChildren() {
-        return mChildren;
+    public IEditableChild[] getChildren() {
+        return mChildren == null ? new IEditableChild[0] : mChildren;
     }
 
-    public void setChildren(List<IEditableChild> mChildren) {
+    public EditableListGroupItem setChildren(IEditableChild[] mChildren) {
         this.mChildren = mChildren;
+        return this;
     }
 }

@@ -78,7 +78,7 @@ public class LastLocation implements IEditableChild {
 
     @Override
     public String getSideText() {
-        String format = "dd/MMMM/yy HH:mm";
+        String format = "dd/MM/yy HH:mm";
         return DateFormat.format(format, mDateCreated).toString();
     }
 

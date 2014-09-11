@@ -57,7 +57,8 @@ public class QueueList<E> {
 
     public QueueList<E> setList(E[] es) {
         mObjects = es;
-        mSize = es.length;
+        if (es != null)
+            mSize = es.length;
         return this;
     }
 }

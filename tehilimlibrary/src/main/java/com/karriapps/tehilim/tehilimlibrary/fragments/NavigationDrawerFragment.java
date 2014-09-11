@@ -37,6 +37,8 @@ import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.BookmarkDialog;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.YahrzeitDialog;
 import com.karriapps.tehilim.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
+import com.karriapps.tehilim.tehilimlibrary.model.EditableExpandableListAdapter;
+import com.karriapps.tehilim.tehilimlibrary.model.EditableListGroupItem;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.Month;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.MonthSelected;
@@ -76,7 +78,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
-    private ListView mQuickList;
+    private ExpandableListView mQuickList;
     private ListView mPrayersList;
     private ExpandableListView mBooksList;
     private TextView mDateTextView;
@@ -90,7 +92,8 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     private Month mMonthSelector;
     private BookmarkDialog mBookmarksDialog;
 
-    private ArrayAdapter<String> mQuickAdapter;
+    private EditableExpandableListAdapter mQuickAdapter;
+    //    private ArrayAdapter<String> mQuickAdapter;
     private ArrayAdapter<String> mPrayersAdapter;
 
     @Override
@@ -122,7 +125,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
         mBooksList = (ExpandableListView) view.findViewById(R.id.books_list);
         mPrayersList = (ListView) view.findViewById(R.id.additional_list);
-        mQuickList = (ListView) view.findViewById(R.id.quick_list);
+        mQuickList = (ExpandableListView) view.findViewById(R.id.quick_list);
         mDateTextView = (TextView) view.findViewById(R.id.date_text_view);
 
         populateLists();
@@ -244,21 +247,41 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     private void populateLists() {
-        String[] quickValues = new String[]{
-                getString(R.string.last_position),
-                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())),
-                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar())),
-                getString(R.string.all_tehilim)
-                //,getString(R.string.bookmarks)
+//        String[] quickValues = new String[]{
+//                getString(R.string.last_position),
+//                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar())),
+//                String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar())),
+//                getString(R.string.all_tehilim)
+//                //,getString(R.string.bookmarks)
+//        };
+        mQuickAdapter = new EditableExpandableListAdapter(getActivity());
+//        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
+
+        EditableListGroupItem[] quickItems = new EditableListGroupItem[]{
+                new EditableListGroupItem().setTitle(getString(R.string.last_position))
+                        .setChildren(App.getInstance().getLastLocations()),
+                new EditableListGroupItem()
+                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar()))),
+                new EditableListGroupItem()
+                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar()))),
+                new EditableListGroupItem().setTitle(getString(R.string.all_tehilim))
         };
-        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
+        mQuickAdapter.setGroups(quickItems);
         mQuickList.setAdapter(mQuickAdapter);
+        mQuickList.setGroupIndicator(null);
+        mQuickList.setOnGroupClickListener(new OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long l) {
+                Tools.setListViewHeight(parent, groupPosition);
+                return false;
+            }
+        });
         mQuickList.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View view, int position,
                                     long arg3) {
-                if (mQuickAdapter.getItem(position).equals(getString(R.string.last_position))) {
+                if (mQuickAdapter.getGroup(position).equals(getString(R.string.last_position))) {
                     LastLocation loc = App.getInstance().getLastLocation();
                     if (loc == null) {
                         return;
@@ -277,7 +300,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                             mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
                             break;
                     }
-                } else if (mQuickAdapter.getItem(position).equals(getString(R.string.all_tehilim))) {
+                } else if (mQuickAdapter.getGroup(position).equals(getString(R.string.all_tehilim))) {
                     mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
                     mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
                 } else if (position == 1) {
@@ -285,7 +308,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                     mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
                 } else if (position == 2) {
                     OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
-                } else if (mQuickAdapter.getItem(position).equals(getString(R.string.bookmarks))) {
+                } else if (mQuickAdapter.getGroup(position).equals(getString(R.string.bookmarks))) {
                     if (getResources().getBoolean(R.bool.tablet)) {
                         BookmarkDialog.newInstance(mCallbacks).show(getFragmentManager(), TAG);
                     } else {
