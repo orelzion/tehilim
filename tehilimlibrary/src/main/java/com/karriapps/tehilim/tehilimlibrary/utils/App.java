@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.karriapps.tehilim.tehilimlibrary.R;
+import com.karriapps.tehilim.tehilimlibrary.model.FavoriteListItem;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.QueueList;
 
@@ -22,6 +23,8 @@ import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
 
 import org.joda.time.DateTime;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -132,6 +135,25 @@ public class App extends Application {
         }
 
         return mLocations.getList();
+    }
+
+    public void saveFavorites(List<FavoriteListItem> favorites) {
+        String favToJson = mGson.toJson(favorites.toArray(new FavoriteListItem[favorites.size()]), FavoriteListItem[].class);
+        getSharedPreferences().edit().putString(getString(R.string.favorites_key), favToJson).commit();
+    }
+
+    public List<FavoriteListItem> getFavorites() {
+        List<FavoriteListItem> retVal = null;
+        String saved_data = getSharedPreferences().getString(getString(R.string.favorites_key), "");
+        try {
+            FavoriteListItem[] favorites = mGson.fromJson(saved_data, FavoriteListItem[].class);
+            if(favorites != null)
+                retVal = Arrays.asList(favorites);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return retVal;
     }
 
     public Typeface getAlef() {

@@ -6,6 +6,7 @@
         <item name="action_about_icon">@drawable/action_about_dark</item>
         <item name="action_settings_icon">@drawable/action_settings_dark</item>
         <item name="action_help_icon">@drawable/action_help_dark</item>
+        <item name="action_new_icon">@drawable/ic_action_new_dark</item>
         <item name="expand_icon">@drawable/expand_button_dark</item>
         <item name="action_favorite_icon">@drawable/favorite_button_dark</item>
         <item name="ic_launcher">@drawable/ic_launcher_dark</item>
@@ -31,6 +32,7 @@
         <item name="action_settings_icon">@drawable/action_settings_light</item>
         <item name="action_help_icon">@drawable/action_help_light</item>
         <item name="expand_icon">@drawable/expand_button</item>
+        <item name="action_new_icon">@drawable/ic_action_new</item>
         <item name="action_favorite_icon">@drawable/favorite_button</item>
         <item name="ic_launcher">@drawable/ic_launcher</item>
         <item name="action_edit_icon">@drawable/ic_action_edit_dark</item>

@@ -5,24 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.karriapps.tehilim.tehilimlibrary.view.TehilimEditText
-        android:background="@null"
+    <EditText
         android:id="@+id/bookmark_row_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:capitalize="words"
-        android:ems="3"
+        android:ems="4"
+        android:hint="name"
         android:inputType="text"
+        android:textColor="#000"
         android:gravity="start|center_vertical" />
 
-    <com.karriapps.tehilim.tehilimlibrary.view.TehilimEditText
-        android:background="@null"
+    <EditText
         android:paddingRight="5dp"
         android:paddingLeft="5dp"
         android:id="@+id/bookmark_row_text"
-        android:layout_width="0dp"
-        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:hint="text"
+        android:textColor="#000"
         android:layout_height="wrap_content"
         android:gravity="start|center_vertical" />
+
+    <ImageButton
+        android:layout_weight="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookmark_row_delete"
+        android:src="@android:drawable/ic_menu_delete"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        />
 
 </LinearLayout>

@@ -28,6 +28,7 @@ public class TehilimEditText extends EditText {
 
     private void init() {
         setTypeface(App.getInstance().getAlef());
-        setBackgroundDrawable(null);
+
+//        setBackgroundDrawable(null);
     }
 }

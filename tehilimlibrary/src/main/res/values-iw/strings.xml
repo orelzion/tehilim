@@ -17,12 +17,15 @@
     <string name="rate">דרג אותנו</string>
     <string name="version_info">
 <![CDATA[
-* תוקן מיקום אחרון
+* האפליקציה כעת זוכרת 3 מיקומים אחרונים <br>
+* פרקים נבחרים חזר! כעת תוכלו לשמור רשימה אינסופית של מועדפים ולתת לכל רשימה שם
 ]]>
     </string>
     <string name="free_title">הפטר מהפרסומות כעת!</string>
     <string name="free_desc">רכוש כעת את הגרסה המלאה, נטולת הפרסומות ב3.99 ש\"ח בלבד!</string>
     <string name="ok">בסדר</string>
+    <string name="cancel">בטל</string>
+    <string name="save">שמור</string>
     <string name="navigation_drawer_open">פתח חלון ניווט</string>
     <string name="navigation_drawer_close">סגור את חלון הניווט</string>
     <string name="chapter">פרק %1$s</string>
@@ -98,6 +101,7 @@
     <string-array name="language_values">
         <item>עברית</item>
         <item>English</item>
+        <item>Français</item>
         <item>לפי המערכת</item>
     </string-array>
     <string-array name="silent_mode_valuse">

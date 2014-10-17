@@ -18,7 +18,8 @@
     <string name="github_url">https://github.com/orelzion/tehilim</string>
     <string name="version_info">
 <![CDATA[
-        * Last location is fixed (For real now :)<br>
+        * Last location is now storing up to 3 locations<br>
+        * Bookmarks is back! You can now create infinite list of bookmarks
     ]]>
     </string>
     <string name="books_title">By Books</string>
@@ -27,6 +28,8 @@
     <string name="free_title">Get the ad free version now!</string>
     <string name="free_desc">Get the ad free version for only 0.99$, and get rid of those ads forever</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
@@ -103,6 +106,7 @@
     <string-array name="language_values">
         <item>עברית</item>
         <item>English</item>
+        <item>Français</item>
         <item>System Configured</item>
     </string-array>
     <string-array name="silent_mode_valuse">

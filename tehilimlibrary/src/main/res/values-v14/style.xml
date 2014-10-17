@@ -26,14 +26,14 @@
         <item name="action_settings_icon">@drawable/action_settings_dark</item>
         <item name="action_help_icon">@drawable/action_help_dark</item>
         <item name="expand_icon">@drawable/expand_button_dark</item>
+        <item name="action_new_icon">@drawable/ic_action_new_dark</item>
         <item name="action_favorite_icon">@drawable/favorite_button_dark</item>
         <item name="ic_launcher">@drawable/ic_launcher_dark</item>
         <item name="action_edit_icon">@drawable/ic_action_edit</item>
         <item name="text_color">#ffffff</item>
         <item name="side_background">@android:color/darker_gray</item>
         <item name="choose_items_icon">@drawable/ic_action_storage_dark</item>
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_tehilim_dark
-        </item>
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_tehilim_dark</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Tehilim_dark</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Tehilim_dark</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Tehilim_dark</item>
@@ -62,6 +62,7 @@
         <item name="choose_items_icon">@drawable/ic_action_storage</item>
         <item name="android:windowActionBarOverlay">false</item>
         <item name="action_search_icon">@drawable/action_search_light</item>
+        <item name="action_new_icon">@drawable/ic_action_new</item>
         <item name="action_about_icon">@drawable/action_about_light</item>
         <item name="action_settings_icon">@drawable/action_settings_light</item>
         <item name="action_help_icon">@drawable/action_help_light</item>

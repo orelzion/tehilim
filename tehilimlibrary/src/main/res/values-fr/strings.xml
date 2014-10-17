@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Easy Tehilim</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_help">Aide</string>
+    <string name="action_about">A propos</string>
+    <string name="action_search">Chercher un Chapitre</string>
+    <string name="drawer_open">Ouvrir un Dossier</string>
+    <string name="drawer_close">Fermer le dossier</string>
+    <string name="quick_title">Accès Rapide</string>
+    <string name="brows_title">Tehilim</string>
+    <string name="additional_title">Prières complémentaires</string>
+    <string name="version">Version</string>
+    <string name="feedback">Retour d\'information et Assistance</string>
+    <string name="rate">Notez nous</string>
+<string name="version_info">
+<![CDATA[
+* Update crash fixes<br>
+* Bug fixes (Complete list in our Github project)
+]]>
+</string>
+    <string name="books_title">Par Livres</string>
+    <string name="week_title">Par Semaine</string>
+    <string name="month_title">Par Mois</string>
+    <string name="free_title">Obtenez la version sans publicité maintenant!</string>
+    <string name="free_desc">Obtenez la version sans publicité pour seulement 0.99$.</string>
+    <string name="ok">OK</string>
+    <string name="save">Sauver</string>
+    <string name="cancel">Annuler</string>
+    <string name="navigation_drawer_open">Ouvrir un Dossier</string>
+    <string name="navigation_drawer_close">Fermer le Dossier</string>
+    <string name="chapter">Chapitre %1$s</string>
+    <string name="chapterKuf">Chapitre %1$s - Lettre %2$s</string>
+    <string name="kufLetter">Lettre %1$s</string>
+    <string name="neshma">Neshama - Lettre %1$s</string>
+    <string name="shiraTitle">Perek Shira</string>
+    <string name="shira1Title">Premier Chapitre - Pour la Terre, le Ciel et leurs  Hôtes</string>
+    <string name="shira2Title">Second Chapitre - Pour le Jour et la Nuit</string>
+    <string name="shira3Title">Troisième Chapitre - Pour la Flore</string>
+    <string name="shira4Title">Quatrième Chapitre - Pour les oiseaux et la Vermine sur Terre et dans la Mer</string>
+    <string name="shira5Title">Cinquième Chapitre - Pour les Animaux et les Bêtes</string>
+    <string name="shira6Title">Sixième Chapitre - Pour les Animaux et la Vermine</string>
+    <string name="shiraSofTitle">La fin</string>
+    <string name="shiraTfilaTitle">Prière après Perek Shira \n<small>Modifié par Rabbi Gross</small></string>
+    <string name="tikunKlaliTitle">Tikun HaKlali</string>
+    <string name="yahrzeitTitle">Prière Yarzeit</string>
+    <string name="yahrzeitPopupTitle">Entrer un nom</string>
+    <string name="yahrzeitPopupDescription">Entrez un nom en hébreu, ou la valeur numérique du nom (Guématriya). Par exemple 1,2,200,5,40 - אברהם</string>
+    <string name="tikunBeforeTitle">Avant le Tikun on dit</string>
+    <string name="tikunAfter">Une prière, petite mais efficace</string>
+    <string name="sickTitle">Prière pour un Malade</string>
+    <string name="yehiAfterTitle">Prière Après les Tehilim</string>
+    <string name="yehiTitle">Prière Avant les Tehilim</string>
+    <string name="all_tehilim">Tous les Psaumes</string>
+    <string name="choose_day">Choisissez un Jour</string>
+    <string name="dayInMonth">Jour %1$s</string>
+    <string name="tehilim_for_day">Tehilim pour %1$s</string>
+    <string name="for_full_tehilim">Si vous avez lu un chapitre complet de Tehilim vous dîtes:</string>
+    <string name="for_partial_tehilim">Si vous n\'avez pas lu un chapitre complet de Tehilim vous dîtes:</string>
+    <string name="for_sick">Indiquez le nom du Malade et de sa Mère</string>
+    <string name="contact_us">Nous contacter</string>
+    <string name="last_position">Aller au dernier emplacement</string>
+    <string-array name="books">
+        <item>Premier Livre</item>
+        <item>Second Livre</item>
+        <item>Troisième Livre</item>
+        <item>Quatrième Livre</item>
+        <item>Cinquième Livre</item>
+    </string-array>
+    <string-array name="week_days">
+        <item>Dimanche</item>
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Shabbat</item>
+    </string-array>
+    <!-- Preferences -->
+    <string name="appearance_title">Paramètres de Présentation</string>
+    <string name="general_title">Paramètres Généraux</string>
+    <string name="choose_font">Choisissez la police de caractères</string>
+    <string name="keep_portrait">Conserver en mode Portrait</string>
+    <string name="keep_portrait_description">Interdire la Rotation de l\'écran</string>
+    <string name="themes_title">Choisir un Thème</string>
+    <string name="choose_lang">Choisir la Langue</string>
+    <string name="rtl_title">Alignement Inverse</string>
+    <string name="rtl_description">Cocher cette option si votre appareil affiche l\'hébreu de gauche à droite"</string>
+    <string name="screen_on">Ecran allumé</string>
+    <string name="screen_on_description">Conserve l\'écran allumé pendant la prière</string>
+    <string name="silent_title">Mode Silencieux</string>
+    <string name="reading_mode">Mode Lecture</string>
+    <string-array name="themes_values">
+        <item>Clair</item>
+        <item>Foncé</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>עברית</item>
+        <item>English</item>
+        <item>Français</item>
+        <item>Configuration du Système</item>
+    </string-array>
+    <string-array name="silent_mode_valuse">
+        <item>Toujours</item>
+        <item>Jamais</item>
+        <item>Me demander à chaque fois</item>
+    </string-array>
+    <string-array name="reading_mode_values">
+        <item>Simple</item>
+        <item>Advancé (Avec Taamey HaMikra)</item>
+    </string-array>
+    <string name="settings_changed">Redémarrez l\'application pour que les changements prennent effet</string>
+    <string name="kadishEdotTitle">Kadish - Edot Mizrach (Séfarade)</string>
+    <string name="kadishSefaradTitle">Kadish - Sefarad</string>
+    <string name="kadishAshkenazTitle">Kadish - Ashkenaze</string>
+    <string name="kadishChabadTitle">Kadish - Chabad (Ari)</string>
+    <string name="hashkavaManTitle">Hashkava pour un homme - Edot Mizrach (Séfarade)</string>
+    <string name="hashkavaWomanTitle">Hashkava pour une femme - Edot Mizrahch (Séfarade)</string>
+    <string name="elMaleManTitle">El Male Rachamim - Pour un Homme</string>
+    <string name="elMaleWomanTitle">El Male Rachamim - Pour une Femme</string>
+    <string name="silent">Mode Silencieux</string>
+    <string name="silent_ask">Voulez-vous passer en mode silencieux?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="remember_this_option">Se souvenir de cette option</string>
+    <string name="scroll_play">Démarrer le Défilement</string>
+    <string name="scroll_pause">Stopper le Défilement</string>
+    <string name="bookmarks">Marque-pages</string>
+    <string name="name_your_bookmark">Nommer ce marque-page</string>
+    <string name="delete">Supprimer</string>
+</resources>

@@ -3,6 +3,8 @@ package com.karriapps.tehilim.tehilimlibrary.model;
 import com.google.gson.annotations.SerializedName;
 import com.karriapps.tehilim.tehilimlibrary.utils.Tools;
 
+import java.util.Arrays;
+
 
 /**
  * Created by Orel on 29/08/2014.
@@ -21,7 +23,7 @@ public class FavoriteListItem implements IEditableChild {
 
     @Override
     public String getSubtitle() {
-        return mValues.toString();
+        return mValues == null ? "" : Arrays.toString(mValues).replace("[", "").replace("]", "");
     }
 
     @Override
@@ -39,5 +41,9 @@ public class FavoriteListItem implements IEditableChild {
 
     public void setValuesFromString(String values) throws IllegalArgumentException {
         mValues = Tools.getIntArrayFromCommaSeparatedString(values);
+    }
+
+    public int[] getValues() {
+        return mValues;
     }
 }

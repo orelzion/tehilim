@@ -306,6 +306,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         }
         LastLocation loc = new LastLocation(mTitle, values, type, mMainFragment.getPosition());
         App.getInstance().saveLastLocation(loc);
+
+        if(mNavigationDrawerFragment != null) {
+            mNavigationDrawerFragment.updateQuickListAdapter();
+        }
     }
 
     private void setGenerator(final TehilimGenerator generator, int position) {

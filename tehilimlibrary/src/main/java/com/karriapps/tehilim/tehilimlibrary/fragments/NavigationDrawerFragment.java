@@ -1,6 +1,7 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -35,18 +36,23 @@ import com.karriapps.tehilim.tehilimlibrary.MainActivity;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.BookmarkDialog;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.YahrzeitDialog;
+import com.karriapps.tehilim.tehilimlibrary.generators.BookmarkGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.TehilimGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
 import com.karriapps.tehilim.tehilimlibrary.model.EditableExpandableListAdapter;
 import com.karriapps.tehilim.tehilimlibrary.model.EditableListGroupItem;
+import com.karriapps.tehilim.tehilimlibrary.model.FavoriteListItem;
+import com.karriapps.tehilim.tehilimlibrary.model.IEditableChild;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.Month;
+import com.karriapps.tehilim.tehilimlibrary.model.callbacks.EditButtonClickListener;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.MonthSelected;
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 import com.karriapps.tehilim.tehilimlibrary.utils.PsalmsHelper;
 import com.karriapps.tehilim.tehilimlibrary.utils.Tools;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -246,6 +252,25 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 //        }
     }
 
+    public void updateQuickListAdapter() {
+        if(!isAdded() || mQuickAdapter == null) {
+            return;
+        }
+        EditableListGroupItem[] quickItems = new EditableListGroupItem[]{
+                new EditableListGroupItem().setTitle(getString(R.string.last_position))
+                        .setChildren(App.getInstance().getLastLocations()),
+                new EditableListGroupItem()
+                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar()))),
+                new EditableListGroupItem()
+                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar()))),
+                new EditableListGroupItem().setTitle(getString(R.string.all_tehilim)),
+                new EditableListGroupItem().setTitle(getString(R.string.bookmarks)).setmEditable(true)
+                .setChildren(App.getInstance().getFavorites().toArray(new IEditableChild[App.getInstance().getFavorites().size()]))
+        };
+        mQuickAdapter.setGroups(quickItems);
+        mQuickAdapter.notifyDataSetChanged();
+    }
+
     private void populateLists() {
 //        String[] quickValues = new String[]{
 //                getString(R.string.last_position),
@@ -257,34 +282,45 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
         mQuickAdapter = new EditableExpandableListAdapter(getActivity());
 //        mQuickAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, quickValues);
 
-        EditableListGroupItem[] quickItems = new EditableListGroupItem[]{
-                new EditableListGroupItem().setTitle(getString(R.string.last_position))
-                        .setChildren(App.getInstance().getLastLocations()),
-                new EditableListGroupItem()
-                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfWeek(App.getInstance().getJewishCalendar()))),
-                new EditableListGroupItem()
-                        .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar()))),
-                new EditableListGroupItem().setTitle(getString(R.string.all_tehilim))
-        };
-        mQuickAdapter.setGroups(quickItems);
+        updateQuickListAdapter();
         mQuickList.setAdapter(mQuickAdapter);
         mQuickList.setGroupIndicator(null);
+        mQuickAdapter.setEditButtonListener(new EditButtonClickListener() {
+            @Override
+            public void onEditButtonClicked(int position) {
+                if (mQuickAdapter.getGroup(position).getTitle().equals(getString(R.string.bookmarks))) {
+                     BookmarkDialog.newInstance(new DialogInterface.OnDismissListener() {
+                         @Override
+                         public void onDismiss(DialogInterface dialogInterface) {
+                             updateQuickListAdapter();
+                         }
+                     }).show(getFragmentManager(), TAG);
+                }
+            }
+        });
         mQuickList.setOnGroupClickListener(new OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long l) {
                 Tools.setListViewHeight(parent, groupPosition);
+                if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.all_tehilim))) {
+                    mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                } else if (groupPosition == 1) {
+                    setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                } else if (groupPosition == 2) {
+                    OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
+                }
                 return false;
             }
         });
-        mQuickList.setOnItemClickListener(new OnItemClickListener() {
-
+        mQuickList.setOnChildClickListener(new OnChildClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position,
-                                    long arg3) {
-                if (mQuickAdapter.getGroup(position).equals(getString(R.string.last_position))) {
-                    LastLocation loc = App.getInstance().getLastLocation();
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
+                if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.last_position))) {
+                    LastLocation loc = (LastLocation) mQuickAdapter.getChild(groupPosition, childPosition);
                     if (loc == null) {
-                        return;
+                        return false;
                     }
                     switch (loc.getGeneratorType()) {
                         case CHAPTERS:
@@ -300,29 +336,12 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                             mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
                             break;
                     }
-                } else if (mQuickAdapter.getGroup(position).equals(getString(R.string.all_tehilim))) {
-                    mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
-                } else if (position == 1) {
-                    setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
-                } else if (position == 2) {
-                    OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
-                } else if (mQuickAdapter.getGroup(position).equals(getString(R.string.bookmarks))) {
-                    if (getResources().getBoolean(R.bool.tablet)) {
-                        BookmarkDialog.newInstance(mCallbacks).show(getFragmentManager(), TAG);
-                    } else {
-                        BookmarkDialog frag = new BookmarkDialog();
-                        frag.setCallbacks(mCallbacks);
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                        transaction.add(R.id.tehilim_fragment_layout, frag)
-                                .show(frag)
-                                .addToBackStack(null)
-                                .commit();
-                    }
+                } else if(mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.bookmarks))) {
+                    FavoriteListItem item = (FavoriteListItem) mQuickAdapter.getChild(groupPosition, childPosition);
+                    mGenerator = new BookmarkGenerator(item.getValues());
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, item.getTitle());
                 }
-                mQuickAdapter.notifyDataSetChanged();
+                return true;
             }
         });
 

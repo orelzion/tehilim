@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.karriapps.tehilim.tehilimlibrary.R;
+import com.karriapps.tehilim.tehilimlibrary.model.callbacks.EditButtonClickListener;
 
 /**
  * Created by Orel on 28/08/2014.
@@ -17,9 +18,14 @@ public class EditableExpandableListAdapter extends BaseExpandableListAdapter {
 
     private EditableListGroupItem[] mGroups;
     private LayoutInflater mInflater;
+    private EditButtonClickListener mEditButtonListener;
 
     public EditableExpandableListAdapter(Context context) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public void setEditButtonListener(EditButtonClickListener onEditButtonListener) {
+        mEditButtonListener = onEditButtonListener;
     }
 
     public void setGroups(EditableListGroupItem[] groups) {
@@ -63,7 +69,7 @@ public class EditableExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View view, ViewGroup viewGroup) {
+    public View getGroupView(final int groupPosition, boolean isExpanded, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if (view == null) {
             view = mInflater.inflate(R.layout.editable_last_view_group, viewGroup, false);
@@ -74,6 +80,14 @@ public class EditableExpandableListAdapter extends BaseExpandableListAdapter {
         }
         holder.titleTextView.setText(mGroups[groupPosition].getTitle());
         holder.editImage.setVisibility(mGroups[groupPosition].isEditable() ? View.VISIBLE : View.GONE);
+        holder.editImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mEditButtonListener != null) {
+                    mEditButtonListener.onEditButtonClicked(groupPosition);
+                }
+            }
+        });
 //        holder.expandImage.setVisibility(mGroups[groupPosition].getChildren().length > 0 ? View.VISIBLE : View.GONE);
 
 //        holder.expandImage.setVisibility(View.GONE);

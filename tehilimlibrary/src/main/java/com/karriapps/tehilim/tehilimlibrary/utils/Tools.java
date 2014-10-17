@@ -53,10 +53,20 @@ public class Tools {
     }
 
     public static int[] getIntArrayFromCommaSeparatedString(String string) {
+        string = string.replaceAll("(?!\\d|,)\\S|\\s", "");
         String[] values = string.split(",");
-        int[] retVal = new int[values.length];
+        int[] retVal;
+        List<Integer> chapters = new ArrayList<Integer>();
         for (int i = 0; i < values.length; i++) {
-            retVal[i] = Integer.parseInt(values[i]);
+            int chapter = Integer.parseInt(values[i]);
+            if(chapter > 0 && chapter < 150) {
+                chapters.add(chapter);
+            }
+        }
+
+        retVal = new int[chapters.size()];
+        for(int i = 0; i < chapters.size(); i++) {
+            retVal[i] = chapters.get(i);
         }
         return retVal;
     }
