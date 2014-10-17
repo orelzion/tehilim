@@ -23,6 +23,7 @@ import net.sourceforge.zmanim.hebrewcalendar.JewishCalendar;
 
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -31,13 +32,13 @@ import java.util.Map;
 public class App extends Application {
 
     private static App _app;
+    private static Typeface TF_ALEF, TF_GUTTMAN, TF_NARKIS, TF_KETER, TF_TIMES;
+    private final GsonBuilder mGsonBuilder = new GsonBuilder();
+    private final Gson mGson = mGsonBuilder.create();
     private Map<Integer, Boolean> favorites;
     //	private final String FAVORITES_FILE = "favorites.json";
     private PsalmsHelper mPsalms;
     private boolean mSettingsChanged;
-    private static Typeface TF_ALEF, TF_GUTTMAN, TF_NARKIS, TF_KETER, TF_TIMES;
-    private final GsonBuilder mGsonBuilder = new GsonBuilder();
-    private final Gson mGson = mGsonBuilder.create();
     private QueueList<LastLocation> mLocations = new QueueList<LastLocation>(3);
 
     public App() {
@@ -53,54 +54,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         _app = this;
-    }
-
-    /**
-     * Choose between modes of switching to silent
-     * <br>ALWAYS - Always switch to silent mode when entering the app
-     * <br>NEVER - Never switch to silent mode
-     * <br>ASK - Ask the user each time he's entering the app whether to switch
-     */
-    public enum SILENT_MODE {
-        ALWAYS, NEVER, ASK
-    }
-
-    /**
-     * HEBREW
-     * <br>ENGLISH
-     */
-    public enum LANGUAGES {
-        HEBREW, ENGLISH, DEFAULT
-    }
-
-    /**
-     * Choose between these fonts
-     * <br>TIMES - Times New Roman
-     * <br>GUTTMAN - Guttman Keren
-     * <br>NARKIS - Narkisim
-     * <br>CARDO - Cardo
-     * <br>KETER - Keter Aram Zova
-     */
-    public enum FONTS {
-        TIMES, GUTTMAN, NARKIS, ALEF, KETER
-    }
-
-    /**
-     * Choose between these themes
-     * <br>LIGHT
-     * <br>DARK
-     */
-    public enum THEME {
-        LIGHT, DARK
-    }
-
-    /**
-     * Choose reasing mode between
-     * <br>SIMPLE - With no Teamim
-     * <br>TRADITIONAL - With Teamim and Ktiv
-     */
-    public enum READING_MODE {
-        SIMPLE, TRADITIONAL
     }
 
     public Context getAplicationContext() {
@@ -143,11 +96,11 @@ public class App extends Application {
     }
 
     public List<FavoriteListItem> getFavorites() {
-        List<FavoriteListItem> retVal = null;
+        List<FavoriteListItem> retVal = new ArrayList<FavoriteListItem>();
         String saved_data = getSharedPreferences().getString(getString(R.string.favorites_key), "");
         try {
             FavoriteListItem[] favorites = mGson.fromJson(saved_data, FavoriteListItem[].class);
-            if(favorites != null)
+            if (favorites != null)
                 retVal = Arrays.asList(favorites);
         } catch (Exception e) {
             e.printStackTrace();
@@ -403,6 +356,52 @@ public class App extends Application {
         return mPsalms;
     }
 
+    public boolean isHebrew() {
+        return getLocale().getLanguage().equals("iw") || getLocale().getLanguage().equals("he");
+    }
+
+    public Locale getLocale() {
+
+        Locale l = null;
+        switch (getLang()) {
+            case ENGLISH:
+                l = new Locale("en");
+                break;
+            case HEBREW:
+                l = new Locale("iw");
+                break;
+            case DEFAULT:
+                l = Locale.getDefault();
+                break;
+        }
+
+        return l;
+    }
+
+    @SuppressLint("NewApi")
+    public void changeLocale() {
+        if (!getLang().equals(LANGUAGES.DEFAULT)) {
+            Locale.setDefault(getLocale());
+            Configuration config = getResources().getConfiguration();
+            if (android.os.Build.VERSION.SDK_INT > 16)
+                config.setLocale(getLocale());
+            else
+                config.locale = getLocale();
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (!getLang().equals(LANGUAGES.DEFAULT))
+            changeLocale();
+    }
+
+    public void save() {
+//		new saveFavorites().execute();
+    }
+
 //	private class saveFavorites extends AsyncTask<Void, Void, Void>{
 //		@Override
 //		protected Void doInBackground(Void... params) {
@@ -469,50 +468,52 @@ public class App extends Application {
 //
 //	}
 
-    public boolean isHebrew() {
-        return getLocale().getLanguage().equals("iw") || getLocale().getLanguage().equals("he");
+    /**
+     * Choose between modes of switching to silent
+     * <br>ALWAYS - Always switch to silent mode when entering the app
+     * <br>NEVER - Never switch to silent mode
+     * <br>ASK - Ask the user each time he's entering the app whether to switch
+     */
+    public enum SILENT_MODE {
+        ALWAYS, NEVER, ASK
     }
 
-    public Locale getLocale() {
-
-        Locale l = null;
-        switch (getLang()) {
-            case ENGLISH:
-                l = new Locale("en");
-                break;
-            case HEBREW:
-                l = new Locale("iw");
-                break;
-            case DEFAULT:
-                l = Locale.getDefault();
-                break;
-        }
-
-        return l;
+    /**
+     * HEBREW
+     * <br>ENGLISH
+     */
+    public enum LANGUAGES {
+        HEBREW, ENGLISH, DEFAULT
     }
 
-    @SuppressLint("NewApi")
-    public void changeLocale() {
-        if (!getLang().equals(LANGUAGES.DEFAULT)) {
-            Locale.setDefault(getLocale());
-            Configuration config = getResources().getConfiguration();
-            if (android.os.Build.VERSION.SDK_INT > 16)
-                config.setLocale(getLocale());
-            else
-                config.locale = getLocale();
-            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        }
+    /**
+     * Choose between these fonts
+     * <br>TIMES - Times New Roman
+     * <br>GUTTMAN - Guttman Keren
+     * <br>NARKIS - Narkisim
+     * <br>CARDO - Cardo
+     * <br>KETER - Keter Aram Zova
+     */
+    public enum FONTS {
+        TIMES, GUTTMAN, NARKIS, ALEF, KETER
     }
 
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (!getLang().equals(LANGUAGES.DEFAULT))
-            changeLocale();
+    /**
+     * Choose between these themes
+     * <br>LIGHT
+     * <br>DARK
+     */
+    public enum THEME {
+        LIGHT, DARK
     }
 
-    public void save() {
-//		new saveFavorites().execute();
+    /**
+     * Choose reasing mode between
+     * <br>SIMPLE - With no Teamim
+     * <br>TRADITIONAL - With Teamim and Ktiv
+     */
+    public enum READING_MODE {
+        SIMPLE, TRADITIONAL
     }
 }

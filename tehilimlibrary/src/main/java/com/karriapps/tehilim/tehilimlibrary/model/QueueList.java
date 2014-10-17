@@ -33,7 +33,7 @@ public class QueueList<E> {
             return;
         }
         E[] temp = (E[]) Array.newInstance(e.getClass(), maxSize);
-        for (int i = 0; i < maxSize - 1; i++) {
+        for (int i = 0; i < maxSize - 1 && i < mObjects.length; i++) {
             E obj = mObjects[i];
             temp[i + 1] = obj;
         }

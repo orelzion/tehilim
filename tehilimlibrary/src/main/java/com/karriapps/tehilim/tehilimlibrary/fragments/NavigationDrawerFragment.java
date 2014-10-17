@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -52,7 +51,6 @@ import com.karriapps.tehilim.tehilimlibrary.utils.PsalmsHelper;
 import com.karriapps.tehilim.tehilimlibrary.utils.Tools;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,35 +67,35 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
      * expands it. This shared preference tracks this.
      */
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+    private static final String TAG = NavigationDrawerFragment.class.getName();
+    OnTouchListener mOnTouchListener = new OnTouchListener() {
 
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            v.getParent().requestDisallowInterceptTouchEvent(true);
+            return false;
+        }
+    };
     /**
      * A pointer to the current callbacks instance (the Activity).
      */
     private NavigationDrawerCallbacks mCallbacks;
-
     /**
      * Helper component that ties the action bar to the navigation drawer.
      */
     private ActionBarDrawerToggle mDrawerToggle;
-
-    private static final String TAG = NavigationDrawerFragment.class.getName();
-
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;
     private ExpandableListView mQuickList;
     private ListView mPrayersList;
     private ExpandableListView mBooksList;
     private TextView mDateTextView;
-
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
-
     private TehilimGenerator mGenerator;
-
     private Month mMonthSelector;
     private BookmarkDialog mBookmarksDialog;
-
     private EditableExpandableListAdapter mQuickAdapter;
     //    private ArrayAdapter<String> mQuickAdapter;
     private ArrayAdapter<String> mPrayersAdapter;
@@ -151,15 +149,6 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
         return view;
     }
-
-    OnTouchListener mOnTouchListener = new OnTouchListener() {
-
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            v.getParent().requestDisallowInterceptTouchEvent(true);
-            return false;
-        }
-    };
 
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
@@ -253,7 +242,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     public void updateQuickListAdapter() {
-        if(!isAdded() || mQuickAdapter == null) {
+        if (!isAdded() || mQuickAdapter == null) {
             return;
         }
         EditableListGroupItem[] quickItems = new EditableListGroupItem[]{
@@ -265,7 +254,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                         .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar()))),
                 new EditableListGroupItem().setTitle(getString(R.string.all_tehilim)),
                 new EditableListGroupItem().setTitle(getString(R.string.bookmarks)).setmEditable(true)
-                .setChildren(App.getInstance().getFavorites().toArray(new IEditableChild[App.getInstance().getFavorites().size()]))
+                        .setChildren(App.getInstance().getFavorites().toArray(new IEditableChild[App.getInstance().getFavorites().size()]))
         };
         mQuickAdapter.setGroups(quickItems);
         mQuickAdapter.notifyDataSetChanged();
@@ -289,12 +278,12 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
             @Override
             public void onEditButtonClicked(int position) {
                 if (mQuickAdapter.getGroup(position).getTitle().equals(getString(R.string.bookmarks))) {
-                     BookmarkDialog.newInstance(new DialogInterface.OnDismissListener() {
-                         @Override
-                         public void onDismiss(DialogInterface dialogInterface) {
-                             updateQuickListAdapter();
-                         }
-                     }).show(getFragmentManager(), TAG);
+                    BookmarkDialog.newInstance(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            updateQuickListAdapter();
+                        }
+                    }).show(getFragmentManager(), TAG);
                 }
             }
         });
@@ -304,10 +293,10 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 Tools.setListViewHeight(parent, groupPosition);
                 if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.all_tehilim))) {
                     mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
                 } else if (groupPosition == 1) {
                     setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((TextView) view).getText().toString());
+                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
                 } else if (groupPosition == 2) {
                     OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
                 }
@@ -336,7 +325,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                             mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
                             break;
                     }
-                } else if(mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.bookmarks))) {
+                } else if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.bookmarks))) {
                     FavoriteListItem item = (FavoriteListItem) mQuickAdapter.getChild(groupPosition, childPosition);
                     mGenerator = new BookmarkGenerator(item.getValues());
                     mCallbacks.onNavigationDrawerItemSelected(mGenerator, item.getTitle());
