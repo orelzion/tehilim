@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -12,11 +13,16 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.SearchView.OnQueryTextListener;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -64,6 +70,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private MainFragment mMainFragment;
+    private DrawerLayout mDrawerLayout;
+    ActionBarDrawerToggle mDrawerToggle;
 
     private TehilimGenerator mGenerator;
 
@@ -104,6 +112,19 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         App.getInstance().changeLocale();
         setContentView(R.layout.activity_main);
 
+
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+
+        mMainFragment = (MainFragment)
+                getSupportFragmentManager().findFragmentById(R.id.main_fragment);
+
+        //Implement toolbar as a replacement for actionbar
+        Toolbar toolbar = (Toolbar)mMainFragment.getView().findViewById(R.id.app_toolbar);
+        setSupportActionBar(toolbar);
+
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (checkPlayServices()) {
             mGcm = GoogleCloudMessaging.getInstance(this);
@@ -124,18 +145,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
-        mMainFragment = (MainFragment)
-                getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 
         mMainFragment.setOnPositionChangedListener(this);
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+                mDrawerLayout,
+                toolbar);
 
         if (savedInstanceState == null) {
             setGenerator(new PsalmsGenerator(1, 151, 1, 23), -1);
@@ -147,8 +166,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         if (savedInstanceState != null) {
             mTitle = savedInstanceState.getString(TITLE_KEY);
-            if (!TextUtils.isEmpty(mTitle))
+            if (!TextUtils.isEmpty(mTitle)) {
                 setTitle(mTitle);
+                mMainFragment.updateTitle();
+            }
+
             TehilimGenerator generator = savedInstanceState.getParcelable(GENERATOR_KEY);
             if (generator != null) {
                 setGenerator(generator, savedInstanceState.getInt(CURRENT_POSITION_KEY));
@@ -188,10 +210,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     ;
 
     public void restoreActionBar() {
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
+        if(mMainFragment != null) {
+            mMainFragment.updateTitle();
+        }
     }
 
     @Override
@@ -209,7 +235,19 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+
+        if(mDrawerToggle != null) {
+            mDrawerToggle.syncState();
+        }
+    }
+
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
         if (item.getTitle().equals(getString(R.string.action_about))) {
             new AboutFragment().show(getSupportFragmentManager(), "about");
@@ -236,7 +274,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         return false;
     }
 
-    ;
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        if(mDrawerToggle != null) {
+            mDrawerToggle.onConfigurationChanged(newConfig);
+        }
+        super.onConfigurationChanged(newConfig);
+    }
 
     OnQueryTextListener onQuery = new OnQueryTextListener() {
 
@@ -271,7 +315,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         super.onStop();
 
         saveLastLocation();
-        if (mSilentDialog != null)
+        if (mSilentDialog != null && mSilentDialog.isVisible())
             mSilentDialog.dismiss();
     }
 
@@ -284,6 +328,12 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     @Override
     public void onBackPressed() {
+
+        if(mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.START| Gravity.LEFT)) {
+            mDrawerLayout.closeDrawers();
+            return;
+        }
+
         if (App.getInstance().isFreeVersion())
             AppBrain.getAds().showInterstitial(this);
         finish();

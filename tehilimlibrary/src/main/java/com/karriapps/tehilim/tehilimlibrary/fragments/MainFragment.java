@@ -1,11 +1,18 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -19,8 +26,12 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.TextView;
 
+import com.github.ksoichiro.android.observablescrollview.ObservableListView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
+import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.generators.PsalmsGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.TehilimGenerator;
@@ -28,12 +39,17 @@ import com.karriapps.tehilim.tehilimlibrary.model.Perek;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.OnPositionChanged;
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 import com.karriapps.tehilim.tehilimlibrary.view.TehilimTextView;
+import com.nineoldandroids.view.ViewHelper;
+import com.nineoldandroids.view.ViewPropertyAnimator;
 
 import java.lang.ref.WeakReference;
 
-public class MainFragment extends Fragment implements OnScrollListener {
+public class MainFragment extends Fragment implements OnScrollListener, ObservableScrollViewCallbacks {
 
-    private ListView mList;
+    private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
+    private static final boolean TOOLBAR_IS_STICKY = true;
+
+    private ObservableListView mList;
     private Button mUpperButton;
     OnClickListener mOnClickListner = new OnClickListener() {
 
@@ -61,17 +77,63 @@ public class MainFragment extends Fragment implements OnScrollListener {
     private boolean mIsScrolling;
     private AutoScroller mAutoScroller;
 
+    private View mToolbar;
+    private View mImageView;
+    private View mOverlayView;
+    private View mListBackgroundView;
+    private TextView mTitleView;
+    private int mActionBarSize;
+    private int mFlexibleSpaceImageHeight;
+    private int mFabMargin;
+    private int mToolbarColor;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tehilim, container, true);
 
-        mList = (ListView) view.findViewById(R.id.list);
+        mList = (ObservableListView) view.findViewById(R.id.list);
         mUpperButton = (Button) view.findViewById(R.id.upperJumpTo);
         mBottomButton = (Button) view.findViewById(R.id.bottomJumpTo);
         mUpperButton.setOnClickListener(mOnClickListner);
         mBottomButton.setOnClickListener(mOnClickListner);
+
+        mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
+        mActionBarSize = getActionBarSize();
+        mToolbarColor = getResources().getColor(R.color.titleColor);
+
+        mToolbar = view.findViewById(R.id.app_toolbar);
+
+        mImageView = view.findViewById(R.id.image);
+        mOverlayView = view.findViewById(R.id.overlay);
+
+        mList.setScrollViewCallbacks(this);
+
+        // Set padding view for ListView. This is the flexible space.
+        View paddingView = new View(getActivity());
+        AbsListView.LayoutParams lp = new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT,
+                mFlexibleSpaceImageHeight);
+        paddingView.setLayoutParams(lp);
+
+        // This is required to disable header's list selector effect
+        paddingView.setClickable(true);
+
+        mList.addHeaderView(paddingView);
+        mTitleView = (TextView) view.findViewById(R.id.text_view_title);
+
+        // mListBackgroundView makes ListView's background except header view.
+        mListBackgroundView = view.findViewById(R.id.list_background);
+        final View contentView = getActivity().getWindow().getDecorView().findViewById(android.R.id.content);
+        contentView.post(new Runnable() {
+            @Override
+            public void run() {
+                // mListBackgroundView's should fill its parent vertically
+                // but the height of the content view is 0 on 'onCreate'.
+                // So we should get it with post().
+                mListBackgroundView.getLayoutParams().height = contentView.getHeight();
+            }
+        });
 
         mScaleDetector = new ScaleGestureDetector(getActivity(), new OnScaleGestureListener() {
             @Override
@@ -113,6 +175,22 @@ public class MainFragment extends Fragment implements OnScrollListener {
         return view;
     }
 
+    protected int getActionBarSize() {
+        TypedValue typedValue = new TypedValue();
+        int[] textSizeAttr = new int[]{R.attr.actionBarSize};
+        int indexOfAttrTextSize = 0;
+        TypedArray a = getActivity().obtainStyledAttributes(typedValue.data, textSizeAttr);
+        int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
+        a.recycle();
+        return actionBarSize;
+    }
+
+    public void updateTitle() {
+        final ActionBarActivity activity = (ActionBarActivity) getActivity();
+        mTitleView.setText(activity.getSupportActionBar().getTitle());
+        activity.getSupportActionBar().setTitle(null);
+    }
+
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if (mPosition != firstVisibleItem) {
             mPosition = firstVisibleItem;
@@ -121,17 +199,17 @@ public class MainFragment extends Fragment implements OnScrollListener {
             }
             if (mViewType.equals(VIEW_TYPE.TEHILIM_BOOK) && getTehilimGenerator() instanceof PsalmsGenerator) {
 
-                if (firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition()) {
-                    mUpperButton.setVisibility(View.VISIBLE);
-                } else
-                    mUpperButton.setVisibility(View.GONE);
-
-                if (getTehilimGenerator().getLastChapterKeyPosition() <=
-                        (firstVisibleItem + (visibleItemCount - 1))) {
-                    mBottomButton.setVisibility(View.VISIBLE);
-                } else
-                    mBottomButton.setVisibility(View.GONE);
-
+//                if (firstVisibleItem <= getTehilimGenerator().getFirstChapterKeyPosition()) {
+//                    mUpperButton.setVisibility(View.VISIBLE);
+//                } else {
+//                    mUpperButton.setVisibility(View.GONE);
+//                }
+//                if (getTehilimGenerator().getLastChapterKeyPosition() <=
+//                        (firstVisibleItem + (visibleItemCount - 1))) {
+//                    mBottomButton.setVisibility(View.VISIBLE);
+//                } else {
+//                    mBottomButton.setVisibility(View.GONE);
+//                }
             }
         }
     }
@@ -187,6 +265,119 @@ public class MainFragment extends Fragment implements OnScrollListener {
                     mAutoScroller.removeMessages(AutoScroller.MESSAGE_SCROLL);
             }
             mIsScrolling = false;
+        }
+    }
+
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+        // Translate overlay and image
+        float flexibleRange = mFlexibleSpaceImageHeight - mActionBarSize;
+        int minOverlayTransitionY = mActionBarSize - mOverlayView.getHeight();
+        ViewHelper.setTranslationY(mOverlayView, ScrollUtils.getFloat(-scrollY, minOverlayTransitionY, 0));
+        ViewHelper.setTranslationY(mImageView, ScrollUtils.getFloat(-scrollY / 2, minOverlayTransitionY, 0));
+
+        // Translate list background
+        ViewHelper.setTranslationY(mListBackgroundView, Math.max(0, -scrollY + mFlexibleSpaceImageHeight));
+
+        // Change alpha of overlay
+        ViewHelper.setAlpha(mOverlayView, ScrollUtils.getFloat((float) scrollY / flexibleRange, 0, 1));
+
+        // Scale title text
+        float scale = 1 + ScrollUtils.getFloat((flexibleRange - scrollY) / flexibleRange, 0, MAX_TEXT_SCALE_DELTA);
+        setPivotXToTitle();
+        ViewHelper.setPivotY(mTitleView, 0);
+        ViewHelper.setScaleX(mTitleView, scale);
+        ViewHelper.setScaleY(mTitleView, scale);
+
+        // Translate title text
+        int maxTitleTranslationY = (int) (mFlexibleSpaceImageHeight - mTitleView.getHeight() * scale);
+        int titleTranslationY = maxTitleTranslationY - scrollY;
+        if (TOOLBAR_IS_STICKY) {
+            titleTranslationY = Math.max(0, titleTranslationY);
+        }
+        ViewHelper.setTranslationY(mTitleView, titleTranslationY);
+
+        if (TOOLBAR_IS_STICKY) {
+            // Change alpha of toolbar background
+            if (-scrollY + mFlexibleSpaceImageHeight <= mActionBarSize) {
+                mToolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(1, mToolbarColor));
+                mToolbar.setVisibility(View.VISIBLE);
+                mTitleView.setVisibility(View.INVISIBLE);
+                ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(mTitleView.getText());
+            } else {
+                mToolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, mToolbarColor));
+                mToolbar.setVisibility(View.INVISIBLE);
+                mTitleView.setVisibility(View.VISIBLE);
+            }
+        } else {
+            // Translate Toolbar
+            if (scrollY < mFlexibleSpaceImageHeight) {
+                ViewHelper.setTranslationY(mToolbar, 0);
+            } else {
+                ViewHelper.setTranslationY(mToolbar, -scrollY);
+            }
+        }
+    }
+
+    @Override
+    public void onDownMotionEvent() {
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+        if (scrollState == ScrollState.DOWN) {
+            showToolbar();
+        } else if (scrollState == ScrollState.UP) {
+            int toolbarHeight = mToolbar.getHeight();
+            int scrollY = mList.getCurrentScrollY();
+            if (toolbarHeight <= scrollY) {
+                hideToolbar();
+            } else {
+                showToolbar();
+            }
+        } else {
+            // Even if onScrollChanged occurs without scrollY changing, toolbar should be adjusted
+            if (!toolbarIsShown() && !toolbarIsHidden()) {
+                // Toolbar is moving but doesn't know which to move:
+                // you can change this to hideToolbar()
+                showToolbar();
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void setPivotXToTitle() {
+        Configuration config = getResources().getConfiguration();
+        if (Build.VERSION_CODES.JELLY_BEAN_MR1 <= Build.VERSION.SDK_INT
+                && config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            ViewHelper.setPivotX(mTitleView, getActivity().getWindow().getDecorView().findViewById(android.R.id.content).getWidth());
+        } else {
+            ViewHelper.setPivotX(mTitleView, 0);
+        }
+    }
+
+    private boolean toolbarIsShown() {
+        return ViewHelper.getTranslationY(mToolbar) == 0;
+    }
+
+    private boolean toolbarIsHidden() {
+        return ViewHelper.getTranslationY(mToolbar) == -mToolbar.getHeight();
+    }
+
+    private void showToolbar() {
+        float headerTranslationY = ViewHelper.getTranslationY(mToolbar);
+        if (headerTranslationY != 0) {
+            ViewPropertyAnimator.animate(mToolbar).cancel();
+            ViewPropertyAnimator.animate(mToolbar).translationY(0).setDuration(200).start();
+        }
+    }
+
+    private void hideToolbar() {
+        float headerTranslationY = ViewHelper.getTranslationY(mToolbar);
+        int toolbarHeight = mToolbar.getHeight();
+        if (headerTranslationY != -toolbarHeight) {
+            ViewPropertyAnimator.animate(mToolbar).cancel();
+            ViewPropertyAnimator.animate(mToolbar).translationY(-toolbarHeight).setDuration(200).start();
         }
     }
 

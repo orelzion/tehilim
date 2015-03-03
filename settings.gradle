@@ -1,2 +1,2 @@
-include ':tehilimlibrary', ':Zmanim', ':tehilim_main', ':tehilim_free'
+include ':tehilimlibrary', ':Zmanim', ':tehilim_main'
 include ':helpshiftsdkandroid'

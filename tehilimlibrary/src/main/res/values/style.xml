@@ -1,7 +1,8 @@
 <resources>
 
-    <style name="AppBaseThemeDark" parent="@style/Theme.AppCompat">
-        <item name="windowActionBarOverlay">false</item>
+    <style name="AppBaseThemeDark" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="windowActionBar">false</item>
+
         <item name="action_search_icon">@drawable/action_search_dark</item>
         <item name="action_about_icon">@drawable/action_about_dark</item>
         <item name="action_settings_icon">@drawable/action_settings_dark</item>
@@ -14,19 +15,14 @@
         <item name="text_color">@android:color/white</item>
         <item name="side_background">@android:color/darker_gray</item>
         <item name="choose_items_icon">@drawable/ic_action_storage_dark</item>
-        <item name="actionBarItemBackground">@drawable/selectable_background_tehilim_dark</item>
-        <item name="popupMenuStyle">@style/PopupMenu.Tehilim_dark</item>
-        <item name="dropDownListViewStyle">@style/DropDownListView.Tehilim_dark</item>
-        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Tehilim_dark</item>
-        <item name="actionDropDownStyle">@style/DropDownNav.Tehilim_dark</item>
-        <item name="actionBarStyle">@style/ActionBar.Transparent.Tehilim_dark</item>
-        <item name="actionModeBackground">@drawable/cab_background_top_tehilim_dark</item>
-        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_tehilim_dark</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Tehilim_dark</item>
+
+        <item name="colorPrimary">@color/titleColor</item>
+        <item name="colorPrimaryDark">@color/pressed_tehilim</item>
+        <item name="colorAccent">#546E7A</item>
     </style>
 
-    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
-        <item name="windowActionBarOverlay">false</item>
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
         <item name="action_search_icon">@drawable/action_search_light</item>
         <item name="action_about_icon">@drawable/action_about_light</item>
         <item name="action_settings_icon">@drawable/action_settings_light</item>
@@ -39,111 +35,25 @@
         <item name="text_color">@android:color/black</item>
         <item name="side_background">@android:color/background_light</item>
         <item name="choose_items_icon">@drawable/ic_action_storage</item>
-        <item name="actionBarItemBackground">@drawable/selectable_background_tehilim</item>
-        <item name="popupMenuStyle">@style/PopupMenu.Tehilim</item>
-        <item name="dropDownListViewStyle">@style/DropDownListView.Tehilim</item>
-        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Tehilim</item>
-        <item name="actionDropDownStyle">@style/DropDownNav.Tehilim</item>
-        <item name="actionBarStyle">@style/ActionBar.Solid.Tehilim</item>
-        <item name="actionModeBackground">@drawable/cab_background_top_tehilim</item>
-        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_tehilim</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Tehilim</item>
+
+        <item name="colorPrimary">@color/titleColor</item>
+        <item name="colorPrimaryDark">@color/pressed_tehilim</item>
+        <item name="colorAccent">#546E7A</item>
     </style>
 
     <color name="titleColor">#FFBB33</color>
+
     <color name="pressed_tehilim">#CCFFBB33</color>
+
     <color name="pressed_tehilim_dark">#CCFFBB33</color>
+
     <color name="light_gray">#bdc3c7</color>
     <color name="facebook_color">#3b5998</color>
     <color name="gmail_color">#c0392b</color>
     <color name="git_color">#f14e32</color>
 
-    <style name="ActionBar.Solid.Tehilim" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
-        <item name="background">@drawable/ab_solid_tehilim</item>
-        <item name="backgroundStacked">@drawable/ab_stacked_solid_tehilim</item>
-        <item name="backgroundSplit">@drawable/ab_bottom_solid_tehilim</item>
-        <item name="progressBarStyle">@style/ProgressBar.Tehilim</item>
-    </style>
-
-    <style name="ActionBar.Transparent.Tehilim" parent="@style/Widget.AppCompat.Light.ActionBar">
-        <item name="background">@drawable/ab_transparent_tehilim</item>
-        <item name="progressBarStyle">@style/ProgressBar.Tehilim</item>
-    </style>
-
-    <style name="PopupMenu.Tehilim" parent="@style/Widget.AppCompat.Light.PopupMenu">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_tehilim</item>
-    </style>
-
-    <style name="DropDownListView.Tehilim" parent="@style/Widget.AppCompat.Light.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_background_tehilim</item>
-    </style>
-
-    <style name="ActionBarTabStyle.Tehilim" parent="@style/Widget.AppCompat.Light.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator_ab_tehilim</item>
-    </style>
-
-    <style name="DropDownNav.Tehilim" parent="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
-        <item name="android:background">@drawable/spinner_background_ab_tehilim</item>
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_tehilim</item>
-        <item name="android:dropDownSelector">@drawable/selectable_background_tehilim</item>
-    </style>
-
-    <style name="ProgressBar.Tehilim" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/progress_horizontal_tehilim</item>
-    </style>
-
-    <style name="ActionButton.CloseMode.Tehilim" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
-        <item name="android:background">@drawable/btn_cab_done_tehilim</item>
-    </style>
-
-    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Tehilim.Widget" parent="@style/Theme.AppCompat">
-        <item name="popupMenuStyle">@style/PopupMenu.Tehilim</item>
-        <item name="dropDownListViewStyle">@style/DropDownListView.Tehilim</item>
-    </style>
-
-    <style name="ActionBar.Solid.Tehilim_dark" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="background">@drawable/ab_solid_tehilim_dark</item>
-        <item name="backgroundStacked">@drawable/ab_stacked_solid_tehilim_dark</item>
-        <item name="backgroundSplit">@drawable/ab_bottom_solid_tehilim_dark</item>
-        <item name="progressBarStyle">@style/ProgressBar.Tehilim_dark</item>
-    </style>
-
-    <style name="ActionBar.Transparent.Tehilim_dark" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">@drawable/ab_transparent_tehilim_dark</item>
-        <item name="progressBarStyle">@style/ProgressBar.Tehilim_dark</item>
-    </style>
-
-    <style name="PopupMenu.Tehilim_dark" parent="@style/Widget.AppCompat.PopupMenu">
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_tehilim_dark</item>
-    </style>
-
-    <style name="DropDownListView.Tehilim_dark" parent="@style/Widget.AppCompat.ListView.DropDown">
-        <item name="android:listSelector">@drawable/selectable_background_tehilim_dark</item>
-    </style>
-
-    <style name="ActionBarTabStyle.Tehilim_dark" parent="@style/Widget.AppCompat.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator_ab_tehilim_dark</item>
-    </style>
-
-    <style name="DropDownNav.Tehilim_dark" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
-        <item name="android:background">@drawable/spinner_background_ab_tehilim_dark</item>
-        <item name="android:popupBackground">@drawable/menu_dropdown_panel_tehilim_dark</item>
-        <item name="android:dropDownSelector">@drawable/selectable_background_tehilim_dark</item>
-    </style>
-
-    <style name="ProgressBar.Tehilim_dark" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/progress_horizontal_tehilim_dark</item>
-    </style>
-
-    <style name="ActionButton.CloseMode.Tehilim_dark" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
-        <item name="android:background">@drawable/btn_cab_done_tehilim_dark</item>
-    </style>
-
-    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Tehilim_dark.Widget" parent="@style/Theme.AppCompat">
-        <item name="popupMenuStyle">@style/PopupMenu.Tehilim_dark</item>
-        <item name="dropDownListViewStyle">@style/DropDownListView.Tehilim_dark</item>
-    </style>
+    <color name="flat_pressed">#66999999</color>
+    <color name="flat_disabled_text">#40000000</color>
+    <color name="flat_normal_text">#000000</color>
 
 </resources>

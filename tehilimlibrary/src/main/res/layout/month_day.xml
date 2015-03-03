@@ -19,6 +19,6 @@
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceMedium"
     android:gravity="center"
-    android:paddingStart="6dip"
-    android:paddingEnd="6dip"
-    android:minHeight="48dip" />
+    android:paddingStart="6dp"
+    android:paddingEnd="6dp"
+    android:minHeight="48dp" />

@@ -34,7 +34,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="53778ca80a018bc2db47cf2d71f9cfca9d13c398" />
+
         <activity
             android:name="com.karriapps.tehilim.tehilimlibrary.PreferencesActivity"
             android:icon="@drawable/ic_launcher_frame" />

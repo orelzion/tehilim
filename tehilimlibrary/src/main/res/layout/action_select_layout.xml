@@ -1,4 +1,5 @@
-<com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner xmlns:android="http://schemas.android.com/apk/res/android"
+<com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/action_select_spinner"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
