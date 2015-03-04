@@ -40,7 +40,9 @@ import com.karriapps.tehilim.tehilimlibrary.fragments.NavigationDrawerFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import com.karriapps.tehilim.tehilimlibrary.fragments.dialogs.SilentDialog;
 import com.karriapps.tehilim.tehilimlibrary.generators.PsalmsGenerator;
+import com.karriapps.tehilim.tehilimlibrary.generators.ShiraGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.TehilimGenerator;
+import com.karriapps.tehilim.tehilimlibrary.generators.TikunKlaliGenerator;
 import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.OnPositionChanged;
@@ -367,10 +369,21 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         if (generator.getList().size() <= 0)
             generator.generate();
         mMainFragment.setTehilimGenerator(generator);
-        if (generator instanceof PsalmsGenerator)
+        if (generator instanceof PsalmsGenerator) {
             mMainFragment.setViewType(VIEW_TYPE.TEHILIM_BOOK);
-        else
+            mMainFragment.changeImage(R.drawable.psalms_mini);
+        } else {
             mMainFragment.setViewType(VIEW_TYPE.OTHER);
+            if(generator instanceof YahrzeitGenerator) {
+                mMainFragment.changeImage(R.drawable.cemetary);
+            } else if(generator instanceof TikunKlaliGenerator) {
+                mMainFragment.changeImage(R.drawable.forest);
+            } else if(generator instanceof ShiraGenerator) {
+                mMainFragment.changeImage(R.drawable.squirrel_prayer);
+            } else {
+                mMainFragment.changeImage(R.drawable.psalms_mini);
+            }
+        }
         mChapters = generator.getKeys();
         mInitialPosition = position > 0 ? position : mGenerator.getFirstChapterKeyPosition();
         setSpinner();

@@ -78,7 +78,7 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
     private AutoScroller mAutoScroller;
 
     private View mToolbar;
-    private View mImageView;
+    private ImageView mImageView;
     private View mOverlayView;
     private View mListBackgroundView;
     private TextView mTitleView;
@@ -105,7 +105,7 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
 
         mToolbar = view.findViewById(R.id.app_toolbar);
 
-        mImageView = view.findViewById(R.id.image);
+        mImageView = (ImageView) view.findViewById(R.id.image);
         mOverlayView = view.findViewById(R.id.overlay);
 
         mList.setScrollViewCallbacks(this);
@@ -189,6 +189,10 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
         final ActionBarActivity activity = (ActionBarActivity) getActivity();
         mTitleView.setText(activity.getSupportActionBar().getTitle());
         activity.getSupportActionBar().setTitle(null);
+    }
+
+    public void changeImage(int redID) {
+        mImageView.setImageResource(redID);
     }
 
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
