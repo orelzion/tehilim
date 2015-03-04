@@ -25,4 +25,9 @@ Credits
 * All the Tehilim text is from Wikitext and should only be used under the <a href="http://he.wikipedia.org/wiki/%D7%95%D7%99%D7%A7%D7%99%D7%A4%D7%93%D7%99%D7%94:%D7%A8%D7%99%D7%A9%D7%99%D7%95%D7%9F_Creative_Commons_%D7%99%D7%99%D7%97%D7%95%D7%A1-%D7%A9%D7%99%D7%AA%D7%95%D7%A3_%D7%96%D7%94%D7%94_3.0_%D7%9C%D7%90_%D7%9E%D7%95%D7%AA%D7%90%D7%9D">CC-BY-SA-3.0 license</a> 
 * <a href="https://github.com/jgilfelt/android-actionbarstylegenerator"><strike>Android ActionBar Style Generator</srtike></a>
 * <a href="http://android-holo-colors.com/"><strike>Android Holo Colors</strike></a>
+
+All images are shared under the license they acquire in their links
 * <a href="https://www.flickr.com/photos/raffaespo/10325721105">Tehilim picture</a>
+* <a href="https://www.flickr.com/photos/scotbot/16366865940>Forest picture</a>
+* <a href="https://www.flickr.com/photos/liberato/3192764302">Cemetary picture</a>
+* <a href="http://pixgood.com/animal-praying-meme.html>Praying Squirel picture</a>
