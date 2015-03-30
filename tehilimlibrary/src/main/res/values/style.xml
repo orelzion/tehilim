@@ -15,6 +15,7 @@
         <item name="text_color">@android:color/white</item>
         <item name="side_background">@android:color/darker_gray</item>
         <item name="choose_items_icon">@drawable/ic_action_storage_dark</item>
+        <item name="action_spinner_triangle">@drawable/spinner_triangle</item>
 
         <item name="colorPrimary">@color/titleColor</item>
         <item name="colorPrimaryDark">@color/pressed_tehilim</item>
@@ -35,10 +36,17 @@
         <item name="text_color">@android:color/black</item>
         <item name="side_background">@android:color/background_light</item>
         <item name="choose_items_icon">@drawable/ic_action_storage</item>
+        <item name="action_spinner_triangle">@drawable/spinner_triangle_dark</item>
 
         <item name="colorPrimary">@color/titleColor</item>
         <item name="colorPrimaryDark">@color/pressed_tehilim</item>
         <item name="colorAccent">#546E7A</item>
+    </style>
+
+    <style name="Widget.MyApp.HeaderBar.Spinner" parent="Widget.AppCompat.Light.Spinner.DropDown.ActionBar">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:dropDownSelector">?android:selectableItemBackground</item>
+        <item name="android:divider">@null</item>
     </style>
 
     <color name="titleColor">#FFBB33</color>

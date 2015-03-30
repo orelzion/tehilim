@@ -2,18 +2,11 @@
     xmlns:tehilim="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/choose_chapter"
-        android:icon="?attr/choose_items_icon"
-        android:orderInCategory="100"
-        tehilim:showAsAction="always"
-        android:title="@string/action_search"
-        tehilim:actionLayout="@layout/action_select_layout" />
-    <item
         android:id="@+id/action_settings"
         android:icon="@drawable/action_settings_light"
         android:orderInCategory="200"
         android:title="@string/action_settings"
-        tehilim:showAsAction="ifRoom" />
+        tehilim:showAsAction="never" />
     <item
         android:id="@+id/action_help"
         android:orderInCategory="300"

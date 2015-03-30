@@ -18,14 +18,17 @@ import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.appbrain.AppBrain;
 import com.google.android.gms.common.ConnectionResult;
@@ -51,9 +54,11 @@ import com.karriapps.tehilim.tehilimlibrary.utils.App.THEME;
 import com.karriapps.tehilim.tehilimlibrary.utils.Tools;
 import com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner;
 import com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner.OnItemSelectedListener;
+import com.karriapps.tehilim.tehilimlibrary.view.ToolbarSpinnerAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks, OnPositionChanged {
@@ -91,6 +96,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     private int mInitialPosition;
 
+    private Toolbar mToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -115,7 +122,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         setContentView(R.layout.activity_main);
 
 
-
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -124,8 +130,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 
         //Implement toolbar as a replacement for actionbar
-        Toolbar toolbar = (Toolbar)mMainFragment.getView().findViewById(R.id.app_toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) mMainFragment.getView().findViewById(R.id.app_toolbar);
+        setSupportActionBar(mToolbar);
 
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (checkPlayServices()) {
@@ -148,7 +154,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         }
 
 
-
         mMainFragment.setOnPositionChangedListener(this);
 
 
@@ -156,7 +161,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 mDrawerLayout,
-                toolbar);
+                mToolbar);
 
         if (savedInstanceState == null) {
             setGenerator(new PsalmsGenerator(1, 151, 1, 23), -1);
@@ -217,7 +222,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
-        if(mMainFragment != null) {
+        if (mMainFragment != null) {
             mMainFragment.updateTitle();
         }
     }
@@ -229,8 +234,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             //			mSearchView = (SearchView)MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
             //			mSearchView.setOnQueryTextListener(onQuery);
 
-            mChaptersSpinner = (ExtendedSpinner) MenuItemCompat.getActionView(menu.findItem(R.id.choose_chapter));
-            mChaptersSpinner.setOnItemSelectedListener(mOnSpinnerItemSelect);
             setSpinner();
             return true;
         }
@@ -241,13 +244,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        if(mDrawerToggle != null) {
+        if (mDrawerToggle != null) {
             mDrawerToggle.syncState();
         }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
+        if (mDrawerToggle != null && mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
 
@@ -278,7 +281,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        if(mDrawerToggle != null) {
+        if (mDrawerToggle != null) {
             mDrawerToggle.onConfigurationChanged(newConfig);
         }
         super.onConfigurationChanged(newConfig);
@@ -331,7 +334,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     @Override
     public void onBackPressed() {
 
-        if(mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.START| Gravity.LEFT)) {
+        if (mDrawerLayout != null && mDrawerLayout.isDrawerOpen(Gravity.START | Gravity.LEFT)) {
             mDrawerLayout.closeDrawers();
             return;
         }
@@ -359,7 +362,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         LastLocation loc = new LastLocation(mTitle, values, type, mMainFragment.getPosition());
         App.getInstance().saveLastLocation(loc);
 
-        if(mNavigationDrawerFragment != null) {
+        if (mNavigationDrawerFragment != null) {
             mNavigationDrawerFragment.updateQuickListAdapter();
         }
     }
@@ -374,11 +377,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             mMainFragment.changeImage(R.drawable.psalms_mini);
         } else {
             mMainFragment.setViewType(VIEW_TYPE.OTHER);
-            if(generator instanceof YahrzeitGenerator) {
+            if (generator instanceof YahrzeitGenerator) {
                 mMainFragment.changeImage(R.drawable.cemetary);
-            } else if(generator instanceof TikunKlaliGenerator) {
+            } else if (generator instanceof TikunKlaliGenerator) {
                 mMainFragment.changeImage(R.drawable.forest);
-            } else if(generator instanceof ShiraGenerator) {
+            } else if (generator instanceof ShiraGenerator) {
                 mMainFragment.changeImage(R.drawable.squirrel_prayer);
             } else {
                 mMainFragment.changeImage(R.drawable.psalms_mini);
@@ -390,18 +393,28 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     }
 
     private void setSpinner() {
-        if (mChaptersSpinner != null) {
-            mSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mChapters);
-            mChaptersSpinner.setAdapter(mSpinnerAdapter);
-            mMainFragment.getView().postDelayed(new Runnable() {
 
-                @Override
-                public void run() {
-                    if (mGenerator != null)
-                        mChaptersSpinner.setSelection(mInitialPosition, true, true);
-                }
-            }, 150);
-        }
+        View view = LayoutInflater.from(this).inflate(R.layout.toolbar_spinner, mToolbar
+                , false);
+        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        mToolbar.addView(view, lp);
+
+        ToolbarSpinnerAdapter spinnerAdapter = new ToolbarSpinnerAdapter();
+        spinnerAdapter.setItems(mGenerator.getKeys().toArray(new String[mGenerator.getKeys().size()]));
+
+        mChaptersSpinner = (ExtendedSpinner) view.findViewById(R.id.toolbar_spinner);
+        mChaptersSpinner.setOnItemSelectedListener(mOnSpinnerItemSelect);
+        mChaptersSpinner.setAdapter(spinnerAdapter);
+        mMainFragment.getView().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                if (mGenerator != null)
+                    mChaptersSpinner.setSelection(mInitialPosition, true, true);
+            }
+        }, 150);
+
     }
 
     /**

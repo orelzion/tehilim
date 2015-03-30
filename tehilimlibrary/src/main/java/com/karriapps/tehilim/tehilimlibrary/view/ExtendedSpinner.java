@@ -24,7 +24,7 @@ public class ExtendedSpinner extends Spinner {
 
     /**
      * An interface to replace the default interface for adapter spinner
-     * \nThis one has a boolean indicating wheather the selection was made by the user
+     * \nThis one has a boolean indicating whether the selection was made by the user
      *
      * @author Orel Zion
      * @serial 16.02.2014
@@ -71,12 +71,13 @@ public class ExtendedSpinner extends Spinner {
     };
 
     public void setSelection(int position, boolean sendEvent) {
-        mSendEvent = sendEvent;
-        super.setSelection(position);
+        setSelection(position, false, sendEvent);
     }
 
     public void setSelection(int position, boolean animate, boolean sendEvent) {
         mSendEvent = sendEvent;
+        ((ToolbarSpinnerAdapter)getAdapter()).setSelectedPosition(position);
+        ((ToolbarSpinnerAdapter)getAdapter()).notifyDataSetChanged();
         super.setSelection(position, animate);
     }
 }

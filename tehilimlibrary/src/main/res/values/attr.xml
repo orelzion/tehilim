@@ -12,4 +12,5 @@
     <attr name="action_save_icon" format="reference" />
     <attr name="action_edit_icon" format="reference" />
     <attr name="action_new_icon" format="reference" />
+    <attr name="action_spinner_triangle" format="reference" />
 </resources>

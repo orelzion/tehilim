@@ -4,7 +4,7 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="200"
-        tehilim:showAsAction="ifRoom"
+        tehilim:showAsAction="never"
         android:icon="?attr/action_settings_icon"
         android:title="@string/action_settings" />
 
