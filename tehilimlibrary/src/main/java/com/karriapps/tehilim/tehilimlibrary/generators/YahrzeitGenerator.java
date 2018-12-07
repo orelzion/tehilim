@@ -33,7 +33,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
     public Map<String, Perek> generate() {
 
         Context context = App.getInstance().getAplicationContext();
-        Perek perek = null;
+        Perek perek;
 
         for (int i = 0; i < psalms.length; i++) {
             String chapterTitle = App.getInstance().getLocale().getLanguage().equals("iw") ? new Alef(psalms[i]).toString() : (psalms[i] + "");

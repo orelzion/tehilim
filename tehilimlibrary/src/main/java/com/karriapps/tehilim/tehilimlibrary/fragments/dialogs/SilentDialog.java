@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -38,9 +38,9 @@ public class SilentDialog extends DialogFragment implements DialogInterface.OnDi
         d.setCanceledOnTouchOutside(true);
         d.setOnDismissListener(this);
         d.setTitle(R.string.silent);
-        mOKButton = (Button) d.findViewById(R.id.ok_txt_box);
-        mNoButton = (Button) d.findViewById(R.id.no_txt_box);
-        mRememberCheckBox = (CheckBox) d.findViewById(R.id.remember);
+        mOKButton = d.findViewById(R.id.ok_txt_box);
+        mNoButton = d.findViewById(R.id.no_txt_box);
+        mRememberCheckBox = d.findViewById(R.id.remember);
         setButton(mOKButton, mNoButton);
         d.show();
 

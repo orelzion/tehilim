@@ -1,11 +1,11 @@
 package com.karriapps.tehilim.tehilimlibrary.view;
 
 import android.content.Context;
+import androidx.appcompat.widget.AppCompatSpinner;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Spinner;
 
 import java.lang.ref.WeakReference;
 
@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
  * @author Orel Zion
  * @since 16.02.2014
  */
-public class ExtendedSpinner extends Spinner {
+public class ExtendedSpinner extends AppCompatSpinner {
 
     private boolean isUserTouched;
     private boolean mSendEvent;
@@ -41,7 +41,7 @@ public class ExtendedSpinner extends Spinner {
     }
 
     public void setOnItemSelectedListener(OnItemSelectedListener onItemSelected) {
-        mListener = new WeakReference<OnItemSelectedListener>(onItemSelected);
+        mListener = new WeakReference<>(onItemSelected);
     }
 
     @Override

@@ -16,8 +16,8 @@ public abstract class TehilimGenerator implements ITehilimGenerator, Parcelable 
     protected List<String> mKeys;
 
     public TehilimGenerator() {
-        mPsalmsList = new HashMap<String, Perek>();
-        mKeys = new ArrayList<String>();
+        mPsalmsList = new HashMap<>();
+        mKeys = new ArrayList<>();
     }
 
     @Override

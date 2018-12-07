@@ -24,8 +24,8 @@ public class ShiraGenerator extends TehilimGenerator {
     @Override
     public Map<String, Perek> generate() {
 
-        mPsalmsList = new HashMap<String, Perek>();
-        mKeys = new ArrayList<String>();
+        mPsalmsList = new HashMap<>();
+        mKeys = new ArrayList<>();
 
         Perek p = new Perek(R.string.shiraTitle, R.string.shiraStart, false, EXPANDANBLE.NONE);
         p.setInScope(true);

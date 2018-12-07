@@ -1,10 +1,9 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.helpshift.Helpshift;
+import com.helpshift.support.Support;
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 
@@ -36,13 +35,13 @@ public class AboutFragment extends DialogFragment {
 
         View view = inflater.inflate(R.layout.about, container, false);
 
-        mVersionButton = (Button) view.findViewById(R.id.version_button);
-        mFacebookButton = (Button) view.findViewById(R.id.facebook_button);
-        mFeedbackButton = (Button) view.findViewById(R.id.email_button);
-        mGithubButton = (Button) view.findViewById(R.id.github_button);
-        mRateButton = (Button) view.findViewById(R.id.rate_button);
+        mVersionButton = view.findViewById(R.id.version_button);
+        mFacebookButton = view.findViewById(R.id.facebook_button);
+        mFeedbackButton = view.findViewById(R.id.email_button);
+        mGithubButton = view.findViewById(R.id.github_button);
+        mRateButton = view.findViewById(R.id.rate_button);
 
-        mVersionInfo = (TextView) view.findViewById(R.id.version_info);
+        mVersionInfo = view.findViewById(R.id.version_info);
         mVersionInfo.setText(Html.fromHtml(getString(R.string.version_info)));
 
         mVersionButton.setText(App.getInstance().getAppVersionName());
@@ -50,8 +49,7 @@ public class AboutFragment extends DialogFragment {
         setOnClickListener(mVersionButton, mFacebookButton, mFeedbackButton,
                 mGithubButton, mRateButton);
 
-        if (android.os.Build.VERSION.SDK_INT > 13)
-            animateOpening();
+        animateOpening();
 
         return view;
     }
@@ -73,7 +71,7 @@ public class AboutFragment extends DialogFragment {
             } else if (v.equals(mRateButton)) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getActivity().getPackageName())));
             } else if (v.equals(mFeedbackButton)) {
-                Helpshift.showConversation(getActivity());
+                Support.showConversation(getActivity());
             } else if (v.equals(mVersionButton)) {
                 if (mVersionInfo.getVisibility() == View.GONE)
                     mVersionInfo.setVisibility(View.VISIBLE);
@@ -83,7 +81,6 @@ public class AboutFragment extends DialogFragment {
         }
     };
 
-    @SuppressLint("NewApi")
     private void animateOpening() {
         mVersionButton.setTranslationX(500);
         mFacebookButton.setTranslationX(500);

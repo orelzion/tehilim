@@ -1,11 +1,10 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments.dialogs;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,10 +56,10 @@ public class BookmarkDialog extends DialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mList = (ListView) view.findViewById(R.id.bookmark_listview);
-        mAddButton = (Button) view.findViewById(R.id.bookmark_dialog_edit);
-        mCancel = (Button) view.findViewById(R.id.bookmark_cancel);
-        mSave = (Button) view.findViewById(R.id.bookmark_ok);
+        mList = view.findViewById(R.id.bookmark_listview);
+        mAddButton = view.findViewById(R.id.bookmark_dialog_edit);
+        mCancel = view.findViewById(R.id.bookmark_cancel);
+        mSave = view.findViewById(R.id.bookmark_ok);
         setOnClickListener(mAddButton, mCancel, mSave);
         mFavorites.clear();
         mFavorites.addAll(App.getInstance().getFavorites());
@@ -92,17 +91,12 @@ public class BookmarkDialog extends DialogFragment {
         }
     };
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
-
     private void buildDataFromViews() {
         if(mList == null) {
             return;
         }
         int count = mAdapter.getCount();
-        mFavorites = new ArrayList<FavoriteListItem>();
+        mFavorites = new ArrayList<>();
         for(int i = 0; i < count; i++) {
             View view = mList.getChildAt(i);
             FavoriteListItem item = new FavoriteListItem();
@@ -207,9 +201,9 @@ public class BookmarkDialog extends DialogFragment {
             ImageButton delete;
 
             public ViewHolder(View view) {
-                name = (EditText) view.findViewById(R.id.bookmark_row_name);
-                text = (EditText) view.findViewById(R.id.bookmark_row_text);
-                delete = (ImageButton) view.findViewById(R.id.bookmark_row_delete);
+                name = view.findViewById(R.id.bookmark_row_name);
+                text = view.findViewById(R.id.bookmark_row_text);
+                delete = view.findViewById(R.id.bookmark_row_delete);
             }
         }
     }

@@ -29,8 +29,8 @@ public class BookmarkGenerator extends TehilimGenerator {
 
     @Override
     public Map<String, Perek> generate() {
-        mPsalmsList = new HashMap<String, Perek>();
-        mKeys = new ArrayList<String>();
+        mPsalmsList = new HashMap<>();
+        mKeys = new ArrayList<>();
 
         Perek p = new Perek(R.string.yehiTitle, R.string.yehiBefore, false, Perek.EXPANDANBLE.NONE);
         p.setInScope(true);

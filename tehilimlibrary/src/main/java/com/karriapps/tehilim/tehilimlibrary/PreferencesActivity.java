@@ -101,8 +101,6 @@ public class PreferencesActivity extends PreferenceActivity {
         intent.putExtra("bundle", temp_bundle);
         startActivity(intent);
         finish();
-        if (Build.VERSION.SDK_INT < 11) {
-            Toast.makeText(this, getString(R.string.settings_changed), Toast.LENGTH_LONG).show();
-        }
+        Toast.makeText(this, getString(R.string.settings_changed), Toast.LENGTH_LONG).show();
     }
 }

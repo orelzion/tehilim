@@ -26,8 +26,8 @@ public class TikunKlaliGenerator extends TehilimGenerator {
     @Override
     public Map<String, Perek> generate() {
 
-        mPsalmsList = new HashMap<String, Perek>();
-        mKeys = new ArrayList<String>();
+        mPsalmsList = new HashMap<>();
+        mKeys = new ArrayList<>();
 
         Perek p = new Perek(R.string.yehiTitle, R.string.yehiBefore, false, EXPANDANBLE.COLLAPSE);
         p.setInScope(true);
