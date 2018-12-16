@@ -1,18 +1,17 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -197,7 +196,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 }
 
                 ((MainActivity) getActivity()).restoreActionBar();
-                getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+                getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
             @Override
@@ -216,7 +215,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
 
-                getActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+                getActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
         };
 
@@ -234,7 +233,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
             }
         });
 
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
 
 //        if (!mFromSavedInstanceState) {
 //            mGenerator = new PsalmsGenerator(1, 151, 1, 23);
@@ -465,10 +464,10 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
         HashMap<String, String> group = new HashMap<String, String>();
         group.put("Group Item", getString(R.string.books_title));
         result.add(group);
-        group = new HashMap<String, String>();
+        group = new HashMap<>();
         group.put("Group Item", getString(R.string.week_title));
         result.add(group);
-        group = new HashMap<String, String>();
+        group = new HashMap<>();
         group.put("Group Item", getString(R.string.month_title));
         result.add(group);
 
@@ -480,18 +479,18 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
 
         String[] books = getResources().getStringArray(R.array.books);
         HashMap<String, String> child;
-        ArrayList<HashMap<String, String>> secList = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> secList = new ArrayList<>();
         for (String book : books) {
-            child = new HashMap<String, String>();
+            child = new HashMap<>();
             child.put("Sub Item", book);
             secList.add(child);
         }
         result.add(secList);
 
-        secList = new ArrayList<HashMap<String, String>>();
+        secList = new ArrayList<>();
         String[] days = getResources().getStringArray(R.array.week_days);
         for (String day : days) {
-            child = new HashMap<String, String>();
+            child = new HashMap<>();
             child.put("Sub Item", day);
             secList.add(child);
         }
@@ -510,16 +509,6 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 App.getInstance().getPsalms().getMonthLastKufYudPsalm(day));
         if (mCallbacks != null)
             mCallbacks.onNavigationDrawerItemSelected(mGenerator, String.format(getString(R.string.dayInMonth), day));
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mCallbacks = (NavigationDrawerCallbacks) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException("Activity must implement NavigationDrawerCallbacks.");
-        }
     }
 
     @Override
@@ -569,7 +558,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     private ActionBar getActionBar() {
-        return ((ActionBarActivity) getActivity()).getSupportActionBar();
+        return ((AppCompatActivity) getActivity()).getSupportActionBar();
     }
 
     /**

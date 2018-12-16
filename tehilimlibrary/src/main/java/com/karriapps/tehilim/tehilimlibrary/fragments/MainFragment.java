@@ -8,10 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -186,7 +185,7 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
     }
 
     public void updateTitle() {
-        final ActionBarActivity activity = (ActionBarActivity) getActivity();
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         mTitleView.setText(activity.getSupportActionBar().getTitle());
         activity.getSupportActionBar().setTitle(null);
     }
@@ -307,7 +306,7 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
                 mToolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(1, mToolbarColor));
                 mToolbar.setVisibility(View.VISIBLE);
                 mTitleView.setVisibility(View.INVISIBLE);
-                ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(mTitleView.getText());
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(mTitleView.getText());
             } else {
                 mToolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(0, mToolbarColor));
                 mToolbar.setVisibility(View.INVISIBLE);

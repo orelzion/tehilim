@@ -100,9 +100,9 @@ public class EditableExpandableListAdapter extends BaseExpandableListAdapter {
         ImageView expandImage;
 
         public ViewHolder(View v) {
-            titleTextView = (TextView) v.findViewById(R.id.groupTitle);
-            editImage = (ImageView) v.findViewById(R.id.groupEditImage);
-//            expandImage = (ImageView)v.findViewById(R.id.groupExpand);
+            titleTextView = v.findViewById(R.id.groupTitle);
+            editImage = v.findViewById(R.id.groupEditImage);
+//            expandImage = v.findViewById(R.id.groupExpand);
         }
     }
 
@@ -130,9 +130,9 @@ public class EditableExpandableListAdapter extends BaseExpandableListAdapter {
         TextView sideTextView;
 
         public ChildViewHolder(View v) {
-            titleTextView = (TextView) v.findViewById(R.id.child_title);
-            subtitleTextView = (TextView) v.findViewById(R.id.child_subtitle);
-            sideTextView = (TextView) v.findViewById(R.id.child_side_text);
+            titleTextView = v.findViewById(R.id.child_title);
+            subtitleTextView = v.findViewById(R.id.child_subtitle);
+            sideTextView = v.findViewById(R.id.child_side_text);
         }
     }
 

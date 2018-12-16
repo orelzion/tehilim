@@ -2,14 +2,15 @@ package com.karriapps.tehilim.tehilimlibrary.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 /**
  * Created by orelsara on 05/08/14.
  */
-public class TehilimEditText extends EditText {
+public class TehilimEditText extends AppCompatEditText {
 
     public TehilimEditText(Context context) {
         super(context);

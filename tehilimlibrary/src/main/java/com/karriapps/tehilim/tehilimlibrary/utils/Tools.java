@@ -56,7 +56,7 @@ public class Tools {
         string = string.replaceAll("(?!\\d|,)\\S|\\s", "");
         String[] values = string.split(",");
         int[] retVal;
-        List<Integer> chapters = new ArrayList<Integer>();
+        List<Integer> chapters = new ArrayList<>();
         for (int i = 0; i < values.length; i++) {
             int chapter = Integer.parseInt(values[i]);
             if(chapter > 0 && chapter < 150) {
@@ -80,7 +80,7 @@ public class Tools {
     }
 
     public static List<Integer> convertIntegersToList(int[] integers) {
-        List<Integer> retVal = new ArrayList<Integer>(integers.length);
+        List<Integer> retVal = new ArrayList<>(integers.length);
         for (int i : integers) {
             retVal.add(i);
         }

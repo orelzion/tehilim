@@ -3,11 +3,12 @@ package com.karriapps.tehilim.tehilimlibrary.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.widget.TextView;
 
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 
-public class TehilimTextView extends TextView {
+import androidx.appcompat.widget.AppCompatTextView;
+
+public class TehilimTextView extends AppCompatTextView {
 
     private float mRatio = 1.0f;
 

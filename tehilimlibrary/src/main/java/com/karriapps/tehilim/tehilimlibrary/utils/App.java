@@ -1,6 +1,5 @@
 package com.karriapps.tehilim.tehilimlibrary.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -39,7 +38,7 @@ public class App extends Application {
     //	private final String FAVORITES_FILE = "favorites.json";
     private PsalmsHelper mPsalms;
     private boolean mSettingsChanged;
-    private QueueList<LastLocation> mLocations = new QueueList<LastLocation>(3);
+    private QueueList<LastLocation> mLocations = new QueueList<>(3);
 
     public App() {
         super();
@@ -96,7 +95,7 @@ public class App extends Application {
     }
 
     public List<FavoriteListItem> getFavorites() {
-        List<FavoriteListItem> retVal = new ArrayList<FavoriteListItem>();
+        List<FavoriteListItem> retVal = new ArrayList<>();
         String saved_data = getSharedPreferences().getString(getString(R.string.favorites_key), "");
         try {
             FavoriteListItem[] favorites = mGson.fromJson(saved_data, FavoriteListItem[].class);
@@ -180,7 +179,7 @@ public class App extends Application {
         getSharedPreferences().edit().putLong(getString(R.string.scroll_key), milliseconds).commit();
     }
 
-    public boolean isFreeVersion() {
+    /*public boolean isFreeVersion() {
         return getPackageName().contains("free");
     }
 
@@ -378,15 +377,11 @@ public class App extends Application {
         return l;
     }
 
-    @SuppressLint("NewApi")
     public void changeLocale() {
         if (!getLang().equals(LANGUAGES.DEFAULT)) {
             Locale.setDefault(getLocale());
             Configuration config = getResources().getConfiguration();
-            if (android.os.Build.VERSION.SDK_INT > 16)
-                config.setLocale(getLocale());
-            else
-                config.locale = getLocale();
+            config.setLocale(getLocale());
             getResources().updateConfiguration(config, getResources().getDisplayMetrics());
         }
     }

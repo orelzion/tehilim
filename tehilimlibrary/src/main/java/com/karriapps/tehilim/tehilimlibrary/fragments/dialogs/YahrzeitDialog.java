@@ -1,7 +1,7 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments.dialogs;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -37,9 +37,9 @@ public class YahrzeitDialog extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.yahrzeit_dialog, container, false);
 
-        mTextView = (TextView) view.findViewById(R.id.yahrzeit_dialog_text);
-        mEditText = (EditText) view.findViewById(R.id.yahrzeit_dialog_edit_text);
-        mButton = (Button) view.findViewById(R.id.yahrzeit_dialog_button);
+        mTextView = view.findViewById(R.id.yahrzeit_dialog_text);
+        mEditText = view.findViewById(R.id.yahrzeit_dialog_edit_text);
+        mButton = view.findViewById(R.id.yahrzeit_dialog_button);
         mEditText.addTextChangedListener(mTextWatcher);
 
         getDialog().setTitle(R.string.yahrzeitPopupTitle);
@@ -80,7 +80,7 @@ public class YahrzeitDialog extends DialogFragment {
                 String str = s.toString().trim();
                 List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 
-                mChapters = new ArrayList<Integer>();
+                mChapters = new ArrayList<>();
                 for (int i = 0; i < items.size(); i++) {
                     if (TextUtils.isDigitsOnly(items.get(i))) {
                         mChapters.add(Integer.parseInt(items.get(i)));

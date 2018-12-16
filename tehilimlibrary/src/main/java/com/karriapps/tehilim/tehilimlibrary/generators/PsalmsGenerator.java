@@ -29,8 +29,8 @@ public class PsalmsGenerator extends TehilimGenerator {
         this.mEndChapter = lastChapter;
         this.mStartKufYud = firstKufYud;
         this.mEndKufYud = lastKufYud;
-        mPsalmsList = new HashMap<String, Perek>();
-        mKeys = new ArrayList<String>();
+        mPsalmsList = new HashMap<>();
+        mKeys = new ArrayList<>();
     }
 
     private PsalmsGenerator(Parcel in) {

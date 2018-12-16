@@ -9,33 +9,30 @@ import android.media.AudioManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.SearchView.OnQueryTextListener;
-import android.support.v7.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.SearchView.OnQueryTextListener;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
-import com.appbrain.AppBrain;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.helpshift.Helpshift;
-import com.helpshift.Log;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.helpshift.support.Log;
+import com.helpshift.support.Support;
+import com.helpshift.Core;
+import com.helpshift.All;
+import com.helpshift.exceptions.InstallException;
 import com.karriapps.tehilim.tehilimlibrary.fragments.AboutFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment.VIEW_TYPE;
@@ -56,12 +53,10 @@ import com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner;
 import com.karriapps.tehilim.tehilimlibrary.view.ExtendedSpinner.OnItemSelectedListener;
 import com.karriapps.tehilim.tehilimlibrary.view.ToolbarSpinnerAdapter;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks, OnPositionChanged {
+public class MainActivity extends AppCompatActivity implements NavigationDrawerCallbacks, OnPositionChanged {
 
     public static final String GCM_API_KEY = App.getInstance().getString(R.string.gcm_api_key);
 
@@ -83,7 +78,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private TehilimGenerator mGenerator;
 
     private ExtendedSpinner mChaptersSpinner;
-    private List<String> mChapters = new ArrayList<String>();
+    private List<String> mChapters = new ArrayList<>();
     private ArrayAdapter<String> mSpinnerAdapter;
 
     private String mTitle;
@@ -91,8 +86,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private SilentDialog mSilentDialog;
     private int mOldRingerMode;
 
-    private GoogleCloudMessaging mGcm;
-    private String mRegisterationID;
+    private String mRegistrationID;
 
     private int mInitialPosition;
 
@@ -109,20 +103,21 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         super.onCreate(savedInstanceState);
 
-        if (App.getInstance().isFreeVersion()) {
-            AppBrain.init(this);
-        }
-
-        Helpshift.install(getApplication(),
+        Core.init(All.getInstance());
+        try {
+            Core.install(getApplication(),
                 getString(R.string.help_shift_api_key),
                 getString(R.string.help_shift_url),
                 getString(R.string.help_shift_app_id));
+        } catch (InstallException e) {
+            Log.e(TAG, "invalid install credentials : ", e);
+        }
 
         App.getInstance().changeLocale();
         setContentView(R.layout.activity_main);
 
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -130,15 +125,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 getSupportFragmentManager().findFragmentById(R.id.main_fragment);
 
         //Implement toolbar as a replacement for actionbar
-        mToolbar = (Toolbar) mMainFragment.getView().findViewById(R.id.app_toolbar);
+        mToolbar = mMainFragment.getView().findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
 
         // Check device for Play Services APK. If check succeeds, proceed with GCM registration.
         if (checkPlayServices()) {
-            mGcm = GoogleCloudMessaging.getInstance(this);
-            mRegisterationID = getRegistrationId(getApplicationContext());
+            mRegistrationID = getRegistrationId(getApplicationContext());
 
-            if (mRegisterationID.isEmpty()) {
+            if (mRegistrationID.isEmpty()) {
                 registerInBackground();
             }
         } else {
@@ -273,7 +267,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 }
             }
         } else if (item.getItemId() == R.id.action_help) {
-            Helpshift.showFAQs(this);
+            Support.showFAQs(this);
         }
 
         return false;
@@ -293,7 +287,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         public boolean onQueryTextSubmit(String query) {
 
             query = query.trim();
-            int chapter = 0, i = 0;
+            int chapter = 0, i;
             if (Tools.isIntNumeric(query))
                 chapter = Integer.parseInt(query);
             else {
@@ -339,8 +333,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             return;
         }
 
-        if (App.getInstance().isFreeVersion())
-            AppBrain.getAds().showInterstitial(this);
+        /*if (App.getInstance().isFreeVersion())
+            AppBrain.getAds().showInterstitial(this);*/
         finish();
     }
 
@@ -423,10 +417,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
      * the Google Play Store or enable it in the device's system settings.
      */
     private boolean checkPlayServices() {
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        int resultCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS) {
-            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
-                GooglePlayServicesUtil.getErrorDialog(resultCode, this,
+            if (GoogleApiAvailability.getInstance().isUserResolvableError(resultCode)) {
+                GoogleApiAvailability.getInstance().getErrorDialog(this, resultCode,
                         PLAY_SERVICES_RESOLUTION_REQUEST).show();
             } else {
                 Log.i(TAG, "This device is not supported.");
@@ -471,7 +465,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         final SharedPreferences prefs = App.getInstance().getSharedPreferences();
         Log.i(TAG, "Saving regId on app version " + App.getInstance().getAppVersion());
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(getString(R.string.registration_key), mRegisterationID);
+        editor.putString(getString(R.string.registration_key), mRegistrationID);
         editor.putInt(getString(R.string.registration_version), App.getInstance().getAppVersion());
         editor.commit();
     }
@@ -483,7 +477,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
      * shared preferences.
      */
     private void registerInBackground() {
-        new AsyncTask<Void, Void, String>() {
+        /*new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
                 String msg = "";
@@ -491,8 +485,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                     if (mGcm == null) {
                         mGcm = GoogleCloudMessaging.getInstance(MainActivity.this);
                     }
-                    mRegisterationID = mGcm.register(GCM_API_KEY);
-                    msg = "Device registered, registration ID=" + mRegisterationID;
+                    mRegistrationID = mGcm.register(GCM_API_KEY);
+                    msg = "Device registered, registration ID=" + mRegistrationID;
 
                     // You should send the registration ID to your server over HTTP, so it
                     // can use GCM/HTTP or CCS to send messages to your app.
@@ -517,7 +511,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             protected void onPostExecute(String msg) {
                 Log.i(TAG, msg);
             }
-        }.execute(null, null, null);
+        }.execute(null, null, null);*/
     }
 
     /**
@@ -528,7 +522,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private void sendRegistrationIdToBackend() {
         // Your implementation here.
         // Send registrationId to Helpshift
-        Helpshift.registerDeviceToken(this, mRegisterationID);
+        Core.registerDeviceToken(this, mRegistrationID);
     }
 
     OnItemSelectedListener mOnSpinnerItemSelect = new OnItemSelectedListener() {
