@@ -6,11 +6,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import androidx.core.app.NotificationCompat;
-import android.util.Log;
 
-//import com.google.android.gms.gcm.GoogleCloudMessaging;
+import androidx.core.app.NotificationCompat;
+
 import com.karriapps.tehilim.tehilimlibrary.MainActivity;
 import com.karriapps.tehilim.tehilimlibrary.R;
 
@@ -85,7 +83,6 @@ public class GcmIntentService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this, "channelid")
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(getString(R.string.hs__new_conversation_header))
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))
                         .setContentText(msg);

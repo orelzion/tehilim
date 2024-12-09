@@ -6,16 +6,8 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.AudioManager;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.SearchView.OnQueryTextListener;
-import androidx.appcompat.widget.Toolbar;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,13 +18,15 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView.OnQueryTextListener;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.helpshift.support.Log;
-import com.helpshift.support.Support;
-import com.helpshift.Core;
-import com.helpshift.All;
-import com.helpshift.exceptions.InstallException;
 import com.karriapps.tehilim.tehilimlibrary.fragments.AboutFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment;
 import com.karriapps.tehilim.tehilimlibrary.fragments.MainFragment.VIEW_TYPE;
@@ -63,12 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     private static final String TAG = MainActivity.class.getName();
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    private static final String TITLE_KEY = "title";
-    private static final String CURRENT_POSITION_KEY = "position";
-    private static final String GENERATOR_KEY = "generator";
-    private static final String SILENT_KEY = "silent";
-    private static final String OLD_SILENT_KEY = "oldsilent";
-    private static final String SCROLLING_KEY = "scrolling";
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private MainFragment mMainFragment;
@@ -102,16 +90,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         }
 
         super.onCreate(savedInstanceState);
-
-        Core.init(All.getInstance());
-        try {
-            Core.install(getApplication(),
-                getString(R.string.help_shift_api_key),
-                getString(R.string.help_shift_url),
-                getString(R.string.help_shift_app_id));
-        } catch (InstallException e) {
-            Log.e(TAG, "invalid install credentials : ", e);
-        }
 
         App.getInstance().changeLocale();
         setContentView(R.layout.activity_main);
@@ -157,34 +135,17 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                 mDrawerLayout,
                 mToolbar);
 
-        if (savedInstanceState == null) {
-            setGenerator(new PsalmsGenerator(1, 151, 1, 23), -1);
-            mTitle = getString(R.string.all_tehilim);
-            restoreActionBar();
-        }
+        setGenerator(new PsalmsGenerator(1, 151, 1, 23), -1);
+        mTitle = getString(R.string.all_tehilim);
+        restoreActionBar();
 
         AudioManager mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
 
-        if (savedInstanceState != null) {
-            mTitle = savedInstanceState.getString(TITLE_KEY);
-            if (!TextUtils.isEmpty(mTitle)) {
-                setTitle(mTitle);
-                mMainFragment.updateTitle();
-            }
-
-            TehilimGenerator generator = savedInstanceState.getParcelable(GENERATOR_KEY);
-            if (generator != null) {
-                setGenerator(generator, savedInstanceState.getInt(CURRENT_POSITION_KEY));
-            }
-            mAudioManager.setRingerMode(savedInstanceState.getInt(SILENT_KEY));
-            mOldRingerMode = savedInstanceState.getInt(OLD_SILENT_KEY);
-        } else {
-            mOldRingerMode = mAudioManager.getRingerMode();
-            if (mOldRingerMode == AudioManager.RINGER_MODE_NORMAL) {
-                mSilentDialog = Tools.showSilentDialog(mAudioManager, this);
-                if (mSilentDialog != null)
-                    mSilentDialog.show(getSupportFragmentManager(), "silent");
-            }
+        mOldRingerMode = mAudioManager.getRingerMode();
+        if (mOldRingerMode == AudioManager.RINGER_MODE_NORMAL) {
+            mSilentDialog = Tools.showSilentDialog(mAudioManager, this);
+            if (mSilentDialog != null)
+                mSilentDialog.show(getSupportFragmentManager(), "silent");
         }
     }
 
@@ -193,22 +154,9 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
         super.onStart();
         if (App.getInstance().isSettingsChanged()) {
             App.getInstance().setSettingsChanged(false);
-            if (Build.VERSION.SDK_INT > 10)
-                recreate();
+            recreate();
         }
     }
-
-    protected void onSaveInstanceState(Bundle outState) {
-        if (mMainFragment != null) {
-            outState.putInt(CURRENT_POSITION_KEY, mMainFragment.getPosition());
-            outState.putString(TITLE_KEY, mTitle);
-            outState.putParcelable(GENERATOR_KEY, mMainFragment.getTehilimGenerator());
-            outState.putInt(SILENT_KEY, ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).getRingerMode());
-            outState.putInt(OLD_SILENT_KEY, mOldRingerMode);
-        }
-    }
-
-    ;
 
     public void restoreActionBar() {
 
@@ -266,8 +214,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                     item.setIcon(R.drawable.ic_action_play);
                 }
             }
-        } else if (item.getItemId() == R.id.action_help) {
-            Support.showFAQs(this);
         }
 
         return false;
@@ -512,17 +458,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
                 Log.i(TAG, msg);
             }
         }.execute(null, null, null);*/
-    }
-
-    /**
-     * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP or CCS to send
-     * messages to your app. Not needed for this demo since the device sends upstream messages
-     * to a server that echoes back the message using the 'from' address in the message.
-     */
-    private void sendRegistrationIdToBackend() {
-        // Your implementation here.
-        // Send registrationId to Helpshift
-        Core.registerDeviceToken(this, mRegistrationID);
     }
 
     OnItemSelectedListener mOnSpinnerItemSelect = new OnItemSelectedListener() {

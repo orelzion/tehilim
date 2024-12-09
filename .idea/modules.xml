@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Zmanim/Zmanim.iml" filepath="$PROJECT_DIR$/Zmanim/Zmanim.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tehilim-master.iml" filepath="$PROJECT_DIR$/tehilim-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tehilim_main/tehilim_main.iml" filepath="$PROJECT_DIR$/tehilim_main/tehilim_main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tehilimlibrary/tehilimlibrary.iml" filepath="$PROJECT_DIR$/tehilimlibrary/tehilimlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilim.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.iml" filepath="$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Zmanim/tehilim.Zmanim.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilim_main/tehilim.tehilim_main.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.main.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/tehilimlibrary/tehilim.tehilimlibrary.unitTest.iml" />
     </modules>
   </component>
 </project>

@@ -77,18 +77,6 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/email_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selectable_background_tehilim"
-            android:gravity="start|center_vertical"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
-            android:text="@string/feedback"
-            android:textColor="@color/gmail_color"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/github_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

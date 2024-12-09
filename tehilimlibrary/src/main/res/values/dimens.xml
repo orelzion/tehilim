@@ -24,4 +24,5 @@
 
     <dimen name="sliding_slop">32dp</dimen>
     <dimen name="sliding_overlay_blur_size">4dp</dimen>
+    <dimen name="action_bar_size">56dp</dimen>
 </resources>

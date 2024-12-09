@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: joda-time:joda-time:2.13.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="joda-time" artifactId="joda-time" version="2.13.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.13.0/a4d4db9e91878d964a4544c8ea6d263dae2f37bc/joda-time-2.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.13.0/cb7b77936d673da8247a46bc7164922bc0cdff1a/joda-time-2.13.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.13.0/77b85d9a604c1c15fea84ef6899882fa70faa621/joda-time-2.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

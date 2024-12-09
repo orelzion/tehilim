@@ -3,15 +3,11 @@ package com.karriapps.tehilim.tehilimlibrary.fragments;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -26,6 +22,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -99,7 +98,7 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
         mBottomButton.setOnClickListener(mOnClickListner);
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
-        mActionBarSize = getActionBarSize();
+        mActionBarSize = getResources().getDimensionPixelSize(R.dimen.action_bar_size);
         mToolbarColor = getResources().getColor(R.color.titleColor);
 
         mToolbar = view.findViewById(R.id.app_toolbar);
@@ -172,16 +171,6 @@ public class MainFragment extends Fragment implements OnScrollListener, Observab
         mList.setOnScrollListener(this);
 
         return view;
-    }
-
-    protected int getActionBarSize() {
-        TypedValue typedValue = new TypedValue();
-        int[] textSizeAttr = new int[]{R.attr.actionBarSize};
-        int indexOfAttrTextSize = 0;
-        TypedArray a = getActivity().obtainStyledAttributes(typedValue.data, textSizeAttr);
-        int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
-        a.recycle();
-        return actionBarSize;
     }
 
     public void updateTitle() {

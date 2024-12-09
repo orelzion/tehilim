@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.model.FavoriteListItem;
@@ -102,7 +104,7 @@ public class BookmarkDialog extends DialogFragment {
             FavoriteListItem item = new FavoriteListItem();
             item.setTitle(((EditText) view.findViewById(R.id.bookmark_row_name)).getText().toString());
             try {
-                item.setValuesFromString(((EditText) view.findViewById(R.id.bookmark_row_text)).getText().toString());
+                item.setValuesFromString(((TextView) view.findViewById(R.id.bookmark_row_text)).getText().toString());
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
@@ -197,7 +199,9 @@ public class BookmarkDialog extends DialogFragment {
         }
 
         private class ViewHolder {
-            EditText name, text;
+            EditText name;
+
+            TextView text;
             ImageButton delete;
 
             public ViewHolder(View view) {

@@ -3,7 +3,6 @@ package com.karriapps.tehilim.tehilimlibrary.fragments;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.helpshift.support.Support;
+import androidx.fragment.app.DialogFragment;
+
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 
@@ -37,7 +37,6 @@ public class AboutFragment extends DialogFragment {
 
         mVersionButton = view.findViewById(R.id.version_button);
         mFacebookButton = view.findViewById(R.id.facebook_button);
-        mFeedbackButton = view.findViewById(R.id.email_button);
         mGithubButton = view.findViewById(R.id.github_button);
         mRateButton = view.findViewById(R.id.rate_button);
 
@@ -46,7 +45,7 @@ public class AboutFragment extends DialogFragment {
 
         mVersionButton.setText(App.getInstance().getAppVersionName());
 
-        setOnClickListener(mVersionButton, mFacebookButton, mFeedbackButton,
+        setOnClickListener(mVersionButton, mFacebookButton,
                 mGithubButton, mRateButton);
 
         animateOpening();
@@ -70,8 +69,6 @@ public class AboutFragment extends DialogFragment {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.github_url))));
             } else if (v.equals(mRateButton)) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getActivity().getPackageName())));
-            } else if (v.equals(mFeedbackButton)) {
-                Support.showConversation(getActivity());
             } else if (v.equals(mVersionButton)) {
                 if (mVersionInfo.getVisibility() == View.GONE)
                     mVersionInfo.setVisibility(View.VISIBLE);
@@ -84,13 +81,11 @@ public class AboutFragment extends DialogFragment {
     private void animateOpening() {
         mVersionButton.setTranslationX(500);
         mFacebookButton.setTranslationX(500);
-        mFeedbackButton.setTranslationX(500);
         mGithubButton.setTranslationX(500);
         mRateButton.setTranslationX(500);
 
         mVersionButton.animate().translationX(0).setDuration(150).start();
         mFacebookButton.animate().translationX(0).setDuration(250).start();
-        mFeedbackButton.animate().translationX(0).setDuration(350).start();
         mGithubButton.animate().translationX(0).setDuration(450).start();
         mRateButton.animate().translationX(0).setDuration(550).start();
     }

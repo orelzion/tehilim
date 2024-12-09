@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./tehilimlibrary/libs/nineoldandroids-2.4.0.jar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tehilimlibrary/libs/nineoldandroids-2.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

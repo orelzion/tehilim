@@ -1,17 +1,10 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,15 +13,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.karriapps.tehilim.tehilimlibrary.GeneratorFactory;
 import com.karriapps.tehilim.tehilimlibrary.MainActivity;
@@ -44,7 +42,6 @@ import com.karriapps.tehilim.tehilimlibrary.model.FavoriteListItem;
 import com.karriapps.tehilim.tehilimlibrary.model.IEditableChild;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.Month;
-import com.karriapps.tehilim.tehilimlibrary.model.callbacks.EditButtonClickListener;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.MonthSelected;
 import com.karriapps.tehilim.tehilimlibrary.utils.App;
 import com.karriapps.tehilim.tehilimlibrary.utils.PsalmsHelper;
@@ -127,10 +124,10 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.side_panel, container, false);
 
-        mBooksList = (ExpandableListView) view.findViewById(R.id.books_list);
-        mPrayersList = (ListView) view.findViewById(R.id.additional_list);
-        mQuickList = (ExpandableListView) view.findViewById(R.id.quick_list);
-        mDateTextView = (TextView) view.findViewById(R.id.date_text_view);
+        mBooksList = view.findViewById(R.id.books_list);
+        mPrayersList = view.findViewById(R.id.additional_list);
+        mQuickList = view.findViewById(R.id.quick_list);
+        mDateTextView = view.findViewById(R.id.date_text_view);
 
         populateLists();
 
@@ -253,8 +250,6 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 new EditableListGroupItem()
                         .setTitle(String.format(getString(R.string.tehilim_for_day), App.getInstance().getHebrewDateFormatter().formatDayOfMonth(App.getInstance().getJewishCalendar()))),
                 new EditableListGroupItem().setTitle(getString(R.string.all_tehilim)),
-                new EditableListGroupItem().setTitle(getString(R.string.bookmarks)).setmEditable(true)
-                        .setChildren(App.getInstance().getFavorites().toArray(new IEditableChild[App.getInstance().getFavorites().size()]))
         };
         mQuickAdapter.setGroups(quickItems);
         mQuickAdapter.notifyDataSetChanged();
@@ -274,64 +269,50 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
         updateQuickListAdapter();
         mQuickList.setAdapter(mQuickAdapter);
         mQuickList.setGroupIndicator(null);
-        mQuickAdapter.setEditButtonListener(new EditButtonClickListener() {
-            @Override
-            public void onEditButtonClicked(int position) {
-                if (mQuickAdapter.getGroup(position).getTitle().equals(getString(R.string.bookmarks))) {
-                    BookmarkDialog.newInstance(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            updateQuickListAdapter();
-                        }
-                    }).show(getFragmentManager(), TAG);
-                }
+        mQuickAdapter.setEditButtonListener(position -> {
+            if (mQuickAdapter.getGroup(position).getTitle().equals(getString(R.string.bookmarks))) {
+                BookmarkDialog.newInstance(dialogInterface -> updateQuickListAdapter()).show(getParentFragmentManager(), TAG);
             }
         });
-        mQuickList.setOnGroupClickListener(new OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View view, int groupPosition, long l) {
-                Tools.setListViewHeight(parent, groupPosition);
-                if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.all_tehilim))) {
-                    mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
-                } else if (groupPosition == 1) {
-                    setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
-                } else if (groupPosition == 2) {
-                    OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
-                }
-                return false;
+        mQuickList.setOnGroupClickListener((parent, view, groupPosition, l) -> {
+            Tools.setListViewHeight(parent, groupPosition);
+            if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.all_tehilim))) {
+                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, 151, 1, 23);
+                mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
+            } else if (groupPosition == 1) {
+                setTehilimForDay(App.getInstance().getJewishCalendar().getDayOfWeek() - 1);
+                mCallbacks.onNavigationDrawerItemSelected(mGenerator, mQuickAdapter.getGroup(groupPosition).getTitle());
+            } else if (groupPosition == 2) {
+                OnMonthSelected(App.getInstance().getJewishCalendar().getJewishDayOfMonth());
             }
+            return false;
         });
-        mQuickList.setOnChildClickListener(new OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
-                if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.last_position))) {
-                    LastLocation loc = (LastLocation) mQuickAdapter.getChild(groupPosition, childPosition);
-                    if (loc == null) {
-                        return false;
-                    }
-                    switch (loc.getGeneratorType()) {
-                        case CHAPTERS:
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getValues());
-                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
-                            break;
-                        case NAME:
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getName());
-                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
-                            break;
-                        case YAHRZEIT:
-                            mGenerator = new YahrzeitGenerator(Tools.convertIntegersToList(loc.getValues()));
-                            mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
-                            break;
-                    }
-                } else if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.bookmarks))) {
-                    FavoriteListItem item = (FavoriteListItem) mQuickAdapter.getChild(groupPosition, childPosition);
-                    mGenerator = new BookmarkGenerator(item.getValues());
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, item.getTitle());
+        mQuickList.setOnChildClickListener((expandableListView, view, groupPosition, childPosition, l) -> {
+            if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.last_position))) {
+                LastLocation loc = (LastLocation) mQuickAdapter.getChild(groupPosition, childPosition);
+                if (loc == null) {
+                    return false;
                 }
-                return true;
+                switch (loc.getGeneratorType()) {
+                    case CHAPTERS:
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getValues());
+                        mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                        break;
+                    case NAME:
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getName());
+                        mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                        break;
+                    case YAHRZEIT:
+                        mGenerator = new YahrzeitGenerator(Tools.convertIntegersToList(loc.getValues()));
+                        mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
+                        break;
+                }
+            } else if (mQuickAdapter.getGroup(groupPosition).getTitle().equals(getString(R.string.bookmarks))) {
+                FavoriteListItem item = (FavoriteListItem) mQuickAdapter.getChild(groupPosition, childPosition);
+                mGenerator = new BookmarkGenerator(item.getValues());
+                mCallbacks.onNavigationDrawerItemSelected(mGenerator, item.getTitle());
             }
+            return true;
         });
 
         String[] prayersValues = new String[]{
@@ -341,23 +322,18 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 getString(R.string.yahrzeitTitle)
         };
 
-        mPrayersAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
+        mPrayersAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prayersValues);
         mPrayersList.setAdapter(mPrayersAdapter);
-        mPrayersList.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View view, int position,
-                                    long arg3) {
-                String title = mPrayersAdapter.getItem(position);
-                if (title.equals(getString(R.string.yahrzeitTitle))) {
-                    YahrzeitDialog dialog = new YahrzeitDialog();
-                    dialog.setCallback(mCallbacks);
-                    dialog.show(getFragmentManager(), "yahrzeit");
-                    return;
-                }
-                mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(title);
-                mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
+        mPrayersList.setOnItemClickListener((arg0, view, position, arg3) -> {
+            String title = mPrayersAdapter.getItem(position);
+            if (title.equals(getString(R.string.yahrzeitTitle))) {
+                YahrzeitDialog dialog = new YahrzeitDialog();
+                dialog.setCallback(mCallbacks);
+                dialog.show(getParentFragmentManager(), "yahrzeit");
+                return;
             }
+            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(title);
+            mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
         });
 
         SimpleExpandableListAdapter tehilimList = new SimpleExpandableListAdapter(getActivity(),
@@ -372,63 +348,54 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 new String[]{"Sub Item"},
                 new int[]{android.R.id.text1});
         mBooksList.setAdapter(tehilimList);
-        mBooksList.setOnGroupClickListener(new OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v,
-                                        int groupPosition, long id) {
+        mBooksList.setOnGroupClickListener((parent, v, groupPosition, id) -> {
 
-                if (groupPosition == 2) {
-                    mMonthSelector = new Month();
-                    mMonthSelector.setListener(NavigationDrawerFragment.this);
-                    mMonthSelector.show(getActivity().getSupportFragmentManager(), "month");
-                    if (mDrawerLayout != null) {
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                    }
-                    return true;
+            if (groupPosition == 2) {
+                mMonthSelector = new Month();
+                mMonthSelector.setListener(NavigationDrawerFragment.this);
+                mMonthSelector.show(getParentFragmentManager(), "month");
+                if (mDrawerLayout != null) {
+                    mDrawerLayout.closeDrawer(GravityCompat.START);
                 }
-
-                Tools.setListViewHeight(parent, groupPosition);
-
-                return false;
+                return true;
             }
+
+            Tools.setListViewHeight(parent, groupPosition);
+
+            return false;
         });
 
-        mBooksList.setOnChildClickListener(new OnChildClickListener() {
-            @SuppressWarnings("unchecked")
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-                /** Books List **/
-                if (groupPosition == 0) {
-                    switch (childPosition) {
-                        case 0: //First Book
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.BOOK_TWO_START, 1, 23);
-                            break;
-                        case 1: //Second Book
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_TWO_START, PsalmsHelper.BOOK_THREE_START, 0, 0);
-                            break;
-                        case 2: //Third Book
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_THREE_START, PsalmsHelper.BOOK_FOUR_START, 0, 0);
-                            break;
-                        case 3: //Fourth Book
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FOUR_START, PsalmsHelper.BOOK_FIVE_START, 0, 0);
-                            break;
-                        case 4: //Fifth Book
-                            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FIVE_START, 151, 1, 23);
-                            break;
-                    }
+        mBooksList.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
+            /** Books List **/
+            if (groupPosition == 0) {
+                switch (childPosition) {
+                    case 0: //First Book
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(1, PsalmsHelper.BOOK_TWO_START, 1, 23);
+                        break;
+                    case 1: //Second Book
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_TWO_START, PsalmsHelper.BOOK_THREE_START, 0, 0);
+                        break;
+                    case 2: //Third Book
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_THREE_START, PsalmsHelper.BOOK_FOUR_START, 0, 0);
+                        break;
+                    case 3: //Fourth Book
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FOUR_START, PsalmsHelper.BOOK_FIVE_START, 0, 0);
+                        break;
+                    case 4: //Fifth Book
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(PsalmsHelper.BOOK_FIVE_START, 151, 1, 23);
+                        break;
                 }
-
-                /** Days List **/
-                if (groupPosition == 1) {
-                    setTehilimForDay(childPosition);
-                }
-                if (mCallbacks != null) {
-                    int selectedPostion = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
-                    mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((Map<String, String>) mBooksList.getItemAtPosition(selectedPostion)).get("Sub Item"));
-                }
-                return false;
             }
+
+            /** Days List **/
+            if (groupPosition == 1) {
+                setTehilimForDay(childPosition);
+            }
+            if (mCallbacks != null) {
+                int selectedPostion = parent.getFlatListPosition(ExpandableListView.getPackedPositionForChild(groupPosition, childPosition));
+                mCallbacks.onNavigationDrawerItemSelected(mGenerator, ((Map<String, String>) mBooksList.getItemAtPosition(selectedPostion)).get("Sub Item"));
+            }
+            return false;
         });
     }
 
@@ -518,6 +485,17 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof NavigationDrawerCallbacks) {
+            mCallbacks = (NavigationDrawerCallbacks) context;
+        } else {
+            throw new RuntimeException(context
+                    + " must implement NavigationDrawerCallbacks");
+        }
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(STATE_SELECTED_POSITION, mCurrentSelectedPosition);
@@ -564,7 +542,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
     /**
      * Callbacks interface that all activities using this fragment must implement.
      */
-    public static interface NavigationDrawerCallbacks {
+    public interface NavigationDrawerCallbacks {
         /**
          * Called when an item in the navigation drawer is selected.
          */
