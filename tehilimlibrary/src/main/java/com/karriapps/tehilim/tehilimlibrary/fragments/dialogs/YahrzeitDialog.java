@@ -1,7 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary.fragments.dialogs;
 
 import android.os.Bundle;
-import androidx.fragment.app.DialogFragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -13,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.fragment.app.DialogFragment;
+
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.fragments.NavigationDrawerFragment.NavigationDrawerCallbacks;
 import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
@@ -21,6 +22,7 @@ import com.karriapps.tehilim.tehilimlibrary.utils.Tools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class YahrzeitDialog extends DialogFragment {
 
@@ -78,7 +80,7 @@ public class YahrzeitDialog extends DialogFragment {
         public void afterTextChanged(Editable s) {
             try {
                 String str = s.toString().trim();
-                List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
+                List<String> items = Arrays.asList(str.split(""));
 
                 mChapters = new ArrayList<>();
                 for (int i = 0; i < items.size(); i++) {
@@ -88,14 +90,14 @@ public class YahrzeitDialog extends DialogFragment {
                         mChapters.add(Tools.getCharValOrdinal(items.get(i).charAt(0)));
                     }
                 }
-                String name = "";
-                for (int i = 0; i < mChapters.size(); i++) {
-                    char letter = Tools.getGimatriya(mChapters.get(i), false);
-                    mChapters.set(i, Tools.getCharValOrdinal(letter));
-                    name += letter;
-                }
 
-                mTextView.setText(name);
+                StringBuilder name = new StringBuilder();
+                IntStream.range(0, mChapters.size()).forEach(i -> {
+                    name.append(Tools.getKufYudLetter(mChapters.get(i)));
+                    name.append(", ");
+                });
+
+                mTextView.setText(name.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }

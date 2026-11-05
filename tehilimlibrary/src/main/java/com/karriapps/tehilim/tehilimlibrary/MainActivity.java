@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
 
         super.onCreate(savedInstanceState);
 
-        App.getInstance().changeLocale();
         setContentView(R.layout.activity_main);
 
 
@@ -310,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements NavigationDrawerC
     private void setGenerator(final TehilimGenerator generator, int position) {
         mGenerator = generator;
         if (generator.getList().size() <= 0)
-            generator.generate();
+            generator.generate(this);
         mMainFragment.setTehilimGenerator(generator);
         if (generator instanceof PsalmsGenerator) {
             mMainFragment.setViewType(VIEW_TYPE.TEHILIM_BOOK);

@@ -4,10 +4,12 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -217,17 +219,6 @@ public class App extends Application {
         getSharedPreferences().edit().putString(getString(R.string.silent_key), silentMode.name()).commit();
     }
 
-    public LANGUAGES getLang() {
-        LANGUAGES retVal = LANGUAGES.DEFAULT;
-        int ordinal = Integer.parseInt(getSharedPreferences().getString(getString(R.string.lang_key), LANGUAGES.DEFAULT.ordinal() + ""));
-        try {
-            retVal = LANGUAGES.values()[ordinal];
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-        return retVal;
-    }
-
     public FONTS getFont() {
         FONTS retVal = FONTS.KETER;
         try {
@@ -327,6 +318,14 @@ public class App extends Application {
         this.mSettingsChanged = mSettingsChanged;
     }
 
+    public void changeLanguage() {
+        String newValue = getSharedPreferences().getString(getString(R.string.lang_key), "en");
+        int selectedLanguageIndex = Arrays.asList(getResources().getStringArray(R.array.language_values)).indexOf(newValue);
+        String selectedTag = getResources().getStringArray(R.array.language_tags_values)[selectedLanguageIndex];
+        LocaleListCompat appLocale = LocaleListCompat.forLanguageTags(selectedTag);
+        AppCompatDelegate.setApplicationLocales(appLocale);
+    }
+
     /**
      * Check if a chapter is favorite
      */
@@ -356,41 +355,7 @@ public class App extends Application {
     }
 
     public boolean isHebrew() {
-        return getLocale().getLanguage().equals("iw") || getLocale().getLanguage().equals("he");
-    }
-
-    public Locale getLocale() {
-
-        Locale l = null;
-        switch (getLang()) {
-            case ENGLISH:
-                l = new Locale("en");
-                break;
-            case HEBREW:
-                l = new Locale("iw");
-                break;
-            case DEFAULT:
-                l = Locale.getDefault();
-                break;
-        }
-
-        return l;
-    }
-
-    public void changeLocale() {
-        if (!getLang().equals(LANGUAGES.DEFAULT)) {
-            Locale.setDefault(getLocale());
-            Configuration config = getResources().getConfiguration();
-            config.setLocale(getLocale());
-            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (!getLang().equals(LANGUAGES.DEFAULT))
-            changeLocale();
+        return Locale.getDefault().getLanguage().equals("iw");
     }
 
     public void save() {
@@ -471,14 +436,6 @@ public class App extends Application {
      */
     public enum SILENT_MODE {
         ALWAYS, NEVER, ASK
-    }
-
-    /**
-     * HEBREW
-     * <br>ENGLISH
-     */
-    public enum LANGUAGES {
-        HEBREW, ENGLISH, DEFAULT
     }
 
     /**

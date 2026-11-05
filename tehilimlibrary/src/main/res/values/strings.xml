@@ -109,6 +109,12 @@
         <item>Français</item>
         <item>System Configured</item>
     </string-array>
+    <string-array name="language_tags_values">
+        <item>iw</item>
+        <item>en</item>
+        <item>fr</item>
+        <item>System Configured</item>
+    </string-array>
     <string-array name="silent_mode_valuse">
         <item>Always</item>
         <item>Never</item>

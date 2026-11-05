@@ -1,5 +1,7 @@
 package com.karriapps.tehilim.tehilimlibrary.utils;
 
+import android.content.Context;
+
 import com.karriapps.tehilim.tehilimlibrary.R;
 import com.karriapps.tehilim.tehilimlibrary.utils.App.READING_MODE;
 
@@ -45,11 +47,11 @@ public class PsalmsHelper {
      * @param chapter_id The chapter's ordinal Tehilim position
      * @return The String of this chapter
      */
-    public String getChapterText(int chapter_id) {
+    public String getChapterText(int chapter_id, Context context) {
         if (App.getInstance().getReadingMode().equals(READING_MODE.SIMPLE))
-            return App.getInstance().getAplicationContext().getString(tehilimEasy.get(chapter_id));
+            return context.getString(tehilimEasy.get(chapter_id));
         else
-            return App.getInstance().getAplicationContext().getString(tehilimT.get(chapter_id));
+            return context.getString(tehilimT.get(chapter_id));
     }
 
     /**
@@ -71,11 +73,11 @@ public class PsalmsHelper {
      * @param part_id The part's ordinal position in chapter 119
      * @return The text of this part
      */
-    public String getKufYudTetText(int part_id) {
+    public String getKufYudTetText(int part_id, Context context) {
         if (App.getInstance().getReadingMode().equals(READING_MODE.SIMPLE))
-            return App.getInstance().getAplicationContext().getString(kufYudTet.get(part_id));
+            return context.getString(kufYudTet.get(part_id));
         else
-            return App.getInstance().getAplicationContext().getString(kufYudTetT.get(part_id));
+            return context.getString(kufYudTetT.get(part_id));
     }
 
     public ArrayList<Integer> getListFromAtoB(int start, int end) {

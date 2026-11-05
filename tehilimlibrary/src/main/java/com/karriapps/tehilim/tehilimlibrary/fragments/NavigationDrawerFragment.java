@@ -39,7 +39,6 @@ import com.karriapps.tehilim.tehilimlibrary.generators.YahrzeitGenerator;
 import com.karriapps.tehilim.tehilimlibrary.model.EditableExpandableListAdapter;
 import com.karriapps.tehilim.tehilimlibrary.model.EditableListGroupItem;
 import com.karriapps.tehilim.tehilimlibrary.model.FavoriteListItem;
-import com.karriapps.tehilim.tehilimlibrary.model.IEditableChild;
 import com.karriapps.tehilim.tehilimlibrary.model.LastLocation;
 import com.karriapps.tehilim.tehilimlibrary.model.Month;
 import com.karriapps.tehilim.tehilimlibrary.model.callbacks.MonthSelected;
@@ -299,7 +298,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                         mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
                         break;
                     case NAME:
-                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(loc.getName());
+                        mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(getContext(), loc.getName());
                         mCallbacks.onNavigationDrawerItemSelected(mGenerator, loc.getName(), loc.getPosition());
                         break;
                     case YAHRZEIT:
@@ -332,7 +331,7 @@ public class NavigationDrawerFragment extends Fragment implements MonthSelected 
                 dialog.show(getParentFragmentManager(), "yahrzeit");
                 return;
             }
-            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(title);
+            mGenerator = GeneratorFactory.createGeneratorFactory().getGenerator(getContext(), title);
             mCallbacks.onNavigationDrawerItemSelected(mGenerator, title);
         });
 

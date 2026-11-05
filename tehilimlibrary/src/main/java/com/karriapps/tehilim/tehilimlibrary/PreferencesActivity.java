@@ -1,7 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -62,20 +61,11 @@ public class PreferencesActivity extends PreferenceActivity {
         });
 
         ListPreference langPref = (ListPreference) findPreference(getString(R.string.lang_key));
-        String[] lang = new String[App.LANGUAGES.values().length];
-        for (int i = 0; i < lang.length; i++) {
-            lang[i] = i + "";
-        }
-        langPref.setEntryValues(lang);
-        langPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                preference.getSharedPreferences().edit().putString(getString(R.string.lang_key), newValue.toString()).commit();
-                App.getInstance().changeLocale();
-                settingsChanged();
-                return true;
-            }
+        langPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            preference.getSharedPreferences().edit().putString(getString(R.string.lang_key), newValue.toString()).commit();
+            App.getInstance().changeLanguage();
+            settingsChanged();
+            return true;
         });
 
         ListPreference silentPref = (ListPreference) findPreference(getString(R.string.silent_key));

@@ -38,13 +38,11 @@ public class PsalmsGenerator extends TehilimGenerator {
     }
 
     @Override
-    public Map<String, Perek> generate() {
-
-        Context context = App.getInstance().getAplicationContext();
+    public Map<String, Perek> generate(Context context) {
         Perek perek = null;
         for (int i = 1; i < 151; i++) {
 
-            String chapterTitle = App.getInstance().getLocale().getLanguage().equals("iw") ? new Alef(i).toString() : (i + "");
+            String chapterTitle = App.getInstance().isHebrew() ? new Alef(i).toString() : (i + "");
 
             if (i == 119) {
                 for (int j = 1; j < 23; j++) {
@@ -52,7 +50,7 @@ public class PsalmsGenerator extends TehilimGenerator {
                     perek = new Perek(
                             119,
                             context.getString(R.string.chapterKuf, chapterTitle, kufLetter),
-                            App.getInstance().getPsalms().getKufYudTetText(j),
+                            App.getInstance().getPsalms().getKufYudTetText(j, context),
                             true,
                             EXPANDANBLE.NONE);
                     perek.setInScope(j >= mStartKufYud && j <= mEndKufYud);
@@ -69,7 +67,7 @@ public class PsalmsGenerator extends TehilimGenerator {
                 perek = new Perek(
                         i,
                         String.format(context.getString(R.string.chapter), chapterTitle),
-                        App.getInstance().getPsalms().getChapterText(i),
+                        App.getInstance().getPsalms().getChapterText(i, context),
                         true,
                         EXPANDANBLE.NONE);
                 perek.setInScope(i >= mStartChapter && i <= mEndChapter);

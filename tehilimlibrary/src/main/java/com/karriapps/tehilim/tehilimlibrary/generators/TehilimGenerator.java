@@ -1,5 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary.generators;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -21,7 +22,7 @@ public abstract class TehilimGenerator implements ITehilimGenerator, Parcelable 
     }
 
     @Override
-    public abstract Map<String, Perek> generate();
+    public abstract Map<String, Perek> generate(Context context);
 
     public List<String> getKeys() {
         return mKeys;

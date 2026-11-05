@@ -30,18 +30,17 @@ public class YahrzeitGenerator extends TehilimGenerator {
     }
 
     @Override
-    public Map<String, Perek> generate() {
+    public Map<String, Perek> generate(Context context) {
 
-        Context context = App.getInstance().getAplicationContext();
         Perek perek;
 
-        for (int i = 0; i < psalms.length; i++) {
-            String chapterTitle = App.getInstance().getLocale().getLanguage().equals("iw") ? new Alef(psalms[i]).toString() : (psalms[i] + "");
+        for (int psalm : psalms) {
+            String chapterTitle = App.getInstance().isHebrew() ? new Alef(psalm).toString() : (psalm + "");
 
             perek = new Perek(
-                    psalms[i],
+                    psalm,
                     String.format(App.getInstance().getString(R.string.chapter), chapterTitle),
-                    App.getInstance().getPsalms().getChapterText(psalms[i]),
+                    App.getInstance().getPsalms().getChapterText(psalm, context),
                     true,
                     EXPANDANBLE.NONE);
             perek.setInScope(true);
@@ -54,7 +53,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
             perek = new Perek(
                     119,
                     context.getString(R.string.kufLetter, kufLetter),
-                    App.getInstance().getPsalms().getKufYudTetText(mCharsList.get(i)),
+                    App.getInstance().getPsalms().getKufYudTetText(mCharsList.get(i), context),
                     true,
                     EXPANDANBLE.NONE);
             perek.setInScope(true);
@@ -66,7 +65,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
         perek = new Perek(
                 119,
                 context.getString(R.string.neshma, kufLetter),
-                App.getInstance().getPsalms().getKufYudTetText(14),
+                App.getInstance().getPsalms().getKufYudTetText(14, context),
                 true,
                 EXPANDANBLE.NONE);
         perek.setInScope(true);
@@ -77,7 +76,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
         perek = new Perek(
                 119,
                 context.getString(R.string.neshma, kufLetter),
-                App.getInstance().getPsalms().getKufYudTetText(21),
+                App.getInstance().getPsalms().getKufYudTetText(21, context),
                 true,
                 EXPANDANBLE.NONE);
         perek.setInScope(true);
@@ -88,7 +87,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
         perek = new Perek(
                 119,
                 context.getString(R.string.neshma, kufLetter),
-                App.getInstance().getPsalms().getKufYudTetText(13),
+                App.getInstance().getPsalms().getKufYudTetText(13, context),
                 true,
                 EXPANDANBLE.NONE);
         perek.setInScope(true);
@@ -99,7 +98,7 @@ public class YahrzeitGenerator extends TehilimGenerator {
         perek = new Perek(
                 119,
                 context.getString(R.string.neshma, kufLetter),
-                App.getInstance().getPsalms().getKufYudTetText(5),
+                App.getInstance().getPsalms().getKufYudTetText(5, context),
                 true,
                 EXPANDANBLE.NONE);
         perek.setInScope(true);

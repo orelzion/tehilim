@@ -1,5 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary.generators;
 
+import android.content.Context;
 import android.os.Parcel;
 
 import com.karriapps.tehilim.tehilimlibrary.R;
@@ -25,7 +26,7 @@ public class SickPrayerGenerator extends TehilimGenerator {
             69, 86, 88, 89, 90, 91, 102, 103, 104, 107, 116, 118, 142, 143, 128};
 
     @Override
-    public Map<String, Perek> generate() {
+    public Map<String, Perek> generate(Context context) {
 
         mPsalmsList = new HashMap<>();
         mKeys = new ArrayList<>();
@@ -36,12 +37,12 @@ public class SickPrayerGenerator extends TehilimGenerator {
         mKeys.add(p.getTitle());
 
         for (int i = 0; i < psalms.length; i++) {
-            String chapterTitle = App.getInstance().getLocale().getLanguage().equals("iw") ? new Alef(psalms[i]).toString() : (psalms[i] + "");
+            String chapterTitle = App.getInstance().isHebrew() ? new Alef(psalms[i]).toString() : (psalms[i] + "");
 
             p = new Perek(
                     psalms[i],
                     String.format(App.getInstance().getString(R.string.chapter), chapterTitle),
-                    App.getInstance().getPsalms().getChapterText(psalms[i]),
+                    App.getInstance().getPsalms().getChapterText(psalms[i], context),
                     true,
                     EXPANDANBLE.NONE);
             p.setInScope(true);

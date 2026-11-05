@@ -1,5 +1,6 @@
 package com.karriapps.tehilim.tehilimlibrary.generators;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -22,7 +23,7 @@ public class ShiraGenerator extends TehilimGenerator {
     }
 
     @Override
-    public Map<String, Perek> generate() {
+    public Map<String, Perek> generate(Context context) {
 
         mPsalmsList = new HashMap<>();
         mKeys = new ArrayList<>();
